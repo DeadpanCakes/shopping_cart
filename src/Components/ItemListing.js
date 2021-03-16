@@ -7,7 +7,8 @@ const ItemListing = (props) => {
     }
 
     return (
-        <li key={item.id} style={styling}>
+        <li style={styling}>
+            <img alt={`${item.name}`} src={item.imgSrc} />
             <h2>{item.name}</h2>
             <h4>${item.price}</h4>
         </li>
