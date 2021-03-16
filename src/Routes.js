@@ -5,10 +5,13 @@ import HouseplantsPage from "./Components/ShopPages/HouseplantsPage";
 import SucculentPage from "./Components/ShopPages/SucculentPage";
 import TillandsiaPage from "./Components/ShopPages/TillandsiaPage";
 import SuppliesPage from "./Components/ShopPages/SuppliesPage";
+import ItemPage from './Components/ShopPages/ItemPage';
 import Cart from "./Components/CartPage";
 import Profile from "./Components/Profile";
 import PageHeader from "./Components/PageHeader";
 import PageFooter from "./Components/PageFooter";
+const thing = () => <ItemPage item={{name:'thing', price:100, imgSrc:null}}/>
+
 
 const Routes = () => {
   return (
@@ -24,6 +27,7 @@ const Routes = () => {
         <Route exact path="/shop/succulents" component={SucculentPage} />
         <Route path="/shop/tillandsia" component={TillandsiaPage} />
         <Route exact path="/shop/supplies" component={SuppliesPage} />
+        <Route exact path='/thing' component={thing} />
       </Switch>
       <PageFooter />
     </BrowserRouter>
