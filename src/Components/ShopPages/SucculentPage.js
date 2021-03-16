@@ -4,15 +4,15 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const SucculentPage = () => {
-  const styling = {
+  const containerStyle = {
     display: "grid",
+    gridTemplateColumns: '1fr 1fr 1fr'
   };
 
-  console.log('reached')
   return (
     <Fragment>
       <Link to="/shop">Go Back</Link>
-      <main style={styling}>
+      <main style={containerStyle}>
         {stock.succulents.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}

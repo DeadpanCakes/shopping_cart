@@ -4,11 +4,15 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const SuppliesPage = () => {
-  console.log('reached')
+  const containerStyle = {
+    display: "grid",
+    gridTemplateColumns: '1fr 1fr 1fr'
+  };
+
   return (
     <Fragment>
       <Link to="/shop">Go Back</Link>
-      <main>
+      <main style={containerStyle}>
         {stock.supplies.map((item) => {
           return <ItemListing key={item.id} item={item} />;
         })}
