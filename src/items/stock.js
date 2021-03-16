@@ -34,7 +34,7 @@ const stock = (() => {
       "Easy To Propagate",
       "Hanging",
     ]),
-    succulentFactory(6, 'Cotydelon Tomentosa "Bear\'s Paw"', 3, [
+    succulentFactory(6, 'Cotyledon Tomentosa "Bear\'s Paw"', 3, [
       "Drought-Resistant",
       "Fuzzy",
     ]),
