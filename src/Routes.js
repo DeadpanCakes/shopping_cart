@@ -1,13 +1,14 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage";
-import ShopHome from './Components/ShopPages/ShopHome';
-import HouseplantsPage from './Components/ShopPages/HouseplantsPage';
-import SucculentPage from './Components/ShopPages/SucculentPage';
+import ShopHome from "./Components/ShopPages/ShopHome";
+import HouseplantsPage from "./Components/ShopPages/HouseplantsPage";
+import SucculentPage from "./Components/ShopPages/SucculentPage";
 import TillandsiaPage from "./Components/ShopPages/TillandsiaPage";
-import SuppliesPage from './Components/ShopPages/SuppliesPage';
+import SuppliesPage from "./Components/ShopPages/SuppliesPage";
 import Cart from "./Components/CartPage";
-import Profile from "./Components/Profle";
+import Profile from "./Components/Profile";
 import PageHeader from "./Components/PageHeader";
+import PageFooter from "./Components/PageFooter";
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
         <Route path="/shop/tillandsia" component={TillandsiaPage} />
         <Route exact path="/shop/supplies" component={SuppliesPage} />
       </Switch>
+      <PageFooter />
     </BrowserRouter>
   );
 };

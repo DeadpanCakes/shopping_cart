@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 
 const PageHeader = () => {
+  const headerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between'
+  }
+
   return (
-    <header>
+    <header style={headerStyle}>
       <Link to="/">
         <img alt="Logo" src={null}></img>
       </Link>
