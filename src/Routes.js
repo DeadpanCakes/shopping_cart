@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from './Components/HomePage';
 import Cart from './Components/CartPage';
+import Profile from './Components/Profle';
 
 const Routes = () => {
     return (
@@ -9,7 +10,7 @@ const Routes = () => {
                 <Route exact path ='/' component={HomePage}/>
                 <Route path ='/cart' component={Cart} />
                 <Route path ='/contact' />
-                <Route path = '/sign-in' />
+                <Route path = '/profile' component={Profile} />
             </Switch>
         </BrowserRouter>
     )
