@@ -59,7 +59,7 @@ const stock = (() => {
     suppliesFactory(14, "Gritty Potting Mix", 5, ["Supplies"]),
     suppliesFactory(15, "Tillandisa Wire", 2, ["Supplies"]),
   ];
-
+  
   return {
       items,
       get houseplants() {

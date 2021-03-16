@@ -4,7 +4,7 @@ import ItemListing from '../ItemListing';
 const HouseplantsPage = () => {
     return (
         <main>
-            {stock.map(item => (
+            {stock.houseplants.map(item => (
                 <ItemListing key={item.id} item={item} />
             ))}
         </main>
