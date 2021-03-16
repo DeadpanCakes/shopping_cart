@@ -1,14 +1,19 @@
-import stock from '../../items/stock';
-import ItemListing from '../ItemListing';
+import stock from "../../items/stock";
+import ItemListing from "../ItemListing";
+import { Fragment } from "react";
+import { Link } from 'react-router-dom';
 
 const HouseplantsPage = () => {
-    return (
-        <main>
-            {stock.houseplants.map(item => (
-                <ItemListing key={item.id} item={item} />
-            ))}
-        </main>
-    )
-}
+  return (
+    <Fragment>
+        <Link to='/shop'>Go Back</Link>
+      <main>
+        {stock.houseplants.map((item) => (
+          <ItemListing key={item.id} item={item} />
+        ))}
+      </main>
+    </Fragment>
+  );
+};
 
 export default HouseplantsPage;

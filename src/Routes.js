@@ -4,7 +4,7 @@ import ShopHome from './Components/ShopPages/ShopHome';
 import HouseplantsPage from './Components/ShopPages/HouseplantsPage';
 import SucculentPage from './Components/ShopPages/SucculentPage';
 import TillandsiaPage from "./Components/ShopPages/TillandsiaPage";
-import SuppliesPage from './Components/ShopPages/SucculentPage';
+import SuppliesPage from './Components/ShopPages/SuppliesPage';
 import Cart from "./Components/CartPage";
 import Profile from "./Components/Profle";
 import PageHeader from "./Components/PageHeader";

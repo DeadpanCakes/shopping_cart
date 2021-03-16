@@ -24,7 +24,7 @@ const ShopPage = () => {
             <ItemListing key={item.id} item={item} />
           ))}
         </div>
-        <Link to="/shop/houseplants">See All Housplants</Link>
+        <Link style={{alignSelf: 'flex-end'}} to="/shop/houseplants">See All Housplants</Link>
       </div>
       <div style={shopSectionsStyle} className="shopSections">
         <h2>Succulents</h2>
@@ -33,7 +33,7 @@ const ShopPage = () => {
             <ItemListing key={item.id} item={item} />
           ))}
         </div>
-        <Link to="/shop/succulents">See All Succulents</Link>
+        <Link style={{alignSelf: 'flex-end'}} to="/shop/succulents">See All Succulents</Link>
       </div>
       <div style={shopSectionsStyle} className="shopSections">
         <h2>Tillandsia (Air Plants)</h2>
@@ -42,7 +42,7 @@ const ShopPage = () => {
             <ItemListing key={item.id} item={item} />
           ))}
         </div>
-        <Link to="/shop/tillandsia">See All Tillandsia</Link>
+        <Link style={{alignSelf: 'flex-end'}} to="/shop/tillandsia">See All Tillandsia</Link>
       </div>
       <div style={shopSectionsStyle} className="shopSections">
         <h2>Supplies</h2>
@@ -51,7 +51,7 @@ const ShopPage = () => {
             <ItemListing key={item.id} item={item} />
           ))}
         </div>
-        <Link to="/shop/supplies">See All Supplies</Link>
+        <Link style={{alignSelf: 'flex-end'}} to="/shop/supplies">See All Supplies</Link>
       </div>
     </main>
   );

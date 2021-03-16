@@ -60,6 +60,8 @@ const stock = (() => {
     suppliesFactory(15, "Tillandisa Wire", 2, ["Supplies"]),
   ];
   
+  console.log(items.filter(item => item.category === 'supply'))
+
   return {
       items,
       get houseplants() {
