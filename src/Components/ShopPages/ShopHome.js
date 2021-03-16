@@ -1,5 +1,5 @@
-import ItemListing from "./ItemListing";
-import stock from "../items/stock";
+import ItemListing from "../ItemListing";
+import stock from "../../items/stock";
 import {Link} from 'react-router-dom';
 
 const ShopPage = () => {
@@ -11,28 +11,28 @@ const ShopPage = () => {
         {stock.houseplants.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
-        <Link to='/houseplants'>See All</Link>
+        <Link to='/houseplants'>See All Housplants</Link>
       </div>
       <div>
         <h2>Succulents</h2>
         {stock.succulents.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
-        <Link to='/succulents'>See All</Link>
+        <Link to='/succulents'>See All Succulents</Link>
       </div>
       <div>
         <h2>Tillandsia (Air Plants)</h2>
         {stock.tillandsia.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
-        <Link to='/tillandsia'>See All</Link>
+        <Link to='/tillandsia'>See All Tillandsia</Link>
       </div>
       <div>
         <h2>Section 4</h2>
         {stock.supplies.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
-        <Link to='/supplies'>See All</Link>
+        <Link to='/supplies'>See All Supplies</Link>
       </div>
     </main>
   );
