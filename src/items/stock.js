@@ -3,7 +3,7 @@ import succulentFactory from "./succulentFactory";
 import tillandsiaFactory from "./tillandsiaFactory";
 import suppliesFactory from "./suppliesFactory";
 
-const stock = () => {
+const stock = (() => {
   const items = [
     houseplantFactory(0, "Neon Pothos", 5, ["Low Light", "Fast Grower"]),
     houseplantFactory(1, "Baby Bunny Bellies", 6, [
@@ -75,6 +75,6 @@ const stock = () => {
           return items.filter(item => item.category === 'supply')
       }
   }
-};
+})();
 
 export default stock;
