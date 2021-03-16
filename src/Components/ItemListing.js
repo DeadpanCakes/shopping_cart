@@ -3,7 +3,8 @@ const ItemListing = (props) => {
 
     const styling = {
         margin: '5px',
-        backgroundColor: '#CFDBD5'
+        backgroundColor: '#CFDBD5',
+        listStyle: 'none'
     }
 
     return (
