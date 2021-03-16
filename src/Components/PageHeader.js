@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const PageHeader = () => {
   return (
     <header>
-      <img alt="Logo" src={null}></img>
+      <Link to="/">
+        <img alt="Logo" src={null}></img>
+      </Link>
       <nav>
         <Link to="/profile">Sign In</Link>
         <Link to="/cart">Cart</Link>
