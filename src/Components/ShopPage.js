@@ -1,5 +1,6 @@
 import ItemListing from "./ItemListing";
 import stock from "../items/stock";
+import {Link} from 'react-router-dom';
 
 const ShopPage = () => {
   return (
@@ -10,24 +11,28 @@ const ShopPage = () => {
         {stock.houseplants.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
+        <Link to='/houseplants'>See All</Link>
       </div>
       <div>
         <h2>Succulents</h2>
         {stock.succulents.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
+        <Link to='/succulents'>See All</Link>
       </div>
       <div>
         <h2>Tillandsia (Air Plants)</h2>
         {stock.tillandsia.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
+        <Link to='/tillandsia'>See All</Link>
       </div>
       <div>
         <h2>Section 4</h2>
         {stock.supplies.map((item) => (
           <ItemListing key={item.id} item={item} />
         ))}
+        <Link to='/supplies'>See All</Link>
       </div>
     </main>
   );
