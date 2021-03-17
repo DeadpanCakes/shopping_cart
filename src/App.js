@@ -7,6 +7,7 @@ import CartPage from "./Components/CartPage";
 
 const App = (props) => {
   const [cart, setCart] = useState(["hello"]);
+  const addToCart = (newItem) => setCart(prevCart => [...prevCart, newItem])
   return (
     <Fragment>
       <PageHeader />
@@ -14,7 +15,7 @@ const App = (props) => {
         <Route path="/cart">
           <CartPage cart={cart} />
         </Route>
-        <Route path="/shop/item/:id" component={ItemPage} />
+        <Route path="/shop/item/:id" component={(props) => <ItemPage {...props} cart={cart} addToCart={addToCart}/>}/>
       </Switch>
       {props.children}
       <PageFooter />
