@@ -1,6 +1,13 @@
 import { Fragment, useState } from "react";
 import stock from '../../items/stock';
 const ItemPage = (props) => {
+  const { id } = props.match.params;
+
+  const fetchItem = (productId) => {
+    return stock.items.find((product) => product.id === productId)
+  }
+
+  const item = fetchItem(id)
 
   const [count, setCount] = useState(1);
   const handleInput = (value) => {
@@ -8,13 +15,13 @@ const ItemPage = (props) => {
       setCount(value);
     }
   };
-  console.log(props)
+
   return (
     <Fragment>
-      <img alt={'test'} src={null}></img>
+      <img alt={item.name} src={item.src}></img>
       <div>
-        <h1>test</h1>
-        <h2>$1.00</h2>
+        <h1>{item.name}</h1>
+        <h2>${item.price}.00</h2>
         <form onSubmit={(e) => e.preventDefault()}>
           <button onClick={() => setCount(count - 1)}>-</button>
           <input value={count} onChange={(e) => handleInput(e.target.value)} />

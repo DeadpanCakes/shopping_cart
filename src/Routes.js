@@ -26,7 +26,7 @@ const Routes = () => {
         <Route exact path="/shop/succulents" component={SucculentPage} />
         <Route path="/shop/tillandsia" component={TillandsiaPage} />
         <Route exact path="/shop/supplies" component={SuppliesPage} />
-        <Route path='/shop/:id' component={ItemPage} />
+        <Route path='/shop/item/:id' component={ItemPage} />
       </Switch>
       <PageFooter />
     </BrowserRouter>

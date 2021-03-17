@@ -14,9 +14,7 @@ const HouseplantsPage = () => {
       <Link to="/shop">Go Back</Link>
       <main style={containerStyle}>
         {stock.houseplants.map((item) => (
-          <Link key={item.key} to={`/shop/${item.id}`}>
-            <ItemListing item={item} />
-          </Link>
+            <ItemListing key={item.key} item={item} />
         ))}
       </main>
     </Fragment>
