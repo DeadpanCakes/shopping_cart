@@ -6,19 +6,20 @@ const CartPage = (props) => {
 
   const handleInput = (e) => {
     const target = e.target.parentElement;
-    if (target.quantity.value > 0) {
-      const updatedCart = cart.map((item) =>
-        target.name === item.id
-          ? { ...item, quantity: target.quantity.value }
-          : item
-      );
-      setCart(updatedCart);
+    if (target.quantity.value > 10) {
+      changeOrderQuantity(target.name, 10);
+    } else if (target.quantity.value < 1) {
+      changeOrderQuantity(target.name, 1);
     } else {
-      const updatedCart = cart.map((item) =>
-        target.name === item.id ? { ...item, quantity: 1 } : item
-      );
-      setCart(updatedCart);
-    }
+        changeOrderQuantity(target.name, target.quantity.value);
+      }
+  };
+
+  const changeOrderQuantity = (target, newQuantity) => {
+    const updatedCart = cart.map((item) =>
+      target === item.id ? { ...item, quantity: newQuantity } : item
+    );
+    setCart(updatedCart);
   };
 
   return (
