@@ -1,9 +1,13 @@
-import HomePage from './Components/HomePage';
+import PageHeader from './Components/PageHeader'
+import Routes from './Routes'
+import PageFooter from './Components/PageFooter';
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <PageHeader />
+      <Routes />
+      <PageFooter />
     </div>
   );
 }

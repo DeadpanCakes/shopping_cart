@@ -1,6 +1,9 @@
-const itemFactory = (id, name, price, category, tagArr) => {
+const itemFactory = (key, name, price, category, tagArr) => {
   return {
-    id,
+    get id() {
+      return name.slice(0,3) + key
+    },
+    key,
     name,
     price,
     category,
