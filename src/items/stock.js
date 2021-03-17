@@ -59,8 +59,6 @@ const stock = (() => {
     suppliesFactory(14, "Gritty Potting Mix", 5, ["Supplies"]),
     suppliesFactory(15, "Tillandisa Wire", 2, ["Supplies"]),
   ];
-  
-  console.log(items.filter(item => item.category === 'supply'))
 
   return {
       items,

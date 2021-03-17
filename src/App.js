@@ -1,15 +1,24 @@
-import PageHeader from './Components/PageHeader'
-import Routes from './Routes'
-import PageFooter from './Components/PageFooter';
+import React, { Fragment, useState } from "react";
+import PageHeader from "./Components/PageHeader";
+import PageFooter from "./Components/PageFooter";
+import { Switch, Route } from "react-router-dom";
+import ItemPage from "./Components/ShopPages/ItemPage";
+import CartPage from "./Components/CartPage";
 
-function App() {
+const App = (props) => {
+  const [cart, setCart] = useState(["hello"]);
   return (
-    <div className="App">
+    <Fragment>
       <PageHeader />
-      <Routes />
+      <Switch>
+        <Route path="/cart">
+          <CartPage cart={cart} />
+        </Route>
+        <Route path="/shop/item/:id" component={ItemPage} />
+      </Switch>
+      {props.children}
       <PageFooter />
-    </div>
+    </Fragment>
   );
-}
-
+};
 export default App;
