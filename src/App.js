@@ -8,6 +8,7 @@ import CartPage from "./Components/CartPage";
 const App = (props) => {
   const [cart, setCart] = useState([]);
   const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
+
   const updateQuantity = (newItem) => {
     const updatedCart = cart.map((item) => {
       if (item.id === newItem.id) {
@@ -20,12 +21,18 @@ const App = (props) => {
     });
     setCart(updatedCart);
   };
+
+  const removeFromCart = (targetItem) => {
+    const updatedCart = cart.filter((item) => !(item.id === targetItem.id));
+    setCart(updatedCart);
+  };
+
   return (
     <Fragment>
-      <PageHeader cart={cart}/>
+      <PageHeader cart={cart} />
       <Switch>
         <Route path="/cart">
-          <CartPage cart={cart} />
+          <CartPage cart={cart} removeFromCart={removeFromCart} />
         </Route>
         <Route
           path="/shop/item/:id"

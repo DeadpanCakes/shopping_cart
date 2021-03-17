@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import ItemListing from "./ItemListing";
 
 const CartPage = (props) => {
-  const { cart } = props;
+  const { cart, removeFromCart } = props;
 
   return (
     <div>
@@ -10,14 +10,21 @@ const CartPage = (props) => {
       {cart[0] ? (
         <Fragment>
           {props.cart.map((item) => (
-            <Fragment>
+            <div>
               <p>${item.price * item.quantity}</p>
               <ItemListing item={item} />
-              <p>{item.quantity}</p>
-            </Fragment>
+              <form onSubmit={(e)=>e.preventDefault()}>
+              <input value={item.quantity} />
+              <button onClick={() => removeFromCart(item)}>Remove</button>
+              </form>
+            </div>
           ))}
           <h2>
-            Total:${cart.map(item=> item.price*item.quantity).reduce((total, price) => total + price)}.00
+            Total:$
+            {cart
+              .map((item) => item.price * item.quantity)
+              .reduce((total, price) => total + price)}
+            .00
           </h2>
         </Fragment>
       ) : (
