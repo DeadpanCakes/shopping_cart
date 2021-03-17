@@ -3,6 +3,7 @@ import ItemListing from "./ItemListing";
 
 const CartPage = (props) => {
   const { cart } = props;
+
   return (
     <div>
       <h1>Shopping Cart</h1>
@@ -16,11 +17,7 @@ const CartPage = (props) => {
             </Fragment>
           ))}
           <h2>
-            Total:{" "}
-            {cart.reduce(
-              (total, item) =>
-                total + Number(item.price) * Number(item.quantity)
-            )}
+            Total:${cart.map(item=> item.price*item.quantity).reduce((total, price) => total + price)}.00
           </h2>
         </Fragment>
       ) : (
