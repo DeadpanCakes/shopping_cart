@@ -10,7 +10,6 @@ const App = (props) => {
   const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
   const updateQuantity = (newItem) => {
     const updatedCart = cart.map((item) => {
-      console.log(item, newItem);
       if (item.id === newItem.id) {
         return {
           ...item,
@@ -23,7 +22,7 @@ const App = (props) => {
   };
   return (
     <Fragment>
-      <PageHeader />
+      <PageHeader cart={cart}/>
       <Switch>
         <Route path="/cart">
           <CartPage cart={cart} />

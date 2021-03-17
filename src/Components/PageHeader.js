@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const PageHeader = () => {
+const PageHeader = (props) => {
   const headerStyle = {
     display: 'flex',
     justifyContent: 'space-between'
@@ -13,7 +13,10 @@ const PageHeader = () => {
       </Link>
       <nav>
         <Link to="/profile">Sign In</Link>
-        <Link to="/cart">Cart</Link>
+        <Link to="/cart">
+          <p>Cart</p>
+          <p>{props.cart.length}</p>
+        </Link>
       </nav>
     </header>
   );
