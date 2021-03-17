@@ -1,9 +1,9 @@
 import { Fragment, useState } from "react";
 import stock from "../../items/stock";
-import CartPage from "../CartPage";
+
 const ItemPage = (props) => {
   const { id } = props.match.params;
-  const { cart, addToCart, updateQuantity } = props;
+  const { cart, updateQuantity } = props;
 
   const fetchItem = (productId) => {
     return stock.items.find((product) => product.id === productId);

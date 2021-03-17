@@ -32,7 +32,7 @@ const App = (props) => {
       <PageHeader cart={cart} />
       <Switch>
         <Route path="/cart">
-          <CartPage cart={cart} removeFromCart={removeFromCart} />
+          <CartPage cart={cart} removeFromCart={removeFromCart} setCart={setCart} />
         </Route>
         <Route
           path="/shop/item/:id"
