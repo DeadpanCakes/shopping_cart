@@ -6,8 +6,21 @@ import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
 
 const App = (props) => {
-  const [cart, setCart] = useState(["hello"]);
-  const addToCart = (newItem) => setCart(prevCart => [...prevCart, newItem])
+  const [cart, setCart] = useState([]);
+  const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
+  const updateQuantity = (newItem) => {
+    const updatedCart = cart.map((item) => {
+      console.log(item, newItem);
+      if (item.id === newItem.id) {
+        return {
+          ...item,
+          quantity: Number(item.quantity) + Number(newItem.quantity),
+        };
+      }
+      return item;
+    });
+    setCart(updatedCart);
+  };
   return (
     <Fragment>
       <PageHeader />
@@ -15,7 +28,17 @@ const App = (props) => {
         <Route path="/cart">
           <CartPage cart={cart} />
         </Route>
-        <Route path="/shop/item/:id" component={(props) => <ItemPage {...props} cart={cart} addToCart={addToCart}/>}/>
+        <Route
+          path="/shop/item/:id"
+          component={(props) => (
+            <ItemPage
+              {...props}
+              cart={cart}
+              addToCart={addToCart}
+              updateQuantity={updateQuantity}
+            />
+          )}
+        />
       </Switch>
       {props.children}
       <PageFooter />
