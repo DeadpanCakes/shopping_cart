@@ -2,22 +2,37 @@ import { Fragment } from "react";
 
 const CheckoutPage = (props) => {
   const { cart } = props;
-  const totalCost = (() => {
-      const priceArr = cart.map(item=> item.price*item.quantity)
-      const subTotal = priceArr.reduce((total, item) => total+item)
-      const tax = subTotal / 10
-      const shipping = 8
-      const formatter = Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: "USD",
-      })
-      return formatter.format(subTotal + tax + shipping)
-  })()
+  const getSubTotal = () => {
+    const priceArr = cart.map((item) => item.price * item.quantity);
+    return priceArr.reduce((total, item) => total + item);
+  };
+
+  const getTax = () => getSubTotal() * .08;
+
+  const getShipping = () => {
+    //Shipping cost $5 to start, plus $0.50 for each item after the first; free shipping for orders over 30 dollars before taxes
+    if (getSubTotal() < 30) {
+      const quantityArr = cart.map((item) => item.quantity);
+      const itemCount = quantityArr.reduce((total, count) => total + count);
+      return itemCount * 0.5 + 4.5;
+    }
+    return 0;
+  };
+  const getTotalCost = () => {
+    return getSubTotal() + getTax() + getShipping();
+  };
+  const formatter = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
   return (
     <Fragment>
       <main></main>
       <aside>
-        <h1>Total: {totalCost}</h1>
+        <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
+        <h3>Taxes: {formatter.format(getTax())}</h3>
+        <h3>Shipping: {formatter.format(getShipping())}</h3>
+        <h1>Total: {formatter.format(getTotalCost())}</h1>
       </aside>
     </Fragment>
   );
