@@ -8,19 +8,29 @@ const CartPage = (props) => {
     const target = e.target.parentElement;
     if (!isNaN(target.quantity.value)) {
       if (target.quantity.value > 20) {
-        changeOrderQuantity(target.name, 20);
-      } else if (target.quantity.value < 1) {
-
-      } else {
-          console.log('reached')
-        changeOrderQuantity(target.name, target.quantity.value);
+        changeOrderQuantity(target, 20);
+      } else if (target.quantity.value > 1) {
+        changeOrderQuantity(target, target.quantity.value);
       }
+    }
+  };
+
+  const incrementQuantity = (e) => {
+    const target = e.target.parentElement;
+    if (target.quantity.value < 20) {
+      changeOrderQuantity(target, Number(target.quantity.value) + 1);
+    }
+  };
+  const decrementQuantity = (e) => {
+    const target = e.target.parentElement;
+    if (target.quantity.value > 1) {
+      changeOrderQuantity(target, Number(target.quantity.value) - 1);
     }
   };
 
   const changeOrderQuantity = (target, newQuantity) => {
     const updatedCart = cart.map((item) =>
-      target === item.id ? { ...item, quantity: newQuantity } : item
+      target.name === item.id ? { ...item, quantity: newQuantity } : item
     );
     setCart(updatedCart);
   };
@@ -35,11 +45,13 @@ const CartPage = (props) => {
               <p>${item.price * item.quantity}</p>
               <ItemListing item={item} />
               <form name={item.id} onSubmit={(e) => e.preventDefault()}>
+                <button onClick={decrementQuantity}>-</button>
                 <input
                   name="quantity"
                   value={item.quantity}
                   onChange={handleInput}
                 />
+                <button onClick={incrementQuantity}>+</button>
                 <button onClick={() => removeFromCart(item)}>Remove</button>
               </form>
             </div>
