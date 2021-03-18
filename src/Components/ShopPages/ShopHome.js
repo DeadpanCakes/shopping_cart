@@ -2,7 +2,7 @@ import ItemListing from "../ItemListing";
 import stock from "../../items/stock";
 import { Link } from "react-router-dom";
 import ShopHero from './ShopHero';
-import heroImg from './homeHero.png'
+import heroImg from './img/homeHero.png'
 
 const shopSectionsStyle = {
   display: "flex",
