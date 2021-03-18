@@ -4,6 +4,7 @@ import PageFooter from "./Components/PageFooter";
 import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
+import CheckoutPage from "./Components/CheckOutPage";
 
 const App = (props) => {
   const [cart, setCart] = useState([]);
@@ -41,7 +42,7 @@ const App = (props) => {
     <Fragment>
       <PageHeader cart={cart} />
       <Switch>
-        <Route path="/cart">
+        <Route exact path="/cart">
           <CartPage
             cart={cart}
             removeFromCart={removeFromCart}
@@ -59,6 +60,9 @@ const App = (props) => {
             />
           )}
         />
+        <Route path="/cart/checkout">
+          <CheckoutPage cart={cart} />
+        </Route>
       </Switch>
       {props.children}
       <PageFooter />

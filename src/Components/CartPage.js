@@ -64,7 +64,7 @@ const CartPage = (props) => {
               .reduce((total, price) => total + price)}
             .00
           </h2>
-          <Link to="/shop/checkout">
+          <Link to="/cart/checkout">
             <button>Check Out</button>
           </Link>
         </Fragment>
