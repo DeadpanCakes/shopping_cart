@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import ItemListing from "./ItemListing";
 
 const CheckoutPage = (props) => {
   const { cart } = props;
@@ -26,15 +27,25 @@ const CheckoutPage = (props) => {
     currency: "USD",
   });
   return (
-    <Fragment>
-      <main></main>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-nd'}}>
+      <main style={{marginRight:'50%'}}>
+        {cart.map((item) => {
+          return <li style={{display:'flex', flexDirection: 'row'}}>
+            <ItemListing item={item} /> 
+            <div>
+            <h2>x{item.quantity}</h2>
+            <h2>${item.price * item.quantity}</h2>
+            </div>
+          </li>
+        })}
+      </main>
       <aside>
         <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
         <h3>Taxes: {formatter.format(getTax())}</h3>
         <h3>Shipping: {formatter.format(getShipping())}</h3>
         <h1>Total: {formatter.format(getTotalCost())}</h1>
       </aside>
-    </Fragment>
+    </div>
   );
 };
 
