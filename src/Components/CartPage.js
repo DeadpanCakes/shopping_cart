@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import ItemListing from "./ItemListing";
 
 const CartPage = (props) => {
@@ -63,6 +64,9 @@ const CartPage = (props) => {
               .reduce((total, price) => total + price)}
             .00
           </h2>
+          <Link to="/shop/checkout">
+            <button>Check Out</button>
+          </Link>
         </Fragment>
       ) : (
         <p>Your Cart Is Empty</p>
