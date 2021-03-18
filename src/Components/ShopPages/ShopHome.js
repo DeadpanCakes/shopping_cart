@@ -1,6 +1,8 @@
 import ItemListing from "../ItemListing";
 import stock from "../../items/stock";
 import { Link } from "react-router-dom";
+import ShopHero from './ShopHero';
+import heroImg from './homeHero.png'
 
 const shopSectionsStyle = {
   display: "flex",
@@ -34,6 +36,7 @@ const PageSection = (props) => {
 const ShopPage = () => {
   return (
     <main>
+      <ShopHero src={heroImg} alt='Plants Against a Window' />
       <h1>Shop</h1>
       <PageSection
         name={"Houseplants"}
