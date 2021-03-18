@@ -3,6 +3,9 @@ import PageSection from './PageSection'
 import ShopHero from './ShopHero';
 import heroImg from './img/homeHero.png'
 import succulentImg from './img/succulentBanner.png';
+import houseplantBanner from './img/houseplantBanner.png';
+import tillyBanner from './img/tillyBanner.png';
+import supplyBanner from './img/supplyBanner.png';
 
 
 const ShopPage = () => {
@@ -14,6 +17,7 @@ const ShopPage = () => {
         name={"Houseplants"}
         category={stock.houseplants}
         link={"/shop/houseplants"}
+        bannerImg={houseplantBanner}
       />
       <PageSection
         name={"Succulents"}
@@ -25,11 +29,13 @@ const ShopPage = () => {
         name={"Tillandsia"}
         category={stock.tillandsia}
         link={"/shop/tillandsia"}
+        bannerImg={tillyBanner}
       />
       <PageSection
         name={"Supplies"}
         category={stock.supplies}
         link={"/shop/supplies"}
+        bannerImg={supplyBanner}
       />
     </main>
   );
