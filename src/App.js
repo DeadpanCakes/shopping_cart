@@ -6,8 +6,28 @@ import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckOutPage";
 
+import succulentFactory from "./items/succulentFactory";
+
 const App = (props) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([
+    {...succulentFactory(2, 'Echeveria "Lola"', 4, [
+      "Pastel",
+      "Multicolor",
+      "Drought-Resistant",
+      "Showy Bloom",
+    ]), quantity: 5},
+    {...succulentFactory(3, 'Echeveria "Raspberry Ice"', 6, [
+      "Pastel",
+      "Drought-Resistant",
+      "Showy Bloom",
+    ]), quantity: 1},
+    {...succulentFactory(4, 'Sedum "Burrito"', 4, [
+      "Drought-Resistant",
+      "Easy to Propagate",
+      "Non-Toxic",
+      "Hanging",
+    ]), quantity: 2},
+  ]);
   const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
 
   const updateQuantity = (newItem) => {
