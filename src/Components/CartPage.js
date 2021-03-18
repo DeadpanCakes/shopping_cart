@@ -6,13 +6,16 @@ const CartPage = (props) => {
 
   const handleInput = (e) => {
     const target = e.target.parentElement;
-    if (target.quantity.value > 10) {
-      changeOrderQuantity(target.name, 10);
-    } else if (target.quantity.value < 1) {
-      changeOrderQuantity(target.name, 1);
-    } else {
+    if (!isNaN(target.quantity.value)) {
+      if (target.quantity.value > 20) {
+        changeOrderQuantity(target.name, 20);
+      } else if (target.quantity.value < 1) {
+
+      } else {
+          console.log('reached')
         changeOrderQuantity(target.name, target.quantity.value);
       }
+    }
   };
 
   const changeOrderQuantity = (target, newQuantity) => {

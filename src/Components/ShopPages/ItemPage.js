@@ -14,7 +14,7 @@ const ItemPage = (props) => {
   const [count, setCount] = useState(1);
   const handleIncrement = (e) => {
     e.preventDefault();
-    setCount((prevCount) => prevCount + 1);
+    if (count < 20) setCount((prevCount) => prevCount + 1);
   };
   const handleDecrement = (e) => {
     e.preventDefault();

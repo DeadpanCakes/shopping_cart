@@ -11,13 +11,23 @@ const App = (props) => {
 
   const updateQuantity = (newItem) => {
     const updatedCart = cart.map((item) => {
-      if (item.id === newItem.id) {
-        return {
-          ...item,
-          quantity: Number(item.quantity) + Number(newItem.quantity),
-        };
+      if (item.quantity + newItem.quantity < 20) {
+        if (item.id === newItem.id) {
+          return {
+            ...item,
+            quantity: Number(item.quantity) + Number(newItem.quantity),
+          };
+        }
+        return item;
+      } else {
+        if (item.id === newItem.id) {
+          return {
+            ...item,
+            quantity: 20,
+          };
+        }
+        return item;
       }
-      return item;
     });
     setCart(updatedCart);
   };
@@ -32,7 +42,11 @@ const App = (props) => {
       <PageHeader cart={cart} />
       <Switch>
         <Route path="/cart">
-          <CartPage cart={cart} removeFromCart={removeFromCart} setCart={setCart} />
+          <CartPage
+            cart={cart}
+            removeFromCart={removeFromCart}
+            setCart={setCart}
+          />
         </Route>
         <Route
           path="/shop/item/:id"
