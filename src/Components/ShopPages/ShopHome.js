@@ -1,37 +1,9 @@
-import ItemListing from "../ItemListing";
 import stock from "../../items/stock";
-import { Link } from "react-router-dom";
+import PageSection from './PageSection'
 import ShopHero from './ShopHero';
 import heroImg from './img/homeHero.png'
+import succulentImg from './img/succulentBanner.png';
 
-const shopSectionsStyle = {
-  display: "flex",
-  flexWrap: "nowrap",
-  flexDirection: "column",
-};
-
-const categoryStyle = {
-  display: "flex",
-  flexWrap: "nowrap",
-};
-
-const PageSection = (props) => {
-  const { name, category, link } = props;
-  return (
-    <div style={shopSectionsStyle} className="shopSections">
-      <h2>{name}</h2>
-      <div style={categoryStyle}>
-        {category.map((item) => (
-          <ItemListing key={item.id} item={item} />
-        ))}
-      </div>
-      <Link
-        style={{ alignSelf: "flex-end" }}
-        to={link}
-      >{`See All ${name}`}</Link>
-    </div>
-  );
-};
 
 const ShopPage = () => {
   return (
@@ -47,6 +19,7 @@ const ShopPage = () => {
         name={"Succulents"}
         category={stock.succulents}
         link={"/shop/succulents"}
+        bannerImg={succulentImg}
       />
       <PageSection
         name={"Tillandsia"}
