@@ -59,7 +59,7 @@ const stock = (() => {
     suppliesFactory(13, "Terracotta Pot", 2, ["Supplies"], images.planter),
     suppliesFactory(14, "Gritty Potting Mix", 5, ["Supplies"], images.mix),
     suppliesFactory(15, "Tillandisa Wire", 2, ["Supplies"], images.wire),
-    houseplantFactory(16, 'Split Leaf Philodendron', 5, [], null),
+    houseplantFactory(16, 'Split Leaf Philodendron', 5, []),
     houseplantFactory(17, 'Swiss Cheese', 6, []),
     succulentFactory(18, 'Bunny Ear Cactus', 3, []),
     succulentFactory(19, 'Golden Barrel Cactus', 4, []),

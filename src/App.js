@@ -5,8 +5,10 @@ import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckOutPage";
+import stock from './items/stock';
 
 import succulentFactory from "./items/succulentFactory";
+import CategoryPage from "./Components/ShopPages/CategoryPage";
 
 const App = (props) => {
   const [cart, setCart] = useState([
@@ -69,6 +71,18 @@ const App = (props) => {
             setCart={setCart}
           />
         </Route>
+          <Route path="/shop/houseplants">
+            <CategoryPage category={'Houseplants'} categoryStock={stock.succulents}/>
+          </Route>
+          <Route path="/shop/succulents">
+            <CategoryPage category={'Succulents'} categoryStock={stock.succulents} />
+          </Route>
+          <Route path='/shop/tillandsia'>
+            <CategoryPage category={'Tillandsia'} categoryStock={stock.tillandsia} />
+          </Route>
+          <Route path='/shop/supplies'>
+            <CategoryPage category={'Supplies'} categoryStock={stock.supplies} />
+          </Route>
         <Route
           path="/shop/item/:id"
           component={(props) => (
