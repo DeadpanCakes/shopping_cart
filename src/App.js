@@ -5,7 +5,6 @@ import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckOutPage";
-import stock from './items/stock';
 
 import succulentFactory from "./items/succulentFactory";
 import CategoryPage from "./Components/ShopPages/CategoryPage";
@@ -72,16 +71,16 @@ const App = (props) => {
           />
         </Route>
           <Route path="/shop/houseplants">
-            <CategoryPage category={'Houseplants'} categoryStock={stock.succulents}/>
+            <CategoryPage category={'Houseplants'}/>
           </Route>
           <Route path="/shop/succulents">
-            <CategoryPage category={'Succulents'} categoryStock={stock.succulents} />
+            <CategoryPage category={'Succulents'} />
           </Route>
           <Route path='/shop/tillandsia'>
-            <CategoryPage category={'Tillandsia'} categoryStock={stock.tillandsia} />
+            <CategoryPage category={'Tillandsia'} />
           </Route>
           <Route path='/shop/supplies'>
-            <CategoryPage category={'Supplies'} categoryStock={stock.supplies} />
+            <CategoryPage category={'Supplies'} />
           </Route>
         <Route
           path="/shop/item/:id"
