@@ -6,7 +6,6 @@ import fullStock from "../../items/stock";
 
 const CategoryPage = (props) => {
   const { category } = props;
-  const [sort, setSort] = useState("");
 
   const fetchStock = () => {
     switch (category) {
