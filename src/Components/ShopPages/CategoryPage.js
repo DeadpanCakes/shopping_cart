@@ -2,40 +2,11 @@ import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ShopHero from "./ShopHero";
 import ItemListing from "../ItemListing";
-import houseplantHero from "./img/houseplantHero.png";
-import succulentHero from "./img/succulentHero.png";
-import tillyHero from "./img/tillyHero.png";
-import supplyHero from "./img/suppliesHero.png";
 import fullStock from "../../items/stock";
 
-const HouseplantHero = () => (
-  <ShopHero src={houseplantHero} alt="A row of potted houseplants" />
-);
-const SucculentHero = () => (
-  <ShopHero src={succulentHero} alt="A pastel succulent arrangement" />
-);
-const TillyHero = () => (
-  <ShopHero src={tillyHero} alt="A pile of healthy tillandsia" />
-);
-const SupplyHero = () => (
-  <ShopHero src={supplyHero} alt="A box of gardening tools" />
-);
-
 const CategoryPage = (props) => {
-  const getHero = () => {
-    switch (category) {
-      case "Succulents":
-        return <SucculentHero />;
-      case "Tillandsia":
-        return <TillyHero />;
-      case "Supplies":
-        return <SupplyHero />;
-      default:
-        return <HouseplantHero />;
-    }
-  };
   const { category } = props;
-  const [sort, setSort] = useState("alpha");
+  const [sort, setSort] = useState("");
 
   const fetchStock = () => {
     switch (category) {
@@ -55,56 +26,70 @@ const CategoryPage = (props) => {
   const [stock, setStock] = useState(fetchStock());
 
   const sortByPrice = () => {
-    setStock([...stock].sort((prevItem, item) => prevItem.price - item.price))
-  }
+    setStock([...stock].sort((prevItem, item) => prevItem.price - item.price));
+  };
 
   const revSortByPrice = () => {
-    setStock([...stock].sort((prevItem, item) => item.price - prevItem.price))
-  }
+    setStock([...stock].sort((prevItem, item) => item.price - prevItem.price));
+  };
 
   const sortByAlpha = () => {
-    setStock([...stock].sort((prevItem, item) => {
-      if (prevItem.name > item.name) {
-        return 1;
-      } else if (prevItem.name < item.name) {
-        return -1;
-      } else {
-        return 0;
-      }
-    }))
-  }
+    setStock(
+      [...stock].sort((prevItem, item) => {
+        if (prevItem.name > item.name) {
+          return 1;
+        } else if (prevItem.name < item.name) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+    );
+  };
 
   const revSortbyAlpha = () => {
-    setStock([...stock].sort((prevItem, item) => {
-      if (prevItem.name < item.name) {
-        return 1;
-      } else if (prevItem.name < item.name) {
-        return -1
-      }
-      return 0
-    }))
-  }
+    setStock(
+      [...stock].sort((prevItem, item) => {
+        if (prevItem.name < item.name) {
+          return 1;
+        } else if (prevItem.name < item.name) {
+          return -1;
+        }
+        return 0;
+      })
+    );
+  };
 
   const sortById = () => {
-    setStock([...stock].sort((prevItem, item) => prevItem.id - item.id))
-  }
+    setStock([...stock].sort((prevItem, item) => prevItem.id - item.id));
+  };
 
   const handleSort = (e) => {
-    const criteria = e.target.value
+    const criteria = e.target.value;
     switch (criteria) {
-      case 'price': sortByPrice()
-      break;
-      case 'revPrice': revSortByPrice()
-      break;
-      case 'name': sortByAlpha()
-      break;
-      case 'revName': revSortbyAlpha()
-      break;
-      default: sortById()
+      case "price":
+        sortByPrice();
+        break;
+      case "revPrice":
+        revSortByPrice();
+        break;
+      case "name":
+        sortByAlpha();
+        break;
+      case "revName":
+        revSortbyAlpha();
+        break;
+      default:
+        sortById();
     }
-  }
+  };
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+
+  const turnPage = (dir) =>
+    dir === 'next'
+      ? setPage((prevPage) => prevPage + 1)
+      : setPage((prevPage) => prevPage - 1);
 
   const [shelves, setShelves] = useState([]);
 
@@ -124,27 +109,32 @@ const CategoryPage = (props) => {
   return (
     <Fragment>
       <h1>{category}</h1>
-      {getHero()}
+      <ShopHero category={category} />
       <Link to="/shop">Go Back</Link>
-      <main style={containerStyle}>
-        <form>
-          <label> Sort By:
+      <form>
+        <label>
+          {" "}
+          Sort By:
           <select onChange={handleSort}>
-            <option value='price'>Price (Low to High)</option>
-            <option value='revPrice'>Price (High to Low)</option>
-            <option value='name'>Name (Alphabetical)</option>
-            <option value='revName'>Name (Reverse Alphabetical)</option>
+            <option value="price">Price (Low to High)</option>
+            <option value="revPrice">Price (High to Low)</option>
+            <option value="name">Name (Alphabetical)</option>
+            <option value="revName">Name (Reverse Alphabetical)</option>
           </select>
-          </label>
-        </form>
-        {stock.map((item) => (
-          <ItemListing key={item.key} item={item} />
-        ))}
-        <button onClick={sortByAlpha}>alpha Desc</button>
-        <button onClick={sortByAlpha}>alpha Asc</button>
-        <button onClick={revSortByPrice}>Price Asce</button>
-        <button onClick={revSortByPrice}>Price Desc</button>
+        </label>
+      </form>
+      <main style={containerStyle}>
+        {shelves[page]
+          ? shelves[page].map((item) => (
+              <ItemListing key={item.key} item={item} />
+            ))
+          : null}
       </main>
+      <form onSubmit={e=> e.preventDefault()}>
+        <button disabled={!shelves[page-1]? true : false} onClick={() => turnPage('prev')}>Prev</button>
+        <h3>{page+1}</h3>
+        <button disabled={!shelves[page+1]? true : false} onClick={() => turnPage('next')}>Next</button>
+      </form>
     </Fragment>
   );
 };
