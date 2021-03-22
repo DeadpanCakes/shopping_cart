@@ -5,9 +5,12 @@ import ItemListing from "../ItemListing";
 import fullStock from "../../items/stock";
 import PageNav from "./PageNav";
 import SortControl from './SortControls';
+import StoreNav from "./StoreNav";
 
 const CategoryPage = (props) => {
   const { category } = props;
+
+  const [stock, setStock] = useState([]);
 
   const fetchStock = () => {
     switch (category) {
@@ -24,7 +27,9 @@ const CategoryPage = (props) => {
     }
   };
 
-  const [stock, setStock] = useState(fetchStock());
+  useEffect(() =>{
+    setStock(fetchStock())
+  },[category])
 
   const sortByPrice = () => {
     setStock([...stock].sort((prevItem, item) => prevItem.price - item.price));
@@ -85,6 +90,7 @@ const CategoryPage = (props) => {
     <Fragment>
       <h1>{category}</h1>
       <ShopHero category={category} />
+      <StoreNav />
       <Link to="/shop">Go Back</Link>
       <SortControl sort={{sortByAlpha, revSortbyAlpha, sortByPrice, revSortByPrice, sortById}} />
       <main style={containerStyle}>

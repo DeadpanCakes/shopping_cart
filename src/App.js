@@ -11,23 +11,32 @@ import CategoryPage from "./Components/ShopPages/CategoryPage";
 
 const App = (props) => {
   const [cart, setCart] = useState([
-    {...succulentFactory(2, 'Echeveria "Lola"', 4, [
-      "Pastel",
-      "Multicolor",
-      "Drought-Resistant",
-      "Showy Bloom",
-    ]), quantity: 5},
-    {...succulentFactory(3, 'Echeveria "Raspberry Ice"', 6, [
-      "Pastel",
-      "Drought-Resistant",
-      "Showy Bloom",
-    ]), quantity: 1},
-    {...succulentFactory(4, 'Sedum "Burrito"', 4, [
-      "Drought-Resistant",
-      "Easy to Propagate",
-      "Non-Toxic",
-      "Hanging",
-    ]), quantity: 2},
+    {
+      ...succulentFactory(2, 'Echeveria "Lola"', 4, [
+        "Pastel",
+        "Multicolor",
+        "Drought-Resistant",
+        "Showy Bloom",
+      ]),
+      quantity: 5,
+    },
+    {
+      ...succulentFactory(3, 'Echeveria "Raspberry Ice"', 6, [
+        "Pastel",
+        "Drought-Resistant",
+        "Showy Bloom",
+      ]),
+      quantity: 1,
+    },
+    {
+      ...succulentFactory(4, 'Sedum "Burrito"', 4, [
+        "Drought-Resistant",
+        "Easy to Propagate",
+        "Non-Toxic",
+        "Hanging",
+      ]),
+      quantity: 2,
+    },
   ]);
   const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
 
@@ -70,18 +79,18 @@ const App = (props) => {
             setCart={setCart}
           />
         </Route>
-          <Route path="/shop/houseplants">
-            <CategoryPage category={'Houseplants'}/>
-          </Route>
-          <Route path="/shop/succulents">
-            <CategoryPage category={'Succulents'} />
-          </Route>
-          <Route path='/shop/tillandsia'>
-            <CategoryPage category={'Tillandsia'} />
-          </Route>
-          <Route path='/shop/supplies'>
-            <CategoryPage category={'Supplies'} />
-          </Route>
+        <Route path="/shop/houseplants">
+          <CategoryPage category={"Houseplants"} />
+        </Route>
+        <Route path="/shop/succulents">
+          <CategoryPage category={"Succulents"} />
+        </Route>
+        <Route path="/shop/tillandsia">
+          <CategoryPage category={"Tillandsia"} />
+        </Route>
+        <Route path="/shop/supplies">
+          <CategoryPage category={"Supplies"} />
+        </Route>
         <Route
           path="/shop/item/:id"
           component={(props) => (
