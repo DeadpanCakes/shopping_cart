@@ -4,6 +4,7 @@ import ShopHero from "./ShopHero";
 import ItemListing from "../ItemListing";
 import fullStock from "../../items/stock";
 import PageNav from "./PageNav";
+import SortControl from './SortControls';
 
 const CategoryPage = (props) => {
   const { category } = props;
@@ -64,26 +65,6 @@ const CategoryPage = (props) => {
     setStock([...stock].sort((prevItem, item) => prevItem.id - item.id));
   };
 
-  const handleSort = (e) => {
-    const criteria = e.target.value;
-    switch (criteria) {
-      case "price":
-        sortByPrice();
-        break;
-      case "revPrice":
-        revSortByPrice();
-        break;
-      case "name":
-        sortByAlpha();
-        break;
-      case "revName":
-        revSortbyAlpha();
-        break;
-      default:
-        sortById();
-    }
-  };
-
   const [page, setPage] = useState(0);
 
   const [shelves, setShelves] = useState([]);
@@ -105,17 +86,7 @@ const CategoryPage = (props) => {
       <h1>{category}</h1>
       <ShopHero category={category} />
       <Link to="/shop">Go Back</Link>
-      <form>
-        <label>
-          Sort By:
-          <select onChange={handleSort}>
-            <option value="price">Price (Low to High)</option>
-            <option value="revPrice">Price (High to Low)</option>
-            <option value="name">Name (Alphabetical)</option>
-            <option value="revName">Name (Reverse Alphabetical)</option>
-          </select>
-        </label>
-      </form>
+      <SortControl sort={{sortByAlpha, revSortbyAlpha, sortByPrice, revSortByPrice, sortById}} />
       <main style={containerStyle}>
         {shelves[page]
           ? shelves[page].map((item) => (
