@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ShopHero from "./ShopHero";
 import ItemListing from "../ItemListing";
 import fullStock from "../../items/stock";
+import PageNav from "./PageNav";
 
 const CategoryPage = (props) => {
   const { category } = props;
@@ -85,11 +86,6 @@ const CategoryPage = (props) => {
 
   const [page, setPage] = useState(0);
 
-  const turnPage = (dir) =>
-    dir === 'next'
-      ? setPage((prevPage) => prevPage + 1)
-      : setPage((prevPage) => prevPage - 1);
-
   const [shelves, setShelves] = useState([]);
 
   useEffect(() => {
@@ -99,7 +95,6 @@ const CategoryPage = (props) => {
     setShelves(shelves);
   }, [stock]);
 
-  console.log(shelves);
   const containerStyle = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
@@ -112,7 +107,6 @@ const CategoryPage = (props) => {
       <Link to="/shop">Go Back</Link>
       <form>
         <label>
-          {" "}
           Sort By:
           <select onChange={handleSort}>
             <option value="price">Price (Low to High)</option>
@@ -129,11 +123,11 @@ const CategoryPage = (props) => {
             ))
           : null}
       </main>
-      <form onSubmit={e=> e.preventDefault()}>
-        <button disabled={!shelves[page-1]? true : false} onClick={() => turnPage('prev')}>Prev</button>
-        <h3>{page+1}</h3>
-        <button disabled={!shelves[page+1]? true : false} onClick={() => turnPage('next')}>Next</button>
-      </form>
+      <PageNav
+        page={page}
+        shelves={shelves}
+        setPage={setPage}
+      />
     </Fragment>
   );
 };

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import ItemListing from "./ItemListing";
 
 const CheckoutPage = (props) => {
