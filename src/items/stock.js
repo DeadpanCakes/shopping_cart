@@ -86,7 +86,7 @@ const stock = (() => {
     houseplantFactory(39, 'Peacock Plant', 8, []),
     succulentFactory(40, 'Monilaria Obocina "Bunny Succulunt" Seeds', 4, []),
     succulentFactory(41, 'Ghost Plant', 4, []),
-    succulentFactory(42, 'Jelly Beants', 3, []),
+    succulentFactory(42, 'Jelly Beans', 3, []),
     succulentFactory(43, 'Calico Kitten', 3, [])
   ];
 
