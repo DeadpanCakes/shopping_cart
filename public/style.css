@@ -58,3 +58,15 @@ table {
 	background-color: #d7ece2;
 	border: 3px solid rgb(165, 177, 172);
 }
+
+.heroImg {
+	position: relative;
+}
+
+.heroText {
+	position: absolute;
+	left: 5%;
+	bottom: 0;
+	text-align: center;
+	font-size: 5em;
+}

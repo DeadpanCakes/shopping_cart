@@ -7,7 +7,6 @@ const ShopPage = (props) => {
   const { category } = props;
   return (
     <Fragment>
-      <h1>{category}</h1>
       <ShopHero category={category} />
       <div style={{display:'flex'}}>
         <StoreNav />
