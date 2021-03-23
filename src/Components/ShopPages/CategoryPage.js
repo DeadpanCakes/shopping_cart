@@ -12,24 +12,27 @@ const CategoryPage = (props) => {
 
   const [stock, setStock] = useState([]);
 
-  const fetchStock = () => {
+  useEffect(() =>{
+    let cat
     switch (category) {
       case "Houseplants":
-        return fullStock.houseplants;
+        cat = fullStock.houseplants;
+        break;
       case "Succulents":
-        return fullStock.succulents;
+        cat = fullStock.succulents;
+        break;
       case "Tillandsia":
-        return fullStock.tillandsia;
+        cat= fullStock.tillandsia;
+        break;
       case "Supplies":
-        return fullStock.supplies;
+        cat = fullStock.supplies;
+        break;
       default:
-        return fullStock.items;
+        cat = fullStock.items;
+        break;
     }
-  };
-
-  useEffect(() =>{
-    setStock(fetchStock())
-  },[category])
+    setStock(cat)
+  }, [category])
 
   const sortByPrice = () => {
     setStock([...stock].sort((prevItem, item) => prevItem.price - item.price));
