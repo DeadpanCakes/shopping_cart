@@ -2,56 +2,47 @@ import houseplantHero from "./img/houseplantHero.png";
 import succulentHero from "./img/succulentHero.png";
 import tillyHero from "./img/tillyHero.png";
 import supplyHero from "./img/suppliesHero.png";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const ShopHero = (props) => {
-  const { category, src, alt } = props;
+  const { category, src } = props;
 
-  const getHeroImg = () => {
-    switch (category) {
-      case "Houseplants":
-        return (
-          <img
-            style={{ width: "100%" }}
-            src={houseplantHero}
-            alt="A row of potted houseplants"
-          />
-        );
-      case "Succulents":
-        return (
-          <img
-            style={{ width: "100%" }}
-            src={succulentHero}
-            alt="A pastel succulent arrangement"
-          />
-        );
-      case "Tillandsia":
-        return (
-          <img
-            style={{ width: "100%" }}
-            src={tillyHero}
-            alt="A pile of healthy tillandsia"
-          />
-        );
-      case "Supplies":
-        return (
-          <img
-            style={{ width: "100%" }}
-            src={supplyHero}
-            alt="A box of gardening tools"
-          />
-        );
-      default:
-        return <img style={{ width: "100%" }} src={src} alt={alt} />;
+  const [img, setImg] = useState(src);
+  useEffect(() => {
+      switch (category) {
+        case "Houseplants":
+            setImg(houseplantHero);
+            break;
+        case "Succulents":
+            setImg(succulentHero);
+            break;
+        case "Tillandsia":
+            setImg(tillyHero)
+              break;
+        case "Supplies":
+            setImg(supplyHero)
+            break;
+        default:
+            return null
     }
+  }, [category]);
+  console.log(img)
+
+
+  const heroBGStyle = {
+    backgroundImage: `linear-gradient(80deg, rgba(0, 0, 0, 0.3), rgba(43,204,38, 0.3)), url(${img})`,
+    width: '100%',
+    height: '10vh',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   };
 
   return (
-    <div className='heroImg'>
+    <div className="heroImg" style={heroBGStyle}>
       <div className="heroText">
         <h1>{category}</h1>
       </div>
-      {getHeroImg()}
     </div>
   );
 };
