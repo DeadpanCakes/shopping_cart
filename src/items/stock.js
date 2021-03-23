@@ -69,7 +69,6 @@ const stock = (() => {
     tillandsiaFactory(23, 'Duratii', 12, []),
     tillandsiaFactory(24, 'Tectorum Ecuador', 15, []),
     tillandsiaFactory(25, 'Curly Slim', 20, []),
-    succulentFactory(25, 'Echecveria "Perle von Nurnberg"', 5, []),
     houseplantFactory(26, 'Polka Dot Plant', 3, []),
     tillandsiaFactory(27, 'Teddy Bear', 20, []),
     succulentFactory(28, 'Panda Plant', 3, []),
@@ -79,7 +78,7 @@ const stock = (() => {
     succulentFactory(32, 'Echeveria "Colorata"', 5, []),
     succulentFactory(33, 'Mother Of Thousands', 3, []),
     tillandsiaFactory(34, 'Spanish Moss', 14, []),
-    houseplantFactory(35, 'Button Fern', 5), [],
+    houseplantFactory(35, 'Button Fern', 5, []),
     houseplantFactory(36, 'Moonlight Philodendron', 6, []),
     houseplantFactory(37, 'Tradescantia Nanouk', 5, []),
     houseplantFactory(38, 'Money Plant', 6, []),
@@ -87,7 +86,8 @@ const stock = (() => {
     succulentFactory(40, 'Monilaria Obocina "Bunny Succulent" Seeds', 4, []),
     succulentFactory(41, 'Ghost Plant', 4, []),
     succulentFactory(42, 'Jelly Beans', 3, []),
-    succulentFactory(43, 'Calico Kitten', 3, [])
+    succulentFactory(43, 'Calico Kitten', 3, []),
+    succulentFactory(44, 'Echecveria "Perle von Nurnberg"', 5, []),
   ];
 
   return {
