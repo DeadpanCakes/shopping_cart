@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const ShopHero = (props) => {
   const { category, src } = props;
 
-  const [img, setImg] = useState(src);
+  const [img, setImg] = useState(houseplantHero);
   useEffect(() => {
       switch (category) {
         case "Houseplants":

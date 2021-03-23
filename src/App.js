@@ -79,6 +79,9 @@ const App = (props) => {
             setCart={setCart}
           />
         </Route>
+        <Route path="/shop/allplants">
+          <ShopPage category={'Explore All'} />
+        </Route>
         <Route path="/shop/houseplants">
           <ShopPage category={"Houseplants"} />
         </Route>

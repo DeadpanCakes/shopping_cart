@@ -3,6 +3,7 @@ const SortControl = (props) => {
     
     const handleSort = (e) => {
       const criteria = e.target.value;
+      console.log(criteria)
       switch (criteria) {
         case "price":
           sortByPrice();
@@ -25,6 +26,7 @@ const SortControl = (props) => {
       <label>
         Sort By:
         <select onChange={handleSort}>
+          <option selected value='id'>Bestselling</option>
           <option value="price">Price (Low to High)</option>
           <option value="revPrice">Price (High to Low)</option>
           <option value="name">Name (Alphabetical)</option>

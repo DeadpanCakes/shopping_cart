@@ -67,7 +67,7 @@ const CategoryPage = (props) => {
   };
 
   const sortById = () => {
-    setStock([...stock].sort((prevItem, item) => prevItem.id - item.id));
+    setStock([...stock].sort((prevItem, item) => prevItem.key - item.key));
   };
 
   const [page, setPage] = useState(0);
