@@ -1,9 +1,8 @@
 const SortControl = (props) => {
-    const {sortByPrice, revSortByPrice, sortByAlpha, revSortbyAlpha, sortById} = props.sort
+    const {sortByPrice, revSortByPrice, sortByAlpha, revSortbyAlpha, sortById, setPage} = props.sort
     
     const handleSort = (e) => {
       const criteria = e.target.value;
-      console.log(criteria)
       switch (criteria) {
         case "price":
           sortByPrice();
@@ -19,7 +18,9 @@ const SortControl = (props) => {
           break;
         default:
           sortById();
+          break;
       }
+      setPage(0)
     };
   return (
     <form>
