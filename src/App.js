@@ -7,7 +7,7 @@ import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckOutPage";
 
 import succulentFactory from "./items/succulentFactory";
-import CategoryPage from "./Components/ShopPages/CategoryPage";
+import ShopPage from "./Components/ShopPages/ShopPage";
 
 const App = (props) => {
   const [cart, setCart] = useState([
@@ -80,16 +80,16 @@ const App = (props) => {
           />
         </Route>
         <Route path="/shop/houseplants">
-          <CategoryPage category={"Houseplants"} />
+          <ShopPage category={"Houseplants"} />
         </Route>
         <Route path="/shop/succulents">
-          <CategoryPage category={"Succulents"} />
+          <ShopPage category={"Succulents"} />
         </Route>
         <Route path="/shop/tillandsia">
-          <CategoryPage category={"Tillandsia"} />
+          <ShopPage category={"Tillandsia"} />
         </Route>
         <Route path="/shop/supplies">
-          <CategoryPage category={"Supplies"} />
+          <ShopPage category={"Supplies"} />
         </Route>
         <Route
           path="/shop/item/:id"

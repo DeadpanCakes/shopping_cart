@@ -1,11 +1,8 @@
 import { Fragment, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import ShopHero from "./ShopHero";
 import ItemListing from "../ItemListing";
 import fullStock from "../../items/stock";
 import PageNav from "./PageNav";
 import SortControl from './SortControls';
-import StoreNav from "./StoreNav";
 
 const CategoryPage = (props) => {
   const { category } = props;
@@ -91,10 +88,6 @@ const CategoryPage = (props) => {
 
   return (
     <Fragment>
-      <h1>{category}</h1>
-      <ShopHero category={category} />
-      <StoreNav />
-      <Link to="/shop">Go Back</Link>
       <SortControl sort={{sortByAlpha, revSortbyAlpha, sortByPrice, revSortByPrice, sortById}} />
       <main style={containerStyle}>
         {shelves[page]
