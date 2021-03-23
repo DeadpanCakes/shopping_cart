@@ -5,7 +5,7 @@ const StoreNav = () => {
   const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
 
   return (
-    <aside style={{flexGrow:'1fr'}}>
+    <aside style={{ flexGrow: "1fr", backgroundColor: "#28587B" }}>
       <Link to="/shop">Go Back</Link>
       <h2>Navigation</h2>
       <nav>
@@ -41,7 +41,7 @@ const StoreNav = () => {
       <form style={{ display: "flex", flexDirection: "column" }}>
         {tagArr.map((tag) => {
           return (
-            <label key={tag} >
+            <label key={tag}>
               <input type="checkbox" value={tag} />
               {tag}
             </label>

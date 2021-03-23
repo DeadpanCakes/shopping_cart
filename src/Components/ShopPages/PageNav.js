@@ -3,11 +3,11 @@ import { useEffect } from "react";
 const PageNav = (props) => {
   const { shelves, page, setPage } = props;
   useEffect(() => {
-    document.getElementById("pageSelect").selectedIndex = page + 1;
+    document.getElementById("pageSelect").selectedIndex = page;
   }, [page]);
 
   const turnPage = (direction) => {
-    if (direction === 'next') {
+    if (direction === "next") {
       setPage((prevPage) => prevPage + 1);
     } else {
       setPage((prevPage) => prevPage - 1);
@@ -33,7 +33,6 @@ const PageNav = (props) => {
         id="pageSelect"
         onChange={(e) => setPage(parseInt(e.target.value))}
       >
-        <option>Jump To Page</option>
         {shelves[page]
           ? shelves.map((shelf, index) => (
               <option key={index} value={index}>

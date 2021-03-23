@@ -46,3 +46,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.itemListing {
+    padding: 10px;
+    margin: 5px;
+    list-style: none;
+    width: 80%;
+	border-radius: 10px;
+  }
+
+.itemListing:hover {
+	background-color: #d7ece2;
+	border: 3px solid rgb(165, 177, 172);
+}

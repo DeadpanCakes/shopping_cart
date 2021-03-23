@@ -84,10 +84,11 @@ const CategoryPage = (props) => {
   const containerStyle = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
+    justifyItems: 'center'
   };
 
   return (
-    <div style={{flexGrow: '10fr', width:'90vw', padding: '20px'}}>
+    <div style={{flexGrow: '10fr', width:'85vw', padding: '20px'}}>
       <SortControl
         sort={{
           sortByAlpha,
