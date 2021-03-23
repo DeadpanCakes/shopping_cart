@@ -2,15 +2,15 @@ import { Fragment, useState, useEffect } from "react";
 import ItemListing from "../ItemListing";
 import fullStock from "../../items/stock";
 import PageNav from "./PageNav";
-import SortControl from './SortControls';
+import SortControl from "./SortControls";
 
 const CategoryPage = (props) => {
   const { category } = props;
 
   const [stock, setStock] = useState([]);
 
-  useEffect(() =>{
-    let cat
+  useEffect(() => {
+    let cat;
     switch (category) {
       case "Houseplants":
         cat = fullStock.houseplants;
@@ -19,7 +19,7 @@ const CategoryPage = (props) => {
         cat = fullStock.succulents;
         break;
       case "Tillandsia":
-        cat= fullStock.tillandsia;
+        cat = fullStock.tillandsia;
         break;
       case "Supplies":
         cat = fullStock.supplies;
@@ -28,8 +28,8 @@ const CategoryPage = (props) => {
         cat = fullStock.items;
         break;
     }
-    setStock(cat)
-  }, [category])
+    setStock(cat);
+  }, [category]);
 
   const sortByPrice = () => {
     setStock([...stock].sort((prevItem, item) => prevItem.price - item.price));
@@ -87,8 +87,16 @@ const CategoryPage = (props) => {
   };
 
   return (
-    <Fragment>
-      <SortControl sort={{sortByAlpha, revSortbyAlpha, sortByPrice, revSortByPrice, sortById}} />
+    <div style={{flexGrow: '10fr', width:'90vw', padding: '20px'}}>
+      <SortControl
+        sort={{
+          sortByAlpha,
+          revSortbyAlpha,
+          sortByPrice,
+          revSortByPrice,
+          sortById,
+        }}
+      />
       <main style={containerStyle}>
         {shelves[page]
           ? shelves[page].map((item) => (
@@ -96,12 +104,8 @@ const CategoryPage = (props) => {
             ))
           : null}
       </main>
-      <PageNav
-        page={page}
-        shelves={shelves}
-        setPage={setPage}
-      />
-    </Fragment>
+      <PageNav page={page} shelves={shelves} setPage={setPage} />
+    </div>
   );
 };
 

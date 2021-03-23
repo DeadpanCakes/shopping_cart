@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
+import { Fragment } from "react";
 import StoreNav from "./StoreNav";
 import ShopHero from "./ShopHero";
 import CategoryPage from "./CategoryPage";
 
 const ShopPage = (props) => {
   const { category } = props;
-  console.log(category)
   return (
-    <div>
+    <Fragment>
       <h1>{category}</h1>
       <ShopHero category={category} />
-      <StoreNav />
-      <Link to="/shop">Go Back</Link>
-      <CategoryPage category={category} />
-    </div>
+      <div style={{display:'flex'}}>
+        <StoreNav />
+        <CategoryPage category={category} />
+      </div>
+    </Fragment>
   );
 };
 
