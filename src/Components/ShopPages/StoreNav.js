@@ -1,11 +1,28 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = () => {
   const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
+  const [appliedTags, setAppliedTags] = useState([]);
+
+  const handleCheck = (targetTag) => {
+    if (appliedTags.includes(targetTag)) {
+      setAppliedTags((prevState) => {
+        return prevState.filter((tag) => {
+          return tag === targetTag
+          ? null
+          : tag
+        })
+      })
+    } else {
+      setAppliedTags([...appliedTags].concat(targetTag));
+    }
+  };
 
   return (
-    <aside style={{ width: '13vw', backgroundColor: "#28587B", padding: '10px' }}>
+    <aside
+      style={{ width: "13vw", backgroundColor: "#28587B", padding: "10px" }}
+    >
       <Link to="/shop">Go Back</Link>
       <h2>Navigation</h2>
       <nav>
@@ -42,12 +59,13 @@ const StoreNav = () => {
         {tagArr.map((tag) => {
           return (
             <label key={tag}>
-              <input type="checkbox" value={tag} />
+              <input type="checkbox" value={tag} onChange={(e) => handleCheck(e.target.value)}/>
               {tag}
             </label>
           );
         })}
       </form>
+      <button onClick={() => console.log(appliedTags)}>Check</button>
     </aside>
   );
 };
