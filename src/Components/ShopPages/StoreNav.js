@@ -1,7 +1,8 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const StoreNav = () => {
+const StoreNav = (props) => {
+  const {category, setPage} = props
   const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
   const [appliedTags, setAppliedTags] = useState([]);
 
@@ -18,6 +19,10 @@ const StoreNav = () => {
       setAppliedTags([...appliedTags].concat(targetTag));
     }
   };
+
+  useEffect(() => {
+    document.getElementById('tagForm').reset()
+  },[category])
 
   return (
     <aside
@@ -55,7 +60,7 @@ const StoreNav = () => {
         </ul>
       </nav>
       <h2>Filter</h2>
-      <form style={{ display: "flex", flexDirection: "column" }}>
+      <form style={{ display: "flex", flexDirection: "column" }} id='tagForm'>
         {tagArr.map((tag) => {
           return (
             <label key={tag}>
