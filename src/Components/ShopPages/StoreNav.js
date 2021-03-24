@@ -5,7 +5,7 @@ const StoreNav = () => {
   const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
 
   return (
-    <aside style={{ flexGrow: "1fr", backgroundColor: "#28587B" }}>
+    <aside style={{ flexGrow: "3fr", backgroundColor: "#28587B" }}>
       <Link to="/shop">Go Back</Link>
       <h2>Navigation</h2>
       <nav>
