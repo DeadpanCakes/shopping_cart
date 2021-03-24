@@ -34,7 +34,7 @@ const ShopPage = (props) => {
       <ShopHero category={category} />
       <div style={{display:'flex'}}>
         <StoreNav />
-        <CategoryPage stock={stock} setStock={setStock}/>
+        <CategoryPage category={category} stock={stock} setStock={setStock}/>
       </div>
     </Fragment>
   );

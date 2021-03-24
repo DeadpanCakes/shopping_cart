@@ -1,12 +1,10 @@
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ItemListing from "../ItemListing";
-import fullStock from "../../items/stock";
 import PageNav from "./PageNav";
 import SortControl from "./SortControls";
 
 const CategoryPage = (props) => {
-  const { stock, setStock } = props;
-
+  const { category, stock, setStock } = props;
 
   const sortByPrice = () => {
     setStock([...stock].sort((prevItem, item) => prevItem.price - item.price));
@@ -58,6 +56,10 @@ const CategoryPage = (props) => {
     setShelves(shelves);
   }, [stock]);
 
+  useEffect(() => {
+    setPage(0)
+  }, [category])
+
   const containerStyle = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
@@ -68,6 +70,7 @@ const CategoryPage = (props) => {
     <div style={{flexGrow: '10fr', width:'85vw', padding: '20px'}}>
       <SortControl
         sort={{
+          category,
           sortByAlpha,
           revSortbyAlpha,
           sortByPrice,
