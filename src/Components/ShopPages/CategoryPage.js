@@ -5,31 +5,8 @@ import PageNav from "./PageNav";
 import SortControl from "./SortControls";
 
 const CategoryPage = (props) => {
-  const { category } = props;
+  const { stock, setStock } = props;
 
-  const [stock, setStock] = useState([]);
-
-  useEffect(() => {
-    let cat;
-    switch (category) {
-      case "Houseplants":
-        cat = fullStock.houseplants;
-        break;
-      case "Succulents":
-        cat = fullStock.succulents;
-        break;
-      case "Tillandsia":
-        cat = fullStock.tillandsia;
-        break;
-      case "Supplies":
-        cat = fullStock.supplies;
-        break;
-      default:
-        cat = fullStock.items;
-        break;
-    }
-    setStock(cat);
-  }, [category]);
 
   const sortByPrice = () => {
     setStock([...stock].sort((prevItem, item) => prevItem.price - item.price));
