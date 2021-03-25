@@ -10,15 +10,24 @@ const StoreNav = (props) => {
     if (appliedTags.includes(targetTag)) {
       setAppliedTags((prevState) => {
         return prevState.filter((tag) => {
-          return tag === targetTag
-          ? null
-          : tag
+          if (tag === targetTag) {
+            return tag
+          }
         })
       })
     } else {
       setAppliedTags([...appliedTags].concat(targetTag));
     }
   };
+
+  const filterStock = () => {
+    setStock((prevStock) => {
+      prevStock.filter((item) => {
+        //If item.tags has anything in appliedTags return nothing, else return item
+        
+      })
+    })
+  }
 
   useEffect(() => {
     document.getElementById('tagForm').reset();
@@ -72,6 +81,7 @@ const StoreNav = (props) => {
         })}
       </form>
       <button onClick={() => console.log(appliedTags)}>Check</button>
+      <button onClick={filterStock}>filter</button>
     </aside>
   );
 };
