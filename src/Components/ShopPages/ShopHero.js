@@ -26,7 +26,7 @@ const ShopHero = (props) => {
             return null
     }
   }, [category]);
-  console.log(img)
+  console.log('here?',img)
 
 
   const heroBGStyle = {

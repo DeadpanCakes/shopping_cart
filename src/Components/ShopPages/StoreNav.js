@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = (props) => {
-  const {category, stock, setStock} = props
+  const { category } = props;
   const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
   const [appliedTags, setAppliedTags] = useState([]);
 
@@ -11,28 +11,21 @@ const StoreNav = (props) => {
       setAppliedTags((prevState) => {
         return prevState.filter((tag) => {
           if (tag === targetTag) {
-            return tag
+            return tag;
           }
-        })
-      })
+        });
+      });
     } else {
       setAppliedTags([...appliedTags].concat(targetTag));
     }
   };
 
-  const filterStock = () => {
-    setStock((prevStock) => {
-      prevStock.filter((item) => {
-        //If item.tags has anything in appliedTags return nothing, else return item
-        
-      })
-    })
-  }
+
 
   useEffect(() => {
-    document.getElementById('tagForm').reset();
+    document.getElementById("tagForm").reset();
     setAppliedTags([]);
-  },[category])
+  }, [category]);
 
   return (
     <aside
@@ -70,18 +63,21 @@ const StoreNav = (props) => {
         </ul>
       </nav>
       <h2>Filter</h2>
-      <form style={{ display: "flex", flexDirection: "column" }} id='tagForm'>
+      <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
         {tagArr.map((tag) => {
           return (
             <label key={tag}>
-              <input type="checkbox" value={tag} onChange={(e) => handleCheck(e.target.value)}/>
+              <input
+                type="checkbox"
+                value={tag}
+                onChange={(e) => handleCheck(e.target.value)}
+              />
               {tag}
             </label>
           );
         })}
       </form>
       <button onClick={() => console.log(appliedTags)}>Check</button>
-      <button onClick={filterStock}>filter</button>
     </aside>
   );
 };
