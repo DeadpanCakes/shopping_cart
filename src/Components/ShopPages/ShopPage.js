@@ -5,6 +5,7 @@ import CategoryPage from "./CategoryPage";
 import fullStock from '../../items/stock';
 import useStock from "../../items/useStock";
 import useSort from "../../items/useSort";
+import useFilter from "../../items/useFilter";
 
 const ShopPage = (props) => {
   const { category } = props;
@@ -13,14 +14,19 @@ const ShopPage = (props) => {
 
   const stock = useStock(category);
   const sortedStock = useSort(stock, sortCriteria);
+  const filteredStock = useFilter(sortedStock, filterTags);
 
   return (
     <Fragment>
       <ShopHero category={category} />
       <div style={{display:'flex'}}>
-        <StoreNav category={category} stock={sortedStock}/>
-        <CategoryPage category={category} stock={sortedStock} setSortCriteria={setSortCriteria}/>
+        <StoreNav category={category} filterTags={filterTags} setFilterTags={setFilterTags}/>
+        <CategoryPage category={category} stock={filteredStock} setSortCriteria={setSortCriteria}/>
       </div>
+      <button onClick={() => console.log(stock)}>a</button>
+      <button onClick={() => console.log(sortedStock)}>b</button>
+      <button onClick={() => console.log(filteredStock)}>c</button>
+      <button onClick={() => console.log(filterTags)}>c,</button>
     </Fragment>
   );
 };

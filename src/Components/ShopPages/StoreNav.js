@@ -2,21 +2,21 @@ import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = (props) => {
-  const { category } = props;
+  const { category, filterTags, setFilterTags } = props;
   const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
   const [appliedTags, setAppliedTags] = useState([]);
 
   const handleCheck = (targetTag) => {
-    if (appliedTags.includes(targetTag)) {
-      setAppliedTags((prevState) => {
+    if (filterTags.includes(targetTag)) {
+      setFilterTags((prevState) => {
         return prevState.filter((tag) => {
-          if (tag === targetTag) {
+          if (tag !== targetTag) {
             return tag;
           }
         });
       });
     } else {
-      setAppliedTags([...appliedTags].concat(targetTag));
+      setFilterTags((prevTags) => [...prevTags].concat(targetTag));
     }
   };
 
@@ -24,7 +24,7 @@ const StoreNav = (props) => {
 
   useEffect(() => {
     document.getElementById("tagForm").reset();
-    setAppliedTags([]);
+    setFilterTags([]);
   }, [category]);
 
   return (
