@@ -2,10 +2,10 @@ import { useState, useEffect, Fragment } from "react";
 import StoreNav from "./StoreNav";
 import ShopHero from "./ShopHero";
 import CategoryPage from "./CategoryPage";
-import fullStock from '../../items/stock';
 import useStock from "../../items/useStock";
 import useSort from "../../items/useSort";
 import useFilter from "../../items/useFilter";
+import useTagList from "../../items/useTagList";
 
 const ShopPage = (props) => {
   const { category } = props;
@@ -15,6 +15,7 @@ const ShopPage = (props) => {
   const stock = useStock(category);
   const sortedStock = useSort(stock, sortCriteria);
   const filteredStock = useFilter(sortedStock, filterTags);
+  const applicableTags = useTagList(stock)
 
   return (
     <Fragment>
@@ -27,6 +28,7 @@ const ShopPage = (props) => {
       <button onClick={() => console.log(sortedStock)}>b</button>
       <button onClick={() => console.log(filteredStock)}>c</button>
       <button onClick={() => console.log(filterTags)}>c,</button>
+      <button onClick={() => console.log(applicableTags)}>.ap,</button>
     </Fragment>
   );
 };

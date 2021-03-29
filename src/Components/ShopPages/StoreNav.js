@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const StoreNav = (props) => {
   const { category, filterTags, setFilterTags } = props;
-  const tagArr = ["Drought Resistant", "Low Light", "Overwater Resistant"];
+  const tagArr = ["Drought-Resistant", "Low Light", "Overwater Resistant"];
   const [appliedTags, setAppliedTags] = useState([]);
 
   const handleCheck = (targetTag) => {
