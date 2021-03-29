@@ -19,8 +19,6 @@ const StoreNav = (props) => {
     }
   };
 
-
-
   useEffect(() => {
     document.getElementById("tagForm").reset();
     setFilterTags([]);
