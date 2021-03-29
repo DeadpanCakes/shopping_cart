@@ -2,8 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = (props) => {
-  const { category, filterTags, setFilterTags } = props;
-  const tagArr = ["Drought-Resistant", "Low Light", "Overwater Resistant"];
+  const { category, filterTags, setFilterTags, applicableTags } = props;
   const [appliedTags, setAppliedTags] = useState([]);
 
   const handleCheck = (targetTag) => {
@@ -64,7 +63,7 @@ const StoreNav = (props) => {
       </nav>
       <h2>Filter</h2>
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
-        {tagArr.map((tag) => {
+        {applicableTags.map((tag) => {
           return (
             <label key={tag}>
               <input
