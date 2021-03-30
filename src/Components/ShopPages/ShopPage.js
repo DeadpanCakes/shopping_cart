@@ -6,6 +6,7 @@ import useStock from "../../items/useStock";
 import useSort from "../../items/useSort";
 import useFilter from "../../items/useFilter";
 import useTagList from "../../items/useTagList";
+import ShopSideBar from "./ShopSideBar";
 
 const ShopPage = (props) => {
   const { category } = props;
@@ -21,7 +22,7 @@ const ShopPage = (props) => {
     <Fragment>
       <ShopHero category={category} />
       <div style={{display:'flex'}}>
-        <StoreNav category={category} filterTags={filterTags} setFilterTags={setFilterTags} applicableTags={applicableTags} />
+        <ShopSideBar category={category} filterTags={filterTags} setFilterTags={setFilterTags} applicableTags={applicableTags} />
         <CategoryPage category={category} stock={filteredStock} setSortCriteria={setSortCriteria}/>
       </div>
       <button onClick={() => console.log(stock)}>a</button>

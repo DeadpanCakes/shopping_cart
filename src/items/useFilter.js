@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFilter = (items, tags, strictness) => {
+const useFilter = (items, tags, strictness = false) => {
   const [filteredItems, setFilteredItems] = useState(items);
   //if strict search, only show items that match all selected tags
 
@@ -8,20 +8,22 @@ const useFilter = (items, tags, strictness) => {
     if (tags[0]) {
       setFilteredItems(
         items.filter((item) => {
-          let i = 0;
-          while (i < tags.length) {
-            if (item.tagArr.includes(tags[i])) {
-              return item;
+          if (Array.isArray(item.tags.all)) {
+            let i = 0;
+            while (i < tags.length) {
+              if (item.tags.all.includes(tags[i])) {
+                return item;
+              }
+              i++;
             }
-            i++;
+            return null;
           }
-          return null;
         })
       );
     }
   }, [items, tags]);
 
-  return tags[0] ? filteredItems : items 
+  return tags[0] ? filteredItems : items;
 };
 
 export default useFilter;

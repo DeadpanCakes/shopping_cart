@@ -7,7 +7,10 @@ const tagFactory = (color=[], water=[], light=[], growth=[], prop=[], ...other) 
     prop,
     other,
     get all() {
-      return [color, water, light, growth, ...other].flat();
+      if ([color, water, light, growth, ...other].flat()){
+        return [color, water, light, growth, ...other].flat()
+      }
+      return [];
     },
   };
 };

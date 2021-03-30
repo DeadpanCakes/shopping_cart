@@ -70,7 +70,7 @@ const stock = (() => {
       itemTags.xero,
       images.xero
     ),
-    tillandsiaFactory(9, "Brachycaulos", 2, ["Changes Color"], images.brachy),
+    tillandsiaFactory(9, "Brachycaulos", 2, itemTags.brachy, images.brachy),
     tillandsiaFactory(
       10,
       "Streptophylla",
