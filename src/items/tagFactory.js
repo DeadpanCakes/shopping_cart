@@ -1,4 +1,4 @@
-const tagFactory = (color, water, light, growth, prop, ...other) => {
+const tagFactory = (color=[], water=[], light=[], growth=[], prop=[], ...other) => {
   return {
     color,
     water,
@@ -7,7 +7,7 @@ const tagFactory = (color, water, light, growth, prop, ...other) => {
     prop,
     other,
     get all() {
-      return [color, water, light, growth, other].flat();
+      return [color, water, light, growth, ...other].flat();
     },
   };
 };
