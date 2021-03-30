@@ -1,6 +1,6 @@
 import placeHolderImg from './images/placeholder.png';
 
-const itemFactory = (key, name, price, category, tagArr, imgSrc = placeHolderImg) => {
+const itemFactory = (key, name, price, category, tags = {color: [], water: [], light: [], growth: [], prop: []}, imgSrc = placeHolderImg) => {
   return {
     get id() {
       return name.slice(0,3) + key
@@ -9,7 +9,7 @@ const itemFactory = (key, name, price, category, tagArr, imgSrc = placeHolderImg
     name,
     price,
     category,
-    tagArr,
+    tags,
     imgSrc
   };
 };
