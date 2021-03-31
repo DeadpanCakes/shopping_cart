@@ -58,6 +58,7 @@ const ShopSideBar = (props) => {
               key={category}
               category={category}
               applicableTags={applicableTags}
+              appliedTags={props.appliedTags}
               handleCheck={handleTagCheck}
             />
           );

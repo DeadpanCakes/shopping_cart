@@ -1,7 +1,8 @@
 import { Fragment } from "react";
+import FilterTag from './FilterTag';
 
 const TagCategory = (props) => {
-  const { category, applicableTags, handleCheck } = props;
+  const { category, applicableTags, handleCheck, appliedTags } = props;
   const titleStyle = {
       fontSize: '1.2em'
   }
@@ -12,16 +13,7 @@ const TagCategory = (props) => {
     <Fragment>
       <h2 style={titleStyle}>{category.toUpperCase()}</h2>
       {applicableTags[category].map((tag) => {
-        return (
-          <label key={tag} style={tagStyle}>
-            <input
-              type="checkbox"
-              value={tag}
-              onChange={(e) => handleCheck(e.target.value)}
-            />
-            {tag}
-          </label>
-        );
+        return <FilterTag tag={tag} handleCheck={handleCheck} appliedTags={appliedTags} />
       })}
     </Fragment>
   );
