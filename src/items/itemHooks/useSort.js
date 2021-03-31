@@ -4,9 +4,8 @@ const useSort = (stock, criteria) => {
   const [sortedStock, setSortedStock] = useState([]);
 
   useEffect(() => {
-    const sortByPrice = (items) => {
+    const sortByPrice = (items) =>
       [...items].sort((prevItem, item) => prevItem.price - item.price);
-    };
 
     const revSortByPrice = (items) =>
       [...items].sort((prevItem, item) => item.price - prevItem.price);
@@ -21,7 +20,7 @@ const useSort = (stock, criteria) => {
           return 0;
         }
       });
-      return sorted
+      return sorted;
     };
 
     const revSortByAlpha = (items) => {
@@ -40,9 +39,6 @@ const useSort = (stock, criteria) => {
 
     switch (criteria) {
       case "price":
-
-        console.log('test')
-        const test = sortByPrice(stock)
         setSortedStock(sortByPrice(stock));
         break;
       case "revPrice":
