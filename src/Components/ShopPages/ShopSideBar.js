@@ -3,10 +3,17 @@ import StoreNav from "./StoreNav";
 import TagCategory from "./TagCategory";
 
 const ShopSideBar = (props) => {
-  const { category, filterTags, setFilterTags, applicableTags } = props;
+  const {
+    category,
+    filterTags,
+    setFilterTags,
+    applicableTags,
+    strictSearch,
+    setStrictSearch,
+  } = props;
   const tagCategories = ["color", "water", "light", "growth", "prop", "other"];
 
-  const handleCheck = (targetTag) => {
+  const handleTagCheck = (targetTag) => {
     if (filterTags.includes(targetTag)) {
       setFilterTags((prevState) => {
         return prevState.filter((tag) => {
@@ -21,6 +28,10 @@ const ShopSideBar = (props) => {
     }
   };
 
+  const toggleStrictness = () => {
+    setStrictSearch((prevState) => (prevState ? false : true));
+  };
+
   useEffect(() => {
     document.getElementById("tagForm").reset();
     setFilterTags([]);
@@ -33,13 +44,21 @@ const ShopSideBar = (props) => {
       <StoreNav />
       <h2>Filter</h2>
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
+        <label>
+          Only Show Items That Match All Tags
+          <input
+            type="checkBox"
+            checked={strictSearch}
+            onChange={toggleStrictness}
+          />
+        </label>
         {tagCategories.map((category) => {
           return (
             <TagCategory
               key={category}
               category={category}
               applicableTags={applicableTags}
-              handleCheck={handleCheck}
+              handleCheck={handleTagCheck}
             />
           );
         })}

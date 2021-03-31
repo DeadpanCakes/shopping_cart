@@ -22,7 +22,7 @@ const ShopPage = (props) => {
     <Fragment>
       <ShopHero category={category} />
       <div style={{display:'flex'}}>
-        <ShopSideBar category={category} filterTags={filterTags} setFilterTags={setFilterTags} applicableTags={applicableTags} />
+        <ShopSideBar category={category} filterTags={filterTags} setFilterTags={setFilterTags} applicableTags={applicableTags} strictSearch={strictSearch} setStrictSearch={setStrictSearch} />
         <CategoryPage category={category} stock={filteredStock} setSortCriteria={setSortCriteria}/>
       </div>
       <button onClick={() => console.log(stock)}>a</button>
