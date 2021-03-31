@@ -8,7 +8,6 @@ const useFilter = (items, appliedTags, isStrict = true) => {
     if (appliedTags.length > 0) {
       setFilteredItems(
         items.filter((item) => {
-          if (Array.isArray(item.tags.all)) {
             let i = 0;
             while (i < appliedTags.length) {
               if (item.tags.all.includes(appliedTags[i])) {
@@ -17,16 +16,14 @@ const useFilter = (items, appliedTags, isStrict = true) => {
               i++;
             }
             return null;
-          }
-          return null;
         })
       );
-      } else {
-        setFilteredItems(items)
-      }
+    } else {
+      setFilteredItems(items);
+    }
   }, [items, appliedTags]);
 
-  return filteredItems
+  return filteredItems;
 };
 
 export default useFilter;
