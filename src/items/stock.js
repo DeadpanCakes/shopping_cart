@@ -78,7 +78,7 @@ const stock = (() => {
       itemTags.strepto,
       images.strepto
     ),
-    tillandsiaFactory(11, "Capitata Peach", 2, ["Changes Color"], images.peach),
+    tillandsiaFactory(11, "Capitata Peach", 2, itemTags.peach, images.peach),
     tillandsiaFactory(
       12,
       "Crocata Giant",

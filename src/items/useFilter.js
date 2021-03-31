@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 
-const useFilter = (items, tags, strictness = false) => {
+const useFilter = (items, appliedTags, isStrict = true) => {
   const [filteredItems, setFilteredItems] = useState(items);
   //if strict search, only show items that match all selected tags
 
   useEffect(() => {
-    if (tags[0]) {
+    if (appliedTags.length > 0) {
       setFilteredItems(
         items.filter((item) => {
           if (Array.isArray(item.tags.all)) {
             let i = 0;
-            while (i < tags.length) {
-              if (item.tags.all.includes(tags[i])) {
+            while (i < appliedTags.length) {
+              if (item.tags.all.includes(appliedTags[i])) {
                 return item;
               }
               i++;
@@ -21,10 +21,12 @@ const useFilter = (items, tags, strictness = false) => {
           return null;
         })
       );
-    }
-  }, [items, tags]);
+      } else {
+        setFilteredItems(items)
+      }
+  }, [items, appliedTags]);
 
-  return tags[0] ? filteredItems : items;
+  return filteredItems
 };
 
 export default useFilter;

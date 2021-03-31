@@ -131,20 +131,11 @@ const itemTags = {
     ["White"],
     ["Drought-Resistant", "Needs Thorough Drying"],
     ["Tolerates Direct Light"],
-    ["Slow Grower"],
-    [],
-    "Stays Small"
+    ["Slow Grower", "Stays Small"],
+    []
   ),
-  curly: TagList(
-      ['Green', 'Pink'],
-      ['Drought-Resistant'],
-      [],
-      [],
-      [],
-  ),
-  polka: TagList(
-      ['Pink'] 
-  )
+  curly: TagList(["Green", "Pink"], ["Drought-Resistant"], [], [], []),
+  polka: TagList(["Pink"]),
 };
 
 export default itemTags;
