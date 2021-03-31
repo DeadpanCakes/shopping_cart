@@ -6,9 +6,7 @@ const TagCategory = (props) => {
   const titleStyle = {
       fontSize: '1.2em'
   }
-  const tagStyle = {
-      paddingLeft: '5px'
-  }
+
   return (
     <Fragment>
       <h2 style={titleStyle}>{category.toUpperCase()}</h2>
