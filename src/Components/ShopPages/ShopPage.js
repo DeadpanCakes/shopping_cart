@@ -25,11 +25,6 @@ const ShopPage = (props) => {
         <ShopSideBar category={category} filterTags={filterTags} setFilterTags={setFilterTags} applicableTags={applicableTags} strictSearch={strictSearch} setStrictSearch={setStrictSearch} />
         <CategoryPage category={category} stock={filteredStock} setSortCriteria={setSortCriteria}/>
       </div>
-      <button onClick={() => console.log(stock)}>a</button>
-      <button onClick={() => console.log(sortedStock)}>b</button>
-      <button onClick={() => console.log(filteredStock)}>c</button>
-      <button onClick={() => console.log(filterTags)}>c,</button>
-      <button onClick={() => console.log(applicableTags)}>.ap,</button>
     </Fragment>
   );
 };
