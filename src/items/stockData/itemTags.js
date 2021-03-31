@@ -1,4 +1,4 @@
-import TagList from "./tagFactory";
+import TagList from "../itemFactories/tagFactory";
 
 const itemTags = {
   neon: TagList(

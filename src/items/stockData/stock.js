@@ -1,8 +1,8 @@
-import houseplantFactory from "./houseplantFactory";
-import succulentFactory from "./succulentFactory";
-import tillandsiaFactory from "./tillandsiaFactory";
-import suppliesFactory from "./suppliesFactory";
-import images from "./images/imgImport";
+import houseplantFactory from "../itemFactories/houseplantFactory";
+import succulentFactory from "../itemFactories/succulentFactory";
+import tillandsiaFactory from "../itemFactories/tillandsiaFactory";
+import suppliesFactory from "../itemFactories/suppliesFactory";
+import images from "../images/imgImport";
 import itemTags from './itemTags';
 
 const stock = (() => {

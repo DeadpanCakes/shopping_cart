@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fullStock from "./stock";
+import fullStock from "../stockData/stock";
 
 const useStock = (category) => {
   //Was in ShopPage

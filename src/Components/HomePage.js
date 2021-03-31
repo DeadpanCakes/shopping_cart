@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import useStock from '../items/useStock';
+import useStock from '../items/itemHooks/useStock';
 
 const HomePage = () => {
     const stock = useStock()

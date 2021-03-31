@@ -1,4 +1,4 @@
-import stock from "../../items/stock";
+import stock from "../../items/stockData/stock";
 import PageSection from './PageSection'
 import ShopHero from './ShopHero';
 import heroImg from './img/homeHero.png'

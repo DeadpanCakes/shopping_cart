@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import stock from "../../items/stock";
+import stock from "../../items/stockData/stock";
 
 const ItemPage = (props) => {
   const { id } = props.match.params;

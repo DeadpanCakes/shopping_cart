@@ -1,10 +1,10 @@
 import { useState, Fragment } from "react";
 import ShopHero from "./ShopHero";
 import CategoryPage from "./CategoryPage";
-import useStock from "../../items/useStock";
-import useSort from "../../items/useSort";
-import useFilter from "../../items/useFilter";
-import useTagList from "../../items/useTagList";
+import useStock from "../../items/itemHooks/useStock";
+import useSort from "../../items/itemHooks/useSort";
+import useFilter from "../../items/itemHooks/useFilter";
+import useTagList from "../../items/itemHooks/useTagList";
 import ShopSideBar from "./ShopSideBar";
 
 const ShopPage = (props) => {

@@ -11,6 +11,7 @@ const CategoryPage = (props) => {
   const [shelves, setShelves] = useState([]);
 
   useEffect(() => {
+    console.log('stock:',stock)
     const shelves = [];
     for (let i = 1; i < stock.length / 9 + 1; i++)
       shelves.push(stock.slice((i - 1) * 9, i * 9));

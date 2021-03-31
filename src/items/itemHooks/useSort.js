@@ -40,6 +40,9 @@ const useSort = (stock, criteria) => {
 
     switch (criteria) {
       case "price":
+
+        console.log('test')
+        const test = sortByPrice(stock)
         setSortedStock(sortByPrice(stock));
         break;
       case "revPrice":
