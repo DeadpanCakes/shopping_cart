@@ -60,6 +60,7 @@ const ShopSideBar = (props) => {
               applicableTags={applicableTags}
               appliedTags={props.appliedTags}
               handleCheck={handleTagCheck}
+              strictSearch={strictSearch}
             />
           );
         })}

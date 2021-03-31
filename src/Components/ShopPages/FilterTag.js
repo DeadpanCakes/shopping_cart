@@ -2,7 +2,7 @@ import useStock from "../../items/itemHooks/useStock";
 import { useState, useEffect } from "react";
 
 const FilterTag = (props) => {
-  const { tag, handleCheck, appliedTags } = props;
+  const { tag, handleCheck, appliedTags, strictSearch } = props;
   const [isDisabled, setIsDisabled] = useState(false);
 
   const tagStyle = {
@@ -17,17 +17,21 @@ const FilterTag = (props) => {
   const stock = useStock();
 
   useEffect(() => {
-    const checkIfImpossible = () => {
-      return stock.every((item) => {
-        return !(
-          item.tags.all.includes(tag) &&
-          appliedTags.every((tag) => item.tags.all.includes(tag))
-        );
-      });
-    };
+    if (strictSearch) {
+      const checkIfImpossible = () => {
+        return stock.every((item) => {
+          return !(
+            item.tags.all.includes(tag) &&
+            appliedTags.every((tag) => item.tags.all.includes(tag))
+          );
+        });
+      };
 
-    setIsDisabled(checkIfImpossible());
-  }, [appliedTags, stock, tag]);
+      setIsDisabled(checkIfImpossible());
+    } else {
+        setIsDisabled(false)
+    }
+  }, [appliedTags, stock, tag, strictSearch]);
 
   return (
     <label key={tag} style={isDisabled ? disabledStyle : tagStyle}>

@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import FilterTag from './FilterTag';
 
 const TagCategory = (props) => {
-  const { category, applicableTags, handleCheck, appliedTags } = props;
+  const { category, applicableTags, handleCheck, appliedTags, strictSearch } = props;
   const titleStyle = {
       fontSize: '1.2em'
   }
@@ -11,7 +11,7 @@ const TagCategory = (props) => {
     <Fragment>
       <h2 style={titleStyle}>{category.toUpperCase()}</h2>
       {applicableTags[category].map((tag) => {
-        return <FilterTag tag={tag} handleCheck={handleCheck} appliedTags={appliedTags} />
+        return <FilterTag tag={tag} handleCheck={handleCheck} appliedTags={appliedTags} strictSearch={strictSearch} />
       })}
     </Fragment>
   );
