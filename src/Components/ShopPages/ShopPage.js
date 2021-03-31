@@ -11,10 +11,11 @@ const ShopPage = (props) => {
   const { category } = props;
   const [sortCriteria, setSortCriteria] = useState('id');
   const [filterTags, setFilterTags] = useState([]);
+  const [strictSearch, setStrictSearch] = useState(true)
 
   const stock = useStock(category);
   const sortedStock = useSort(stock, sortCriteria);
-  const filteredStock = useFilter(sortedStock, filterTags);
+  const filteredStock = useFilter(sortedStock, filterTags, strictSearch);
   const applicableTags = useTagList(stock)
 
   return (
