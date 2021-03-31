@@ -28,7 +28,7 @@ const itemTags = {
     ["Drought-Resistant"],
     ["Tolerates Direct Light"],
     ["Rosette"],
-    ["Leaf Propation"]
+    ["Leaf Propagation"]
   ),
   burrito: TagList(
     ["Green"],

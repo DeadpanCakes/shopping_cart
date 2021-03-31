@@ -7,7 +7,7 @@ const useTagList = (items) => {
     water: [],
     light: [],
     growth: [],
-    prop: [],
+    propagation: [],
     other: [],
   });
 
@@ -60,10 +60,10 @@ const useTagList = (items) => {
       growth.sort(sortByAlpha);
 
       const propTags = items.map((item) => {
-        return item.tags.prop ? item.tags.prop : [];
+        return item.tags.propagation ? item.tags.propagation : [];
       }).flat();
-      const prop = [...new Set(propTags)];
-      prop.sort(sortByAlpha);
+      const propagation = [...new Set(propTags)];
+      propagation.sort(sortByAlpha);
 
       const otherTags = items.map((item) => {
         return item.tags.other ? item.tags.other : [];
@@ -71,7 +71,7 @@ const useTagList = (items) => {
       const other = [...new Set(otherTags)];
       other.sort(sortByAlpha)
 
-      setRelevantTags({ all, color, water, light, growth, prop, other });
+      setRelevantTags({ all, color, water, light, growth, propagation, other });
     }
   }, [items]);
   return relevantTags;

@@ -11,7 +11,7 @@ const ShopSideBar = (props) => {
     strictSearch,
     setStrictSearch,
   } = props;
-  const tagCategories = ["color", "water", "light", "growth", "prop", "other"];
+  const tagCategories = ["color", "water", "light", "growth", "propagation", "other"];
 
   const handleTagCheck = (targetTag) => {
     if (filterTags.includes(targetTag)) {
