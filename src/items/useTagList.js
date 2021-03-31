@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import StoreNav from "../Components/ShopPages/StoreNav";
-import itemTags from "./itemTags";
 
 const useTagList = (items) => {
   const [relevantTags, setRelevantTags] = useState({

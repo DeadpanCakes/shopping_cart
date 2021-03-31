@@ -18,6 +18,7 @@ const useFilter = (items, tags, strictness = false) => {
             }
             return null;
           }
+          return null;
         })
       );
     }

@@ -1,5 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
-import StoreNav from "./StoreNav";
+import { useState, Fragment } from "react";
 import ShopHero from "./ShopHero";
 import CategoryPage from "./CategoryPage";
 import useStock from "../../items/useStock";

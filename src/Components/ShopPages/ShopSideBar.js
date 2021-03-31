@@ -1,13 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import StoreNav from "./StoreNav";
-import itemTags from "../../items/itemTags";
-import useTagList from "../../items/useTagList";
 
 const ShopSideBar = (props) => {
   const { category, filterTags, setFilterTags, applicableTags } = props;
-  const [appliedTags, setAppliedTags] = useState([]);
-
-  console.log("thing:", applicableTags);
 
   const handleCheck = (targetTag) => {
     if (filterTags.includes(targetTag)) {
@@ -16,6 +11,7 @@ const ShopSideBar = (props) => {
           if (tag !== targetTag) {
             return tag;
           }
+          return null
         });
       });
     } else {
@@ -26,7 +22,7 @@ const ShopSideBar = (props) => {
   useEffect(() => {
     document.getElementById("tagForm").reset();
     setFilterTags([]);
-  }, [category]);
+  }, [category, setFilterTags]);
 
   return (
     <aside
