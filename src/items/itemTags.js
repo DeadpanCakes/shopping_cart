@@ -46,7 +46,7 @@ const itemTags = {
   ),
   bear: TagList(
     ["Green", "Red"],
-    ["Drough-Resistant"],
+    ["Drought-Resistant"],
     ["Tolerates Direct Light"],
     [],
     ["Stem Propagation"],
