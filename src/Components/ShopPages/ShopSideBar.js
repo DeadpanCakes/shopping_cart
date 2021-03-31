@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import StoreNav from "./StoreNav";
+import TagCategory from "./TagCategory";
 
 const ShopSideBar = (props) => {
   const { category, filterTags, setFilterTags, applicableTags } = props;
+  const tagCategories = ["color", "water", "light", "growth", "prop", "other"];
 
   const handleCheck = (targetTag) => {
     if (filterTags.includes(targetTag)) {
@@ -11,7 +13,7 @@ const ShopSideBar = (props) => {
           if (tag !== targetTag) {
             return tag;
           }
-          return null
+          return null;
         });
       });
     } else {
@@ -31,82 +33,14 @@ const ShopSideBar = (props) => {
       <StoreNav />
       <h2>Filter</h2>
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
-        <h2>Colors</h2>
-        {applicableTags.color.map((tag) => {
+        {tagCategories.map((category) => {
           return (
-            <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                onChange={(e) => handleCheck(e.target.value)}
-              />
-              {tag}
-            </label>
-          );
-        })}
-        <h2>Water</h2>
-        {applicableTags.water.map((tag) => {
-          return (
-            <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                onChange={(e) => handleCheck(e.target.value)}
-              />
-              {tag}
-            </label>
-          );
-        })}
-        <h2>Light</h2>
-        {applicableTags.light.map((tag) => {
-          return (
-            <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                onChange={(e) => handleCheck(e.target.value)}
-              />
-              {tag}
-            </label>
-          );
-        })}
-        <h2>Growth Habit</h2>
-        {applicableTags.growth.map((tag) => {
-          return (
-            <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                onChange={(e) => handleCheck(e.target.value)}
-              />
-              {tag}
-            </label>
-          );
-        })}
-        <h2>Propagation</h2>
-        {applicableTags.prop.map((tag) => {
-          return (
-            <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                onChange={(e) => handleCheck(e.target.value)}
-              />
-              {tag}
-            </label>
-          );
-        })}
-        <h2>Other</h2>
-        {applicableTags.other.map((tag) => {
-          return (
-            <label key={tag}>
-              <input
-                type="checkbox"
-                value={tag}
-                onChange={(e) => handleCheck(e.target.value)}
-              />
-              {tag}
-            </label>
+            <TagCategory
+              key={category}
+              category={category}
+              applicableTags={applicableTags}
+              handleCheck={handleCheck}
+            />
           );
         })}
       </form>
