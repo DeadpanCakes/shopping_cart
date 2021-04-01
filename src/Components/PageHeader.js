@@ -33,12 +33,16 @@ const PageHeader = (props) => {
           <img alt="Logo" src={logo} style={{ height: "100%" }}></img>
         </Link>
         <nav style={navContainerStyle}>
-          <Link to="/profile" className='headerNav'>
+          <Link to="/profile" className="headerNav">
             Sign In
           </Link>
-          <Link to="/cart" className='headerNav'>
-            Cart
-            <p style={{}}>{props.cart.length}</p>
+          <Link to="/cart" className="headerNav" id="headerCart">
+            <h2 id="cartH2">Cart</h2>
+            {
+             props.cart.length > 0 ?  (<p id="cartCount" style={{}}>
+                {props.cart.length}
+              </p>) : null
+            }
           </Link>
         </nav>
       </header>

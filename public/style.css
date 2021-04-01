@@ -68,6 +68,22 @@ text-decoration: none;
 font-size: 1.1em;
 }
 
+#headerCart {
+	display: static;
+	position: relative;
+}
+
+#cartCount {
+	position: absolute;
+	bottom: -20%;
+	right: -15%;
+	background-color: #F6C7C7;
+	padding:  5px 10px;
+	border-radius: 5px;
+	color: #F12B6B;
+	border: 2px solid #F12B6B;
+}
+
 .itemListing {
     padding: 10px;
     margin: 5px;
