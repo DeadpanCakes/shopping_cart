@@ -1,44 +1,44 @@
 import { Link } from "react-router-dom";
+import logo from "../img/headerLogo.png";
 
 const PageHeader = (props) => {
   const containerStyle = {
-    width: '100vw',
-    height: '5vh',
-  }
+    width: "100vw",
+    height: "13vh",
+    borderBottom: "10px solid #1C2F4A",
+  };
 
   const headerStyle = {
     position: "fixed",
-    height: '5vh',
+    height: "13vh",
     width: "100vw",
     display: "flex",
     justifyContent: "space-between",
     color: "white",
-    backgroundColor: "#28587B",
-    borderBottom: "2px solid #19374D",
+    backgroundColor: "#507DBC",
+    borderBottom: "10px solid #1C2F4A",
     zIndex: "1",
   };
 
-  const navStyle = {
+  const navContainerStyle = {
     display: "flex",
-    flexDirection: "row",
-    backgroundColor: "#3C85B9",
-    borderRadius: "10px",
-    marginRight: '30px',
+    marginRight: "30px",
+    alignItems: "center",
   };
 
   return (
     <div className="headerContainer" style={containerStyle}>
       <header style={headerStyle}>
-        <Link to="/">
-          <img alt="Logo" src={null}></img>
+        <Link to="/" style={{ width: "5%" }}>
+          <img alt="Logo" src={logo} style={{ height: "100%" }}></img>
         </Link>
-        <nav style={navStyle}>
-          <Link to="/profile" style={{ paddingRight: "5px" }}>
+        <nav style={navContainerStyle}>
+          <Link to="/profile" className='headerNav'>
             Sign In
           </Link>
-          <Link to="/cart">
-            <p>Cart</p>
-            <p>{props.cart.length}</p>
+          <Link to="/cart" className='headerNav'>
+            Cart
+            <p style={{}}>{props.cart.length}</p>
           </Link>
         </nav>
       </header>

@@ -52,6 +52,22 @@ html, body {
 	height: 100vh;
 }
 
+.headerNav {
+display: flex;
+flex-direction: column;
+justify-content: center;
+height: 65%;
+padding: 0 20px 0 20px;
+text-align: center;
+color: #F6C7C7;
+background-color: #F12B6B; 
+border: 2px solid #F12B6B;
+margin-right: 15px;
+border-radius: 10px;
+text-decoration: none;
+font-size: 1.1em;
+}
+
 .itemListing {
     padding: 10px;
     margin: 5px;
