@@ -1,6 +1,6 @@
 import { useState, Fragment } from "react";
 import ShopHero from "./ShopHero";
-import CategoryPage from "./CategoryPage";
+import Shelf from "./Shelf";
 import useStock from "../../items/itemHooks/useStock";
 import useSort from "../../items/itemHooks/useSort";
 import useFilter from "../../items/itemHooks/useFilter";
@@ -31,7 +31,7 @@ const ShopPage = (props) => {
           strictSearch={strictSearch}
           setStrictSearch={setStrictSearch}
         />
-        <CategoryPage
+        <Shelf
           category={category}
           stock={filteredStock}
           setSortCriteria={setSortCriteria}
