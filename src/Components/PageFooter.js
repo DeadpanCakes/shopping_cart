@@ -5,6 +5,9 @@ const PageFooter = () => {
     display: "flex",
     flexDirection: 'row',
     justifyContent: "flex-end",
+    alignItems: 'center',
+    backgroundColor: "#1C2F4A",
+    height: '5vh'
   };
 
   return (
