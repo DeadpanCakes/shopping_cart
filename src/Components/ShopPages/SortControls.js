@@ -5,7 +5,6 @@ const SortControl = (props) => {
 
   const handleSort = (e) => {
     const criteria = e.target.value;
-    console.log(criteria)
     setSortCriteria(criteria)
   };
 
