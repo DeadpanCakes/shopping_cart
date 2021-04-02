@@ -4,19 +4,23 @@ const PageFooter = () => {
   const footerStyle = {
     display: "flex",
     flexDirection: 'row',
-    justifyContent: "flex-end",
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: "#1C2F4A",
-    height: '5vh'
+    height: '5vh',
   };
+
+  const footerNav = {
+    padding: '5px 10px'
+  }
 
   return (
     <footer style={footerStyle}>
-      <p style={{marginRight: 'auto'}}>Store Place Copyright 2021 All Rights Reserved</p>
+      <p style={footerNav}>Store Place Copyright 2021 All Rights Reserved</p>
       <nav style={{display:'flex'}}>
-        <Link to="/contact">Contact</Link>
-        <Link to="/about">About</Link>
-        <Link to="/shipping">Shipping And Terms</Link>
+        <Link style={footerNav} className='footerLink' to="/contact">Contact</Link>
+        <Link style={footerNav} className='footerLink' to="/about">About</Link>
+        <Link style={footerNav} className='footerLink' to="/shipping">Shipping And Terms</Link>
       </nav>
     </footer>
   );
