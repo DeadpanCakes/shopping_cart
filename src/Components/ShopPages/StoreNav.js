@@ -2,10 +2,16 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = () => {
+  const toggleNav = () => {
+    console.log('toggled')
+  }
+
   return (
     <Fragment>
       <Link to="/shop">Go Back</Link>
-      <h2>Navigation</h2>
+      <button onClick={toggleNav}>
+        <h2>Navigation</h2>
+      </button>
       <nav>
         <ul>
           <Link to="/shop/allplants">

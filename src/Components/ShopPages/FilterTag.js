@@ -34,7 +34,7 @@ const FilterTag = (props) => {
   }, [appliedTags, stock, tag, strictSearch]);
 
   return (
-    <label key={tag} style={isDisabled ? disabledStyle : tagStyle}>
+    <label style={isDisabled ? disabledStyle : tagStyle}>
       <input
         type="checkbox"
         disabled={isDisabled}

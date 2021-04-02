@@ -11,7 +11,7 @@ const TagCategory = (props) => {
     <Fragment>
       <h2 style={titleStyle}>{category.toUpperCase()}</h2>
       {applicableTags[category].map((tag) => {
-        return <FilterTag tag={tag} handleCheck={handleCheck} appliedTags={appliedTags} strictSearch={strictSearch} />
+        return <FilterTag key={tag} tag={tag} handleCheck={handleCheck} appliedTags={appliedTags} strictSearch={strictSearch} />
       })}
     </Fragment>
   );

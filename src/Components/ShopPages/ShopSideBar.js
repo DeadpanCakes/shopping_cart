@@ -42,8 +42,8 @@ const ShopSideBar = (props) => {
       style={{ width: "13vw", backgroundColor: "#28587B", padding: "10px" }}
     >
       <StoreNav />
-      <h2>Filter</h2>
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
+      <h2>Filter</h2>
         <label>
           Only Show Items That Match All Tags
           <input
