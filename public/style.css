@@ -153,6 +153,11 @@ body {
   font-size: 1.1em;
 }
 
+.headerNav:hover {
+	color: #f12b6b;
+	background-color: #f6c7c7;
+}
+
 #headerCart {
   display: static;
   position: relative;
