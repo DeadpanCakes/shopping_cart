@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import PageHeader from "./Components/PageHeader";
-import PageFooter from "./Components/PageFooter";
+import PageFooter from "./Components/Footer/PageFooter";
 import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";

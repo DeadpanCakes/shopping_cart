@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SocialMedia from './SocialMedia';
 
 const PageFooter = () => {
   const footerStyle = {
@@ -17,6 +18,7 @@ const PageFooter = () => {
   return (
     <footer style={footerStyle}>
       <p style={footerNav}>Store Place Copyright 2021 All Rights Reserved</p>
+      <SocialMedia />
       <nav style={{display:'flex'}}>
         <Link style={footerNav} className='footerLink' to="/contact">Contact</Link>
         <Link style={footerNav} className='footerLink' to="/about">About</Link>
