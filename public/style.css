@@ -245,3 +245,12 @@ footer,
 .footerLink {
   color: #f6c7c7;
 }
+
+.socialMediaLink {
+    color: #f6c7c7;
+    padding: 0 10px;
+}
+
+.socialMediaLink:hover {
+  filter: drop-shadow( 0 0 2px #f6c7c7);
+}
