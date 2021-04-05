@@ -4,6 +4,7 @@ import TagCategory from "./TagCategory";
 
 const ShopSideBar = (props) => {
   const {
+    stock,
     category,
     filterTags,
     setFilterTags,
@@ -56,6 +57,7 @@ const ShopSideBar = (props) => {
           return (
             <TagCategory
               key={category}
+              stock={stock}
               category={category}
               applicableTags={applicableTags}
               appliedTags={props.appliedTags}

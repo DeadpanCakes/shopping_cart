@@ -135,7 +135,7 @@ const itemTags = {
     []
   ),
   curly: TagList(["Green", "Pink"], ["Drought-Resistant"], [], [], []),
-  polka: TagList(["Pink"]),
+  polka: TagList(["Pink"], [], [], [], []),
 };
 
 export default itemTags;

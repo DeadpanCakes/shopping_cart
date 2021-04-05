@@ -30,6 +30,7 @@ const ShopPage = (props) => {
           appliedTags={filterTags}
           strictSearch={strictSearch}
           setStrictSearch={setStrictSearch}
+          stock={filteredStock}
         />
         <Shelf
           category={category}

@@ -1,8 +1,7 @@
-import useStock from "../../items/itemHooks/useStock";
 import { useState, useEffect } from "react";
 
 const FilterTag = (props) => {
-  const { tag, handleCheck, appliedTags, strictSearch } = props;
+  const { stock, tag, handleCheck, appliedTags, strictSearch } = props;
   const [isDisabled, setIsDisabled] = useState(false);
 
   const tagStyle = {
@@ -13,8 +12,6 @@ const FilterTag = (props) => {
     color: "gray",
     textDecoration: "line-through",
   };
-
-  const stock = useStock();
 
   useEffect(() => {
     if (strictSearch) {
