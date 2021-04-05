@@ -1,15 +1,35 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 const SocialMedia = () => {
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
+
+  const aStyle = {
+    color: '#f6c7c7',
+    padding: '0 10px',
+  }
+
   return (
     <nav>
-      <ul>
+      <ul style={containerStyle}>
         <li>
-          <a href="https://instagram.com/">Instagram</a>
+          <a href="https://instagram.com/" style={aStyle}>
+            <FontAwesomeIcon icon={faInstagram} size={'lg'}/>
+          </a>
         </li>
         <li>
-          <a href="https://facebook.com/">Facebook</a>
+          <a href="https://twitter.com/" style={aStyle} size={'lg'}>
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
         </li>
         <li>
-          <a href="https://twitter.com/">Twitter</a>
+          <a href="https://facebook.com/" style={aStyle} size={'lg'}>
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
         </li>
       </ul>
     </nav>
