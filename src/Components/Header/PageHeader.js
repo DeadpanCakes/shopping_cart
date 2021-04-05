@@ -24,9 +24,8 @@ const PageHeader = (props) => {
 
   const navContainerStyle = {
     display: "flex",
-    marginBottom: '20px',
     marginRight: "20px",
-    alignItems: "flex-end",
+    alignItems: "center",
   };
 
   return (

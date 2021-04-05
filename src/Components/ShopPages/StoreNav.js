@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = () => {
@@ -7,6 +7,10 @@ const StoreNav = () => {
   const toggleNav = () => {
     setExpanded((prevState) => (prevState ? false : true));
   };
+
+  const handleNavClick = () => {
+    toggleNav()
+  }
 
   const navLinkStyle = {
     padding: '5px',
@@ -31,27 +35,27 @@ const StoreNav = () => {
             <Link to="/shop">Shop Home</Link>
           </li>
           <li style={navLinkStyle}>
-            <Link to="/shop/allplants">
+            <Link to="/shop/allplants" onClick={handleNavClick}>
               <h2>All Plants</h2>
             </Link>
           </li>
           <li style={navLinkStyle}>
-            <Link to="/shop/houseplants">
+            <Link to="/shop/houseplants" onClick={handleNavClick}>
               <h2>Housplants</h2>
             </Link>
           </li>
           <li style={navLinkStyle}>
-            <Link to="/shop/succulents">
+            <Link to="/shop/succulents" onClick={handleNavClick}>
               <h2>Succulents</h2>
             </Link>
           </li>
           <li style={navLinkStyle}>
-            <Link to="/shop/tillandsia">
+            <Link to="/shop/tillandsia" onClick={handleNavClick}>
               <h2>Tillandsia</h2>
             </Link>
           </li>
           <li style={navLinkStyle}>
-            <Link to="/shop/supplies">
+            <Link to="/shop/supplies" onClick={handleNavClick}>
               <h2>Supplies</h2>
             </Link>
           </li>
