@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../img/headerLogo.png";
+import logo from "../../img/headerLogo.png";
 
 const PageHeader = (props) => {
   const containerStyle = {
