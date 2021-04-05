@@ -17,18 +17,18 @@ const SocialMedia = () => {
     <nav>
       <ul style={containerStyle}>
         <li>
+          <a href="https://twitter.com/" style={aStyle}>
+            <FontAwesomeIcon icon={faTwitter}  size={'lg'}/>
+          </a>
+        </li>
+        <li>
           <a href="https://instagram.com/" style={aStyle}>
             <FontAwesomeIcon icon={faInstagram} size={'lg'}/>
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/" style={aStyle} size={'lg'}>
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-        </li>
-        <li>
-          <a href="https://facebook.com/" style={aStyle} size={'lg'}>
-            <FontAwesomeIcon icon={faFacebook} />
+          <a href="https://facebook.com/" style={aStyle}>
+            <FontAwesomeIcon icon={faFacebook}  size={'lg'}/>
           </a>
         </li>
       </ul>
