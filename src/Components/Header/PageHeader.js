@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../../img/headerLogo.png";
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PageHeader = (props) => {
   const containerStyle = {
@@ -22,8 +24,9 @@ const PageHeader = (props) => {
 
   const navContainerStyle = {
     display: "flex",
-    marginRight: "30px",
-    alignItems: "center",
+    marginBottom: '20px',
+    marginRight: "20px",
+    alignItems: "flex-end",
   };
 
   return (
@@ -34,12 +37,12 @@ const PageHeader = (props) => {
         </Link>
         <nav style={navContainerStyle}>
           <Link to="/profile" className="headerNav">
-            Sign In
+            <FontAwesomeIcon icon={faUser} />
           </Link>
           <Link to="/cart" className="headerNav" id="headerCart">
-            <h2 id="cartH2">Cart</h2>
+            <FontAwesomeIcon icon={faShoppingCart} />
             {props.cart.length > 0 ? (
-              <p id="cartCount" style={{}}>
+              <p id="cartCount" style={{fontSize: '1em'}}>
                 {props.cart.length}
               </p>
             ) : null}
