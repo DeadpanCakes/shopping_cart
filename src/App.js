@@ -5,8 +5,6 @@ import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckOutPage";
-
-import succulentFactory from "./items/itemFactories/succulentFactory";
 import ShopPage from "./Components/ShopPages/ShopPage";
 
 const App = (props) => {
