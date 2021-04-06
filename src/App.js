@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect} from "react";
 import PageHeader from "./Components/Header/PageHeader";
 import PageFooter from "./Components/Footer/PageFooter";
 import { Switch, Route } from "react-router-dom";
@@ -10,35 +10,17 @@ import succulentFactory from "./items/itemFactories/succulentFactory";
 import ShopPage from "./Components/ShopPages/ShopPage";
 
 const App = (props) => {
-  const [cart, setCart] = useState([
-    {
-      ...succulentFactory(2, 'Echeveria "Lola"', 4, [
-        "Pastel",
-        "Multicolor",
-        "Drought-Resistant",
-        "Showy Bloom",
-      ]),
-      quantity: 5,
-    },
-    {
-      ...succulentFactory(3, 'Echeveria "Raspberry Ice"', 6, [
-        "Pastel",
-        "Drought-Resistant",
-        "Showy Bloom",
-      ]),
-      quantity: 1,
-    },
-    {
-      ...succulentFactory(4, 'Sedum "Burrito"', 4, [
-        "Drought-Resistant",
-        "Easy to Propagate",
-        "Non-Toxic",
-        "Hanging",
-      ]),
-      quantity: 2,
-    },
-  ]);
-  const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    setCart(JSON.parse(window.localStorage.getItem('cart')))
+  } ,[])
+
+  useEffect(() => {
+    window.localStorage.setItem('cart', JSON.stringify(cart))
+  },[cart])
+
+  const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem])
 
   const updateQuantity = (newItem) => {
     const updatedCart = cart.map((item) => {

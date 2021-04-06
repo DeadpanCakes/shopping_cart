@@ -3,11 +3,10 @@ import logo from "../../img/headerLogo.png";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const HeaderNav = ( props ) => {
+const HeaderNav = (props) => {
+  const { cart } = props;
 
-    const {cart} = props
-  
-    const navContainerStyle = {
+  const navContainerStyle = {
     display: "flex",
     justifyContent: "space-between",
     minHeight: "10vh",
