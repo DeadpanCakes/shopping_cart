@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import StoreNav from "./StoreNav";
 import TagCategory from "./TagCategory";
+import AppliedTagList from './AppliedTagList';
 
 const ShopSideBar = (props) => {
   const {
@@ -45,6 +46,7 @@ const ShopSideBar = (props) => {
       <StoreNav />
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
       <h2>Filter</h2>
+      <AppliedTagList appliedTags={filterTags} setFilterTags={setFilterTags} />
         <label>
           Only Show Items That Match All Tags
           <input
