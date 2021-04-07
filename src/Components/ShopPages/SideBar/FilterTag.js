@@ -5,10 +5,10 @@ const FilterTag = (props) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const tagStyle = {
-    padding: "5px",
+    margin: "7px",
   };
   const disabledStyle = {
-    padding: "5px",
+    margin: "5px",
     color: "gray",
     textDecoration: "line-through",
   };
@@ -31,7 +31,7 @@ const FilterTag = (props) => {
   }, [appliedTags, stock, tag, strictSearch]);
 
   return (
-    <label style={isDisabled ? disabledStyle : tagStyle}>
+    <label className='tagCheckBox' style={isDisabled ? disabledStyle : tagStyle}>
       <input
         type="checkbox"
         checked={appliedTags.includes(tag)}

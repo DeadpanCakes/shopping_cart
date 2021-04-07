@@ -232,6 +232,10 @@ h2 {
   text-shadow: 0 0 2px white;
 }
 
+.tagCheckBox {
+  cursor: pointer;
+}
+
 .itemListing {
   padding: 10px;
   margin: 5px;
