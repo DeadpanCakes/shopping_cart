@@ -9,19 +9,21 @@ const TagIcon = (props) => {
     display: "flex",
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: "#FFE900",
+    backgroundColor: "#507DBC",
     borderRadius: '3px',
-    margin: '2px'
+    margin: '2px',
+    padding: '0 3px'
   };
 
   const tagStyle = {
-    color: "#2A2B2A",
+    color: "white",
     padding: "1px 2px",
     textAlign: 'center'
   };
 
   const buttonStyle = {
       border: '0',
+      color: 'white',
       backgroundColor: 'inherit',
       padding: '5px'
   }
