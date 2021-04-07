@@ -137,7 +137,7 @@ body {
   overflow-x: hidden;
 }
 
-*, p, label, button, option, select, input {
+*, p, label, button, option, select, input, a {
   font-family: "Khula", sans-serif;
 }
 

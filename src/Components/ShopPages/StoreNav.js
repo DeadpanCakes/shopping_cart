@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const StoreNav = () => {
@@ -9,30 +9,39 @@ const StoreNav = () => {
   };
 
   const handleNavClick = () => {
-    toggleNav()
-  }
+    toggleNav();
+  };
 
   const navLinkStyle = {
-    padding: '5px',
-    width: '100%',
-    backgroundColor: 'white',
-    border: '1px solid gray'
-  }
+    padding: "5px",
+    width: "100%",
+    backgroundColor: "white",
+    border: "1px solid gray",
+  };
 
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-    <button className={expanded ? 'storeNavButton expandedStoreNavButton' : 'storeNavButton collapsedStoreNavButton'} onClick={toggleNav}>
-      <h2>Navigation</h2>
-    </button>
+      <button
+        className={
+          expanded
+            ? "storeNavButton expandedStoreNavButton"
+            : "storeNavButton collapsedStoreNavButton"
+        }
+        onClick={toggleNav}
+      >
+        <h2>Navigation</h2>
+      </button>
       <nav
         className={expanded ? "expandedStoreNav storeNav" : "storeNav"}
-        style= {expanded ? {maxHeight:'200px'} : {maxHeight: '0'}}
+        style={expanded ? { maxHeight: "300px" } : { maxHeight: "0" }}
       >
         <ul id="shopNavList">
           <li style={navLinkStyle}>
-            <Link to="/shop">Shop Home</Link>
+            <Link to="/shop">
+              <h2>Home</h2>
+            </Link>
           </li>
           <li style={navLinkStyle}>
             <Link to="/shop/allplants" onClick={handleNavClick}>
