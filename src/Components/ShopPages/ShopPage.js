@@ -5,7 +5,7 @@ import useStock from "../../items/itemHooks/useStock";
 import useSort from "../../items/itemHooks/useSort";
 import useFilter from "../../items/itemHooks/useFilter";
 import useTagList from "../../items/itemHooks/useTagList";
-import ShopSideBar from "./ShopSideBar";
+import ShopSideBar from "./SideBar/ShopSideBar";
 
 const ShopPage = (props) => {
   const { category } = props;

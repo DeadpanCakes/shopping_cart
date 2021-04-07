@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import StoreNav from "./StoreNav";
+import StoreNav from "../StoreNav";
 import TagCategory from "./TagCategory";
 import AppliedTagList from './AppliedTagList';
 

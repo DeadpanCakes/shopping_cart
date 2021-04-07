@@ -1,4 +1,4 @@
-import TagIcon from "./TagIcon";
+import TagIcon from "../TagIcon";
 
 const AppliedTagList = (props) => {
   const { appliedTags, setFilterTags } = props;
