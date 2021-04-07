@@ -31,7 +31,7 @@ const TagIcon = (props) => {
       <p className="tagIndicator" style={tagStyle}>
         {tagName}
       </p>
-      <button onClick={deleteTag} style={buttonStyle}>X</button>
+      <button className='deleteTagBtn' onClick={deleteTag} style={buttonStyle}>X</button>
     </div>
   );
 };

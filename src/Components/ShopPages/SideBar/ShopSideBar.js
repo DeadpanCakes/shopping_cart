@@ -41,19 +41,19 @@ const ShopSideBar = (props) => {
 
   return (
     <aside
-      style={{ width: "13vw", backgroundColor: "#28587B", padding: "10px" }}
+      style={{ width: "13vw", backgroundColor: "white", padding: "20px", marginLeft: '3vw' }}
     >
       <StoreNav />
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
       <h2>Filter</h2>
       <AppliedTagList appliedTags={filterTags} setFilterTags={setFilterTags} />
         <label>
-          Only Show Items That Match All Tags
           <input
             type="checkBox"
             checked={strictSearch}
             onChange={toggleStrictness}
           />
+          Strict Search?
         </label>
         {tagCategories.map((category) => {
           return (
