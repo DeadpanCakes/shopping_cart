@@ -32,7 +32,7 @@ const TagCategory = (props) => {
     <Fragment>
       <div style={{display: 'flex'}}>
       <h2 style={titleStyle}>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
-      <FontAwesomeIcon icon={determineIcon(category)} style={{paddingLeft: '3px'}} /></div>
+      <FontAwesomeIcon icon={determineIcon(category)} style={{paddingLeft: '3px'}} size='lg'/></div>
       <ul style={{display: 'flex', flexDirection: 'column'}}>
       {applicableTags[category].map((tag) => {
         return (

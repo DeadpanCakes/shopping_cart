@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import StoreNav from "../StoreNav";
 import TagCategory from "./TagCategory";
-import AppliedTagList from './AppliedTagList';
+import AppliedTagList from "./AppliedTagList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTags } from "@fortawesome/free-solid-svg-icons";
 
 const ShopSideBar = (props) => {
   const {
@@ -13,7 +15,14 @@ const ShopSideBar = (props) => {
     strictSearch,
     setStrictSearch,
   } = props;
-  const tagCategories = ["color", "water", "light", "growth", "propagation", "other"];
+  const tagCategories = [
+    "color",
+    "water",
+    "light",
+    "growth",
+    "propagation",
+    "other",
+  ];
 
   const handleTagCheck = (targetTag) => {
     if (filterTags.includes(targetTag)) {
@@ -41,12 +50,23 @@ const ShopSideBar = (props) => {
 
   return (
     <aside
-      style={{ width: "13vw", backgroundColor: "white", padding: "20px", marginLeft: '3vw' }}
+      style={{
+        width: "13vw",
+        backgroundColor: "white",
+        padding: "20px",
+        marginLeft: "3vw",
+      }}
     >
       <StoreNav />
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
-      <h2>Filter</h2>
-      <AppliedTagList appliedTags={filterTags} setFilterTags={setFilterTags} />
+        <div style={{display: 'flex', alignItems: 'center', margin: '10px'}}>
+          <h2 style={{paddingRight: '10px'}}>Filter</h2>
+          <FontAwesomeIcon icon={faTags} size={'lg'} />
+        </div>
+        <AppliedTagList
+          appliedTags={filterTags}
+          setFilterTags={setFilterTags}
+        />
         <label>
           <input
             type="checkBox"
