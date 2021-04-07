@@ -34,6 +34,7 @@ const FilterTag = (props) => {
     <label style={isDisabled ? disabledStyle : tagStyle}>
       <input
         type="checkbox"
+        checked={appliedTags.includes(tag)}
         disabled={isDisabled}
         value={tag}
         onChange={(e) => handleCheck(e.target.value)}
