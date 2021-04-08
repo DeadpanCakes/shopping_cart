@@ -24,24 +24,28 @@ const PageNav = (props) => {
       }}
     >
       <button
+        className="pgBtn"
         disabled={!shelves[parseInt(page) - 1] ? true : false}
         onClick={() => turnPage("prev")}
       >
         Prev
       </button>
-      <select
-        id="pageSelect"
-        onChange={(e) => setPage(parseInt(e.target.value))}
-      >
-        {shelves[page]
-          ? shelves.map((shelf, index) => (
-              <option key={index} value={index}>
-                {index + 1}
-              </option>
-            ))
-          : null}
-      </select>
+      <div className="pgBtn">
+        <select
+          id="pageSelect"
+          onChange={(e) => setPage(parseInt(e.target.value))}
+        >
+          {shelves[page]
+            ? shelves.map((shelf, index) => (
+                <option key={index} value={index}>
+                  {index + 1}
+                </option>
+              ))
+            : null}
+        </select>
+      </div>
       <button
+        className="pgBtn"
         disabled={!shelves[parseInt(page) + 1] ? true : false}
         onClick={() => turnPage("next")}
       >
