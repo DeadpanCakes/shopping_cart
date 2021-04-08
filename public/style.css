@@ -188,6 +188,17 @@ h2 {
   border: 2px solid #f12b6b;
 }
 
+#shopHome {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopSections {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .storeNav {
   width: 100%;
   transition: all 1s;

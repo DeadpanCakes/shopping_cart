@@ -8,9 +8,10 @@ import tillyBanner from './img/tillyBanner.png';
 import supplyBanner from './img/supplyBanner.png';
 
 
-const ShopPage = () => {
+const ShopHome = () => {
+
   return (
-    <main>
+    <main id='shopHome'>
       <ShopHero src={heroImg} alt='Plants Against a Window' />
       <h1>Shop</h1>
       <PageSection
@@ -41,4 +42,4 @@ const ShopPage = () => {
   );
 };
 
-export default ShopPage;
+export default ShopHome;
