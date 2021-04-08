@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const ItemListing = (props) => {
   const { item } = props;
 
-  //Limit string length unless hovered over
   const limitChar = (str) => {
     if (str.length > 10) {
       return str.slice(0,10) + '...'
@@ -18,7 +17,7 @@ const ItemListing = (props) => {
           <img
             alt={`${item.name}`}
             src={item.imgSrc}
-            style={{ maxWidth: "70%", borderRadius:'20px', marginBottom: '20px' }}
+            className='itemListingImg'
           />
           <div style={{display:'flex', marginBottom: '10px'}}>
             <h2>{limitChar(item.name)}</h2>
