@@ -43,6 +43,10 @@ const App = (props) => {
     setCart(updatedCart);
   };
 
+  useEffect(() => {
+    console.log('cart:', cart)
+  }, [cart])
+
   const removeFromCart = (targetItem) => {
     const updatedCart = cart.filter((item) => !(item.id === targetItem.id));
     setCart(updatedCart);

@@ -30,7 +30,7 @@ const ItemPage = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = { ...item, quantity: e.target.quantity.value };
+    const newItem = { ...item, quantity: Number(e.target.quantity.value) };
     if (cart.some((item) => item.id === newItem.id)) {
       updateQuantity(newItem);
     } else {
