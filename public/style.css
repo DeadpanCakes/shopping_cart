@@ -160,6 +160,11 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  color: aliceblue;
+  background-color: #507DBC
+}
+
 button:disabled {
   border: 0;
   border: 1px solid rgb(158, 149, 149);
@@ -315,6 +320,11 @@ button:disabled {
   height: 100%;
   padding: 10px;
   cursor: pointer;
+}
+
+#pageSelect:hover {
+  background-color: #507DBC;
+  color: aliceblue;
 }
 
 .itemPageContainer {
