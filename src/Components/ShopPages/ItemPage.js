@@ -38,9 +38,10 @@ const ItemPage = (props) => {
   };
 
   return (
-    <Fragment>
-      <img alt={item.name} src={item.src}></img>
-      <div>
+  <div className='itemPageContainer'>
+    <main className='itemPage'>
+      <img alt={item.name} src={item.imgSrc} className='itemPageImg'></img>
+      <div className='itemInfo'>
         <h1>{item.name}</h1>
         <h2>${item.price}.00</h2>
         <form onSubmit={handleSubmit}>
@@ -54,7 +55,8 @@ const ItemPage = (props) => {
           <button>Add To Cart</button>
         </form>
       </div>
-    </Fragment>
+    </main>
+    </div>
   );
 };
 

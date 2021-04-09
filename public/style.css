@@ -151,6 +151,20 @@ h2 {
   font-size: 1.5em;
 }
 
+button {
+  margin: 0 5px;
+  border: 1px solid rgb(80, 76, 76);
+  background-color: aliceblue;
+  padding: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  border: 0;
+  border: 1px solid rgb(158, 149, 149);
+}
+
 .headerNav {
   display: flex;
   flex-direction: column;
@@ -289,15 +303,6 @@ h2 {
   cursor: pointer;
 }
 
-button {
-  margin: 0 5px;
-  border: 1px solid rgb(80, 76, 76);
-  background-color: aliceblue;
-  padding: 10px;
-  margin: 0;
-  cursor: pointer;
-}
-
 #pageSelect {
   appearance: none;
   background-color: inherit;
@@ -308,10 +313,38 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
-  border: 0;
-  border: 1px solid rgb(158, 149, 149);
+.itemPageContainer {
+  display: flex;
+  height: 85vh;
 }
+
+.itemPage {
+  width: 75%;
+  height: 60%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: 'img blank'
+  'img info';
+  margin-bottom: 50px;
+}
+
+.itemPageImg {
+  max-height: 400px;
+  width: auto;
+  grid-area: img;
+  align-self: end;
+  justify-self: end;
+  padding: 10px;
+}
+
+.itemInfo {
+  padding: 10px;
+  grid-area: info;
+  align-self: start;
+  justify-self: center;
+}
+
 
 footer,
 .footerLink {
