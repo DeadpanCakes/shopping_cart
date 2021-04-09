@@ -137,7 +137,14 @@ body {
   overflow-x: hidden;
 }
 
-*, p, label, button, option, select, input, a {
+*,
+p,
+label,
+button,
+option,
+select,
+input,
+a {
   font-family: "Khula", sans-serif;
 }
 
@@ -151,6 +158,16 @@ h2 {
   font-size: 1.5em;
 }
 
+a.itemLink,
+a.itemLink:visited {
+  color: #2a2b2a;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 button {
   margin: 0 5px;
   border: 1px solid rgb(80, 76, 76);
@@ -162,7 +179,7 @@ button {
 
 button:hover {
   color: aliceblue;
-  background-color: #507DBC
+  background-color: #507dbc;
 }
 
 button:disabled {
@@ -213,9 +230,9 @@ button:disabled {
 }
 
 .shopSections {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .storeNav {
@@ -304,6 +321,12 @@ button:disabled {
   color: white;
 }
 
+.pageNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .pgBtn {
   margin: 0 5px;
   border: 1px solid rgb(80, 76, 76);
@@ -323,7 +346,7 @@ button:disabled {
 }
 
 #pageSelect:hover {
-  background-color: #507DBC;
+  background-color: #507dbc;
   color: aliceblue;
 }
 
@@ -338,8 +361,9 @@ button:disabled {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr;
-  grid-template-areas: 'img blank'
-  'img info';
+  grid-template-areas:
+    "img blank"
+    "img info";
   margin-bottom: 50px;
 }
 
@@ -361,7 +385,6 @@ button:disabled {
 
 .recommendations {
   display: flex;
-  
 }
 
 footer,

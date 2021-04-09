@@ -17,11 +17,7 @@ const PageNav = (props) => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-      }}
+      className='pageNav'
     >
       <button
         className="pgBtn"

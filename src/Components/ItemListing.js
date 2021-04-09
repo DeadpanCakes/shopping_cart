@@ -5,27 +5,33 @@ const ItemListing = (props) => {
 
   const limitChar = (str) => {
     if (str.length > 10) {
-      return str.slice(0,10) + '...'
+      return str.slice(0, 10) + "...";
     }
-    return str
-  }
+    return str;
+  };
 
   return (
-    <li key={item.key} className="itemListing">
-      <Link to={`/shop/item/${item.id}`}>
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <Link to={`/shop/item/${item.id}`} className="itemLink">
+      <li key={item.key} className="itemListing">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <img
             alt={`${item.name}`}
             src={item.imgSrc}
-            className='itemListingImg'
+            className="itemListingImg"
           />
-          <div style={{display:'flex', marginBottom: '10px'}}>
+          <div style={{ display: "flex", marginBottom: "10px" }}>
             <h2>{limitChar(item.name)}</h2>
             <h4>${item.price}</h4>
           </div>
         </div>
-      </Link>
-    </li>
+      </li>
+    </Link>
   );
 };
 
