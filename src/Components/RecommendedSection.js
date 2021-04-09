@@ -9,13 +9,14 @@ const RecommendedSection = (itemArr) => {
   useEffect(() => {
     if (stock.length > 0) {
       const generateRecommended = (arr) => {
-        if (arr.length >= 3) {
+        if (arr.length >= 5) {
           return arr;
-        } else {
-          const item = stock[Math.floor(Math.random() * stock.length)];
-          arr.push(item);
-          return generateRecommended(arr);
         }
+        const item = stock[Math.floor(Math.random() * stock.length)];
+        if (!arr.includes(item)) {
+          arr.push(item);
+        }
+        return generateRecommended(arr);
       };
 
       const recommendations = generateRecommended([]);
@@ -24,13 +25,12 @@ const RecommendedSection = (itemArr) => {
   }, [stock, itemArr]);
 
   return (
-    <div>
-      <ul>
+    <div className="recommendationsContainer">
+      <h2>Recommendations</h2>
+      <ul className="recommendations">
         {recommendedItems.length > 0 ? (
           recommendedItems.map((item) => {
-            return (
-                <ItemListing key={item.id} item={item} />
-            );
+            return <ItemListing key={item.id} item={item} />;
           })
         ) : (
           <li>Fetching</li>

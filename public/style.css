@@ -345,6 +345,10 @@ button:disabled {
   justify-self: center;
 }
 
+.recommendations {
+  display: flex;
+  
+}
 
 footer,
 .footerLink {
