@@ -58,10 +58,11 @@ const ShopSideBar = (props) => {
       }}
     >
       <StoreNav />
-      <form style={{ display: "flex", flexDirection: "column" }} id="tagForm">
+      <form style={{ display: "flex", flexDirection: "column" }} id="tagForm" onSubmit={(e) => e.preventDefault()}>
         <div style={{display: 'flex', alignItems: 'center', margin: '10px'}}>
           <h2 style={{paddingRight: '10px'}}>Filter</h2>
           <FontAwesomeIcon icon={faTags} size={'lg'} />
+          {filterTags.length>0 ? <button className='clearTagBtn' onClick={() => setFilterTags([])}>Clear All</button>: null}
         </div>
         <AppliedTagList
           appliedTags={filterTags}

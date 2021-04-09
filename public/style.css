@@ -254,6 +254,10 @@ button:disabled {
   margin: 0;
 }
 
+.clearTagBtn {
+  margin-left: 5px;
+}
+
 .deleteTagBtn:hover {
   text-shadow: 0 0 2px white;
 }
