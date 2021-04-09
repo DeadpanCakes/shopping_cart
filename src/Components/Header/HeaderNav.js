@@ -23,8 +23,8 @@ const HeaderNav = (props) => {
         }}
       >
         <li>
-          <Link to="/" style={{ width: "5%" }}>
-            <img alt="Logo" src={logo} style={{ maxHeight: "100%" }}></img>
+          <Link to="/">
+            <img alt="Logo" src={logo} style={{ maxHeight: "100%", width: 'auto' }}></img>
           </Link>
         </li>
         <li

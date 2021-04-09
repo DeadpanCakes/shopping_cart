@@ -4,13 +4,13 @@ import HeaderNav from  './HeaderNav';
 const PageHeader = (props) => {
   const containerStyle = {
     width: "100vw",
-    height: "13vh",
+    height: "120px",
     borderBottom: "10px solid #1C2F4A",
   };
 
   const headerStyle = {
     position: "fixed",
-    height: "13vh",
+    height: "120px",
     width: "100vw",
     display: "flex",
     flexDirection: "column",
