@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import stock from "../../items/stockData/stock";
 
 const ItemPage = (props) => {

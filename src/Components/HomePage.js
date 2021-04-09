@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
-import useStock from '../items/itemHooks/useStock';
+import RecommendedSection from './RecommendedSection';
 
 const HomePage = () => {
-    const stock = useStock()
-    console.log(stock)
-
     return (
         <div>
             <h1>Home</h1>
+            <RecommendedSection itemArr={[]} />
             <Link to='/shop'>Shop</Link>
         </div>
     )
