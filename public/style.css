@@ -230,10 +230,10 @@ button:disabled {
 }
 
 .shopSideBar {
-    width: 13vw;
-    background-color: white;
-    padding: 20px;
-    margin-left: 3vw;
+  width: 13vw;
+  background-color: white;
+  padding: 20px;
+  margin-left: 3vw;
 }
 
 .shopSections {
@@ -295,6 +295,10 @@ button:disabled {
   cursor: pointer;
 }
 
+.shelfContainer {
+  margin-right: 3vw;
+}
+
 .itemListing {
   padding: 10px;
   margin: 5px;
@@ -311,8 +315,7 @@ button:disabled {
 }
 
 .itemListing:hover {
-  background-color: #d7ece2;
-  border: 3px solid rgb(165, 177, 172);
+  filter: drop-shadow(0 0 20px pink)
 }
 
 .heroImg {
@@ -363,7 +366,9 @@ button:disabled {
 
 .itemPageContainer {
   display: flex;
-  height: 85vh;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 100px;
 }
 
 .itemPage {
@@ -392,6 +397,17 @@ button:disabled {
   grid-area: info;
   align-self: start;
   justify-self: center;
+}
+
+.recommendationsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #DDFFF7;
+  background-color: #DDFFF7;
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 10px 50px;
 }
 
 .recommendations {
