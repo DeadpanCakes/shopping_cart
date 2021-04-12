@@ -229,6 +229,13 @@ button:disabled {
   flex-direction: column;
 }
 
+.shopSideBar {
+    width: 13vw;
+    background-color: white;
+    padding: 20px;
+    margin-left: 3vw;
+}
+
 .shopSections {
   display: flex;
   flex-direction: column;
@@ -319,6 +326,10 @@ button:disabled {
   text-align: center;
   font-size: 3em;
   color: white;
+}
+
+.shopPage {
+  display: flex;
 }
 
 .pageNav {

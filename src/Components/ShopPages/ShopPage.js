@@ -21,7 +21,7 @@ const ShopPage = (props) => {
   return (
     <Fragment>
       <ShopHero category={category} />
-      <div style={{ display: "flex" }}>
+      <div className='shopPage'>
         <ShopSideBar
           category={category}
           filterTags={filterTags}

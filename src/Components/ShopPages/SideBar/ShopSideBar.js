@@ -50,12 +50,7 @@ const ShopSideBar = (props) => {
 
   return (
     <aside
-      style={{
-        width: "13vw",
-        backgroundColor: "white",
-        padding: "20px",
-        marginLeft: "3vw",
-      }}
+    className='shopSideBar'
     >
       <StoreNav />
       <form style={{ display: "flex", flexDirection: "column" }} id="tagForm" onSubmit={(e) => e.preventDefault()}>
