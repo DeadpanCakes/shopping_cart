@@ -47,11 +47,7 @@ const App = (props) => {
         <PageHeader />
         <Switch>
           <Route exact path="/cart">
-            <CartPage
-              cart={cart}
-              removeFromCart={removeFromCart}
-              setCart={setCart}
-            />
+            <CartPage />
           </Route>
           <Route path="/shop/allplants">
             <ShopPage category={"Explore All"} />

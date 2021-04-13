@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemListing from "./ItemListing";
 import { CartConsumer } from "../CartContext";
 
-const CartPage = (props) => (
+const CartPage = () => (
   <CartConsumer>
     {(cart) => {
       const { items, setItems, removeItem } = cart;
