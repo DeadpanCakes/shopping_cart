@@ -76,7 +76,7 @@ const App = (props) => {
             )}
           />
           <Route path="/cart/checkout">
-            <CheckoutPage cart={cart} />
+            <CheckoutPage />
           </Route>
         </Switch>
         {props.children}
