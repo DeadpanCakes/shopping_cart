@@ -8,9 +8,8 @@ const HeaderNav = (props) => {
 
   const navContainerStyle = {
     display: "flex",
-    justifyContent: "space-between",
-    height: '80%',
-    flexGrow: '1'
+    height: "80%",
+    flexGrow: "1",
   };
 
   return (
@@ -21,14 +20,14 @@ const HeaderNav = (props) => {
           justifyContent: "space-between",
           minHeight: "100%",
           minWidth: "100vw",
-          listStyle: 'none'
+          listStyle: "none",
         }}
       >
-      <Link to="/" style={{height: '100%'}}>
-        <li style={{height: '100%'}}>
-            <img alt="Logo" src={logo} style={{height: '100%'}}></img>
-        </li>
-          </Link>
+        <Link to="/" style={{ height: "100%", maxWidth: '200px' }}>
+          <li style={{ height: "100%", maxWidth: '100%' }}>
+            <img alt="Logo" src={logo} style={{ height: "100%" }}></img>
+          </li>
+        </Link>
         <li
           style={{ display: "flex", alignItems: "center", marginRight: "20px" }}
         >
