@@ -11,14 +11,6 @@ import { CartProvider } from "./CartContext";
 const App = (props) => {
   const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    setCart(JSON.parse(window.localStorage.getItem("cart")));
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
   const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
 
   const updateQuantity = (newItem) => {
@@ -52,7 +44,7 @@ const App = (props) => {
   return (
     <Fragment>
       <CartProvider>
-        <PageHeader cart={cart} />
+        <PageHeader />
         <Switch>
           <Route exact path="/cart">
             <CartPage

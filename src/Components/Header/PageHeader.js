@@ -1,7 +1,8 @@
 import TopBanner from "./TopBanner";
-import HeaderNav from  './HeaderNav';
+import HeaderNav from "./HeaderNav";
+import { CartConsumer } from "../../CartContext";
 
-const PageHeader = (props) => {
+const PageHeader = () => {
   const containerStyle = {
     width: "100vw",
     height: "120px",
@@ -22,12 +23,16 @@ const PageHeader = (props) => {
   };
 
   return (
-    <div className="headerContainer" style={containerStyle}>
-      <header style={headerStyle}>
-        <TopBanner />
-        <HeaderNav cart={props.cart} />
-      </header>
-    </div>
+    <CartConsumer>
+      {(cart) => (
+        <div className="headerContainer" style={containerStyle}>
+          <header style={headerStyle}>
+            <TopBanner />
+            <HeaderNav cart={cart.items} />
+          </header>
+        </div>
+      )}
+    </CartConsumer>
   );
 };
 
