@@ -1,9 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const CartContext = createContext({items: []});
 
 export function CartProvider(props) {
   const [cartState, setCartState] = useState({items: []});
+
+  useEffect(() => {
+    setCartState(JSON.parse(window.localStorage.getItem("cart")));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("cart", JSON.stringify(cartState));
+  }, [cartState]);
+
   const updateQuantity = (targetItem, newQuantity) => {
     setCartState((prevCart) => {
       return prevCart.map((item) => {
