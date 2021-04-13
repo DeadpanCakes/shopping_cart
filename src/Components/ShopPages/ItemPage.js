@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import stock from "../../items/stockData/stock";
 import RecommendedSection from "../RecommendedSection";
 import ItemControls from "./ItemControls";
@@ -5,12 +6,17 @@ import ItemControls from "./ItemControls";
 const ItemPage = (props) => {
   const { id } = props.match.params;
   const { cart, addToCart, updateQuantity } = props;
+  const [item, setItem] = useState({})
 
-  const fetchItem = (productId) => {
-    return stock.items.find((product) => product.id === productId);
-  };
+  console.log('reached', item)
 
-  const item = fetchItem(id);
+  useEffect(() => {
+    const fetchItem = (productId) => {
+      return stock.items.find((product) => product.id === productId);
+    };
+
+    setItem(fetchItem(id));
+  }, [id]);
 
   return (
     <div className="itemPageContainer">

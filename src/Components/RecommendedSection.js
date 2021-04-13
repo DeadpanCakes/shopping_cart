@@ -8,7 +8,6 @@ const RecommendedSection = (props) => {
   const {itemArr} = props
 
   useEffect(() => {
-    console.log(itemArr)
     if (stock.length > 0) {
       const generateRecommended = (arr) => {
         if (arr.length >= 5) {
