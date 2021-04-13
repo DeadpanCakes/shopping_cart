@@ -1,11 +1,9 @@
 import { createContext, useState } from "react";
-import stock from './items/stockData/stock';
-console.log(stock.items[0].price * stock.items[0].quantity)
 
-const CartContext = createContext([stock.items[0]]);
+const CartContext = createContext({items: []});
 
 export function CartProvider(props) {
-  const [cartState, setCartState] = useState([{...stock.items[0], quantity: 5}]);
+  const [cartState, setCartState] = useState({items: []});
   const updateQuantity = (targetItem, newQuantity) => {
     setCartState((prevCart) => {
       return prevCart.map((item) => {
