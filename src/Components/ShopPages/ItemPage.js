@@ -6,13 +6,14 @@ import { CartConsumer } from "../../CartContext";
 
 const ItemPage = (props) => {
   const { id } = props.match.params;
-  const { cart, addToCart, updateQuantity } = props;
   const [item, setItem] = useState({});
+  const itemArr = [item]
 
   useEffect(() => {
     const fetchItem = (productId) => {
       return stock.items.find((product) => product.id === productId);
     };
+
 
     setItem(fetchItem(id));
   }, [id]);
@@ -40,7 +41,7 @@ const ItemPage = (props) => {
                 />
               </div>
             </main>
-            <RecommendedSection itemArr={[item]} />
+            <RecommendedSection itemArr={itemArr} />
           </div>
         );
       }}

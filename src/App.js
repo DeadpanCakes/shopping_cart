@@ -66,14 +66,7 @@ const App = (props) => {
           </Route>
           <Route
             path="/shop/item/:id"
-            component={(props) => (
-              <ItemPage
-                {...props}
-                cart={cart}
-                addToCart={addToCart}
-                updateQuantity={updateQuantity}
-              />
-            )}
+            component={ItemPage}
           />
           <Route path="/cart/checkout">
             <CheckoutPage />

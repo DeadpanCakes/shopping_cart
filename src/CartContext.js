@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from "react";
 
-const CartContext = createContext({items: []});
+const CartContext = createContext({ items: [] });
 
 export function CartProvider(props) {
-  const [cartState, setCartState] = useState({items: []});
+  const [cartState, setCartState] = useState({ items: [] });
 
   useEffect(() => {
     setCartState(JSON.parse(window.localStorage.getItem("cart")));
@@ -24,7 +24,6 @@ export function CartProvider(props) {
     });
   };
   const addItem = (newItem) => {
-      console.log('reached',newItem)
     if (cartState.some((item) => newItem.id === item.id)) {
       updateQuantity(newItem, newItem.quantity);
     } else {
@@ -40,7 +39,7 @@ export function CartProvider(props) {
     items: cartState,
     addItem,
     removeItem,
-    setItems: setCartState
+    setItems: setCartState,
   };
 
   return (
