@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { CartConsumer } from "../CartContext";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ItemListing = (props) => {
   const { item } = props;
@@ -30,11 +32,16 @@ const ItemListing = (props) => {
                     src={item.imgSrc}
                     className="itemListingImg"
                   />
-                  {cart.items.some((cartedItem) => item.id === cartedItem.id) ?
-                    <div>
-                      <p>In Cart</p>
-                    </div> : null
-                  }
+                  {Array.isArray(cart.items) ? (
+                    cart.items.some(
+                      (cartedItem) => item.id === cartedItem.id
+                    ) ? (
+                      <div className="inCartIconContainer">
+                        <p>In Cart</p>
+                        <FontAwesomeIcon icon={faShoppingCart} />
+                      </div>
+                    ) : null
+                  ) : null}
                 </div>
                 <div style={{ display: "flex", marginBottom: "10px" }}>
                   <h2>{limitChar(item.name)}</h2>

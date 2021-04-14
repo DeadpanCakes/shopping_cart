@@ -325,8 +325,16 @@ button:disabled {
 
 .listingImgContainer>div {
   position: absolute;
-  right: 10%;
-  bottom: 15%;
+  right: -5%;
+  bottom: 8%;
+}
+
+.inCartIconContainer {
+  display: flex;
+  background-color: #7D80DA;
+  color: #2E2D4D;
+  padding: 7px;
+  border-radius: 3px;
 }
 
 .heroImg {
