@@ -24,6 +24,7 @@ export function CartProvider(props) {
     });
   };
   const addItem = (newItem) => {
+      console.log('reached',newItem)
     if (cartState.some((item) => newItem.id === item.id)) {
       updateQuantity(newItem, newItem.quantity);
     } else {

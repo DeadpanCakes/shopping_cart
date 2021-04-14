@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ItemControls = (props) => {
-  const { item, cart, addToCart, updateQuantity } = props;
+  const { item, addToCart } = props;
 
   const [count, setCount] = useState(1);
   const handleIncrement = (e) => {
@@ -21,16 +21,12 @@ const ItemControls = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = { ...item, quantity: Number(e.target.quantity.value) };
-    if (cart.some((item) => item.id === newItem.id)) {
-      updateQuantity(newItem);
-    } else {
-      addToCart(newItem);
-    }
+    const newItem = { ...item, quantity: Number(count) };
+    addToCart(newItem);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <button onClick={handleDecrement}>-</button>
       <input
         value={count}
@@ -38,7 +34,7 @@ const ItemControls = (props) => {
         name="quantity"
       />
       <button onClick={handleIncrement}>+</button>
-      <button>Add To Cart</button>
+      <button onClick={handleSubmit}>Add To Cart</button>
     </form>
   );
 };
