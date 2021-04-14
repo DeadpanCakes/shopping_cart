@@ -12,8 +12,8 @@ const ShopHome = () => {
 
   return (
     <main id='shopHome'>
+    <h1>Shop By Category</h1>
       <ShopHero src={heroImg} alt='Plants Against a Window' />
-      <h1>Shop</h1>
       <PageSection
         name={"Houseplants"}
         category={stock.houseplants}

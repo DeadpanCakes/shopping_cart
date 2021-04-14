@@ -40,7 +40,7 @@ const ShopHero = (props) => {
   return (
     <div className="heroImg" style={heroBGStyle}>
       <div className="heroText">
-        <h1>{category}</h1>
+        <h1 style={{fontSize:'1.5em', padding: '10px 0'}}>{category}</h1>
       </div>
     </div>
   );
