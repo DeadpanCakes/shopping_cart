@@ -14,7 +14,6 @@ const ItemPage = (props) => {
       return stock.items.find((product) => product.id === productId);
     };
 
-
     setItem(fetchItem(id));
   }, [id]);
 
