@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import PageHeader from "./Components/Header/PageHeader";
 import PageFooter from "./Components/Footer/PageFooter";
 import { Switch, Route } from "react-router-dom";
@@ -9,38 +9,6 @@ import ShopPage from "./Components/ShopPages/ShopPage";
 import { CartProvider } from "./CartContext";
 
 const App = (props) => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (newItem) => setCart((prevCart) => [...prevCart, newItem]);
-
-  const updateQuantity = (newItem) => {
-    const updatedCart = cart.map((item) => {
-      if (item.quantity + newItem.quantity < 20) {
-        if (item.id === newItem.id) {
-          return {
-            ...item,
-            quantity: Number(item.quantity) + Number(newItem.quantity),
-          };
-        }
-        return item;
-      } else {
-        if (item.id === newItem.id) {
-          return {
-            ...item,
-            quantity: 20,
-          };
-        }
-        return item;
-      }
-    });
-    setCart(updatedCart);
-  };
-
-  const removeFromCart = (targetItem) => {
-    const updatedCart = cart.filter((item) => !(item.id === targetItem.id));
-    setCart(updatedCart);
-  };
-
   return (
     <Fragment>
       <CartProvider>
