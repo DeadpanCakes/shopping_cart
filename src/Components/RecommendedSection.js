@@ -14,7 +14,7 @@ const RecommendedSection = (props) => {
           return arr;
         }
         const newItem = stock[Math.floor(Math.random() * stock.length)];
-        if (!(arr.includes(newItem) || itemArr.some(item => item === newItem))) {
+        if (!(arr.includes(newItem) || itemArr.some(item => item.id === newItem.id))) {
           arr.push(newItem);
         }
         return generateRecommended(arr);

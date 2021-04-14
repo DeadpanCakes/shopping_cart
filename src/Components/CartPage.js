@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import ItemListing from "./ItemListing";
 import { CartConsumer } from "../CartContext";
+import RecommendedSection from "./RecommendedSection";
 
 const CartPage = () => (
   <CartConsumer>
@@ -70,9 +71,13 @@ const CartPage = () => (
               <Link to="/cart/checkout">
                 <button>Check Out</button>
               </Link>
+            <RecommendedSection itemArr={items} />
             </Fragment>
           ) : (
+            <>
             <p>Your Cart Is Empty</p>
+            <RecommendedSection itemArr={items} />
+            </>
           )}
         </div>
       );
