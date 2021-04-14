@@ -1,6 +1,6 @@
 import stock from "../../items/stockData/stock";
 import PageSection from './PageSection'
-import ShopHero from './ShopHero';
+import ShelfHero from './ShelfHero';
 import heroImg from './img/homeHero.png'
 import succulentImg from './img/succulentBanner.png';
 import houseplantBanner from './img/houseplantBanner.png';
@@ -13,7 +13,7 @@ const ShopHome = () => {
   return (
     <main id='shopHome'>
     <h1>Shop By Category</h1>
-      <ShopHero src={heroImg} alt='Plants Against a Window' />
+      <ShelfHero src={heroImg} alt='Plants Against a Window' />
       <PageSection
         name={"Houseplants"}
         category={stock.houseplants}

@@ -1,5 +1,5 @@
 import { useState, Fragment } from "react";
-import ShopHero from "./ShopHero";
+import ShelfHero from "./ShelfHero";
 import Shelf from "./Shelf";
 import useStock from "../../items/itemHooks/useStock";
 import useSort from "../../items/itemHooks/useSort";
@@ -20,7 +20,7 @@ const ShopPage = (props) => {
 
   return (
     <Fragment>
-      <ShopHero category={category} />
+      <ShelfHero category={category} />
       <div className='shopPage'>
         <ShopSideBar
           category={category}
