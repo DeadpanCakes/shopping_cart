@@ -187,6 +187,11 @@ button:disabled {
   border: 1px solid rgb(158, 149, 149);
 }
 
+input {
+  height: 40px;
+  border: 1px solid gray;
+}
+
 .headerNav {
   display: flex;
   flex-direction: column;

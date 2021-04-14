@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ItemControls = (props) => {
   const { item, addToCart } = props;
@@ -24,6 +24,10 @@ const ItemControls = (props) => {
     const newItem = { ...item, quantity: Number(count) };
     addToCart(newItem);
   };
+
+  useEffect(() => {
+    setCount(1);
+  }, [item])
 
   return (
     <form>
