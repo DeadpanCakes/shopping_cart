@@ -5,6 +5,7 @@ import houseplantBanner from "./img/houseplantBanner.png";
 import tillyBanner from "./img/tillyBanner.png";
 import supplyBanner from "./img/supplyBanner.png";
 import ShopHomeHero from "./ShopHomeHero";
+import allBanner from './img/allBanner.png';
 
 const ShopHome = () => {
   return (
@@ -14,6 +15,7 @@ const ShopHome = () => {
         name={"Shop All"}
         category={stock.items}
         link={"/shop/all"}
+        bannerImg={allBanner}
       />
       <PageSection
         name={"Houseplants"}

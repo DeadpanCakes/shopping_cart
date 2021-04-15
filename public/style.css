@@ -333,8 +333,8 @@ input {
 
 .inCartIconContainer {
   display: flex;
-  background-color: #7D80DA;
-  color: #2E2D4D;
+  background-color: #f3aeae;
+  color: white;
   padding: 7px;
   border-radius: 3px;
 }
