@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const TopBanner = () => {
   return (
     <div style={{color: '#DDFFF7',backgroundColor: '#2A2B2A'}}>
-      <h3 style={{textAlign: 'center', minHeight: '100%'}}>
+      <h3 style={{textAlign: 'center'}}>
         <FontAwesomeIcon icon={faSeedling} />
         {' '} Sign Up For Exclusive Deals! {' '}
         <FontAwesomeIcon icon={faSeedling} />

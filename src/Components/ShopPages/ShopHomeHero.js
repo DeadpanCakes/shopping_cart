@@ -4,7 +4,6 @@ const ShopHomeHero = () => {
     const containerStyle = {
         position: 'relative',
         backgroundImage: `url(${heroImg})`,
-        width: '100vw',
         height: '55vh'
     }
 

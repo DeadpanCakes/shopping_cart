@@ -4,23 +4,17 @@ import ItemListing from '../ItemListing';
 const PageSection = (props) => {
   const { name, category, link, bannerImg } = props;
 
-  const shopSectionsStyle = {
-    display: "flex",
-    flexWrap: "nowrap",
-    flexDirection: "column",
-  };
-  
   const categoryStyle = {
     display: "flex",
     flexWrap: "nowrap",
   };
 
   const Banner = (props) => {
-    return (<img src={props.src} alt={props.alt} style={{width:'100%'}}></img>)
+    return (<img src={props.src} alt={props.alt}></img>)
   }
 
   return (
-    <div style={shopSectionsStyle} className="shopSections">
+    <div className="shopSections">
       <h2>{name}</h2>
       <div style={categoryStyle}>
         {category.map((item) => (

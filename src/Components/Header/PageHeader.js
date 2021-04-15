@@ -4,7 +4,7 @@ import { CartConsumer } from "../../CartContext";
 
 const PageHeader = () => {
   const containerStyle = {
-    width: "100vw",
+    width: "100%",
     height: "120px",
     borderBottom: "10px solid #1C2F4A",
   };
@@ -12,7 +12,7 @@ const PageHeader = () => {
   const headerStyle = {
     position: "fixed",
     height: "120px",
-    width: "100vw",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",

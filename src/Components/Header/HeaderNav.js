@@ -19,7 +19,7 @@ const HeaderNav = (props) => {
           display: "flex",
           justifyContent: "space-between",
           minHeight: "100%",
-          minWidth: "100vw",
+          minWidth: "100%",
           listStyle: "none",
         }}
       >

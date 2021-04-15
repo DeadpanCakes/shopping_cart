@@ -30,7 +30,7 @@ const ShopHero = (props) => {
 
   const heroBGStyle = {
     backgroundImage: `linear-gradient(80deg, rgba(0, 0, 0, 0.3), rgba(43,204,38, 0.3)), url(${img})`,
-    width: '100vw',
+    width: '100%',
     height: '10vh',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
