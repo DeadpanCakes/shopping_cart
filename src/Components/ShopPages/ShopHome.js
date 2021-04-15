@@ -1,19 +1,20 @@
 import stock from "../../items/stockData/stock";
-import PageSection from './PageSection'
-import ShelfHero from './ShelfHero';
-import heroImg from './img/homeHero.png'
-import succulentImg from './img/succulentBanner.png';
-import houseplantBanner from './img/houseplantBanner.png';
-import tillyBanner from './img/tillyBanner.png';
-import supplyBanner from './img/supplyBanner.png';
-
+import PageSection from "./PageSection";
+import succulentImg from "./img/succulentBanner.png";
+import houseplantBanner from "./img/houseplantBanner.png";
+import tillyBanner from "./img/tillyBanner.png";
+import supplyBanner from "./img/supplyBanner.png";
+import ShopHomeHero from "./ShopHomeHero";
 
 const ShopHome = () => {
-
   return (
-    <main id='shopHome'>
-    <h1>Shop By Category</h1>
-      <ShelfHero src={heroImg} alt='Plants Against a Window' />
+    <main id="shopHome">
+      <ShopHomeHero />
+      <PageSection
+        name={"Shop All"}
+        category={stock.items}
+        link={"/shop/all"}
+      />
       <PageSection
         name={"Houseplants"}
         category={stock.houseplants}
