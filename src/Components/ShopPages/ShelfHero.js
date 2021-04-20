@@ -2,6 +2,7 @@ import houseplantHero from "./img/houseplantHero.png";
 import succulentHero from "./img/succulentHero.png";
 import tillyHero from "./img/tillyHero.png";
 import supplyHero from "./img/suppliesHero.png";
+import allHero from "./img/allHero.png";
 import { useState, useEffect } from "react";
 
 const ShopHero = (props) => {
@@ -23,7 +24,7 @@ const ShopHero = (props) => {
             setImg(supplyHero)
             break;
         default:
-            return null
+            return setImg(allHero)
     }
   }, [category]);
 
