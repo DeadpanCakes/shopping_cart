@@ -16,14 +16,13 @@ const PageSection = (props) => {
         className='banner'
       >
         <img src={props.src} alt={`${name}`}></img>
-        <h2 className='bannerText'>{`See All ${name}`}</h2>
+        <h2 className='bannerText'>{`Shop ${name}`}</h2>
       </Link>
     );
   };
 
   return (
     <div className="shopSections">
-      <h2>{name}</h2>
       <div style={categoryStyle}>
         {category.map((item) => (
           <ItemListing key={item.id} item={item} />

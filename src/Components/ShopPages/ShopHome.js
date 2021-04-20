@@ -12,7 +12,7 @@ const ShopHome = () => {
     <main id="shopHome">
       <ShopHomeHero />
       <PageSection
-        name={"Shop All"}
+        name={"All"}
         category={stock.items}
         link={"/shop/all"}
         bannerImg={allBanner}
