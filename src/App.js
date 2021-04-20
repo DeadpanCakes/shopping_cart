@@ -17,7 +17,7 @@ const App = (props) => {
           <Route exact path="/cart">
             <CartPage />
           </Route>
-          <Route path="/shop/allplants">
+          <Route path="/shop/all">
             <ShopPage category={"Explore All"} />
           </Route>
           <Route path="/shop/houseplants">
