@@ -145,6 +145,28 @@ a {
   font-family: "Khula", sans-serif;
 }
 
+body {
+  background: linear-gradient(
+    90deg,
+    hsla(359, 73%, 87%, 1) 40%,
+    hsla(0, 0%, 100%, 1) 60%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(359, 73%, 87%, 1) 40%,
+    hsla(0, 0%, 100%, 1) 60%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(359, 73%, 87%, 1) 40%,
+    hsla(0, 0%, 100%, 1) 60%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F6C5C6", endColorstr="#FFFFFF", GradientType=1 );
+}
+
 h1 {
   font-size: 5em;
   font-family: "Josefin Slab", serif;
@@ -242,6 +264,13 @@ input {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.bannerBorder {
+  min-height: 1px;
+  background-color: #2a2b2a;
 }
 
 .storeNav {
@@ -351,7 +380,6 @@ input {
   font-size: 3em;
   color: white;
 }
-
 
 .bannerText {
   position: absolute;

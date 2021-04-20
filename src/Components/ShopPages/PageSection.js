@@ -8,15 +8,23 @@ const PageSection = (props) => {
     display: "flex",
   };
 
+  const borderDiv = {
+    minHeight: '3px',
+    backgroundColor: 'black',
+    borderTop: '1px solid gray'
+  }
+
   const Banner = (props) => {
     return (
       <Link
-        style={{ position: "relative", width: "100%", alignSelf: "flex-end", color: 'white' }}
+        style={{ display: 'flex', flexDirection: 'column', position: "relative", width: "100%", alignSelf: "flex-end", color: 'white', maxHeight: 48 }}
         to={link}
         className='banner'
       >
-        <img src={props.src} alt={props.alt}></img>
+        <div className='bannerBorder'></div>
+        <img src={props.src} alt={`${name}`}></img>
         <h2 className='bannerText'>{`See All ${name}`}</h2>
+        <div className='bannerBorder'></div>
       </Link>
     );
   };
@@ -29,7 +37,7 @@ const PageSection = (props) => {
           <ItemListing key={item.id} item={item} />
         ))}
       </div>
-      <Banner src={bannerImg} alt="test" />
+      <Banner src={bannerImg} />
     </div>
   );
 };
