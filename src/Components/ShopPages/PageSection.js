@@ -8,12 +8,6 @@ const PageSection = (props) => {
     display: "flex",
   };
 
-  const borderDiv = {
-    minHeight: '3px',
-    backgroundColor: 'black',
-    borderTop: '1px solid gray'
-  }
-
   const Banner = (props) => {
     return (
       <Link
@@ -21,10 +15,8 @@ const PageSection = (props) => {
         to={link}
         className='banner'
       >
-        <div className='bannerBorder'></div>
         <img src={props.src} alt={`${name}`}></img>
         <h2 className='bannerText'>{`See All ${name}`}</h2>
-        <div className='bannerBorder'></div>
       </Link>
     );
   };
