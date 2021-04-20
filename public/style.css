@@ -148,19 +148,19 @@ a {
 body {
   background: linear-gradient(
     90deg,
-    hsla(359, 73%, 87%, 1) 40%,
+    hsla(359, 73%, 87%, 1) 0%,
     hsla(0, 0%, 100%, 1) 60%
   );
 
   background: -moz-linear-gradient(
     90deg,
-    hsla(359, 73%, 87%, 1) 40%,
+    hsla(359, 73%, 87%, 1) 0%,
     hsla(0, 0%, 100%, 1) 60%
   );
 
   background: -webkit-linear-gradient(
     90deg,
-    hsla(359, 73%, 87%, 1) 40%,
+    hsla(359, 73%, 87%, 1) 0%,
     hsla(0, 0%, 100%, 1) 60%
   );
 
@@ -346,7 +346,7 @@ input {
 }
 
 .itemListing:hover {
-  filter: drop-shadow(0 0 20px pink);
+  filter: drop-shadow(0 0 10px #606160);
 }
 
 .listingImgContainer {
