@@ -49,15 +49,21 @@ const ShopSideBar = (props) => {
   }, [category, setFilterTags]);
 
   return (
-    <aside
-    className='shopSideBar'
-    >
+    <aside className="shopSideBar">
       <StoreNav />
-      <form style={{ display: "flex", flexDirection: "column" }} id="tagForm" onSubmit={(e) => e.preventDefault()}>
-        <div style={{display: 'flex', alignItems: 'center', margin: '10px'}}>
-          <h2 style={{paddingRight: '10px'}}>Filter</h2>
-          <FontAwesomeIcon icon={faTags} size={'lg'} />
-          {filterTags.length>0 ? <button className='clearTagBtn' onClick={() => setFilterTags([])}>Clear All</button>: null}
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        id="tagForm"
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <div style={{ display: "flex", alignItems: "center", margin: "10px" }}>
+          <h2 style={{ paddingRight: "10px" }}>Filter</h2>
+          <FontAwesomeIcon icon={faTags} size={"lg"} />
+          {filterTags.length > 0 ? (
+            <button className="clearTagBtn" onClick={() => setFilterTags([])}>
+              Clear All
+            </button>
+          ) : null}
         </div>
         <AppliedTagList
           appliedTags={filterTags}
@@ -72,17 +78,20 @@ const ShopSideBar = (props) => {
           Strict Search?
         </label>
         {tagCategories.map((category) => {
-          return (
-            <TagCategory
-              key={category}
-              stock={stock}
-              category={category}
-              applicableTags={applicableTags}
-              appliedTags={props.appliedTags}
-              handleCheck={handleTagCheck}
-              strictSearch={strictSearch}
-            />
-          );
+          if (applicableTags[category].length > 0) {
+            return (
+              <TagCategory
+                key={category}
+                stock={stock}
+                category={category}
+                applicableTags={applicableTags}
+                appliedTags={props.appliedTags}
+                handleCheck={handleTagCheck}
+                strictSearch={strictSearch}
+              />
+            );
+          }
+          return null;
         })}
       </form>
     </aside>
