@@ -211,6 +211,11 @@ input {
   border: 1px solid gray;
 }
 
+label {
+  display: flex;
+  align-items: center;
+}
+
 .headerNav {
   display: flex;
   flex-direction: column;
