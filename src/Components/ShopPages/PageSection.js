@@ -11,12 +11,22 @@ const PageSection = (props) => {
   const Banner = (props) => {
     return (
       <Link
-        style={{ display: 'flex', flexDirection: 'column', position: "relative", width: "100%", alignSelf: "flex-end", color: 'white', maxHeight: 48 }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          width: "100%",
+          alignSelf: "flex-end",
+          color: "white",
+          maxHeight: 48,
+        }}
         to={link}
-        className='banner'
+        className="banner"
       >
+        <div className="bannerBorder"></div>
         <img src={props.src} alt={`${name}`}></img>
-        <h2 className='bannerText'>{`Shop ${name}`}</h2>
+        <h2 className="bannerText">{`Shop ${name}`}</h2>
+        <div className="bannerBorder"></div>
       </Link>
     );
   };
