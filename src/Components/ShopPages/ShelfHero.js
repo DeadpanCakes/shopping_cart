@@ -1,6 +1,6 @@
 import houseplantHero from "./img/houseplantHero.png";
 import succulentHero from "./img/succulentHero.png";
-import tillyHero from "./img/tillyHero.png";
+import tillyHero from "./img/tillandsiaHero.png";
 import supplyHero from "./img/suppliesHero.png";
 import allHero from "./img/allHero.png";
 import { useState, useEffect } from "react";
@@ -32,7 +32,7 @@ const ShopHero = (props) => {
   const heroBGStyle = {
     backgroundImage: `linear-gradient(80deg, rgba(0, 0, 0, 0.3), rgba(43,204,38, 0.3)), url(${img})`,
     width: '100%',
-    height: '10vh',
+    minHeight: '130px',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
