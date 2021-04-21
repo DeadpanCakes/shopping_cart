@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
+import HomeHero from './HomeHero';
 
 const HomePage = () => {
     return (
         <div>
-            <h1>Home</h1>
-            <Link to='/shop'>Shop</Link>
+            <HomeHero />
         </div>
     )
 }
