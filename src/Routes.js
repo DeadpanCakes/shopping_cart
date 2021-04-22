@@ -3,16 +3,19 @@ import App from "./App";
 import HomePage from "./Components/HomePage";
 import ShopHome from "./Components/ShopPages/ShopHome";
 import Profile from "./Components/Profile";
+import ScrollToTop from "./ScrollToTop";
+
 const Routes = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <App>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/contact" />
           <Route path="/profile" component={Profile} />
           <Route exact path="/shop" component={ShopHome} />
-          </Switch>
+        </Switch>
       </App>
     </BrowserRouter>
   );
