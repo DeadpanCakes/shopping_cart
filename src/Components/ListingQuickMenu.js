@@ -5,12 +5,16 @@ const ListingQuickMenu = (props) => {
 
   const handleIncrement = (e) => {
     e.preventDefault();
-    setCount((prevCount) => prevCount + 1);
+    setCount((prevCount) => {
+      return prevCount >= 9 ? prevCount : prevCount + 1;
+    });
   };
 
   const handleDecrement = (e) => {
     e.preventDefault();
-    setCount((prevCount) => prevCount - 1);
+    setCount((prevCount) => {
+      return prevCount <= 1 ? prevCount : prevCount - 1;
+    });
   };
 
   const handleSubmit = (e) => {
@@ -57,15 +61,12 @@ const ListingQuickMenu = (props) => {
               display: "flex",
               flex: "1",
               backgroundColor: "#f0f8ff",
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '1px solid rgb(80, 76, 76)'
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid rgb(80, 76, 76)",
             }}
           >
-            <h3
-            >
-              {count}
-            </h3>
+            <h3>{count}</h3>
           </div>
           <button onClick={handleIncrement} style={{ flex: "1", padding: 0 }}>
             +
