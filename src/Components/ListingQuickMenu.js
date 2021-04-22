@@ -26,12 +26,6 @@ const ListingQuickMenu = (props) => {
   };
 
   const containerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-around",
-    height: "100%",
-    width: "100%",
   };
 
   const formStyle = {
@@ -41,7 +35,7 @@ const ListingQuickMenu = (props) => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div className='quickMenu'>
       <button>Go To Listing</button>
       <form onSubmit={handleSubmit} style={formStyle}>
         <button onClick={handleSubmit} style={{ height: "100%" }}>

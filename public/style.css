@@ -352,6 +352,24 @@ label {
   margin-bottom: 20px;
 }
 
+.quickMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 89%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 250ms linear;
+  background-color: #2a2b2a80;
+  border-radius: 20px;
+}
+
+.quickMenu:hover {
+  opacity: 1;
+}
+
 .itemListing:hover {
   filter: drop-shadow(0 0 10px #606160);
 }
@@ -361,18 +379,15 @@ label {
   position: relative;
 }
 
-.listingImgContainer > div {
-  position: absolute;
-  right: -5%;
-  bottom: 8%;
-}
-
 .inCartIconContainer {
   display: flex;
   background-color: #f3aeae;
   color: white;
   padding: 7px;
   border-radius: 3px;
+  position: absolute;
+  right: -5%;
+  bottom: 8%;
 }
 
 .heroImg {
