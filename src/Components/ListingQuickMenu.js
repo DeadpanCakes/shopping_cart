@@ -22,21 +22,25 @@ const ListingQuickMenu = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("test");
-    addToCart({...item, quantity: count})
-  };
-
-  const containerStyle = {
+    addToCart({ ...item, quantity: count });
   };
 
   const formStyle = {
     display: "flex",
     height: "35%",
     alignItems: "center",
+    marginBottom: "20px",
   };
 
   return (
-    <div className='quickMenu'>
-      <button>Go To Listing</button>
+    <div className="quickMenu">
+      <button
+        style={{
+          marginBottom: "20px",
+        }}
+      >
+        Go To Listing
+      </button>
       <form onSubmit={handleSubmit} style={formStyle}>
         <button onClick={handleSubmit} style={{ height: "100%" }}>
           Add To Cart
