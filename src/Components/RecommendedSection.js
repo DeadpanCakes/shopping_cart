@@ -10,6 +10,7 @@ const RecommendedSection = (props) => {
   useEffect(() => {
     if (stock.length > 0) {
       const generateRecommended = (arr, num) => {
+        //Added num and extra check to prevent infinite loop if the user would put all items into cart, as a stopgap
         if (arr.length >= 5 || num >=50) {
           return arr;
         }
