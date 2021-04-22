@@ -5,23 +5,28 @@ import useStock from "../items/itemHooks/useStock";
 const RecommendedSection = (props) => {
   const stock = useStock();
   const [recommendedItems, setRecommended] = useState([]);
-  const {itemArr} = props
+  const { itemArr } = props;
 
   useEffect(() => {
     if (stock.length > 0) {
-      const generateRecommended = (arr) => {
-        if (arr.length >= 5) {
+      const generateRecommended = (arr, num) => {
+        if (arr.length >= 5 || num >=50) {
           return arr;
         }
         const newItem = stock[Math.floor(Math.random() * stock.length)];
         //Push new item if it is not a repeat and the user has not already added the item to the cart or is currently browsing that item's page
-        if (!(arr.includes(newItem) || itemArr.some(item => item.id === newItem.id))) {
+        if (
+          !(
+            arr.includes(newItem) ||
+            itemArr.some((item) => item.id === newItem.id)
+          )
+        ) {
           arr.push(newItem);
         }
-        return generateRecommended(arr);
+        return generateRecommended(arr, num+1);
       };
 
-      const recommendations = generateRecommended([]);
+      const recommendations = generateRecommended([], 0);
       setRecommended(recommendations);
     }
   }, [stock, itemArr]);
