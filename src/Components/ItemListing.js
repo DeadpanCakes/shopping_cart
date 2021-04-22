@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CartConsumer } from "../CartContext";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ListingQuickMenu from './ListingQuickMenu';
 
 const ItemListing = (props) => {
   const { item } = props;
@@ -27,6 +28,7 @@ const ItemListing = (props) => {
                 }}
               >
                 <div className="listingImgContainer">
+                  <ListingQuickMenu />
                   <img
                     alt={`${item.name}`}
                     src={item.imgSrc}
