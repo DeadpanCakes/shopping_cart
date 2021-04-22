@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const ListingQuickMenu = (props) => {
   const { addToCart, item } = props;

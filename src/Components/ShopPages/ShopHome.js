@@ -8,12 +8,21 @@ import ShopHomeHero from "./ShopHomeHero";
 import allBanner from './img/allBanner.png';
 
 const ShopHome = () => {
+
+  function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+  }
+  
   return (
     <main id="shopHome">
       <ShopHomeHero />
       <PageSection
         name={"All"}
-        category={stock.items}
+        category={shuffle(stock.items)}
         link={"/shop/all"}
         bannerImg={allBanner}
       />
