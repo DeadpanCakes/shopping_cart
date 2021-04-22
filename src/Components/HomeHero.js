@@ -17,7 +17,7 @@ const HomeHero = () => {
     bottom: "25%",
     left: "10%",
     alignItems: "end",
-    backgroundColor: "aliceblue",
+    backgroundColor: "#f0f8ff95",
     color: "#2a2b2a",
     padding: "20px 45px",
   };
