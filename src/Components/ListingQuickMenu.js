@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 const ListingQuickMenu = (props) => {
+  const { addToCart, item } = props;
+
   const [count, setCount] = useState(1);
 
   const handleIncrement = (e) => {
@@ -20,6 +22,7 @@ const ListingQuickMenu = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("test");
+    addToCart({...item, quantity: count})
   };
 
   const containerStyle = {
@@ -36,16 +39,12 @@ const ListingQuickMenu = (props) => {
     height: "35%",
     alignItems: "center",
   };
-  const test = (e) => {
-    e.preventDefault();
-    console.log(e.target.parentElement);
-  };
 
   return (
     <div style={containerStyle}>
       <button>Go To Listing</button>
       <form onSubmit={handleSubmit} style={formStyle}>
-        <button onClick={test} style={{ height: "100%" }}>
+        <button onClick={handleSubmit} style={{ height: "100%" }}>
           Add To Cart
         </button>
         <div

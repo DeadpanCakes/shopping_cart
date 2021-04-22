@@ -28,7 +28,7 @@ const ItemListing = (props) => {
                 }}
               >
                 <div className="listingImgContainer">
-                  <ListingQuickMenu />
+                  <ListingQuickMenu addToCart={cart.addItem} item={item} />
                   <img
                     alt={`${item.name}`}
                     src={item.imgSrc}
