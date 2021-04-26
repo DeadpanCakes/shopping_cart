@@ -1,5 +1,5 @@
-import ItemListing from "./ItemListing";
-import { CartConsumer } from "../CartContext";
+import ItemListing from "../ItemListing";
+import { CartConsumer } from "../../CartContext";
 import { Fragment } from "react";
 
 const CheckoutPage = () => {
@@ -39,7 +39,7 @@ const CheckoutPage = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              justifyContent: "flex-nd",
+              justifyContent: "flex-end",
             }}
           >
             <main style={{ marginRight: "50%" }}>
