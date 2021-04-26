@@ -102,8 +102,16 @@ const PaymentSection = () => {
 
 const CheckoutForm = () => {
   const [checkoutStep, setCheckoutStep] = useState(1);
-  const incrementStep = () => setCheckoutStep((prevStep) => prevStep + 1);
-  const decrementStep = () => setCheckoutStep((prevStep) => prevStep - 1);
+  const incrementStep = () => {
+    if (checkoutStep < 4) {
+      setCheckoutStep((prevStep) => prevStep + 1);
+    }
+  };
+  const decrementStep = () => {
+    if (checkoutStep > 1) {
+      setCheckoutStep((prevStep) => prevStep - 1);
+    }
+  };
 
   const fetchStep = (step) => {
     switch (step) {
@@ -122,6 +130,7 @@ const CheckoutForm = () => {
 
   return (
     <form>
+        <p>{checkoutStep}</p>
       {fetchStep(checkoutStep)}
       <button
         onClick={(e) => {
