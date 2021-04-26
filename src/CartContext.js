@@ -35,8 +35,6 @@ export function CartProvider(props) {
       prevCart.filter((targetItem) => item !== targetItem)
     );
 
-
-    console.log('thing',cartState)
   const cart = {
     items: cartState,
     addItem,

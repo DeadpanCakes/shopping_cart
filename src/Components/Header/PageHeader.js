@@ -26,7 +26,6 @@ const PageHeader = () => {
     <CartConsumer>
       {(cart) => (
         <div className="headerContainer" style={containerStyle}>
-        {console.log(cart)}
           <header style={headerStyle}>
             <TopBanner />
             <HeaderNav cart={cart.items} />
