@@ -1,4 +1,4 @@
-import ItemListing from "../ItemListing";
+import CheckoutForm from "./CheckoutForm";
 import { CartConsumer } from "../../CartContext";
 import { Fragment } from "react";
 
@@ -34,7 +34,8 @@ const CheckoutPage = () => {
           currency: "USD",
         });
 
-        return (
+        
+        return cart.items.length > 0 ? (
           <div
             style={{
               display: "flex",
@@ -42,19 +43,8 @@ const CheckoutPage = () => {
               justifyContent: "flex-end",
             }}
           >
-            <main style={{ marginRight: "50%" }}>
-              {items.map((item) => {
-                return (
-                  <Fragment key={item.id}>
-                    <ItemListing item={item} />
-                    <div>
-                      <h2>x{item.quantity}</h2>
-                      <h2>${item.price * item.quantity}</h2>
-                    </div>
-                  </Fragment>
-                );
-              })}
-            </main>
+            <CheckoutForm />
+
             <aside>
               <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
               <h3>Taxes: {formatter.format(getTax())}</h3>
@@ -62,7 +52,7 @@ const CheckoutPage = () => {
               <h1>Total: {formatter.format(getTotalCost())}</h1>
             </aside>
           </div>
-        );
+        ) : null
       }}
     </CartConsumer>
   );

@@ -8,6 +8,7 @@ const CartPage = () => (
   <CartConsumer>
     {(cart) => {
       const { items, setItems, removeItem } = cart;
+      console.log(items)
 
       const handleInput = (e) => {
         const target = e.target.parentElement;

@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const CartContext = createContext();
 
 export function CartProvider(props) {
-  const [cartState, setCartState] = useState({ items: [] });
+  const [cartState, setCartState] = useState([]);
 
   useEffect(() => {
     setCartState(JSON.parse(window.localStorage.getItem("cart")));
@@ -35,6 +35,8 @@ export function CartProvider(props) {
       prevCart.filter((targetItem) => item !== targetItem)
     );
 
+
+    console.log('thing',cartState)
   const cart = {
     items: cartState,
     addItem,
