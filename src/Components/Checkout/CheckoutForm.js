@@ -1,104 +1,5 @@
 import { useState } from "react";
-
-const SignUpSection = () => {
-  return (
-    <>
-      <h1>Sign Up!</h1>
-      <label>
-        Email
-        <input type="email"></input>
-      </label>
-      <label>
-        Password
-        <input></input>
-      </label>
-      <label>
-        Confirm Password
-        <input></input>
-      </label>
-    </>
-  );
-};
-
-const ShippingSection = () => {
-  return (
-    <>
-      <h1>Shipping Info</h1>
-      <label>
-        Country*
-        <input></input>
-      </label>
-      <label>
-        Address*
-        <textarea></textarea>
-      </label>
-      <label>
-        ZIP/Postal
-        <input></input>
-      </label>
-      <label>
-        City
-        <input></input>
-      </label>
-      <label>
-        Phone Number
-        <input></input>
-      </label>
-    </>
-  );
-};
-
-const BillingSection = () => {
-  return (
-    <>
-      <h1>Billing Info</h1>
-      <label>
-        Country*
-        <input></input>
-      </label>
-      <label>
-        Address*
-        <textarea></textarea>
-      </label>
-      <label>
-        ZIP/Postal
-        <input></input>
-      </label>
-      <label>
-        City
-        <input></input>
-      </label>
-      <label>
-        Phone Number
-        <input></input>
-      </label>
-    </>
-  );
-};
-
-const PaymentSection = () => {
-  return (
-    <>
-      <h1>Payment Info</h1>
-      <label>
-        Card Number
-        <input></input>
-      </label>
-      <label>
-        Name On Card
-        <input></input>
-      </label>
-      <label>
-        Expiry Date
-        <input></input>
-      </label>
-      <label>
-        Security Code
-        <input></input>
-      </label>
-    </>
-  );
-};
+import checkoutSteps from "./checkoutSteps";
 
 const CheckoutForm = () => {
   const [checkoutStep, setCheckoutStep] = useState(1);
@@ -112,6 +13,13 @@ const CheckoutForm = () => {
       setCheckoutStep((prevStep) => prevStep - 1);
     }
   };
+
+  const [
+    SignUpSection,
+    ShippingSection,
+    BillingSection,
+    PaymentSection,
+  ] = checkoutSteps;
 
   const fetchStep = (step) => {
     switch (step) {
@@ -130,7 +38,7 @@ const CheckoutForm = () => {
 
   return (
     <form>
-        <p>{checkoutStep}</p>
+      <p>{checkoutStep}</p>
       {fetchStep(checkoutStep)}
       <button
         onClick={(e) => {
