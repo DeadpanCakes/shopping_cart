@@ -32,6 +32,7 @@ const checkoutSteps = [
         <label>
           Password
           <input
+            type="password"
             value={pass}
             onChange={(e) => {
               handleInput(e, "pass");
@@ -41,6 +42,7 @@ const checkoutSteps = [
         <label>
           Confirm Password
           <input
+            type="password"
             value={verifyPass}
             onChange={(e) => handleInput(e, "verifyPass")}
           ></input>
