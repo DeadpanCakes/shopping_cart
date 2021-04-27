@@ -1,7 +1,7 @@
 import { useState } from "react";
 import checkoutSteps from "./checkoutSteps";
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
   const [checkoutStep, setCheckoutStep] = useState(1);
   const incrementStep = () => {
     if (checkoutStep < 4) {
@@ -48,14 +48,25 @@ const CheckoutForm = () => {
       >
         Previous Step
       </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          incrementStep();
-        }}
-      >
-        Next Step
-      </button>
+      {checkoutStep < 4 ? (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            incrementStep();
+          }}
+        >
+          Next Step
+        </button>
+      ) : (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            props.emptyCart();
+          }}
+        >
+          Place Order
+        </button>
+      )}
     </form>
   );
 };

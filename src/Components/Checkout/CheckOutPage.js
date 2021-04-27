@@ -6,7 +6,7 @@ const CheckoutPage = () => {
   return (
     <CartConsumer>
       {(cart) => {
-        const { items } = cart;
+        const { items, emptyCart } = cart;
 
         const getSubTotal = () => {
           const priceArr = items.map((item) => item.price * item.quantity);
@@ -34,7 +34,6 @@ const CheckoutPage = () => {
           currency: "USD",
         });
 
-        
         return cart.items.length > 0 ? (
           <div
             style={{
@@ -43,8 +42,7 @@ const CheckoutPage = () => {
               justifyContent: "flex-end",
             }}
           >
-            <CheckoutForm />
-
+            <CheckoutForm emptyCart={emptyCart} />
             <aside>
               <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
               <h3>Taxes: {formatter.format(getTax())}</h3>
@@ -52,7 +50,7 @@ const CheckoutPage = () => {
               <h1>Total: {formatter.format(getTotalCost())}</h1>
             </aside>
           </div>
-        ) : null
+        ) : null;
       }}
     </CartConsumer>
   );

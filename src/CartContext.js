@@ -34,11 +34,15 @@ export function CartProvider(props) {
     setCartState((prevCart) =>
       prevCart.filter((targetItem) => item !== targetItem)
     );
+  const emptyCart = () => {
+    setCartState([])
+  }
 
   const cart = {
     items: cartState,
     addItem,
     removeItem,
+    emptyCart,
     setItems: setCartState,
   };
 
