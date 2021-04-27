@@ -1,20 +1,20 @@
 import { useState } from "react";
 
+const updateState = (setState, field, value) => {
+  setState((prevState) => {
+    return { ...prevState, [field]: value };
+  });
+};
+
+const handleInput = (event, setState, field) => {
+  event.preventDefault();
+  updateState(setState, field, event.target.value);
+};
+
 const checkoutSteps = [
   (props) => {
     const { signUpInfo, setSignUpInfo } = props;
     const { email, pass, verifyPass } = signUpInfo;
-
-    const updateState = (field, value) => {
-      setSignUpInfo((prevState) => {
-        return { ...prevState, [field]: value };
-      });
-    };
-
-    const handleInput = (event, field) => {
-      event.preventDefault();
-      updateState(field, event.target.value);
-    };
 
     return (
       <>
@@ -25,7 +25,7 @@ const checkoutSteps = [
             type="email"
             value={email}
             onChange={(e) => {
-              handleInput(e, "email");
+              handleInput(e, setSignUpInfo, "email");
             }}
           ></input>
         </label>
@@ -35,7 +35,7 @@ const checkoutSteps = [
             type="password"
             value={pass}
             onChange={(e) => {
-              handleInput(e, "pass");
+              handleInput(e, setSignUpInfo, "pass");
             }}
           ></input>
         </label>
@@ -44,7 +44,7 @@ const checkoutSteps = [
           <input
             type="password"
             value={verifyPass}
-            onChange={(e) => handleInput(e, "verifyPass")}
+            onChange={(e) => handleInput(e, setSignUpInfo, "verifyPass")}
           ></input>
         </label>
       </>
@@ -52,6 +52,9 @@ const checkoutSteps = [
   },
 
   (props) => {
+    const {shippingInfo, setShippingInfo} = props;
+    const {name, country, address, zip, city, phone} = shippingInfo;
+  
     return (
       <>
         <h1>Shipping Info</h1>
