@@ -52,91 +52,131 @@ const checkoutSteps = [
   },
 
   (props) => {
-    const {shippingInfo, setShippingInfo} = props;
-    const {name, country, address, zip, city, phone} = shippingInfo;
-  
+    const { shippingInfo, setShippingInfo } = props;
+    const { name, country, address, zip, city, phone } = shippingInfo;
+
     return (
       <>
         <h1>Shipping Info</h1>
         <label>
           Name
-          <input></input>
+          <input
+            value={name}
+            onChange={(e) => handleInput(e, setShippingInfo, "name")}
+          ></input>
         </label>
         <label>
           Country*
-          <input></input>
+          <input
+            value={country}
+            onChange={(e) => handleInput(e, setShippingInfo, "country")}
+          ></input>
         </label>
         <label>
           Address*
-          <textarea></textarea>
+          <textarea
+            value={address}
+            onChange={(e) => handleInput(e, setShippingInfo, "address")}
+          ></textarea>
         </label>
         <label>
           ZIP/Postal
-          <input></input>
+          <input
+            value={zip}
+            onChange={(e) => handleInput(e, setShippingInfo, "zip")}
+          ></input>
         </label>
         <label>
           City
-          <input></input>
+          <input
+            value={city}
+            onChange={(e) => handleInput(e, setShippingInfo, "city")}
+          ></input>
         </label>
         <label>
           Phone Number
-          <input></input>
+          <input
+            value={phone}
+            onChange={(e) => handleInput(e, setShippingInfo, "phone")}
+          ></input>
         </label>
       </>
     );
   },
 
   (props) => {
+    const { billingInfo, setBillingInfo } = props;
+    const { name, country, address, zip, city, phone } = billingInfo;
     return (
       <>
         <h1>Billing Info</h1>
         <label>
           Name
-          <input></input>
+          <input
+            value={name}
+            onChange={(e) => handleInput(e, setBillingInfo, "name")}
+          ></input>
         </label>
         <label>
           Country*
-          <input></input>
+          <input
+            value={country}
+            onChange={(e) => handleInput(e, setBillingInfo, "country")}
+          ></input>
         </label>
         <label>
           Address*
-          <textarea></textarea>
+          <textarea
+            value={address}
+            onChange={(e) => handleInput(e, setBillingInfo, "address")}
+          ></textarea>
         </label>
         <label>
           ZIP/Postal
-          <input></input>
+          <input
+            value={zip}
+            onChange={(e) => handleInput(e, setBillingInfo, "zip")}
+          ></input>
         </label>
         <label>
           City
-          <input></input>
+          <input
+            value={city}
+            onChange={(e) => handleInput(e, setBillingInfo, "city")}
+          ></input>
         </label>
         <label>
           Phone Number
-          <input></input>
+          <input
+            value={phone}
+            onChange={(e) => handleInput(e, setBillingInfo, "phone")}
+          ></input>
         </label>
       </>
     );
   },
 
   (props) => {
+    const { paymentInfo, setPaymentInfo } = props;
+    const { cardNumber, name, expire, code } = paymentInfo;
     return (
       <>
         <h1>Payment Info</h1>
         <label>
           Card Number
-          <input></input>
+          <input value={cardNumber} onChange={(e) => handleInput(e, setPaymentInfo, 'cardNumber')}></input>
         </label>
         <label>
           Name On Card
-          <input></input>
+          <input value={name} onChange={(e) => handleInput(e, setPaymentInfo, 'name')}></input>
         </label>
         <label>
           Expiry Date
-          <input></input>
+          <input value={expire} onChange={(e) => handleInput(e, setPaymentInfo, 'expire')}></input>
         </label>
         <label>
           Security Code
-          <input></input>
+          <input value={code} onChange={(e) => handleInput(e, setPaymentInfo, 'code')}></input>
         </label>
       </>
     );
