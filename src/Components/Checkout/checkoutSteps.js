@@ -25,17 +25,25 @@ const checkoutSteps = [
             type="email"
             value={email}
             onChange={(e) => {
-              handleInput(e, 'email');
+              handleInput(e, "email");
             }}
           ></input>
         </label>
         <label>
           Password
-          <input></input>
+          <input
+            value={pass}
+            onChange={(e) => {
+              handleInput(e, "pass");
+            }}
+          ></input>
         </label>
         <label>
           Confirm Password
-          <input></input>
+          <input
+            value={verifyPass}
+            onChange={(e) => handleInput(e, "verifyPass")}
+          ></input>
         </label>
       </>
     );
