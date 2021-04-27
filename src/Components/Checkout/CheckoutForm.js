@@ -1,7 +1,12 @@
 import { useState } from "react";
+import orderFactory from "../../orderFactory";
 import checkoutSteps from "./checkoutSteps";
 
 const CheckoutForm = (props) => {
+  const [signUpInfo, setSignUpInfo] = useState({email: '', pass: '', verifyPass: ''})
+  const [shippingInfo, setShippingInfo] = useState({name: '',country: '', address: '', zip: '', city: '', phone: ''})
+  const [billingInfo, setBillingInfo] = useState({name: '',country: '', address: '', zip: '', city: '', phone: ''})
+  const [paymentInfo, setPaymentInfo] = useState({cardNumber: '', name: '', expire: '', code: ''})
   const [checkoutStep, setCheckoutStep] = useState(1);
   const incrementStep = () => {
     if (checkoutStep < 4) {
@@ -23,18 +28,21 @@ const CheckoutForm = (props) => {
 
   const fetchStep = (step) => {
     switch (step) {
-      case 1:
-        return <SignUpSection />;
       case 2:
-        return <ShippingSection />;
+        return <ShippingSection shippingInfo={shippingInfo} setShippingInfo={setShippingInfo}/>;
       case 3:
-        return <BillingSection />;
+        return <BillingSection billingInfo={billingInfo} setBillingInfo={setBillingInfo} />;
       case 4:
-        return <PaymentSection />;
+        return <PaymentSection paymentInfo={paymentInfo} setPaymentInfo={setPaymentInfo}/>;
       default:
-        return <SignUpSection />;
+        return <SignUpSection signUpInfo={signUpInfo} setSignUpInfo={setSignUpInfo} />;
     }
   };
+
+  const completeTransaction = () => {
+    //Generate order using orderFactory 
+    props.emptyCart()
+  }
 
   return (
     <form>
@@ -61,7 +69,7 @@ const CheckoutForm = (props) => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            props.emptyCart();
+            completeTransaction();
           }}
         >
           Place Order

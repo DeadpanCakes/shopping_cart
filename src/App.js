@@ -4,7 +4,7 @@ import PageFooter from "./Components/Footer/PageFooter";
 import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
 import CartPage from "./Components/CartPage";
-import CheckoutPage from "./Components/Checkout/CheckOutPage";
+import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import ShopPage from "./Components/ShopPages/ShopPage";
 import { CartProvider } from "./CartContext";
 

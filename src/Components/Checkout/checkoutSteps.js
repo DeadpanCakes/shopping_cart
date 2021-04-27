@@ -1,11 +1,33 @@
+import { useState } from "react";
+
 const checkoutSteps = [
-  () => {
+  (props) => {
+    const { signUpInfo, setSignUpInfo } = props;
+    const { email, pass, verifyPass } = signUpInfo;
+
+    const updateState = (field, value) => {
+      setSignUpInfo((prevState) => {
+        return { ...prevState, [field]: value };
+      });
+    };
+
+    const handleInput = (event, field) => {
+      event.preventDefault();
+      updateState(field, event.target.value);
+    };
+
     return (
       <>
         <h1>Sign Up!</h1>
         <label>
           Email
-          <input type="email"></input>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              handleInput(e, 'email');
+            }}
+          ></input>
         </label>
         <label>
           Password
@@ -19,11 +41,15 @@ const checkoutSteps = [
     );
   },
 
-  () => {
+  (props) => {
     return (
       <>
         <h1>Shipping Info</h1>
         <label>
+          Name
+          <input></input>
+        </label>
+        <label>
           Country*
           <input></input>
         </label>
@@ -47,11 +73,15 @@ const checkoutSteps = [
     );
   },
 
-  () => {
+  (props) => {
     return (
       <>
         <h1>Billing Info</h1>
         <label>
+          Name
+          <input></input>
+        </label>
+        <label>
           Country*
           <input></input>
         </label>
@@ -75,7 +105,7 @@ const checkoutSteps = [
     );
   },
 
-  () => {
+  (props) => {
     return (
       <>
         <h1>Payment Info</h1>
