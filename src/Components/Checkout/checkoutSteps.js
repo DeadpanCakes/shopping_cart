@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const updateState = (setState, field, value) => {
   setState((prevState) => {
     return { ...prevState, [field]: value };
@@ -7,7 +5,6 @@ const updateState = (setState, field, value) => {
 };
 
 const handleInput = (event, setState, field) => {
-  event.preventDefault();
   updateState(setState, field, event.target.value);
 };
 

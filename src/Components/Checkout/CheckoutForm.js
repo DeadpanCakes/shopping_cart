@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import orderFactory from "../../orderFactory";
 import checkoutSteps from "./checkoutSteps";
 
@@ -26,6 +26,17 @@ const CheckoutForm = (props) => {
     PaymentSection,
   ] = checkoutSteps;
 
+  useEffect(() => {
+    const form = document.getElementById('checkoutForm');
+    const listener = (event) => {
+      if (event.code === 'Enter' || event.code=== 'NumpadEnter') {
+        form.submit()
+      }
+    }
+    document.addEventListener('keydown', listener);
+    return () => document.removeEventListener('keydown',listener);
+  },[])
+
   const fetchStep = (step) => {
     switch (step) {
       case 2:
@@ -44,8 +55,19 @@ const CheckoutForm = (props) => {
     props.emptyCart()
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (checkoutStep < 4 ) {
+      console.log('test.pcrh')
+      incrementStep()
+    }
+    else {
+      completeTransaction()
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={(e) => handleSubmit(e)} id='checkoutForm'>
       <p>{checkoutStep}</p>
       {fetchStep(checkoutStep)}
       <button
@@ -75,6 +97,7 @@ const CheckoutForm = (props) => {
           Place Order
         </button>
       )}
+      <button>test</button>
     </form>
   );
 };

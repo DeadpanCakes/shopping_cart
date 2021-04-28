@@ -1,6 +1,5 @@
 import CheckoutForm from "./CheckoutForm";
 import { CartConsumer } from "../../CartContext";
-import { Fragment } from "react";
 
 const CheckoutPage = () => {
   return (
