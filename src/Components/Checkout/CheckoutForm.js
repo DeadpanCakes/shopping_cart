@@ -30,7 +30,7 @@ const CheckoutForm = (props) => {
     const form = document.getElementById('checkoutForm');
     const listener = (event) => {
       if (event.code === 'Enter' || event.code=== 'NumpadEnter') {
-        form.submit()
+        incrementStep();
       }
     }
     document.addEventListener('keydown', listener);
@@ -56,7 +56,8 @@ const CheckoutForm = (props) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    console.log('submitreached')
     if (checkoutStep < 4 ) {
       console.log('test.pcrh')
       incrementStep()
