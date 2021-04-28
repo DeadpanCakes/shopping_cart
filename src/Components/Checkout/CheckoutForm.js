@@ -120,6 +120,7 @@ const CheckoutForm = (props) => {
       onSubmit={(e) => handleSubmit(e)}
       onKeyPress={handleKeyPress}
       id="checkoutForm"
+      style={{flexGrow: 2}}
     >
       <p>{checkoutStep}</p>
       {fetchStep(checkoutStep)}

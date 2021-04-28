@@ -38,11 +38,13 @@ const CheckoutPage = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              justifyContent: "flex-end",
+              alignItems: 'center',
+              justifyContent: "center",
+              height: '100vh'
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />
-            <aside>
+            <aside style={{flexGrow: 1}}>
               <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
               <h3>Taxes: {formatter.format(getTax())}</h3>
               <h3>Shipping: {formatter.format(getShipping())}</h3>
