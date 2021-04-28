@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import orderFactory from "../../orderFactory";
 import checkoutSteps from "./checkoutSteps";
 
@@ -49,22 +49,6 @@ const CheckoutForm = (props) => {
     PaymentSection,
   ] = checkoutSteps;
 
-  // useEffect(() => {
-  //   const listener = (event) => {
-  //     if (event.code === "Enter" || event.code === "NumpadEnter") {
-  //       if (checkoutStep > 4) {
-  //         incrementStep();
-  //       } else {
-  //         completeTransaction();
-  //       }
-  //     }
-  //   };
-  //   document.addEventListener("keydown", listener);
-  //   return () => document.removeEventListener("keydown", listener);
-  // }, []);
-
-
-
   const fetchStep = (step) => {
     switch (step) {
       case 2:
@@ -77,6 +61,7 @@ const CheckoutForm = (props) => {
       case 3:
         return (
           <BillingSection
+            shippingInfo={shippingInfo}
             billingInfo={billingInfo}
             setBillingInfo={setBillingInfo}
           />
@@ -113,14 +98,12 @@ const CheckoutForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitreached");
     if (checkoutStep < 4) {
-      console.log("test.pcrh");
       incrementStep();
     } else {
       completeTransaction();
     }
-  }; 
+  };
 
   const handleKeyPress = (e) => {
     if (e.code === "Enter" || e.code === "NumpadEnter") {
@@ -130,10 +113,14 @@ const CheckoutForm = (props) => {
         completeTransaction();
       }
     }
-  }
+  };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} onKeyPress={handleKeyPress} id="checkoutForm">
+    <form
+      onSubmit={(e) => handleSubmit(e)}
+      onKeyPress={handleKeyPress}
+      id="checkoutForm"
+    >
       <p>{checkoutStep}</p>
       {fetchStep(checkoutStep)}
       <button

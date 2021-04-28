@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const updateState = (setState, field, value) => {
   setState((prevState) => {
     return { ...prevState, [field]: value };
@@ -102,11 +104,35 @@ const checkoutSteps = [
   },
 
   (props) => {
-    const { billingInfo, setBillingInfo } = props;
+    const { shippingInfo, billingInfo, setBillingInfo } = props;
     const { name, country, address, zip, city, phone } = billingInfo;
+
+    const [checkedAsSame, setCheckedAsSame] = useState(false);
+
+    const handleCheck = () => {
+      if (checkedAsSame) {
+        setBillingInfo({
+          name: "",
+          country: "",
+          address: "",
+          zip: "",
+          city: "",
+          phone: "",
+        });
+        setCheckedAsSame((prevState) => !prevState);
+      } else {
+        setBillingInfo(shippingInfo);
+        setCheckedAsSame((prevState) => !prevState);
+      }
+    };
+
     return (
       <>
         <h1>Billing Info</h1>
+        <label>
+          <input type="checkbox" onChange={handleCheck}></input>Same As
+          Shipping?
+        </label>
         <label>
           Name
           <input
@@ -161,19 +187,31 @@ const checkoutSteps = [
         <h1>Payment Info</h1>
         <label>
           Card Number
-          <input value={cardNumber} onChange={(e) => handleInput(e, setPaymentInfo, 'cardNumber')}></input>
+          <input
+            value={cardNumber}
+            onChange={(e) => handleInput(e, setPaymentInfo, "cardNumber")}
+          ></input>
         </label>
         <label>
           Name On Card
-          <input value={name} onChange={(e) => handleInput(e, setPaymentInfo, 'name')}></input>
+          <input
+            value={name}
+            onChange={(e) => handleInput(e, setPaymentInfo, "name")}
+          ></input>
         </label>
         <label>
           Expiry Date
-          <input value={expire} onChange={(e) => handleInput(e, setPaymentInfo, 'expire')}></input>
+          <input
+            value={expire}
+            onChange={(e) => handleInput(e, setPaymentInfo, "expire")}
+          ></input>
         </label>
         <label>
           Security Code
-          <input value={code} onChange={(e) => handleInput(e, setPaymentInfo, 'code')}></input>
+          <input
+            value={code}
+            onChange={(e) => handleInput(e, setPaymentInfo, "code")}
+          ></input>
         </label>
       </>
     );
