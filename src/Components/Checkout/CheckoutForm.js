@@ -120,10 +120,12 @@ const CheckoutForm = (props) => {
       onSubmit={(e) => handleSubmit(e)}
       onKeyPress={handleKeyPress}
       id="checkoutForm"
-      style={{flexGrow: 2}}
+      style={{ display: "flex", flexDirection: "column", justifyContent: 'space-around', alignItems: 'center', flexGrow: 2 }}
     >
-      <p>{checkoutStep}</p>
+      <div>
       {fetchStep(checkoutStep)}
+      </div>
+      <div>
       <button
         onClick={(e) => {
           e.preventDefault();
@@ -151,7 +153,7 @@ const CheckoutForm = (props) => {
           Place Order
         </button>
       )}
-      <button>test</button>
+      </div>
     </form>
   );
 };

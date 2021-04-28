@@ -1,4 +1,5 @@
 import CheckoutForm from "./CheckoutForm";
+import CheckoutListing from './CheckoutListing';
 import { CartConsumer } from "../../CartContext";
 
 const CheckoutPage = () => {
@@ -45,6 +46,11 @@ const CheckoutPage = () => {
           >
             <CheckoutForm emptyCart={emptyCart} />
             <aside style={{flexGrow: 1}}>
+              <ul>
+              {cart.items.map((item) => {
+                return <CheckoutListing key={item.id} item={item}/>
+              })}
+              </ul>
               <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
               <h3>Taxes: {formatter.format(getTax())}</h3>
               <h3>Shipping: {formatter.format(getShipping())}</h3>
