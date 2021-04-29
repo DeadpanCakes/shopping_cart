@@ -506,6 +506,15 @@ label {
   display: flex;
 }
 
+#checkoutForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 2;
+    flex-basis: 2;
+}
+
 footer,
 .footerLink {
   color: #f6c7c7;
