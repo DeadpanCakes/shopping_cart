@@ -131,6 +131,13 @@ const CheckoutForm = (props) => {
     }
   };
 
+  const isTabInactive = (currentStep, threshhold) => {
+    if (currentStep >= threshhold) {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
@@ -145,7 +152,7 @@ const CheckoutForm = (props) => {
         flexBasis: 2,
       }}
     >
-      <div>
+      <ul>
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -159,6 +166,7 @@ const CheckoutForm = (props) => {
             e.preventDefault();
             changeTab("shipping");
           }}
+          disabled={isTabInactive(checkoutStep, 2)}
         >
           Shipping
         </button>
@@ -167,6 +175,7 @@ const CheckoutForm = (props) => {
             e.preventDefault();
             changeTab("billing");
           }}
+          disabled={isTabInactive(checkoutStep, 3)}
         >
           Billing
         </button>
@@ -175,10 +184,11 @@ const CheckoutForm = (props) => {
             e.preventDefault();
             changeTab("payment");
           }}
+          disabled={isTabInactive(checkoutStep, 4)}
         >
           Payment Info
         </button>
-      </div>
+      </ul>
       <div>{fetchStep(checkoutStep)}</div>
       <div>
         <button
