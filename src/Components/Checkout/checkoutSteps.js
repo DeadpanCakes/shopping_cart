@@ -10,6 +10,10 @@ const handleInput = (event, setState, field) => {
   updateState(setState, field, event.target.value);
 };
 
+const inputStyle = {
+  margin: 10,
+};
+
 const checkoutSteps = [
   (props) => {
     const { signUpInfo, setSignUpInfo } = props;
@@ -26,6 +30,7 @@ const checkoutSteps = [
             onChange={(e) => {
               handleInput(e, setSignUpInfo, "email");
             }}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -36,6 +41,7 @@ const checkoutSteps = [
             onChange={(e) => {
               handleInput(e, setSignUpInfo, "pass");
             }}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -44,6 +50,7 @@ const checkoutSteps = [
             type="password"
             value={verifyPass}
             onChange={(e) => handleInput(e, setSignUpInfo, "verifyPass")}
+            style={inputStyle}
           ></input>
         </label>
       </>
@@ -62,6 +69,7 @@ const checkoutSteps = [
           <input
             value={name}
             onChange={(e) => handleInput(e, setShippingInfo, "name")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -69,6 +77,7 @@ const checkoutSteps = [
           <input
             value={country}
             onChange={(e) => handleInput(e, setShippingInfo, "country")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -76,6 +85,7 @@ const checkoutSteps = [
           <textarea
             value={address}
             onChange={(e) => handleInput(e, setShippingInfo, "address")}
+            style={inputStyle}
           ></textarea>
         </label>
         <label>
@@ -83,6 +93,7 @@ const checkoutSteps = [
           <input
             value={zip}
             onChange={(e) => handleInput(e, setShippingInfo, "zip")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -90,6 +101,7 @@ const checkoutSteps = [
           <input
             value={city}
             onChange={(e) => handleInput(e, setShippingInfo, "city")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -97,6 +109,7 @@ const checkoutSteps = [
           <input
             value={phone}
             onChange={(e) => handleInput(e, setShippingInfo, "phone")}
+            style={inputStyle}
           ></input>
         </label>
       </>
@@ -138,6 +151,7 @@ const checkoutSteps = [
           <input
             value={name}
             onChange={(e) => handleInput(e, setBillingInfo, "name")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -145,6 +159,7 @@ const checkoutSteps = [
           <input
             value={country}
             onChange={(e) => handleInput(e, setBillingInfo, "country")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -152,6 +167,7 @@ const checkoutSteps = [
           <textarea
             value={address}
             onChange={(e) => handleInput(e, setBillingInfo, "address")}
+            style={inputStyle}
           ></textarea>
         </label>
         <label>
@@ -159,6 +175,7 @@ const checkoutSteps = [
           <input
             value={zip}
             onChange={(e) => handleInput(e, setBillingInfo, "zip")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -166,6 +183,7 @@ const checkoutSteps = [
           <input
             value={city}
             onChange={(e) => handleInput(e, setBillingInfo, "city")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -173,6 +191,7 @@ const checkoutSteps = [
           <input
             value={phone}
             onChange={(e) => handleInput(e, setBillingInfo, "phone")}
+            style={inputStyle}
           ></input>
         </label>
       </>
@@ -190,6 +209,7 @@ const checkoutSteps = [
           <input
             value={cardNumber}
             onChange={(e) => handleInput(e, setPaymentInfo, "cardNumber")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -197,6 +217,7 @@ const checkoutSteps = [
           <input
             value={name}
             onChange={(e) => handleInput(e, setPaymentInfo, "name")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -204,6 +225,7 @@ const checkoutSteps = [
           <input
             value={expire}
             onChange={(e) => handleInput(e, setPaymentInfo, "expire")}
+            style={inputStyle}
           ></input>
         </label>
         <label>
@@ -211,6 +233,7 @@ const checkoutSteps = [
           <input
             value={code}
             onChange={(e) => handleInput(e, setPaymentInfo, "code")}
+            style={inputStyle}
           ></input>
         </label>
       </>
