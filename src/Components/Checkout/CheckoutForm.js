@@ -4,6 +4,7 @@ import CheckoutFormTabs from "./CheckoutFormTabs";
 import checkoutSteps from "./checkoutSteps";
 
 const CheckoutForm = (props) => {
+  const [isGuest, setIsGuest] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
     pass: "",
@@ -79,6 +80,8 @@ const CheckoutForm = (props) => {
           <SignUpSection
             signUpInfo={signUpInfo}
             setSignUpInfo={setSignUpInfo}
+            isGuest={isGuest}
+            setIsGuest={setIsGuest}
           />
         );
     }

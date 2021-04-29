@@ -16,12 +16,21 @@ const inputStyle = {
 
 const checkoutSteps = [
   (props) => {
-    const { signUpInfo, setSignUpInfo } = props;
+    const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
     const { email, pass, verifyPass } = signUpInfo;
+
+    const toggleCheck = () => {
+      setIsGuest((prevState) => !prevState);
+      console.log('phral')
+    }
 
     return (
       <>
         <h1>Sign Up!</h1>
+        <label>
+          <input type="checkbox" onChange={toggleCheck} defaultChecked={isGuest}></input>Or check out as
+          guest
+        </label>
         <label>
           Email
           <input
@@ -42,6 +51,7 @@ const checkoutSteps = [
               handleInput(e, setSignUpInfo, "pass");
             }}
             style={inputStyle}
+            disabled={isGuest}
           ></input>
         </label>
         <label>
@@ -51,6 +61,7 @@ const checkoutSteps = [
             value={verifyPass}
             onChange={(e) => handleInput(e, setSignUpInfo, "verifyPass")}
             style={inputStyle}
+            disabled={isGuest}
           ></input>
         </label>
       </>
