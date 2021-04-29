@@ -120,7 +120,7 @@ const CheckoutForm = (props) => {
       onSubmit={(e) => handleSubmit(e)}
       onKeyPress={handleKeyPress}
       id="checkoutForm"
-      style={{ display: "flex", flexDirection: "column", justifyContent: 'space-around', alignItems: 'center', flexGrow: 2 }}
+      style={{ display: "flex", flexDirection: "column", justifyContent: 'space-around', alignItems: 'center', flexGrow: 2, flexBasis: 2 }}
     >
       <div>
       {fetchStep(checkoutStep)}
