@@ -115,44 +115,99 @@ const CheckoutForm = (props) => {
     }
   };
 
+  const changeTab = (step) => {
+    switch (step) {
+      case "shipping":
+        setCheckoutStep(2);
+        break;
+      case "billing":
+        setCheckoutStep(3);
+        break;
+      case "payment":
+        setCheckoutStep(4);
+        break;
+      default:
+        setCheckoutStep(1);
+    }
+  };
+
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
       onKeyPress={handleKeyPress}
       id="checkoutForm"
-      style={{ display: "flex", flexDirection: "column", justifyContent: 'space-around', alignItems: 'center', flexGrow: 2, flexBasis: 2 }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "center",
+        flexGrow: 2,
+        flexBasis: 2,
+      }}
     >
       <div>
-      {fetchStep(checkoutStep)}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            changeTab("registration");
+          }}
+        >
+          Registration
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            changeTab("shipping");
+          }}
+        >
+          Shipping
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            changeTab("billing");
+          }}
+        >
+          Billing
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            changeTab("payment");
+          }}
+        >
+          Payment Info
+        </button>
       </div>
+      <div>{fetchStep(checkoutStep)}</div>
       <div>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          decrementStep();
-        }}
-      >
-        Previous Step
-      </button>
-      {checkoutStep < 4 ? (
         <button
           onClick={(e) => {
             e.preventDefault();
-            incrementStep();
+            decrementStep();
           }}
         >
-          Next Step
+          Previous Step
         </button>
-      ) : (
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            completeTransaction();
-          }}
-        >
-          Place Order
-        </button>
-      )}
+        {checkoutStep < 4 ? (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              incrementStep();
+            }}
+          >
+            Next Step
+          </button>
+        ) : (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              completeTransaction();
+            }}
+          >
+            Place Order
+          </button>
+        )}
       </div>
     </form>
   );
