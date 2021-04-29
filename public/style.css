@@ -211,6 +211,10 @@ input {
   border: 1px solid gray;
 }
 
+textarea {
+  border: 1px solid gray;
+}
+
 label {
   display: flex;
   align-items: center;
