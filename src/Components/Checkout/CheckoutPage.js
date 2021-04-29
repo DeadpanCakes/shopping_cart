@@ -45,7 +45,7 @@ const CheckoutPage = () => {
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />
-            <aside style={{ flexGrow: 1, flexBasis: 1 }}>
+            <aside style={{ flexShrink: 1, maxWidth:"50%" }}>
               <ul>
                 {cart.items.map((item) => {
                   return <CheckoutListing key={item.id} item={item} />;

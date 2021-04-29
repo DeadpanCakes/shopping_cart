@@ -516,7 +516,7 @@ label {
     justify-content: space-around;
     align-items: center;
     flex-grow: 2;
-    flex-basis: 2;
+    flex-basis: 800px;
 }
 
 footer,
