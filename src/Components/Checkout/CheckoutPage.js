@@ -1,5 +1,5 @@
 import CheckoutForm from "./CheckoutForm";
-import CheckoutListing from './CheckoutListing';
+import CheckoutListing from "./CheckoutListing";
 import { CartConsumer } from "../../CartContext";
 
 const CheckoutPage = () => {
@@ -39,22 +39,24 @@ const CheckoutPage = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              alignItems: 'center',
+              alignItems: "center",
               justifyContent: "center",
-              height: '100vh'
+              height: "100vh",
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />
-            <aside style={{flexGrow: 1, flexBasis: 1}}>
+            <aside style={{ flexGrow: 1, flexBasis: 1 }}>
               <ul>
-              {cart.items.map((item) => {
-                return <CheckoutListing key={item.id} item={item}/>
-              })}
+                {cart.items.map((item) => {
+                  return <CheckoutListing key={item.id} item={item} />;
+                })}
               </ul>
-              <h3>Subtotal: {formatter.format(getSubTotal())}</h3>
-              <h3>Taxes: {formatter.format(getTax())}</h3>
-              <h3>Shipping: {formatter.format(getShipping())}</h3>
-              <h1>Total: {formatter.format(getTotalCost())}</h1>
+              <div style={{display: 'flex', flexDirection: "column", alignItems:"flex-end", width: '50%'}}>
+                <h3 style={{padding: '2px 0'}}>Subtotal: {formatter.format(getSubTotal())}</h3>
+                <h3 style={{padding: '2px 0'}}>Taxes: {formatter.format(getTax())}</h3>
+                <h3 style={{padding: '2px 0'}}>Shipping: {formatter.format(getShipping())}</h3>
+              </div>
+                <h1>Total: {formatter.format(getTotalCost())}</h1>
             </aside>
           </div>
         ) : null;
