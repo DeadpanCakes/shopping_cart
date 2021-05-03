@@ -246,16 +246,25 @@ label {
   position: relative;
 }
 
-.iconPreAnim {
+#iconPreAnim {
   color: #f6c7c7;
-  filter: drop-shadow(0 0 1px #f12b6b);
   position: absolute;
-  transform: translate(5px, -30px);
-  transition: transform 400ms linear;
+  animation: iconAnim 300ms ease-in-out;
+  opacity: 0;
+  transform: translate(5px, -3px);
 }
 
-.iconAnim {
-  transform: translate(5px, -10px);
+@keyframes iconAnim {
+  0% {
+    transform: translate(5px, -20px);
+  }
+  20%, 50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(5px, -3px);
+  }
 }
 
 #cartCount {

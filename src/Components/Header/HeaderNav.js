@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/headerLogo.png";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +13,8 @@ const HeaderNav = (props) => {
     height: "80%",
     flexGrow: "1",
   };
+
+  const [addingToCart, setAddingToCart] = useState(false);
 
   return (
     <nav style={navContainerStyle}>
@@ -35,15 +38,15 @@ const HeaderNav = (props) => {
           <Link to="/profile" className="headerNav">
             <FontAwesomeIcon icon={faUser} />
           </Link>
-            <Link to="/cart" className="headerNav" id="headerCart">
-              <NewItemIcon />
-              <FontAwesomeIcon icon={faShoppingCart} />
-              {cart.length > 0 ? (
-                <p id="cartCount" style={{ fontSize: "1em" }}>
-                  {cart.length}
-                </p>
-              ) : null}
-            </Link>
+          <Link to="/cart" className="headerNav" id="headerCart">
+            {addingToCart ? <NewItemIcon /> : null}
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {cart.length > 0 ? (
+              <p id="cartCount" style={{ fontSize: "1em" }}>
+                {cart.length}
+              </p>
+            ) : null}
+          </Link>
         </li>
       </ul>
     </nav>
