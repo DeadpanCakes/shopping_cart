@@ -246,6 +246,18 @@ label {
   position: relative;
 }
 
+.iconPreAnim {
+  color: #f6c7c7;
+  filter: drop-shadow(0 0 1px #f12b6b);
+  position: absolute;
+  transform: translate(5px, -30px);
+  transition: transform 400ms linear;
+}
+
+.iconAnim {
+  transform: translate(5px, -10px);
+}
+
 #cartCount {
   position: absolute;
   bottom: -50%;
