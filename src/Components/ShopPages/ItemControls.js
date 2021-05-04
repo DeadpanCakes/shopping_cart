@@ -6,13 +6,11 @@ const ItemControls = (props) => {
 
   const [isBeingAdded, setIsBeingAdded] = useState(false);
   const toggleAdd = async () => {
-    if (!isBeingAdded) {
       setIsBeingAdded(true);
       await new Promise((resolve) => {
         setTimeout(resolve, 400);
       });
       setIsBeingAdded(false);
-    }
   };
 
   const [count, setCount] = useState(1);

@@ -47,7 +47,7 @@ const CategoryPage = (props) => {
   };
 
   return (
-    <div className='shelfContainer' style={{ flexGrow: "10fr", width: "80%", padding: "20px" }}>
+    <div className='shelfContainer' style={{ flexGrow: "7fr", width: "65%", padding: "20px" }}>
       <SortControl
         sort={{
           category,

@@ -287,9 +287,10 @@ label {
   width: 13%;
   background-color: white;
   padding: 20px;
-  margin-left: 3%;
-  border-radius: 5px;
+  margin-left: 7%;
+  margin-right: 5%;
   margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 .shopSections {
