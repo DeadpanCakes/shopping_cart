@@ -1,7 +1,19 @@
 import { useEffect, useState } from "react";
+import Loader from "../Loader";
 
 const ItemControls = (props) => {
   const { item, addToCart } = props;
+
+  const [isBeingAdded, setIsBeingAdded] = useState(false);
+  const toggleAdd = async () => {
+    if (!isBeingAdded) {
+      setIsBeingAdded(true);
+      await new Promise((resolve) => {
+        setTimeout(resolve, 400);
+      });
+      setIsBeingAdded(false);
+    }
+  };
 
   const [count, setCount] = useState(1);
   const handleIncrement = (e) => {
@@ -19,15 +31,29 @@ const ItemControls = (props) => {
       setCount(value);
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isBeingAdded) {
     const newItem = { ...item, quantity: Number(count) };
+    await toggleAdd();
     addToCart(newItem);
+    }
   };
 
   useEffect(() => {
     setCount(1);
-  }, [item])
+  }, [item]);
+
+  const thing = {
+    display: "fixed",
+    position: "absolute",
+    height: "100%",
+    width: "100vw",
+    left: "0",
+    bottom: "0",
+    backgroundColor: "gray",
+    opacity: "0.8",
+  };
 
   return (
     <form>

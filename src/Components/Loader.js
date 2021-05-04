@@ -22,6 +22,16 @@ const Loader = () => {
     return () => clearInterval(animation);
   }, []);
 
+  const containerStyle = {
+      height: '100%',
+      width: '100%',
+  }
+
+  const imgStyle = {
+      height: '100%',
+      width: '100%',
+  }
+
   return (
     <div>
       <img
