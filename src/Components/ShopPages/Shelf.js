@@ -13,8 +13,8 @@ const CategoryPage = (props) => {
 
   useEffect(() => {
     const shelves = [];
-    for (let i = 1; i < stock.length / 9 + 1; i++)
-      shelves.push(stock.slice((i - 1) * 9, i * 9));
+    for (let i = 1; i < stock.length / 20 + 1; i++)
+      shelves.push(stock.slice((i - 1) * 20, i * 20));
     setShelves(shelves);
   }, [stock]);
 
@@ -32,7 +32,7 @@ const CategoryPage = (props) => {
 
   const gridContainer = {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
     justifyItems: "center",
   };
 
