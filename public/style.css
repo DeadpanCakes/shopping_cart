@@ -246,7 +246,7 @@ label {
   position: relative;
 }
 
-#iconPreAnim {
+.iconPreAnim {
   color: #f6c7c7;
   position: absolute;
   animation: iconAnim 300ms ease-in-out;

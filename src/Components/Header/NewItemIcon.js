@@ -12,7 +12,7 @@ const NewItemIcon = () => {
   }, []);
 
   return (
-    <div id="newItemIcon">
+    <div id="newItemIcon" className='iconPreAnim'>
       <FontAwesomeIcon icon={faSeedling} size="xs" />
     </div>
   );

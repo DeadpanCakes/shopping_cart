@@ -8,13 +8,19 @@ import NewItemIcon from "./NewItemIcon";
 const HeaderNav = (props) => {
   const { cart } = props;
 
+  const [addingToCart, setAddingToCart] = useState(false);
+
+
+  useEffect(() => {
+    setAddingToCart(true);
+    setTimeout(() => setAddingToCart(false), 300)
+  }, [cart])
+
   const navContainerStyle = {
     display: "flex",
     height: "80%",
     flexGrow: "1",
   };
-
-  const [addingToCart, setAddingToCart] = useState(false);
 
   return (
     <nav style={navContainerStyle}>
