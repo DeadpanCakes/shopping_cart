@@ -5,18 +5,17 @@ import houseplantBanner from "./img/houseplantBanner.png";
 import tillyBanner from "./img/tillyBanner.png";
 import supplyBanner from "./img/supplyBanner.png";
 import ShopHomeHero from "./ShopHomeHero";
-import allBanner from './img/allBanner.png';
+import allBanner from "./img/allBanner.png";
 
 const ShopHome = () => {
-
   function shuffle(a) {
-      for (let i = a.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
-  
+
   return (
     <main id="shopHome">
       <ShopHomeHero />

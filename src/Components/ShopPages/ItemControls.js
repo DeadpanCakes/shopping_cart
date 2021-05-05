@@ -42,17 +42,6 @@ const ItemControls = (props) => {
     setCount(1);
   }, [item]);
 
-  const thing = {
-    display: "fixed",
-    position: "absolute",
-    height: "100%",
-    width: "100vw",
-    left: "0",
-    bottom: "0",
-    backgroundColor: "gray",
-    opacity: "0.8",
-  };
-
   return (
     <form>
       <button onClick={handleDecrement}>-</button>

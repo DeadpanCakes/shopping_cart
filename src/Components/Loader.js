@@ -28,16 +28,17 @@ const Loader = () => {
   }
 
   const imgStyle = {
-      height: '100%',
-      width: '100%',
+      height: 50,
+      width: 50,
   }
 
   return (
-    <div>
+    <div style={containerStyle}>
       <img
         src={frames[currentFrame - 1]}
         alt="A growing cartoon plant"
         id="loader"
+        style={imgStyle}
       ></img>
     </div>
   );
