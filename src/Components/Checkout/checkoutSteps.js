@@ -260,91 +260,96 @@ const checkoutSteps = [
     const { email } = signUpInfo;
     const { cardNumber, name, expire } = paymentInfo;
 
+    const containerStyle = {margin: 15}
+    const headerStyle = {marginTop: 10}
+    const labelStyle = {textDecoration: 'underline'}
+    const contentStyle = {marginLeft: 10, marginTop: 5}
+
     return (
       <div>
-        <h1>Account Info</h1>
+        <h1 style={headerStyle}>Account Info</h1>
         <div>
-          <h2>Email</h2>
-          <h3>{email}</h3>
+          <h2 style={labelStyle}>Email</h2>
+          <h3 style={contentStyle}>{email}</h3>
         </div>
-        <h1>Shipping Info</h1>
+        <h1 style={headerStyle}>Shipping Info</h1>
         {(() => {
           const { name, country, address, zip, city, phone } = shippingInfo;
           return (
             <>
             <div style={{display: 'flex'}}>
-              <div>
-                <h2>Name</h2>
-                <h3>{name}</h3>
+              <div style={containerStyle}>
+                <h2 style={labelStyle}>Name</h2>
+                <h3 style={contentStyle}>{name}</h3>
               </div>
-              <div>
-                <h2>Phone</h2>
-                <h3>{phone}</h3></div>
+              <div style={containerStyle}>
+                <h2 style={labelStyle}>Phone</h2>
+                <h3 style={contentStyle}>{phone}</h3></div>
               </div>
               <div style={{display:'flex'}}>
-                <div>
-                  <h2>Country</h2> <h3>{country}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>Country</h2> <h3 style={contentStyle}>{country}</h3>
                 </div>
-                <div>
-                  <h2>Street</h2>
-                  <h3>{address}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>Street</h2>
+                  <h3 style={contentStyle}>{address}</h3>
                 </div>
-                <div>
-                  <h2>ZIP/Postal</h2> <h3>{zip}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>ZIP/Postal</h2> <h3 style={contentStyle}>{zip}</h3>
                 </div>
-                <div>
-                  <h2>City</h2>
-                  <h3>{city}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>City</h2>
+                  <h3 style={contentStyle}>{city}</h3>
                 </div>
               </div>
             </>
           );
         })()}
-        <h1>Billing Info</h1>
+        <h1 style={headerStyle}>Billing Info</h1>
         {(() => {
           const { name, country, address, zip, city, phone } = billingInfo;
           return (
             <>
             <div style={{display: 'flex'}}>
-              <div>
-                <h2>Name</h2>
-                <h3>{name}</h3>
+              <div style={containerStyle}>
+                <h2 style={labelStyle}>Name</h2>
+                <h3 style={contentStyle}>{name}</h3>
               </div>
-              <div>
-                <h2>Phone</h2>
-                <h3>{phone}</h3></div>
+              <div style={containerStyle}>
+                <h2 style={labelStyle}>Phone</h2>
+                <h3 style={contentStyle}>{phone}</h3></div>
               </div>
               <div style={{display:'flex'}}>
-                <div>
-                  <h2>Country</h2> <h3>{country}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>Country</h2> <h3 style={contentStyle}>{country}</h3>
                 </div>
-                <div>
-                  <h2>Street</h2>
-                  <h3>{address}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>Street</h2>
+                  <h3 style={contentStyle}>{address}</h3>
                 </div>
-                <div>
-                  <h2>ZIP/Postal</h2> <h3>{zip}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>ZIP/Postal</h2> <h3 style={contentStyle}>{zip}</h3>
                 </div>
-                <div>
-                  <h2>City</h2>
-                  <h3>{city}</h3>
+                <div style={containerStyle}>
+                  <h2 style={labelStyle}>City</h2>
+                  <h3 style={contentStyle}>{city}</h3>
                 </div>
               </div>
             </>
           );
         })()}
-        <h1>Payment Info</h1>
-        <div>
-          <h2>Card</h2>
-          <h3>{cardNumber}</h3>
+        <h1 style={headerStyle}>Payment Info</h1>
+        <div style={containerStyle}>
+          <h2 style={labelStyle}>Card</h2>
+          <h3 style={contentStyle}>{cardNumber}</h3>
         </div>
-        <div>
-          <h2>Expiration</h2>
-          <h3>{expire}</h3>
+        <div style={containerStyle}>
+          <h2 style={labelStyle}>Expiration</h2>
+          <h3 style={contentStyle}>{expire}</h3>
         </div>
-        <div>
-          <h2>Name On Card</h2>
-          <h3>{name}</h3>
+        <div style={containerStyle}>
+          <h2 style={labelStyle}>Name On Card</h2>
+          <h3 style={contentStyle}>{name}</h3>
         </div>
       </div>
     );
