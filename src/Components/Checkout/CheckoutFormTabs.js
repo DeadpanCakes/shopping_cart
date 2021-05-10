@@ -12,6 +12,9 @@ const CheckoutFormTabs = (props) => {
       case "payment":
         setCheckoutStep(4);
         break;
+      case "confirmation":
+        setCheckoutStep(5);
+        break;
       default:
         setCheckoutStep(1);
     }
@@ -60,6 +63,13 @@ const CheckoutFormTabs = (props) => {
       >
         Payment Info
       </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          changeTab("confirmation");
+        }}
+        disabled={isTabInactive(checkoutStep, 5)}
+      >Confirmation</button>
     </ul>
   );
 };

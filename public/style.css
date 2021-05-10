@@ -196,7 +196,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:enabled:hover {
   color: aliceblue;
   background-color: #507dbc;
 }
