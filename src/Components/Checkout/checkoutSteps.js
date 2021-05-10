@@ -216,6 +216,8 @@ const checkoutSteps = [
   (props) => {
     const { paymentInfo, setPaymentInfo } = props;
     const { cardNumber, name, expire, code } = paymentInfo;
+
+    const shortInputStyle = {...inputStyle, width: 70}
     return (
       <>
         <h1>Payment Info</h1>
@@ -240,7 +242,8 @@ const checkoutSteps = [
           <input
             value={expire}
             onChange={(e) => handleInput(e, setPaymentInfo, "expire")}
-            style={inputStyle}
+            style={shortInputStyle}
+            placeholder='MM/YY'
           ></input>
         </label>
         <label>
@@ -248,7 +251,7 @@ const checkoutSteps = [
           <input
             value={code}
             onChange={(e) => handleInput(e, setPaymentInfo, "code")}
-            style={inputStyle}
+            style={shortInputStyle}
           ></input>
         </label>
       </>
