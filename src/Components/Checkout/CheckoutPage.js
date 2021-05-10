@@ -1,6 +1,7 @@
 import CheckoutForm from "./CheckoutForm";
 import CheckoutListing from "./CheckoutListing";
 import { CartConsumer } from "../../CartContext";
+import { useLayoutEffect } from "react";
 
 const CheckoutPage = () => {
   return (
@@ -33,6 +34,11 @@ const CheckoutPage = () => {
           style: "currency",
           currency: "USD",
         });
+        const ulStyle = {
+            width: '100%',
+            height: 500,
+            overflowY: cart.items.length <= 5 ? 'visible' : 'scroll'
+        }
 
         return cart.items.length > 0 ? (
           <div
@@ -49,8 +55,8 @@ const CheckoutPage = () => {
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />
-            <aside style={{ flexShrink: 1, maxWidth: "50%" }}>
-              <ul>
+            <aside style={{ flexShrink: 1, maxWidth: "50%", marginLeft: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+              <ul style={ulStyle}>
                 {cart.items.map((item) => {
                   return <CheckoutListing key={item.id} item={item} />;
                 })}
