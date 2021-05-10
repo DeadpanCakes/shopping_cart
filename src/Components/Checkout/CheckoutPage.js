@@ -42,21 +42,36 @@ const CheckoutPage = () => {
               alignItems: "center",
               justifyContent: "center",
               minHeight: "100vh",
+              width: "60vw",
+              marginLeft: "20vw",
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />
-            <aside style={{ flexShrink: 1, maxWidth:"50%" }}>
+            <aside style={{ flexShrink: 1, maxWidth: "50%" }}>
               <ul>
                 {cart.items.map((item) => {
                   return <CheckoutListing key={item.id} item={item} />;
                 })}
               </ul>
-              <div style={{display: 'flex', flexDirection: "column", alignItems:"flex-end", width: '50%'}}>
-                <h3 style={{padding: '2px 0'}}>Subtotal: {formatter.format(getSubTotal())}</h3>
-                <h3 style={{padding: '2px 0'}}>Taxes: {formatter.format(getTax())}</h3>
-                <h3 style={{padding: '2px 0'}}>Shipping: {formatter.format(getShipping())}</h3>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  width: "50%",
+                }}
+              >
+                <h3 style={{ padding: "2px 0" }}>
+                  Subtotal: {formatter.format(getSubTotal())}
+                </h3>
+                <h3 style={{ padding: "2px 0" }}>
+                  Taxes: {formatter.format(getTax())}
+                </h3>
+                <h3 style={{ padding: "2px 0" }}>
+                  Shipping: {formatter.format(getShipping())}
+                </h3>
               </div>
-                <h1>Total: {formatter.format(getTotalCost())}</h1>
+              <h1>Total: {formatter.format(getTotalCost())}</h1>
             </aside>
           </div>
         ) : null;

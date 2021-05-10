@@ -26,13 +26,18 @@ const CheckoutFormTabs = (props) => {
     }
     return true;
   };
+
+  const ulStyle = {display: 'flex',width: '100%', marginBottom: 10}
+  const tabStyle = {flexGrow: '1'}
+
   return (
-    <ul>
+    <ul style={ulStyle}>
       <button
         onClick={(e) => {
           e.preventDefault();
           changeTab("registration");
         }}
+        style={tabStyle}
       >
         Registration
       </button>
@@ -42,6 +47,7 @@ const CheckoutFormTabs = (props) => {
           changeTab("shipping");
         }}
         disabled={isTabInactive(checkoutStep, 2)}
+        style={tabStyle}
       >
         Shipping
       </button>
@@ -51,6 +57,7 @@ const CheckoutFormTabs = (props) => {
           changeTab("billing");
         }}
         disabled={isTabInactive(checkoutStep, 3)}
+        style={tabStyle}
       >
         Billing
       </button>
@@ -60,6 +67,7 @@ const CheckoutFormTabs = (props) => {
           changeTab("payment");
         }}
         disabled={isTabInactive(checkoutStep, 4)}
+        style={tabStyle}
       >
         Payment Info
       </button>
@@ -69,6 +77,7 @@ const CheckoutFormTabs = (props) => {
           changeTab("confirmation");
         }}
         disabled={isTabInactive(checkoutStep, 5)}
+        style={tabStyle}
       >Confirmation</button>
     </ul>
   );
