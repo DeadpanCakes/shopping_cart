@@ -286,7 +286,7 @@ const checkoutSteps = [
     return (
       <div>
         <h1 style={headerStyle}>Account Info</h1>
-        <div>
+        <div style={containerStyle}>
           <h2 style={labelStyle}>Email</h2>
           <h3 style={contentStyle}>{email}</h3>
         </div>
