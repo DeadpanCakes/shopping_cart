@@ -21,15 +21,19 @@ const checkoutSteps = [
 
     const toggleCheck = () => {
       setIsGuest((prevState) => !prevState);
-      console.log('phral')
-    }
+      console.log("phral");
+    };
 
     return (
       <>
         <h1>Sign Up!</h1>
         <label>
-          <input type="checkbox" onChange={toggleCheck} defaultChecked={isGuest}></input>Or check out as
-          guest
+          <input
+            type="checkbox"
+            onChange={toggleCheck}
+            defaultChecked={isGuest}
+          ></input>
+          Or check out as guest
         </label>
         <label>
           Email
@@ -248,6 +252,101 @@ const checkoutSteps = [
           ></input>
         </label>
       </>
+    );
+  },
+
+  (props) => {
+    const { signUpInfo, shippingInfo, billingInfo, paymentInfo } = props;
+    const { email } = signUpInfo;
+    const { cardNumber, name, expire } = paymentInfo;
+
+    return (
+      <div>
+        <h1>Account Info</h1>
+        <div>
+          <h2>Email</h2>
+          <h3>{email}</h3>
+        </div>
+        <h1>Shipping Info</h1>
+        {(() => {
+          const { name, country, address, zip, city, phone } = shippingInfo;
+          return (
+            <>
+            <div style={{display: 'flex'}}>
+              <div>
+                <h2>Name</h2>
+                <h3>{name}</h3>
+              </div>
+              <div>
+                <h2>Phone</h2>
+                <h3>{phone}</h3></div>
+              </div>
+              <div style={{display:'flex'}}>
+                <div>
+                  <h2>Country</h2> <h3>{country}</h3>
+                </div>
+                <div>
+                  <h2>Street</h2>
+                  <h3>{address}</h3>
+                </div>
+                <div>
+                  <h2>ZIP/Postal</h2> <h3>{zip}</h3>
+                </div>
+                <div>
+                  <h2>City</h2>
+                  <h3>{city}</h3>
+                </div>
+              </div>
+            </>
+          );
+        })()}
+        <h1>Billing Info</h1>
+        {(() => {
+          const { name, country, address, zip, city, phone } = billingInfo;
+          return (
+            <>
+            <div style={{display: 'flex'}}>
+              <div>
+                <h2>Name</h2>
+                <h3>{name}</h3>
+              </div>
+              <div>
+                <h2>Phone</h2>
+                <h3>{phone}</h3></div>
+              </div>
+              <div style={{display:'flex'}}>
+                <div>
+                  <h2>Country</h2> <h3>{country}</h3>
+                </div>
+                <div>
+                  <h2>Street</h2>
+                  <h3>{address}</h3>
+                </div>
+                <div>
+                  <h2>ZIP/Postal</h2> <h3>{zip}</h3>
+                </div>
+                <div>
+                  <h2>City</h2>
+                  <h3>{city}</h3>
+                </div>
+              </div>
+            </>
+          );
+        })()}
+        <h1>Payment Info</h1>
+        <div>
+          <h2>Card</h2>
+          <h3>{cardNumber}</h3>
+        </div>
+        <div>
+          <h2>Expiration</h2>
+          <h3>{expire}</h3>
+        </div>
+        <div>
+          <h2>Name On Card</h2>
+          <h3>{name}</h3>
+        </div>
+      </div>
     );
   },
 ];

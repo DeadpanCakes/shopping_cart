@@ -34,7 +34,7 @@ const CheckoutForm = (props) => {
   });
   const [checkoutStep, setCheckoutStep] = useState(1);
   const incrementStep = () => {
-    if (checkoutStep < 4) {
+    if (checkoutStep < 5) {
       setCheckoutStep((prevStep) => prevStep + 1);
     }
   };
@@ -49,6 +49,7 @@ const CheckoutForm = (props) => {
     ShippingSection,
     BillingSection,
     PaymentSection,
+    ConfirmationSection
   ] = checkoutSteps;
 
   const fetchStep = (step) => {
@@ -75,6 +76,15 @@ const CheckoutForm = (props) => {
             setPaymentInfo={setPaymentInfo}
           />
         );
+        case 5: 
+        return (
+          <ConfirmationSection
+          signUpInfo={signUpInfo}
+          shippingInfo={shippingInfo}
+          billingInfo={billingInfo}
+          paymentInfo={paymentInfo}
+           />
+        )
       default:
         return (
           <SignUpSection
@@ -102,7 +112,7 @@ const CheckoutForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (checkoutStep < 4) {
+    if (checkoutStep < 5) {
       incrementStep();
     } else {
       completeTransaction();
@@ -111,7 +121,7 @@ const CheckoutForm = (props) => {
 
   const handleKeyPress = (e) => {
     if (e.code === "Enter" || e.code === "NumpadEnter") {
-      if (checkoutStep < 4) {
+      if (checkoutStep < 5) {
         incrementStep();
       } else {
         completeTransaction();
@@ -125,7 +135,10 @@ const CheckoutForm = (props) => {
       onKeyPress={handleKeyPress}
       id="checkoutForm"
     >
-      <CheckoutFormTabs checkoutStep={checkoutStep} setCheckoutStep={setCheckoutStep} />
+      <CheckoutFormTabs
+        checkoutStep={checkoutStep}
+        setCheckoutStep={setCheckoutStep}
+      />
       <div>{fetchStep(checkoutStep)}</div>
       <div>
         <button
@@ -136,7 +149,7 @@ const CheckoutForm = (props) => {
         >
           Previous Step
         </button>
-        {checkoutStep < 4 ? (
+        {checkoutStep < 5 ? (
           <button
             onClick={(e) => {
               e.preventDefault();

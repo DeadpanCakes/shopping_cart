@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Loader from "../Loader";
 
 const ItemControls = (props) => {
   const { item, addToCart } = props;
