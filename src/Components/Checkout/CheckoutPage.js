@@ -43,7 +43,9 @@ const CheckoutPage = () => {
               justifyContent: "center",
               minHeight: "100vh",
               width: "60vw",
-              marginLeft: "20vw",
+              marginLeft: '20vw',
+              marginTop: "10px",
+              marginBottom: '20px',
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />

@@ -24,6 +24,14 @@ const checkoutSteps = [
       console.log("phral");
     };
 
+    const ulStyle = {
+      listStyleType: 'circle'
+    }
+
+    const liStyle = {
+      marginLeft: 25
+    }
+
     return (
       <>
         <h1>Sign Up!</h1>
@@ -68,6 +76,13 @@ const checkoutSteps = [
             disabled={isGuest}
           ></input>
         </label>
+        <h3>Passwords should contain:</h3>
+        <ul style={ulStyle}>
+          <li style={liStyle}>At least 8 characters</li>
+          <li style={liStyle}>At least 1 capital letter</li>
+          <li style={liStyle}>At least 1 lower case letter</li>
+          <li style={liStyle}>At least one symbol</li>
+        </ul>
       </>
     );
   },
