@@ -1,7 +1,6 @@
 import CheckoutForm from "./CheckoutForm";
 import CheckoutListing from "./CheckoutListing";
 import { CartConsumer } from "../../CartContext";
-import { useLayoutEffect } from "react";
 
 const CheckoutPage = () => {
   return (
