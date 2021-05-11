@@ -1,6 +1,7 @@
 import CheckoutForm from "./CheckoutForm";
 import CheckoutListing from "./CheckoutListing";
 import { CartConsumer } from "../../CartContext";
+import CheckoutPlaceholder from './CheckoutPlaceholder';
 
 const CheckoutPage = () => {
   return (
@@ -81,7 +82,7 @@ const CheckoutPage = () => {
               <h1>Total: {formatter.format(getTotalCost())}</h1>
             </aside>
           </div>
-        ) : null;
+        ) : <CheckoutPlaceholder />;
       }}
     </CartConsumer>
   );
