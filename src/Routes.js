@@ -4,6 +4,7 @@ import HomePage from "./Components/HomePage";
 import ShopHome from "./Components/ShopPages/ShopHome";
 import Profile from "./Components/Profile";
 import ScrollToTop from "./ScrollToTop";
+import About from './Components/Info/About';
 import Contact from './Components/Info/Contact';
 
 const Routes = () => {
@@ -13,6 +14,7 @@ const Routes = () => {
       <App>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={About} />
           <Route path="/contact" component={Contact}/>
           <Route path="/profile" component={Profile} />
           <Route exact path="/shop" component={ShopHome} />
