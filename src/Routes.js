@@ -4,8 +4,9 @@ import HomePage from "./Components/HomePage";
 import ShopHome from "./Components/ShopPages/ShopHome";
 import Profile from "./Components/Profile";
 import ScrollToTop from "./ScrollToTop";
-import About from './Components/Info/About';
-import Contact from './Components/Info/Contact';
+import About from "./Components/Info/About";
+import Contact from "./Components/Info/Contact";
+import Shipping from "./Components/Info/Shipping";
 
 const Routes = () => {
   return (
@@ -15,7 +16,8 @@ const Routes = () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact}/>
+          <Route path="/contact" component={Contact} />
+          <Route path="/shipping" component={Shipping} />
           <Route path="/profile" component={Profile} />
           <Route exact path="/shop" component={ShopHome} />
         </Switch>
