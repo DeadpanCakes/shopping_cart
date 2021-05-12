@@ -4,6 +4,7 @@ import HomePage from "./Components/HomePage";
 import ShopHome from "./Components/ShopPages/ShopHome";
 import Profile from "./Components/Profile";
 import ScrollToTop from "./ScrollToTop";
+import Contact from './Components/Info/Contact';
 
 const Routes = () => {
   return (
@@ -12,7 +13,7 @@ const Routes = () => {
       <App>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/contact" />
+          <Route path="/contact" component={Contact}/>
           <Route path="/profile" component={Profile} />
           <Route exact path="/shop" component={ShopHome} />
         </Switch>
