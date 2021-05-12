@@ -45,17 +45,18 @@ const CheckoutPage = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              alignItems: "center",
+              alignItems: "stretch",
               justifyContent: "center",
-              minHeight: "100vh",
+              minHeight: "85vh",
               width: "60vw",
               marginLeft: '20vw',
               marginTop: "10px",
-              marginBottom: '20px',
+              padding: '0 100px',
+              backgroundColor: '#ffffff50'
             }}
           >
             <CheckoutForm emptyCart={emptyCart} />
-            <aside style={{ flexShrink: 1, maxWidth: "50%", marginLeft: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <aside style={{ flexShrink: 1, maxWidth: "50%", marginLeft: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop:50}}>
               <ul style={ulStyle}>
                 {cart.items.map((item) => {
                   return <CheckoutListing key={item.id} item={item} />;
