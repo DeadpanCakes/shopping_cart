@@ -57,6 +57,14 @@ const SignUpStep = (props) => {
     updateState(setState, field, event.target.value);
   };
 
+  useEffect(() => {
+    if (isPassValid && isPassSame) {
+      updateState(setSignUpInfo, 'isValid', true)
+    } else {
+      updateState(setSignUpInfo, 'isValid', false)
+    }
+  }, [setSignUpInfo ,isPassValid, isPassSame])
+
   const inputStyle = {
     margin: 10,
   };

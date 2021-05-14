@@ -13,6 +13,7 @@ const CheckoutForm = (props) => {
     email: "",
     pass: "",
     verifyPass: "",
+    isValid: false,
   });
   const [shippingInfo, setShippingInfo] = useState({
     name: "",
@@ -21,6 +22,7 @@ const CheckoutForm = (props) => {
     zip: "",
     city: "",
     phone: "",
+    isValid: false,
   });
   const [billingInfo, setBillingInfo] = useState({
     name: "",
@@ -29,12 +31,14 @@ const CheckoutForm = (props) => {
     zip: "",
     city: "",
     phone: "",
+    isValid: false,
   });
   const [paymentInfo, setPaymentInfo] = useState({
     cardNumber: "",
     name: "",
     expire: "",
     code: "",
+    isValid: false,
   });
   const [checkoutStep, setCheckoutStep] = useState(1);
   const incrementStep = () => {
