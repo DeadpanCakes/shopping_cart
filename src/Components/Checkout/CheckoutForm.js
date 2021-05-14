@@ -1,7 +1,11 @@
 import { useState } from "react";
 import orderFactory from "../../orderFactory";
 import CheckoutFormTabs from "./CheckoutFormTabs";
-import checkoutSteps from "./checkoutSteps";
+import SignupStep from "./SignUpStep";
+import ShippingStep from "./ShippingStep";
+import BillingStep from "./BillingStep";
+import PaymentStep from "./PaymentStep";
+import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
   const [isGuest, setIsGuest] = useState(false);
@@ -44,26 +48,18 @@ const CheckoutForm = (props) => {
     }
   };
 
-  const [
-    SignUpSection,
-    ShippingSection,
-    BillingSection,
-    PaymentSection,
-    ConfirmationSection
-  ] = checkoutSteps;
-
   const fetchStep = (step) => {
     switch (step) {
       case 2:
         return (
-          <ShippingSection
+          <ShippingStep
             shippingInfo={shippingInfo}
             setShippingInfo={setShippingInfo}
           />
         );
       case 3:
         return (
-          <BillingSection
+          <BillingStep
             shippingInfo={shippingInfo}
             billingInfo={billingInfo}
             setBillingInfo={setBillingInfo}
@@ -71,23 +67,23 @@ const CheckoutForm = (props) => {
         );
       case 4:
         return (
-          <PaymentSection
+          <PaymentStep
             paymentInfo={paymentInfo}
             setPaymentInfo={setPaymentInfo}
           />
         );
-        case 5: 
+      case 5:
         return (
-          <ConfirmationSection
-          signUpInfo={signUpInfo}
-          shippingInfo={shippingInfo}
-          billingInfo={billingInfo}
-          paymentInfo={paymentInfo}
-           />
-        )
+          <ConfirmationStep
+            signUpInfo={signUpInfo}
+            shippingInfo={shippingInfo}
+            billingInfo={billingInfo}
+            paymentInfo={paymentInfo}
+          />
+        );
       default:
         return (
-          <SignUpSection
+          <SignupStep
             signUpInfo={signUpInfo}
             setSignUpInfo={setSignUpInfo}
             isGuest={isGuest}
