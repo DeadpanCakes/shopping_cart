@@ -105,7 +105,7 @@ const SignUpStep = (props) => {
             isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
           }
         ></input>
-        <div style={{position: 'absolute', right: '32%'}}>
+        <div style={{position: 'absolute', right: '32%', color: isEmailValid ? 'green' : 'red'}}>
         {email.length > 0 ? (
           isEmailValid ? (
             <FontAwesomeIcon icon={faCheckCircle} />
@@ -128,7 +128,7 @@ const SignUpStep = (props) => {
           disabled={isGuest}
           className={isPassValid ? null : "invalid"}
         ></input>
-        <div style={{position: 'absolute', right: '23%'}}>
+        <div style={{position: 'absolute', right: '23%', color: isPassValid ? 'green' : 'red'}}>
         {pass.length > 0 ? (
           isPassValid ? (
             <FontAwesomeIcon icon={faCheckCircle} />
