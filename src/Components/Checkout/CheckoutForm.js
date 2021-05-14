@@ -48,51 +48,6 @@ const CheckoutForm = (props) => {
     }
   };
 
-  const fetchStep = (step) => {
-    switch (step) {
-      case 2:
-        return (
-          <ShippingStep
-            shippingInfo={shippingInfo}
-            setShippingInfo={setShippingInfo}
-          />
-        );
-      case 3:
-        return (
-          <BillingStep
-            shippingInfo={shippingInfo}
-            billingInfo={billingInfo}
-            setBillingInfo={setBillingInfo}
-          />
-        );
-      case 4:
-        return (
-          <PaymentStep
-            paymentInfo={paymentInfo}
-            setPaymentInfo={setPaymentInfo}
-          />
-        );
-      case 5:
-        return (
-          <ConfirmationStep
-            signUpInfo={signUpInfo}
-            shippingInfo={shippingInfo}
-            billingInfo={billingInfo}
-            paymentInfo={paymentInfo}
-          />
-        );
-      default:
-        return (
-          <SignupStep
-            signUpInfo={signUpInfo}
-            setSignUpInfo={setSignUpInfo}
-            isGuest={isGuest}
-            setIsGuest={setIsGuest}
-          />
-        );
-    }
-  };
-
   const completeTransaction = () => {
     //Generate order using orderFactory
     const order = orderFactory(
@@ -135,7 +90,33 @@ const CheckoutForm = (props) => {
         checkoutStep={checkoutStep}
         setCheckoutStep={setCheckoutStep}
       />
-      <div>{fetchStep(checkoutStep)}</div>
+      <div>{[
+          <SignupStep
+            signUpInfo={signUpInfo}
+            setSignUpInfo={setSignUpInfo}
+            isGuest={isGuest}
+            setIsGuest={setIsGuest}
+          />,
+          <ShippingStep
+            shippingInfo={shippingInfo}
+            setShippingInfo={setShippingInfo}
+          />,
+          <BillingStep
+            shippingInfo={shippingInfo}
+            billingInfo={billingInfo}
+            setBillingInfo={setBillingInfo}
+          />,
+          <PaymentStep
+            paymentInfo={paymentInfo}
+            setPaymentInfo={setPaymentInfo}
+          />,
+          <ConfirmationStep
+            signUpInfo={signUpInfo}
+            shippingInfo={shippingInfo}
+            billingInfo={billingInfo}
+            paymentInfo={paymentInfo}
+          />
+          ][checkoutStep - 1 ]}</div>
       <div>
         <button
           onClick={(e) => {
