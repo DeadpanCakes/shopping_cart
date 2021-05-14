@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckCircle,
+  faTimesCircle,
+  faCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const SignUpStep = (props) => {
   const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
@@ -19,7 +23,7 @@ const SignUpStep = (props) => {
 
   useEffect(() => {
     setLengthValid(/\S{8,20}/.test(pass));
-    setUpperValid(/\d/.test(pass));
+    setUpperValid(/[A-Z]/.test(pass));
     setLowerValid(/[a-z]/.test(pass));
     setDigitValid(/\d/.test(pass));
     setSymbolValid(/\W/.test(pass));
@@ -61,10 +65,6 @@ const SignUpStep = (props) => {
     setIsGuest((prevState) => !prevState);
   };
 
-  const ulStyle = {
-    listStyleType: "circle",
-  };
-
   const liStyle = {
     marginLeft: 25,
   };
@@ -99,11 +99,19 @@ const SignUpStep = (props) => {
           onChange={(e) => {
             handleInput(e, setSignUpInfo, "pass");
           }}
-          style={isPassValid ? {...inputStyle, borderColor: 'green'} : inputStyle}
+          style={
+            isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
+          }
           disabled={isGuest}
           className={isPassValid ? null : "invalid"}
         ></input>
-        {pass.length > 0 ? isPassValid ? <FontAwesomeIcon icon={faCheckCircle} />: <FontAwesomeIcon icon={faTimesCircle} /> : null}
+        {pass.length > 0 ? (
+          isPassValid ? (
+            <FontAwesomeIcon icon={faCheckCircle} />
+          ) : (
+            <FontAwesomeIcon icon={faTimesCircle} />
+          )
+        ) : null}
       </label>
       <label>
         Confirm Password
@@ -111,18 +119,68 @@ const SignUpStep = (props) => {
           type="password"
           value={verifyPass}
           onChange={(e) => handleInput(e, setSignUpInfo, "verifyPass")}
-          style={isPassSame ? {...inputStyle, borderColor: 'green'} : inputStyle}
+          style={
+            isPassSame ? { ...inputStyle, borderColor: "green" } : inputStyle
+          }
           disabled={isGuest}
           className={isPassSame ? null : "invalid"}
         ></input>
-        {verifyPass.length > 0 ? isPassSame ? <FontAwesomeIcon icon={faCheckCircle} />: <FontAwesomeIcon icon={faTimesCircle} /> : null}
+        {verifyPass.length > 0 ? (
+          isPassSame ? (
+            <FontAwesomeIcon icon={faCheckCircle} />
+          ) : (
+            <FontAwesomeIcon icon={faTimesCircle} />
+          )
+        ) : null}
       </label>
       <h3>Passwords should contain:</h3>
-      <ul style={ulStyle}>
-        <li style={liStyle}>At least 8 characters</li>
-        <li style={liStyle}>At least 1 capital letter</li>
-        <li style={liStyle}>At least 1 lower case letter</li>
-        <li style={liStyle}>At least one symbol</li>
+      <ul>
+        <li style={liStyle}>
+          <FontAwesomeIcon
+          size='xs'
+            icon={
+              pass.length > 0
+                ? isPassLengthValid
+                  ? faCheckCircle
+                  : faTimesCircle
+                : faCircle
+            }
+          />
+          At least 8 characters
+        </li>
+        <li style={liStyle}>
+          <FontAwesomeIcon
+          size='xs'
+            icon={
+              pass.length > 0
+                ? passHasUpper
+                  ? faCheckCircle
+                  : faTimesCircle
+                : faCircle
+            }
+          />At least 1 capital letter</li>
+        <li style={liStyle}>
+          <FontAwesomeIcon
+          size='xs'
+            icon={
+              pass.length > 0
+                ? passHasLower
+                  ? faCheckCircle
+                  : faTimesCircle
+                : faCircle
+            }
+          />At least 1 lower case letter</li>
+        <li style={liStyle}>
+          <FontAwesomeIcon
+          size='xs'
+            icon={
+              pass.length > 0
+                ? passHasSymbol
+                  ? faCheckCircle
+                  : faTimesCircle
+                : faCircle
+            }
+          />At least one symbol</li>
       </ul>
     </>
   );
