@@ -9,6 +9,7 @@ import {
 const SignUpStep = (props) => {
   const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
   const { email, pass, verifyPass } = signUpInfo;
+  const [isEmailValid, setEmailVaild] = useState(false);
   const [isPassValid, setPassValid] = useState(false);
   const [isPassLengthValid, setLengthValid] = useState(false);
   const [passHasUpper, setUpperValid] = useState(false);
@@ -16,6 +17,10 @@ const SignUpStep = (props) => {
   const [passHasDigit, setDigitValid] = useState(false);
   const [passHasSymbol, setSymbolValid] = useState(false);
   const [isPassSame, setSame] = useState(false);
+
+  useEffect(() => {
+    setEmailVaild(/^[\w.]+[@][\w-.]+[.][\S]+$/gm.test(email));
+  }, [email]);
 
   useEffect(() => {
     setSame(pass === verifyPass && verifyPass.length > 8);
@@ -67,6 +72,7 @@ const SignUpStep = (props) => {
 
   const inputStyle = {
     margin: 10,
+    paddingRight: 30
   };
 
   const toggleCheck = () => {
@@ -88,16 +94,25 @@ const SignUpStep = (props) => {
         ></input>
         Or check out as guest
       </label>
-      <label>
+      <label style={{position: 'relative'}}>
         Email
         <input
-          type="email"
           value={email}
           onChange={(e) => {
             handleInput(e, setSignUpInfo, "email");
           }}
-          style={inputStyle}
+          style={
+            isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
+          }
         ></input>
+        <div style={{position: 'absolute', right: '32%'}}>
+        {email.length > 0 ? (
+          isEmailValid ? (
+            <FontAwesomeIcon icon={faCheckCircle} />
+          ) : (
+            <FontAwesomeIcon icon={faTimesCircle} />
+          )
+        ) : null}</div>
       </label>
       <label style={{position: 'relative'}}>
         Password
