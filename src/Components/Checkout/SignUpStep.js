@@ -1,6 +1,47 @@
+import { useState, useEffect } from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
+
 const SignUpStep = (props) => {
   const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
   const { email, pass, verifyPass } = signUpInfo;
+  const [isPassValid, setPassValid] = useState(false);
+  const [isPassLengthValid, setLengthValid] = useState(false);
+  const [passHasUpper, setUpperValid] = useState(false);
+  const [passHasLower, setLowerValid] = useState(false);
+  const [passHasDigit, setDigitValid] = useState(false);
+  const [passHasSymbol, setSymbolValid] = useState(false);
+  const [isPassSame, setSame] = useState(false);
+
+  useEffect(() => {
+    setSame(pass === verifyPass && verifyPass.length > 8);
+  }, [pass, verifyPass]);
+
+  useEffect(() => {
+    setLengthValid(/\S{8,20}/.test(pass));
+    setUpperValid(/\d/.test(pass));
+    setLowerValid(/[a-z]/.test(pass));
+    setDigitValid(/\d/.test(pass));
+    setSymbolValid(/\W/.test(pass));
+  }, [pass]);
+
+  useEffect(() => {
+    setPassValid(
+      [
+        isPassLengthValid,
+        passHasUpper,
+        passHasLower,
+        passHasDigit,
+        passHasSymbol,
+      ].every((criteria) => criteria === true)
+    );
+  }, [
+    isPassLengthValid,
+    passHasUpper,
+    passHasLower,
+    passHasDigit,
+    passHasSymbol,
+  ]);
 
   const updateState = (setState, field, value) => {
     setState((prevState) => {
@@ -58,9 +99,11 @@ const SignUpStep = (props) => {
           onChange={(e) => {
             handleInput(e, setSignUpInfo, "pass");
           }}
-          style={inputStyle}
+          style={isPassValid ? {...inputStyle, borderColor: 'green'} : inputStyle}
           disabled={isGuest}
+          className={isPassValid ? null : "invalid"}
         ></input>
+        {pass.length > 0 ? isPassValid ? <FontAwesomeIcon icon={faCheckCircle} />: <FontAwesomeIcon icon={faTimesCircle} /> : null}
       </label>
       <label>
         Confirm Password
@@ -68,9 +111,11 @@ const SignUpStep = (props) => {
           type="password"
           value={verifyPass}
           onChange={(e) => handleInput(e, setSignUpInfo, "verifyPass")}
-          style={inputStyle}
+          style={isPassSame ? {...inputStyle, borderColor: 'green'} : inputStyle}
           disabled={isGuest}
+          className={isPassSame ? null : "invalid"}
         ></input>
+        {verifyPass.length > 0 ? isPassSame ? <FontAwesomeIcon icon={faCheckCircle} />: <FontAwesomeIcon icon={faTimesCircle} /> : null}
       </label>
       <h3>Passwords should contain:</h3>
       <ul style={ulStyle}>
