@@ -5,6 +5,7 @@ import {
   faTimesCircle,
   faCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { faPhoenixSquadron } from "@fortawesome/free-brands-svg-icons";
 
 const SignUpStep = (props) => {
   const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
@@ -91,7 +92,7 @@ const SignUpStep = (props) => {
           style={inputStyle}
         ></input>
       </label>
-      <label>
+      <label style={{position: 'relative'}}>
         Password
         <input
           type="password"
@@ -105,15 +106,16 @@ const SignUpStep = (props) => {
           disabled={isGuest}
           className={isPassValid ? null : "invalid"}
         ></input>
+        <div style={{position: 'absolute', right: '23%'}}>
         {pass.length > 0 ? (
           isPassValid ? (
             <FontAwesomeIcon icon={faCheckCircle} />
           ) : (
             <FontAwesomeIcon icon={faTimesCircle} />
           )
-        ) : null}
+        ) : null}</div>
       </label>
-      <label>
+      <label style={{position: 'relative'}}>
         Confirm Password
         <input
           type="password"
@@ -125,6 +127,7 @@ const SignUpStep = (props) => {
           disabled={isGuest}
           className={isPassSame ? null : "invalid"}
         ></input>
+        <div style = {{position: 'absolute', right: '5%', color: isPassSame ? 'green' : 'red'}}>
         {verifyPass.length > 0 ? (
           isPassSame ? (
             <FontAwesomeIcon icon={faCheckCircle} />
@@ -132,6 +135,7 @@ const SignUpStep = (props) => {
             <FontAwesomeIcon icon={faTimesCircle} />
           )
         ) : null}
+        </div>
       </label>
       <h3>Passwords should contain:</h3>
       <ul>
