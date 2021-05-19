@@ -31,13 +31,21 @@ const ShippingStep = (props) => {
     });
   };
 
+  useEffect(() => {
+    if (isNameValid && isCountryValid && isAddressValid) {
+      setShippingInfo((prevState) => {
+        return { ...prevState, isValid: true };
+      });
+    }
+  }, [setShippingInfo ,isNameValid, isCountryValid, isAddressValid]);
+
   const handleInput = (event, setState, field) => {
     updateState(setState, field, event.target.value);
   };
 
   const inputStyle = {
     margin: 10,
-    paddingRight: 25
+    paddingRight: 25,
   };
   return (
     <>
@@ -65,7 +73,7 @@ const ShippingStep = (props) => {
           ) : null}
         </div>
       </label>
-      <label style={{position: "relative"}}>
+      <label style={{ position: "relative" }}>
         Country*
         <input
           value={country}
@@ -88,7 +96,7 @@ const ShippingStep = (props) => {
           ) : null}
         </div>
       </label>
-      <label style={{position: "relative"}}>
+      <label style={{ position: "relative" }}>
         Address*
         <textarea
           value={address}
@@ -98,7 +106,7 @@ const ShippingStep = (props) => {
         <div
           style={{
             position: "absolute",
-            top: '20%',
+            top: "20%",
             right: "28%",
             color: isAddressValid ? "green" : "red",
           }}

@@ -173,7 +173,7 @@ const CheckoutForm = (props) => {
           Previous Step
         </button>
         {checkoutStep < 5 ? (
-          <button>
+          <button onClick={(e) => handleSubmit(e)}>
             Next Step
           </button>
         ) : (
