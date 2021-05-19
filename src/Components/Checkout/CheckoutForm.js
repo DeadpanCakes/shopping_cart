@@ -72,8 +72,6 @@ const CheckoutForm = (props) => {
       } else {
         completeTransaction();
       }
-    } else {
-      console.log('not valid')
     }
   };
 
