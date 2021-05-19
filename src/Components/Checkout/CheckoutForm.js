@@ -65,21 +65,61 @@ const CheckoutForm = (props) => {
     props.emptyCart();
   };
 
+  const checkIfComplete = (isValid) => {
+    if (isValid) {
+      if (checkoutStep < 5) {
+        incrementStep();
+      } else {
+        completeTransaction();
+      }
+    } else {
+      console.log('not valid')
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (checkoutStep < 5) {
-      incrementStep();
-    } else {
-      completeTransaction();
+    switch (checkoutStep) {
+      case 1:
+        checkIfComplete(signUpInfo.isValid);
+        break;
+      case 2:
+        checkIfComplete(shippingInfo.isValid);
+        break;
+      case 3:
+        checkIfComplete(billingInfo.isValid);
+        break;
+      case 4:
+        checkIfComplete(paymentInfo.isValid);
+        break;
+      case 5:
+        return true;
+      default:
+        console.log(checkoutStep);
+        return false;
     }
   };
 
   const handleKeyPress = (e) => {
     if (e.code === "Enter" || e.code === "NumpadEnter") {
-      if (checkoutStep < 5) {
-        incrementStep();
-      } else {
-        completeTransaction();
+      switch (checkoutStep) {
+        case 1:
+          checkIfComplete(signUpInfo.isValid);
+          break;
+        case 2:
+          checkIfComplete(shippingInfo.isValid);
+          break;
+        case 3:
+          checkIfComplete(billingInfo.isValid);
+          break;
+        case 4:
+          checkIfComplete(paymentInfo.isValid);
+          break;
+        case 5:
+          return true;
+        default:
+          console.log(checkoutStep);
+          return false;
       }
     }
   };
@@ -94,33 +134,37 @@ const CheckoutForm = (props) => {
         checkoutStep={checkoutStep}
         setCheckoutStep={setCheckoutStep}
       />
-      <div>{[
-          <SignupStep
-            signUpInfo={signUpInfo}
-            setSignUpInfo={setSignUpInfo}
-            isGuest={isGuest}
-            setIsGuest={setIsGuest}
-          />,
-          <ShippingStep
-            shippingInfo={shippingInfo}
-            setShippingInfo={setShippingInfo}
-          />,
-          <BillingStep
-            shippingInfo={shippingInfo}
-            billingInfo={billingInfo}
-            setBillingInfo={setBillingInfo}
-          />,
-          <PaymentStep
-            paymentInfo={paymentInfo}
-            setPaymentInfo={setPaymentInfo}
-          />,
-          <ConfirmationStep
-            signUpInfo={signUpInfo}
-            shippingInfo={shippingInfo}
-            billingInfo={billingInfo}
-            paymentInfo={paymentInfo}
-          />
-          ][checkoutStep - 1 ]}</div>
+      <div>
+        {
+          [
+            <SignupStep
+              signUpInfo={signUpInfo}
+              setSignUpInfo={setSignUpInfo}
+              isGuest={isGuest}
+              setIsGuest={setIsGuest}
+            />,
+            <ShippingStep
+              shippingInfo={shippingInfo}
+              setShippingInfo={setShippingInfo}
+            />,
+            <BillingStep
+              shippingInfo={shippingInfo}
+              billingInfo={billingInfo}
+              setBillingInfo={setBillingInfo}
+            />,
+            <PaymentStep
+              paymentInfo={paymentInfo}
+              setPaymentInfo={setPaymentInfo}
+            />,
+            <ConfirmationStep
+              signUpInfo={signUpInfo}
+              shippingInfo={shippingInfo}
+              billingInfo={billingInfo}
+              paymentInfo={paymentInfo}
+            />,
+          ][checkoutStep - 1]
+        }
+      </div>
       <div>
         <button
           onClick={(e) => {
@@ -131,12 +175,7 @@ const CheckoutForm = (props) => {
           Previous Step
         </button>
         {checkoutStep < 5 ? (
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              incrementStep();
-            }}
-          >
+          <button>
             Next Step
           </button>
         ) : (
