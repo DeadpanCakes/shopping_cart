@@ -36,6 +36,10 @@ const ShippingStep = (props) => {
       setShippingInfo((prevState) => {
         return { ...prevState, isValid: true };
       });
+    } else {
+      setShippingInfo((prevState) => {
+        return { ...prevState, isValid: false }
+      })
     }
   }, [setShippingInfo ,isNameValid, isCountryValid, isAddressValid]);
 

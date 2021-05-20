@@ -55,9 +55,6 @@ const PaymentStep = (props) => {
     paddingRight: 25,
   };
   const shortInputStyle = { ...inputStyle, width: 70 };
-  const indicatorStyle = {
-    position: "absolute",
-  };
   return (
     <>
       <p>{isExpireValid.toString()}</p>

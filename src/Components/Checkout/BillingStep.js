@@ -36,6 +36,10 @@ const BillingStep = (props) => {
       setBillingInfo((prevState) => {
         return { ...prevState, isValid: true };
       });
+    } else {
+      setBillingInfo((prevState) => {
+        return {...prevState, isValid: false};
+      })
     }
   }, [setBillingInfo, isNameValid, isCountryValid, isAddressValid]);
 
@@ -133,11 +137,11 @@ const BillingStep = (props) => {
             ...indicatorStyle,
             top: "20%",
             right: "15%",
-            color: isCountryValid ? "green" : "red",
+            color: isAddressValid ? "green" : "red",
           }}
         >
-          {country.length > 0 ? (
-            isCountryValid ? (
+          {address.length > 0 ? (
+            isAddressValid ? (
               <FontAwesomeIcon icon={faCheckCircle} />
             ) : (
               <FontAwesomeIcon icon={faTimesCircle} />

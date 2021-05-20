@@ -63,12 +63,12 @@ const SignUpStep = (props) => {
   };
 
   useEffect(() => {
-    if (isPassValid && isPassSame) {
+    if (isEmailValid && isPassValid && isPassSame) {
       updateState(setSignUpInfo, 'isValid', true)
     } else {
       updateState(setSignUpInfo, 'isValid', false)
     }
-  }, [setSignUpInfo ,isPassValid, isPassSame])
+  }, [setSignUpInfo, isEmailValid, isPassValid, isPassSame])
 
   const inputStyle = {
     margin: 10,
