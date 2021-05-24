@@ -69,7 +69,7 @@ const PaymentStep = (props) => {
         <div
           style={{
             position: "absolute",
-            right: "28%",
+            right: "32%",
             color: isNumberValid ? "green" : "red",
           }}
         >
@@ -92,7 +92,7 @@ const PaymentStep = (props) => {
         <div
           style={{
             position: "absolute",
-            right: "26%",
+            right: "30%",
             color: isNameValid ? "green" : "red",
           }}
         >
@@ -116,7 +116,7 @@ const PaymentStep = (props) => {
         <div
           style={{
             position: "absolute",
-            right: "57%",
+            right: "60%",
             color: isExpireValid ? "green" : "red",
           }}
         >
@@ -139,7 +139,7 @@ const PaymentStep = (props) => {
         <div
           style={{
             position: "absolute",
-            right: "54%",
+            right: "57%",
             color: isCodeValid ? "green" : "red",
           }}
         >

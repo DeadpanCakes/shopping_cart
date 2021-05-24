@@ -64,7 +64,7 @@ const ShippingStep = (props) => {
         <div
           style={{
             position: "absolute",
-            right: "39%",
+            right: "42%",
             color: isNameValid ? "green" : "red",
           }}
         >
@@ -87,7 +87,7 @@ const ShippingStep = (props) => {
         <div
           style={{
             position: "absolute",
-            right: "36%",
+            right: "39%",
             color: isCountryValid ? "green" : "red",
           }}
         >
@@ -111,7 +111,7 @@ const ShippingStep = (props) => {
           style={{
             position: "absolute",
             top: "20%",
-            right: "28%",
+            right: "33%",
             color: isAddressValid ? "green" : "red",
           }}
         >

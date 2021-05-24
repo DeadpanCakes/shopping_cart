@@ -136,7 +136,7 @@ const BillingStep = (props) => {
           style={{
             ...indicatorStyle,
             top: "20%",
-            right: "15%",
+            right: "18%",
             color: isAddressValid ? "green" : "red",
           }}
         >
