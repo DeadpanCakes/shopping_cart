@@ -169,6 +169,7 @@ const CheckoutForm = (props) => {
             e.preventDefault();
             decrementStep();
           }}
+          disabled={checkoutStep <= 1}
         >
           Previous Step
         </button>
