@@ -63,16 +63,16 @@ const SignUpStep = (props) => {
   };
 
   useEffect(() => {
-    if (isEmailValid && isPassValid && isPassSame) {
-      updateState(setSignUpInfo, 'isValid', true)
+    if (isEmailValid && ((isPassValid && isPassSame) || isGuest)) {
+      updateState(setSignUpInfo, "isValid", true);
     } else {
-      updateState(setSignUpInfo, 'isValid', false)
+      updateState(setSignUpInfo, "isValid", false);
     }
-  }, [setSignUpInfo, isEmailValid, isPassValid, isPassSame])
+  }, [setSignUpInfo, isEmailValid, isPassValid, isPassSame, isGuest]);
 
   const inputStyle = {
     margin: 10,
-    paddingRight: 30
+    paddingRight: 30,
   };
 
   const toggleCheck = () => {
@@ -94,7 +94,7 @@ const SignUpStep = (props) => {
         ></input>
         Or check out as guest
       </label>
-      <label style={{position: 'relative'}}>
+      <label style={{ position: "relative" }}>
         Email
         <input
           value={email}
@@ -105,16 +105,23 @@ const SignUpStep = (props) => {
             isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
           }
         ></input>
-        <div style={{position: 'absolute', right: '32%', color: isEmailValid ? 'green' : 'red'}}>
-        {email.length > 0 ? (
-          isEmailValid ? (
-            <FontAwesomeIcon icon={faCheckCircle} />
-          ) : (
-            <FontAwesomeIcon icon={faTimesCircle} />
-          )
-        ) : null}</div>
+        <div
+          style={{
+            position: "absolute",
+            right: "32%",
+            color: isEmailValid ? "green" : "red",
+          }}
+        >
+          {email.length > 0 ? (
+            isEmailValid ? (
+              <FontAwesomeIcon icon={faCheckCircle} />
+            ) : (
+              <FontAwesomeIcon icon={faTimesCircle} />
+            )
+          ) : null}
+        </div>
       </label>
-      <label style={{position: 'relative'}}>
+      <label style={{ position: "relative" }}>
         Password
         <input
           type="password"
@@ -128,16 +135,23 @@ const SignUpStep = (props) => {
           disabled={isGuest}
           className={isPassValid ? null : "invalid"}
         ></input>
-        <div style={{position: 'absolute', right: '23%', color: isPassValid ? 'green' : 'red'}}>
-        {pass.length > 0 ? (
-          isPassValid ? (
-            <FontAwesomeIcon icon={faCheckCircle} />
-          ) : (
-            <FontAwesomeIcon icon={faTimesCircle} />
-          )
-        ) : null}</div>
+        <div
+          style={{
+            position: "absolute",
+            right: "23%",
+            color: isPassValid ? "green" : "red",
+          }}
+        >
+          {pass.length > 0 ? (
+            isPassValid ? (
+              <FontAwesomeIcon icon={faCheckCircle} />
+            ) : (
+              <FontAwesomeIcon icon={faTimesCircle} />
+            )
+          ) : null}
+        </div>
       </label>
-      <label style={{position: 'relative'}}>
+      <label style={{ position: "relative" }}>
         Confirm Password
         <input
           type="password"
@@ -149,21 +163,27 @@ const SignUpStep = (props) => {
           disabled={isGuest}
           className={isPassSame ? null : "invalid"}
         ></input>
-        <div style = {{position: 'absolute', right: '5%', color: isPassSame ? 'green' : 'red'}}>
-        {verifyPass.length > 0 ? (
-          isPassSame ? (
-            <FontAwesomeIcon icon={faCheckCircle} />
-          ) : (
-            <FontAwesomeIcon icon={faTimesCircle} />
-          )
-        ) : null}
+        <div
+          style={{
+            position: "absolute",
+            right: "5%",
+            color: isPassSame ? "green" : "red",
+          }}
+        >
+          {verifyPass.length > 0 ? (
+            isPassSame ? (
+              <FontAwesomeIcon icon={faCheckCircle} />
+            ) : (
+              <FontAwesomeIcon icon={faTimesCircle} />
+            )
+          ) : null}
         </div>
       </label>
       <h3>Passwords should contain:</h3>
       <ul>
         <li style={liStyle}>
           <FontAwesomeIcon
-          size='xs'
+            size="xs"
             icon={
               pass.length > 0
                 ? isPassLengthValid
@@ -176,7 +196,7 @@ const SignUpStep = (props) => {
         </li>
         <li style={liStyle}>
           <FontAwesomeIcon
-          size='xs'
+            size="xs"
             icon={
               pass.length > 0
                 ? passHasUpper
@@ -184,10 +204,12 @@ const SignUpStep = (props) => {
                   : faTimesCircle
                 : faCircle
             }
-          />At least 1 capital letter</li>
+          />
+          At least 1 capital letter
+        </li>
         <li style={liStyle}>
           <FontAwesomeIcon
-          size='xs'
+            size="xs"
             icon={
               pass.length > 0
                 ? passHasLower
@@ -195,10 +217,12 @@ const SignUpStep = (props) => {
                   : faTimesCircle
                 : faCircle
             }
-          />At least 1 lower case letter</li>
+          />
+          At least 1 lower case letter
+        </li>
         <li style={liStyle}>
           <FontAwesomeIcon
-          size='xs'
+            size="xs"
             icon={
               pass.length > 0
                 ? passHasSymbol
@@ -206,7 +230,9 @@ const SignUpStep = (props) => {
                   : faTimesCircle
                 : faCircle
             }
-          />At least one symbol</li>
+          />
+          At least one symbol
+        </li>
       </ul>
     </>
   );
