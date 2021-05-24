@@ -57,7 +57,6 @@ const PaymentStep = (props) => {
   const shortInputStyle = { ...inputStyle, width: 70 };
   return (
     <>
-      <p>{isExpireValid.toString()}</p>
       <h1>Payment Info</h1>
       <label style={labelStyle}>
         Card Number
