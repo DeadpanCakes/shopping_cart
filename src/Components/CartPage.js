@@ -1,14 +1,13 @@
-import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import ItemListing from "./ItemListing";
 import { CartConsumer } from "../CartContext";
 import RecommendedSection from "./RecommendedSection";
+import CartListing from "./Cart/CartListing";
 
 const CartPage = () => (
   <CartConsumer>
     {(cart) => {
       const { items, setItems, removeItem } = cart;
-      console.log(items)
 
       const handleInput = (e) => {
         const target = e.target.parentElement;
@@ -45,23 +44,19 @@ const CartPage = () => (
         <div>
           <h1>Shopping Cart</h1>
           {items.length > 0 ? (
-            <Fragment>
-              {items.map((item) => (
-                <div key={item.id}>
-                  <p>${item.price * item.quantity}</p>
-                  <ItemListing item={item} />
-                  <form name={item.id} onSubmit={(e) => e.preventDefault()}>
-                    <button onClick={decrementQuantity}>-</button>
-                    <input
-                      name="quantity"
-                      value={item.quantity}
-                      onChange={handleInput}
-                    />
-                    <button onClick={incrementQuantity}>+</button>
-                    <button onClick={() => removeItem(item)}>Remove</button>
-                  </form>
-                </div>
-              ))}
+            <div>
+              <ul>
+                {items.map((item) => (
+                  <CartListing
+                    key={item.id}
+                    item={item}
+                    removeItem={removeItem}
+                    handleInput={handleInput}
+                    incrementQuantity={incrementQuantity}
+                    decrementQuantity={decrementQuantity}
+                  />
+                ))}
+              </ul>
               <h2>
                 Total:$
                 {items
@@ -72,12 +67,12 @@ const CartPage = () => (
               <Link to="/cart/checkout">
                 <button>Check Out</button>
               </Link>
-            <RecommendedSection itemArr={items} />
-            </Fragment>
+              <RecommendedSection itemArr={items} />
+            </div>
           ) : (
             <>
-            <p>Your Cart Is Empty</p>
-            <RecommendedSection itemArr={items} />
+              <p>Your Cart Is Empty</p>
+              <RecommendedSection itemArr={items} />
             </>
           )}
         </div>
