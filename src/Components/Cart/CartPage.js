@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ItemListing from "./ItemListing";
-import { CartConsumer } from "../CartContext";
-import RecommendedSection from "./RecommendedSection";
-import CartListing from "./Cart/CartListing";
+import ItemListing from "../ItemListing";
+import { CartConsumer } from "../../CartContext";
+import RecommendedSection from "../RecommendedSection";
+import CartListing from "./CartListing";
 
 const CartPage = () => (
   <CartConsumer>

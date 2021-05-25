@@ -3,7 +3,7 @@ import PageHeader from "./Components/Header/PageHeader";
 import PageFooter from "./Components/Footer/PageFooter";
 import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
-import CartPage from "./Components/CartPage";
+import CartPage from "./Components/Cart/CartPage";
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import ShopPage from "./Components/ShopPages/ShopPage";
 import { CartProvider } from "./CartContext";
