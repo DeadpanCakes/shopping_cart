@@ -163,7 +163,7 @@ const CheckoutForm = (props) => {
           ][checkoutStep - 1]
         }
       </div>
-      <div>
+      <div style = {{marginBottom: 15}}>
         <button
           onClick={(e) => {
             e.preventDefault();
