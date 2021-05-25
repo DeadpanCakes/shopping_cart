@@ -539,9 +539,9 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 2;
     flex-basis: 800px;
     margin-top: 50px;
+    max-width: 800px;
 }
 
 footer,

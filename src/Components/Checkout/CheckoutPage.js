@@ -48,7 +48,7 @@ const CheckoutPage = () => {
               alignItems: "stretch",
               justifyContent: "center",
               minHeight: "85vh",
-              width: "60vw",
+              maxWidth: "60vw",
               marginLeft: '20vw',
               marginTop: "10px",
               padding: '0 100px',

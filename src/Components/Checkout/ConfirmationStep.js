@@ -5,18 +5,12 @@ const ConfirmationStep = (props) => {
   const { email } = signUpInfo;
   const { cardNumber, name, expire } = paymentInfo;
 
-  const containerStyle = { margin: 15, flex: "1 1 1" };
   const headerStyle = { marginTop: 10 };
-  const labelStyle = { textDecoration: "underline" };
-  const contentStyle = { marginLeft: 10, marginTop: 5 };
 
   return (
     <div>
       <h1 style={headerStyle}>Account Info</h1>
-      <div style={containerStyle}>
-        <h2 style={labelStyle}>Email</h2>
-        <h3 style={contentStyle}>{email}</h3>
-      </div>
+      <ConfirmationInfo category='Email' content={email} />
       <h1 style={headerStyle}>Shipping Info</h1>
       {(() => {
         const { name, country, address, zip, city, phone } = shippingInfo;
