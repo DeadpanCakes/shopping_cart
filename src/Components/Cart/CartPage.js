@@ -41,39 +41,49 @@ const CartPage = () => (
 
       return (
         <div>
-          <h1>Shopping Cart</h1>
-          {items.length > 0 ? (
-            <div>
-              <ul>
-                {items.map((item) => (
-                  <CartListing
-                    key={item.id}
-                    item={item}
-                    removeItem={removeItem}
-                    handleInput={handleInput}
-                    incrementQuantity={incrementQuantity}
-                    decrementQuantity={decrementQuantity}
-                  />
-                ))}
-              </ul>
-              <h2>
-                Total:$
-                {items
-                  .map((item) => item.price * item.quantity)
-                  .reduce((total, price) => total + price)}
-                .00
-              </h2>
-              <Link to="/cart/checkout">
-                <button>Check Out</button>
-              </Link>
-              <RecommendedSection itemArr={items} />
+          <h1 style={{width: '100vw', color: 'white', backgroundColor: "#f6c7c7", padding: '10px 0', paddingLeft: '30px'}}>Shopping Cart</h1>
+          <div style={{ display: 'flex', flexDirection:'column', width: "60vw", marginLeft: "20vw" }}>
+            <div style={{display: 'flex'}}>
+              <h2>Name</h2>
+              <h2 style={{marginLeft: 'auto', marginRight: 100}}>Count</h2>
+              <h2>Price</h2>
             </div>
-          ) : (
-            <>
-              <p>Your Cart Is Empty</p>
-              <RecommendedSection itemArr={items} />
-            </>
-          )}
+            {items.length > 0 ? (
+              <>
+                <ul>
+                  {items.map((item) => (
+                    <CartListing
+                      key={item.id}
+                      item={item}
+                      removeItem={removeItem}
+                      handleInput={handleInput}
+                      incrementQuantity={incrementQuantity}
+                      decrementQuantity={decrementQuantity}
+                    />
+                  ))}
+                </ul>
+                <div style={{ alignSelf: "flex-end" }}>
+                  <h2>
+                    Total:$
+                    {items
+                      .map((item) => item.price * item.quantity)
+                      .reduce((total, price) => total + price)}
+                    .00
+                  </h2>
+                  <Link to="/cart/checkout">
+                    <button>Check Out</button>
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>Your Cart Is Empty</p>
+              </>
+            )}
+          </div>
+          <div style={{ width: "80vw", marginLeft: "10vw" }}>
+            <RecommendedSection itemArr={items} />
+          </div>
         </div>
       );
     }}
