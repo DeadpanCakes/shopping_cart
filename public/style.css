@@ -535,6 +535,19 @@ label {
   display: flex;
 }
 
+#cartComment {
+  text-decoration: none;
+  color: #2a2b2a
+}
+
+#cartComment::active {
+  color: #2a2b2a;
+}
+
+#cartComment:hover {
+  text-decoration: underline;
+}
+
 #checkoutForm {
     display: flex;
     flex-direction: column;
