@@ -4,6 +4,7 @@ const CartContext = createContext();
 
 export function CartProvider(props) {
   const [cartState, setCartState] = useState([]);
+  const [userComment, setComment] = useState("");
 
   useEffect(() => {
     setCartState(JSON.parse(window.localStorage.getItem("cart")));
@@ -45,6 +46,8 @@ export function CartProvider(props) {
     removeItem,
     emptyCart,
     setItems: setCartState,
+    userComment,
+    setComment,
   };
 
   return (

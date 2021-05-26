@@ -8,7 +8,11 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 const CartPage = () => (
   <CartConsumer>
     {(cart) => {
-      const { items, setItems, removeItem } = cart;
+      const { items, setItems, removeItem, userComment, setComment } = cart; 
+
+      const handleCommentInput = (e) => {
+        setComment(e.target.value)
+      }
 
       const handleInput = (e) => {
         const target = e.target.parentElement;
@@ -89,6 +93,8 @@ const CartPage = () => (
                     <textarea
                       placeholder="Feel free to leave any notes you feel are relevant to your order and we will do our best to accomodate!"
                       style={{ width: 200, height: 100, resize: 'vertical'}}
+                      value={userComment}
+                      onChange={handleCommentInput}
                     ></textarea>
                     <Link
                       to="/contact"
