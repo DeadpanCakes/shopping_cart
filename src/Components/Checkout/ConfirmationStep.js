@@ -7,17 +7,14 @@ const ConfirmationStep = (props) => {
 
   const hideCard = () => {
     const lastFour = cardNumber.toString().slice(-4)
-    const hideNumber = (str) => {
-      if (str.length >= cardNumber.length) {
-        return str
+    const hideNumber = (num) => {
+      if (num.length >= cardNumber.length) {
+        return num
       }
-      if (cardNumber.length - str.length <= 4) {
-        return str + lastFour
-      }
-      return hideNumber(str + '*')
+      return hideNumber("*".concat(num));
     }
 
-    return hideNumber("");
+    return hideNumber(lastFour);
   }
 
   const headerStyle = { marginTop: 10, fontSize: "3em", width: 260, height: 100};
