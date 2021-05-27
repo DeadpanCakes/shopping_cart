@@ -25,7 +25,7 @@ const CartListing = (props) => {
   const inputStyle = { width: 50 };
   const controlStyle = { marginRight: 50 };
   return (
-    <li style={containerStyle} class='cartListing'>
+    <li style={containerStyle} className='cartListing'>
       <Link to={`/shop/item/${id}`} style={{flex: 1, marginLeft: 10}} className="itemLink">
         <img alt={name} src={item.imgSrc} style={imgStyle} />
         <h2>{name}</h2>

@@ -2,12 +2,13 @@ import CheckoutForm from "./CheckoutForm";
 import CheckoutListing from "./CheckoutListing";
 import { CartConsumer } from "../../CartContext";
 import CheckoutPlaceholder from './CheckoutPlaceholder';
+import CommentBox from './CommentBox';
 
 const CheckoutPage = () => {
   return (
     <CartConsumer>
       {(cart) => {
-        const { items, emptyCart } = cart;
+        const { items, emptyCart, userComment } = cart;
 
         const getSubTotal = () => {
           const priceArr = items.map((item) => item.price * item.quantity);
@@ -70,6 +71,7 @@ const CheckoutPage = () => {
                   width: "50%",
                 }}
               >
+                <CommentBox comments={userComment} />
                 <h3 style={{ padding: "2px 0" }}>
                   Subtotal: {formatter.format(getSubTotal())}
                 </h3>
