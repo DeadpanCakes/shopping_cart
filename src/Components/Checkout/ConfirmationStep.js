@@ -5,6 +5,21 @@ const ConfirmationStep = (props) => {
   const { email } = signUpInfo;
   const { cardNumber, name, expire } = paymentInfo;
 
+  const hideCard = () => {
+    const lastFour = cardNumber.toString().slice(-4)
+    const hideNumber = (str) => {
+      if (str.length >= cardNumber.length) {
+        return str
+      }
+      if (cardNumber.length - str.length <= 4) {
+        return str + lastFour
+      }
+      return hideNumber(str + '*')
+    }
+
+    return hideNumber("");
+  }
+
   const headerStyle = { marginTop: 10, fontSize: "3em", width: 260, height: 100};
   const sectionStyle = {margin: 20}
 
@@ -17,7 +32,7 @@ const ConfirmationStep = (props) => {
         </div>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Payment Info</h2>
-          <ConfirmationInfo category="Card" content={cardNumber} />
+          <ConfirmationInfo category="Card" content={hideCard()} />
           <ConfirmationInfo category="Expiration" content={expire} />
           <ConfirmationInfo category="Name On Card" content={name} />
         </div>
