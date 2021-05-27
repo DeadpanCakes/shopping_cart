@@ -47,17 +47,16 @@ const CartPage = () => (
 
       return (
         <div>
+          <div style={{width:'100%', backgroundColor: "#f6c7c7"}}>
           <h1
             style={{
-              width: "100vw",
               color: "white",
-              backgroundColor: "#f6c7c7",
               padding: "10px 0",
-              paddingLeft: "30px",
+              paddingLeft: 30
             }}
           >
             Shopping Cart
-          </h1>
+          </h1></div>
           <div
             style={{
               display: "flex",
@@ -67,13 +66,13 @@ const CartPage = () => (
             }}
           >
             <div style={{ display: "flex" }}>
-              <h2>Name</h2>
-              <h2 style={{ marginLeft: "auto", marginRight: 100 }}>Count</h2>
-              <h2>Price</h2>
+              <h2 style={{marginLeft: 20}}>Name</h2>
+              <h2 style={{ marginLeft: "auto", marginRight: 150 }}>Count</h2>
+              <h2 style={{marginRight: 50}}>Price</h2>
             </div>
             {items.length > 0 ? (
               <>
-                <ul>
+                <ul style={{borderTop: '2px solid #cbbeb5 ', padding: '10px', marginBottom: '50px', minHeight: '50vh'}} class="cartItems">
                   {items.map((item) => (
                     <CartListing
                       key={item.id}
@@ -86,19 +85,19 @@ const CartPage = () => (
                   ))}
                 </ul>
                 <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  style={{ display: "flex", justifyContent: "space-between",borderTop: '2px solid #cbbeb5 ', paddingTop: 20, marginBottom: '50px' }}
                 >
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label>Notes</label>
+                  <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+                    <label><h2>Notes</h2></label>
                     <textarea
                       placeholder="Feel free to leave any notes you feel are relevant to your order and we will do our best to accomodate!"
-                      style={{ width: 200, height: 100, resize: 'vertical'}}
+                      style={{ width: 500, height: 100, resize: 'vertical'}}
                       value={userComment}
                       onChange={handleCommentInput}
                     ></textarea>
                     <Link
                       to="/contact"
-                      style={{ width: 200, fontSize: ".9em" }}
+                      style={{ width: 500 }}
                       id="cartComment"
                     >
                       <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon> Have
