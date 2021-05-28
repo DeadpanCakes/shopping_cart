@@ -20,7 +20,7 @@ const CategoryPage = (props) => {
 
   useEffect(() => {
     setPage(0);
-  }, [category]);
+  }, [category, stock]);
 
   const empytContainer = {
     height: "100%",
