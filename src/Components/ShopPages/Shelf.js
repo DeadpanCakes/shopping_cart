@@ -4,7 +4,7 @@ import PageNav from "./PageNav";
 import SortControl from "./SortControls";
 import sadPlant from "../../img/sadPlant.png"
 
-const CategoryPage = (props) => {
+const Shelf = (props) => {
   const { category, stock, setSortCriteria } = props;
 
   const [page, setPage] = useState(0);
@@ -69,4 +69,4 @@ const CategoryPage = (props) => {
   );
 };
 
-export default CategoryPage;
+export default Shelf;
