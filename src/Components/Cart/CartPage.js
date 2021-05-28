@@ -4,6 +4,7 @@ import RecommendedSection from "../RecommendedSection";
 import CartListing from "./CartListing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import EmptyCart from './EmptyCart';
 
 const CartPage = () => (
   <CartConsumer>
@@ -65,13 +66,13 @@ const CartPage = () => (
               marginLeft: "20vw",
             }}
           >
-            <div style={{ display: "flex" }}>
-              <h2 style={{marginLeft: 20}}>Name</h2>
-              <h2 style={{ marginLeft: "auto", marginRight: 150 }}>Count</h2>
-              <h2 style={{marginRight: 50}}>Price</h2>
-            </div>
             {items.length > 0 ? (
               <>
+              <div style={{ display: "flex" }}>
+                <h2 style={{marginLeft: 20}}>Name</h2>
+                <h2 style={{ marginLeft: "auto", marginRight: 150 }}>Count</h2>
+                <h2 style={{marginRight: 50}}>Price</h2>
+              </div>
                 <ul style={{borderTop: '2px solid #cbbeb5 ', padding: '10px', marginBottom: '50px', minHeight: '50vh'}} class="cartItems">
                   {items.map((item) => (
                     <CartListing
@@ -120,9 +121,7 @@ const CartPage = () => (
                 </div>
               </>
             ) : (
-              <>
-                <p>Your Cart Is Empty</p>
-              </>
+              <EmptyCart />
             )}
           </div>
           <div style={{ width: "80vw", marginLeft: "10vw" }}>

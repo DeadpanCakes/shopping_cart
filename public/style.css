@@ -258,7 +258,8 @@ label {
   0% {
     transform: translate(5px, -20px);
   }
-  20%, 50% {
+  20%,
+  50% {
     opacity: 1;
   }
   100% {
@@ -536,16 +537,16 @@ label {
 }
 
 .cartListing:nth-child(odd) {
-  background-color: #ddfff750
+  background-color: #ddfff750;
 }
 
 .cartListing:hover {
-  background-color: #ddfff7
+  background-color: #ddfff7;
 }
 
 #cartComment {
   text-decoration: none;
-  color: #2a2b2a
+  color: #2a2b2a;
 }
 
 #cartComment::active {
@@ -556,13 +557,17 @@ label {
   text-decoration: underline;
 }
 
+.emptyCartLink:hover {
+  text-shadow: 0 0 2px #a1c6ea;
+}
+
 #checkoutForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-basis: 800px;
-    margin-top: 50px;
-    max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 800px;
+  margin-top: 50px;
+  max-width: 800px;
 }
 
 footer,
