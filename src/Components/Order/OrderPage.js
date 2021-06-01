@@ -1,25 +1,22 @@
 import CheckoutListing from "../Checkout/CheckoutListing";
-import useOrders from '../../useOrders';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 
 const OrderPage = (props) => {
   const { id } = props.match.params;
+  const { orders } = props;
   const [order, setOrder] = useState({});
 
   const { items, time, shipping, billing, payment } = order;
-  
-  const {orders} = useOrders();
-
-    console.log('oci:',orders)
 
   useEffect(() => {
-      const fetchOrder = (targetId) => {
-          return orders.find((order) => {
-              return order.id === targetId
-          })
-      }
-      setOrder(fetchOrder(id))
-  }, [orders, id])
+    const fetchOrder = (targetId) => {
+      return orders.find((order) => {
+        return order.id === targetId;
+      });
+    };
+    setOrder(fetchOrder(id))
+  }, [orders, id]);
 
   return order.time ? (
     <div>
@@ -53,7 +50,11 @@ const OrderPage = (props) => {
         <p>{payment.name.toString()}</p>
       </div>
     </div>
-  ): <div style={{height: '100vh', width: '100vw'}}></div>;
+  ) : (
+      <div style={{ height: "100vh", width: "100vw" }}>
+        <Link to="/shop/orders">go</Link>
+      </div>
+  );
 };
 
-export default OrderPage;
+export default withRouter(OrderPage);

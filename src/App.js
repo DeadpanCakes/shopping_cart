@@ -41,7 +41,7 @@ const App = (props) => {
           <Route path="/cart/checkout">
             <CheckoutPage addOrder={addOrder} />
           </Route>
-          <Route path="/shop/orders/:id" component={OrderPage} />
+          <Route path="/shop/orders/:id" component={() => <OrderPage orders={orders} />}/>
           <Route path="/shop/orders" exact>
             <Orders ordersArr={orders} logOrders = {logOrders}/>
           </Route>

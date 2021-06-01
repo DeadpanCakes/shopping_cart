@@ -49,7 +49,7 @@ const useOrders = () => {
     },
   ]);
   const addOrder = (newOrder) => {
-    console.log(newOrder);
+    console.log('neworder:', newOrder);
     setOrders((prevOrders) => {
       return [newOrder, ...prevOrders];
     });

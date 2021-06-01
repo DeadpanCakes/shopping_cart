@@ -11,7 +11,7 @@ import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const {addOrder} = useOrders();
+  const {addOrder} = props;
   const [isGuest, setIsGuest] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
@@ -64,10 +64,9 @@ const CheckoutForm = (props) => {
       billingInfo,
       paymentInfo
     );
-    console.log('makingOrder:', order, 'items:', props.items, 'shipping:', shippingInfo, 'billing:', billingInfo, 'paymentInfo:', paymentInfo)
     props.emptyCart();
     addOrder(order)
-    history.push(`/shop/orders`)
+    history.push(`/shop/orders/${order.id}`)
   };
 
   const checkIfComplete = (isValid) => {

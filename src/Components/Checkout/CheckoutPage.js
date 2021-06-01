@@ -4,7 +4,8 @@ import { CartConsumer } from "../../CartContext";
 import CheckoutPlaceholder from './CheckoutPlaceholder';
 import CommentBox from './CommentBox';
 
-const CheckoutPage = () => {
+const CheckoutPage = (props) => {
+  const {addOrder} = props;
   return (
     <CartConsumer>
       {(cart) => {
@@ -56,7 +57,7 @@ const CheckoutPage = () => {
               backgroundColor: '#ffffff50'
             }}
           >
-            <CheckoutForm emptyCart={emptyCart} items={items} />
+            <CheckoutForm emptyCart={emptyCart} items={items} addOrder={addOrder} />
             <aside style={{ flexShrink: 1, maxWidth: "50%", marginLeft: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop:50}}>
               <ul style={ulStyle}>
                 {cart.items.map((item) => {
