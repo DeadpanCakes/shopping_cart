@@ -49,14 +49,12 @@ const useOrders = () => {
     },
   ]);
   const addOrder = (newOrder) => {
-    console.log('neworder:', newOrder);
     setOrders((prevOrders) => {
       return [newOrder, ...prevOrders];
     });
   };
-  const logOrders = () => console.log(orders);
 
-  return { orders, addOrder, logOrders };
+  return { orders, addOrder };
 };
 
 export default useOrders;

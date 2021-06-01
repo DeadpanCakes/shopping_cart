@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useOrders from '../../useOrders';
 import {useHistory} from 'react-router-dom'
 import orderFactory from "../../orderFactory";
 import CheckoutFormTabs from "./CheckoutFormTabs";

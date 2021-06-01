@@ -7,12 +7,11 @@ import OrderPage from "./Components/Order/OrderPage";
 import CartPage from "./Components/Cart/CartPage";
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import ShopPage from "./Components/ShopPages/ShopPage";
-import Orders from "./Components/Order/Orders";
 import { CartProvider } from "./CartContext";
 import useOrders from "./useOrders";
 
 const App = (props) => {
-  const { orders, addOrder, logOrders } = useOrders();
+  const { orders, addOrder} = useOrders();
 
   return (
     <Fragment>
@@ -42,9 +41,6 @@ const App = (props) => {
             <CheckoutPage addOrder={addOrder} />
           </Route>
           <Route path="/shop/orders/:id" component={() => <OrderPage orders={orders} />}/>
-          <Route path="/shop/orders" exact>
-            <Orders ordersArr={orders} logOrders = {logOrders}/>
-          </Route>
         </Switch>
         {props.children}
         <PageFooter />
