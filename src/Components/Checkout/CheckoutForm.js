@@ -1,4 +1,6 @@
 import { useState } from "react";
+import useOrders from '../../useOrders';
+import {useHistory} from 'react-router-dom'
 import orderFactory from "../../orderFactory";
 import CheckoutFormTabs from "./CheckoutFormTabs";
 import SignupStep from "./SignUpStep";
@@ -8,6 +10,8 @@ import PaymentStep from "./PaymentStep";
 import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
+  const history = useHistory();
+  const {addOrder} = useOrders();
   const [isGuest, setIsGuest] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
@@ -56,13 +60,14 @@ const CheckoutForm = (props) => {
     //Generate order using orderFactory
     const order = orderFactory(
       props.items,
-      new Date(),
       shippingInfo,
       billingInfo,
       paymentInfo
     );
-    console.log(order);
+    console.log('makingOrder:', order, 'items:', props.items, 'shipping:', shippingInfo, 'billing:', billingInfo, 'paymentInfo:', paymentInfo)
     props.emptyCart();
+    addOrder(order)
+    history.push(`/shop/orders`)
   };
 
   const checkIfComplete = (isValid) => {

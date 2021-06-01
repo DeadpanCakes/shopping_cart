@@ -3,12 +3,17 @@ import PageHeader from "./Components/Header/PageHeader";
 import PageFooter from "./Components/Footer/PageFooter";
 import { Switch, Route } from "react-router-dom";
 import ItemPage from "./Components/ShopPages/ItemPage";
+import OrderPage from "./Components/Order/OrderPage";
 import CartPage from "./Components/Cart/CartPage";
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import ShopPage from "./Components/ShopPages/ShopPage";
+import Orders from "./Components/Order/Orders";
 import { CartProvider } from "./CartContext";
+import useOrders from "./useOrders";
 
 const App = (props) => {
+  const { orders, addOrder, logOrders } = useOrders();
+
   return (
     <Fragment>
       <CartProvider>
@@ -32,12 +37,13 @@ const App = (props) => {
           <Route path="/shop/supplies">
             <ShopPage category={"Supplies"} />
           </Route>
-          <Route
-            path="/shop/item/:id"
-            component={ItemPage}
-          />
+          <Route path="/shop/item/:id" component={ItemPage} />
           <Route path="/cart/checkout">
-            <CheckoutPage />
+            <CheckoutPage addOrder={addOrder} />
+          </Route>
+          <Route path="/shop/orders/:id" component={OrderPage} />
+          <Route path="/shop/orders" exact>
+            <Orders ordersArr={orders} logOrders = {logOrders}/>
           </Route>
         </Switch>
         {props.children}

@@ -56,7 +56,7 @@ const CheckoutPage = () => {
               backgroundColor: '#ffffff50'
             }}
           >
-            <CheckoutForm emptyCart={emptyCart} />
+            <CheckoutForm emptyCart={emptyCart} items={items} />
             <aside style={{ flexShrink: 1, maxWidth: "50%", marginLeft: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop:50}}>
               <ul style={ulStyle}>
                 {cart.items.map((item) => {

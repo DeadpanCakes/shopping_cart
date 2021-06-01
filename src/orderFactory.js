@@ -1,8 +1,9 @@
 import genId from "generate-unique-id";
 
-const orderFactory = (items, time, shipping, billing, payment) => {
+const orderFactory = (items, shipping, billing, payment) => {
   const id = genId();
-  return { id, items, time, shipping, billing, payment };
+  const time = new Date()
+  return { id: id, items: items, time: time, shipping: shipping, billing: billing, payment:payment };
 };
 
 export default orderFactory;
