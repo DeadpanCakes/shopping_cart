@@ -73,7 +73,7 @@ const CartPage = () => (
                 <h2 style={{ marginLeft: "auto", marginRight: 150 }}>Count</h2>
                 <h2 style={{marginRight: 50}}>Price</h2>
               </div>
-                <ul style={{borderTop: '2px solid #cbbeb5 ', padding: '10px', marginBottom: '50px', minHeight: '50vh'}} class="cartItems">
+                <ul style={{borderTop: '2px solid #cbbeb5 ', padding: '10px', marginBottom: '50px', minHeight: '50vh'}} className="cartItems">
                   {items.map((item) => (
                     <CartListing
                       key={item.id}

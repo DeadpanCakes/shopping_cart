@@ -24,7 +24,7 @@ const OrderPage = (props) => {
       <p>{id.toString()}</p>
       <ul>
         {items.map((item) => (
-          <CheckoutListing item={item} />
+          <CheckoutListing key={id} item={item} />
         ))}
       </ul>
       <div>
