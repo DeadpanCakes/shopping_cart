@@ -570,6 +570,12 @@ label {
   max-width: 800px;
 }
 
+#orderContainer {
+  width: 60vw;
+  margin-top: 70px;
+  margin-left: 20vw; 
+}
+
 footer,
 .footerLink {
   color: #f6c7c7;

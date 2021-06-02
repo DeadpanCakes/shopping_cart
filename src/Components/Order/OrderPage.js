@@ -1,13 +1,15 @@
 import CheckoutListing from "../Checkout/CheckoutListing";
 import { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { format } from "date-fns";
 
 const OrderPage = (props) => {
   const { id } = props.match.params;
   const { orders } = props;
   const [order, setOrder] = useState({});
 
-  const { items, time, shipping, billing, payment } = order;
+  const { items, time, shipping, billing, payment, price, comment } = order;
+  const [formattedTime, setFormattedTime] = useState("");
 
   useEffect(() => {
     const fetchOrder = (targetId) => {
@@ -15,45 +17,63 @@ const OrderPage = (props) => {
         return order.id === targetId;
       });
     };
-    setOrder(fetchOrder(id))
-  }, [orders, id]);
+    setOrder(fetchOrder(id));
+    if (time) {
+      setFormattedTime(format(new Date(time), "MMMM do, y 'at' pp"));
+    }
+  }, [orders, id, time]);
+
+  const pageStyle = {
+    minHeight: "100vh",
+  };
 
   return order.time ? (
-    <div>
-      <p>{time.toString()}</p>
-      <p>{id.toString()}</p>
-      <ul>
-        {items.map((item) => (
-          <CheckoutListing key={id} item={item} />
-        ))}
-      </ul>
-      <div>
-        <p>{billing.address}</p>
-        <p>{billing.city}</p>
-        <p>{billing.country}</p>
-        <p>{billing.name}</p>
-        <p>{billing.phone}</p>
-        <p>{billing.zip}</p>
+    <div style={pageStyle}>
+      <div id="orderContainer">
+        <div>
+          <h2>Order #{id}</h2>
+          <h2>{price.total}</h2>
+        </div>
+        <div>
+          <h2>{formattedTime}</h2>
+        </div>
+        <ul>
+          {items.map((item) => (
+            <CheckoutListing key={item.id} item={item} />
+          ))}
+        </ul>
+        <div>
+          <p>{billing.address}</p>
+          <p>{billing.city}</p>
+          <p>{billing.country}</p>
+          <p>{billing.name}</p>
+          <p>{billing.phone}</p>
+          <p>{billing.zip}</p>
+        </div>
+        <div>
+          <p>{shipping.address}</p>
+          <p>{shipping.city}</p>
+          <p>{shipping.country}</p>
+          <p>{shipping.name}</p>
+          <p>{shipping.phone}</p>
+          <p>{shipping.zip}</p>
+        </div>
+        <div>
+          <p>{payment.cardNumber.toString()}</p>
+          <p>{payment.code.toString()}</p>
+          <p>{payment.expire.toString()}</p>
+          <p>{payment.name.toString()}</p>
+        </div>
+        <div>
+          <p>{comment}</p>
+        </div>
       </div>
-      <div>
-        <p>{shipping.address}</p>
-        <p>{shipping.city}</p>
-        <p>{shipping.country}</p>
-        <p>{shipping.name}</p>
-        <p>{shipping.phone}</p>
-        <p>{shipping.zip}</p>
-      </div>
-      <div>
-        <p>{payment.cardNumber.toString()}</p>
-        <p>{payment.code.toString()}</p>
-        <p>{payment.expire.toString()}</p>
-        <p>{payment.name.toString()}</p>
-      </div>
+      <button onClick={() => console.log(comment)}>test</button>
     </div>
   ) : (
-      <div style={{ height: "100vh", width: "100vw" }}>
-        <Link to="/shop/orders">go</Link>
-      </div>
+    <div style={{ height: "100vh", width: "100vw" }}>
+      <Link to="/shop/orders">go</Link>
+    </div>
   );
 };
 

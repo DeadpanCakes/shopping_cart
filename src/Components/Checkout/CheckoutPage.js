@@ -1,11 +1,11 @@
 import CheckoutForm from "./CheckoutForm";
 import CheckoutListing from "./CheckoutListing";
 import { CartConsumer } from "../../CartContext";
-import CheckoutPlaceholder from './CheckoutPlaceholder';
-import CommentBox from './CommentBox';
+import CheckoutPlaceholder from "./CheckoutPlaceholder";
+import CommentBox from "./CommentBox";
 
 const CheckoutPage = (props) => {
-  const {addOrder} = props;
+  const { addOrder } = props;
   return (
     <CartConsumer>
       {(cart) => {
@@ -37,10 +37,10 @@ const CheckoutPage = (props) => {
           currency: "USD",
         });
         const ulStyle = {
-            width: '100%',
-            height: 500,
-            overflowY: cart.items.length <= 5 ? 'visible' : 'scroll'
-        }
+          width: "100%",
+          height: 500,
+          overflowY: cart.items.length <= 5 ? "visible" : "scroll",
+        };
 
         return cart.items.length > 0 ? (
           <div
@@ -51,14 +51,35 @@ const CheckoutPage = (props) => {
               justifyContent: "center",
               minHeight: "85vh",
               maxWidth: "60vw",
-              marginLeft: '20vw',
+              marginLeft: "20vw",
               marginTop: "10px",
-              padding: '0 100px',
-              backgroundColor: '#ffffff50'
+              padding: "0 100px",
+              backgroundColor: "#ffffff50",
             }}
           >
-            <CheckoutForm emptyCart={emptyCart} items={items} addOrder={addOrder} />
-            <aside style={{ flexShrink: 1, maxWidth: "50%", marginLeft: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop:50}}>
+            <CheckoutForm
+              emptyCart={emptyCart}
+              items={items}
+              addOrder={addOrder}
+              transactionInfo={{
+                subtotal: formatter.format(getSubTotal()),
+                tax: formatter.format(getTax()),
+                shipping: formatter.format(getShipping()),
+                total: formatter.format(getTotalCost()),
+              }}
+              userComment={userComment}
+            />
+            <aside
+              style={{
+                flexShrink: 1,
+                maxWidth: "50%",
+                marginLeft: "auto",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                marginTop: 50,
+              }}
+            >
               <ul style={ulStyle}>
                 {cart.items.map((item) => {
                   return <CheckoutListing key={item.id} item={item} />;
@@ -86,7 +107,9 @@ const CheckoutPage = (props) => {
               <h1>Total: {formatter.format(getTotalCost())}</h1>
             </aside>
           </div>
-        ) : <CheckoutPlaceholder />;
+        ) : (
+          <CheckoutPlaceholder />
+        );
       }}
     </CartConsumer>
   );

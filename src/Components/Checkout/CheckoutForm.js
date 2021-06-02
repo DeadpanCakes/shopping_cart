@@ -10,7 +10,7 @@ import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const {addOrder} = props;
+  const {addOrder, transactionInfo, userComment} = props;
   const [isGuest, setIsGuest] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
@@ -61,7 +61,9 @@ const CheckoutForm = (props) => {
       props.items,
       shippingInfo,
       billingInfo,
-      paymentInfo
+      paymentInfo,
+      transactionInfo,
+      userComment,
     );
     props.emptyCart();
     addOrder(order)
