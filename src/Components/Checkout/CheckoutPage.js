@@ -1,5 +1,5 @@
 import CheckoutForm from "./CheckoutForm";
-import CheckoutListing from "./CheckoutListing";
+import ItemListingSm from "../ItemListingSm";
 import { CartConsumer } from "../../CartContext";
 import CheckoutPlaceholder from "./CheckoutPlaceholder";
 import CommentBox from "./CommentBox";
@@ -82,7 +82,7 @@ const CheckoutPage = (props) => {
             >
               <ul style={ulStyle}>
                 {cart.items.map((item) => {
-                  return <CheckoutListing key={item.id} item={item} />;
+                  return <ItemListingSm key={item.id} item={item} />;
                 })}
               </ul>
               <div

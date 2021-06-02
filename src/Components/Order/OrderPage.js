@@ -1,4 +1,4 @@
-import CheckoutListing from "../Checkout/CheckoutListing";
+import ItemListingSm from "../ItemListingSm";
 import { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { format } from "date-fns";
@@ -39,7 +39,7 @@ const OrderPage = (props) => {
         </div>
         <ul>
           {items.map((item) => (
-            <CheckoutListing key={item.id} item={item} />
+            <ItemListingSm key={item.id} item={item} />
           ))}
         </ul>
         <div>
