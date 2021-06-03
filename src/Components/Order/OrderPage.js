@@ -1,5 +1,5 @@
 import ItemListingSm from "../ItemListingSm";
-import OrderItems from './OrderItems';
+import OrderDetails from './OrderDetails';
 import { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { format } from "date-fns";
@@ -38,7 +38,7 @@ const OrderPage = (props) => {
         <div>
           <h2>{formattedTime}</h2>
         </div>
-        <OrderItems items={items} />
+        <OrderDetails items={items} />
         <div>
           <p>{billing.address}</p>
           <p>{billing.city}</p>
