@@ -1,4 +1,3 @@
-import ItemListingSm from "../ItemListingSm";
 import OrderDetails from './OrderDetails';
 import { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";

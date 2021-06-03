@@ -16,7 +16,7 @@ const OrderItems = (props) => {
         }
         onClick={toggleExpand}
       >
-        Show Order Details
+        {isExpanded ? 'Hide' : 'Show'} Order Details
       </button>
       <ul
         className={
