@@ -576,6 +576,11 @@ label {
   margin-left: 20vw; 
 }
 
+.orderDetail {
+  transition: all 1s;
+  overflow: hidden;
+}
+
 footer,
 .footerLink {
   color: #f6c7c7;

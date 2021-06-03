@@ -11,8 +11,8 @@ const OrderItems = (props) => {
       <button
         className={
           isExpanded
-            ? "itemListBtn expandedItemListBtn"
-            : "itemListBtn collapsedItemListBtn"
+            ? "orderDetailBtn expandedOrderDetailBtn"
+            : "orderDetailBtn collapsedOrderDetailBtn"
         }
         onClick={toggleExpand}
       >
@@ -21,9 +21,10 @@ const OrderItems = (props) => {
       <ul
         className={
           isExpanded
-            ? "itemList expandedItemList"
-            : "itemList collapsedItemList"
+            ? "orderDetail expandedOrderDetail"
+            : "orderDetail collapsedOrderDetail"
         }
+        style={isExpanded ? {maxHeight: 500} : {maxHeight: 0}}
       >
         {items.map((item) => {
           return <ItemListingSm key={item.id} item={item} />;
