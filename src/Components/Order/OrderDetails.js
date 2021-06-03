@@ -12,7 +12,7 @@ const OrderItems = (props) => {
     justifyContent: "space-between",
   };
   return (
-    <div>
+    <div style={{border: '1px rgb(80, 76, 76) solid', borderRadius: '5px'}}>
       <button
         className={
           isExpanded
@@ -36,13 +36,15 @@ const OrderItems = (props) => {
             return <ItemListingSm key={item.id} item={item} />;
           })}
         </ul>
+        <hr style={{borderTop: '1px rgb(80, 76, 76) solid', width: '95%'}}/>
         <div
           style={{
             width: "10vw",
             display: "flex",
             flexDirection: "column",
             alignItems: "stretch",
-            alignSelf:'flex-end'
+            alignSelf:'flex-end',
+            margin: 20
           }}
         >
           <div style={calculationContainer}>
@@ -53,7 +55,7 @@ const OrderItems = (props) => {
             <p>Tax</p>
             <p>{tax}</p>
           </div>
-          <div style={{...calculationContainer, borderBottom: "black 1px solid" }}>
+          <div style={{...calculationContainer, borderBottom: "rgb(80, 76, 76) 1px solid" }}>
             <p>Shipping</p>
             <p>{shipping}</p>
           </div>
