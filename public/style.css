@@ -583,6 +583,8 @@ label {
 .orderDetail {
   transition: all 1s;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 footer,
