@@ -32,7 +32,7 @@ const OrderPage = (props) => {
     <div style={pageStyle}>
       <div id="orderContainer">
         <div>
-          <h2>Order #{id}</h2>
+          <h2>Order ID: {id}</h2>
           <h2>{price.total}</h2>
         </div>
         <div>
