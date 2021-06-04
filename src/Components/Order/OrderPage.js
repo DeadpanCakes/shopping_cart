@@ -37,7 +37,7 @@ const OrderPage = (props) => {
         <div>
           <h2>{formattedTime}</h2>
         </div>
-        <OrderDetails items={items} price={price} />
+        <OrderDetails items={items} price={price} comment={comment} />
         <div>
           <p>{billing.address}</p>
           <p>{billing.city}</p>
