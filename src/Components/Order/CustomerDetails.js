@@ -32,6 +32,8 @@ const CustomerDetails = (props) => {
         </div>
         <div>
           <h2>Payment Method</h2>
+          <p>Card: {payment.getLastFourDigits()}</p>
+          <button onClick={()=> console.log(payment.getLastFourDigits())}>test</button>
         </div>
       </div>
     </div>

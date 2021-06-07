@@ -13,7 +13,6 @@ const ConfirmationStep = (props) => {
       }
       return hideNumber("*".concat(num));
     }
-
     return hideNumber(lastFour);
   }
 

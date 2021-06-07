@@ -42,6 +42,16 @@ const CheckoutForm = (props) => {
     expire: "",
     code: "",
     isValid: false,
+    getLastFourDigits () {
+      const lastFour = this.cardNumber.toString().slice(-4)
+      const hideNumber = (num) => {
+        if (num.length >= this.cardNumber.length) {
+          return num
+        }
+        return hideNumber("*".concat(num));
+      }
+      return hideNumber(lastFour);
+    }
   });
   const [checkoutStep, setCheckoutStep] = useState(1);
   const incrementStep = () => {

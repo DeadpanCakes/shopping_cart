@@ -45,7 +45,6 @@ const OrderPage = (props) => {
           payment={payment}
         />
       </div>
-      <button onClick={() => console.log(comment)}>test</button>
     </div>
   ) : (
     <div style={{ height: "100vh", width: "100vw" }}>
