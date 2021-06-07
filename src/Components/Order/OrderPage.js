@@ -1,4 +1,5 @@
-import OrderDetails from './OrderDetails';
+import OrderDetails from "./OrderDetails";
+import CustomerDetails from "./CustomerDetails";
 import { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { format } from "date-fns";
@@ -38,31 +39,11 @@ const OrderPage = (props) => {
           <h2>{formattedTime}</h2>
         </div>
         <OrderDetails items={items} price={price} comment={comment} />
-        <div>
-          <p>{billing.address}</p>
-          <p>{billing.city}</p>
-          <p>{billing.country}</p>
-          <p>{billing.name}</p>
-          <p>{billing.phone}</p>
-          <p>{billing.zip}</p>
-        </div>
-        <div>
-          <p>{shipping.address}</p>
-          <p>{shipping.city}</p>
-          <p>{shipping.country}</p>
-          <p>{shipping.name}</p>
-          <p>{shipping.phone}</p>
-          <p>{shipping.zip}</p>
-        </div>
-        <div>
-          <p>{payment.cardNumber.toString()}</p>
-          <p>{payment.code.toString()}</p>
-          <p>{payment.expire.toString()}</p>
-          <p>{payment.name.toString()}</p>
-        </div>
-        <div>
-          <p>{comment}</p>
-        </div>
+        <CustomerDetails
+          shipping={shipping}
+          billing={billing}
+          payment={payment}
+        />
       </div>
       <button onClick={() => console.log(comment)}>test</button>
     </div>

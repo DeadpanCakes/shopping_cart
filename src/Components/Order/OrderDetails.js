@@ -31,7 +31,7 @@ const OrderItems = (props) => {
         }
         style={isExpanded ? { maxHeight: 500 } : { maxHeight: 0 }}
       >
-        <ul>
+        <ul style={{overflowY: 'auto'}}>
           {items.map((item) => {
             return <ItemListingSm key={item.id} item={item} />;
           })}
