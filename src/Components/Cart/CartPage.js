@@ -102,7 +102,7 @@ const CartPage = () => (
                       id="cartComment"
                     >
                       <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon> Have
-                      a queston you need answered before committing to an order?
+                      a question you need answered before committing to an order?
                       Send us a message!
                     </Link>
                   </div>
