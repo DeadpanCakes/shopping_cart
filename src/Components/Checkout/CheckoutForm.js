@@ -66,7 +66,6 @@ const CheckoutForm = (props) => {
   };
 
   const completeTransaction = () => {
-    //Generate order using orderFactory
     const order = orderFactory(
       props.items,
       shippingInfo,
@@ -74,6 +73,7 @@ const CheckoutForm = (props) => {
       paymentInfo,
       transactionInfo,
       userComment,
+      signUpInfo.email,
     );
     props.emptyCart();
     addOrder(order)

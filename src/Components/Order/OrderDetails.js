@@ -39,7 +39,7 @@ const OrderItems = (props) => {
         <hr style={{ borderTop: "1px rgb(80, 76, 76) solid", width: "95%" }} />
         <div style={{display:'flex', justifyContent: 'space-between'}}>
           <div style={{overflow: 'auto', marginLeft: 10}}>
-            <h2>Customer Comment</h2>
+            {comment.length > 0 ? <h2>Customer Comment</h2> : null}
             <p style={{marginLeft: 10}}>{comment}</p>
             </div>
           <div

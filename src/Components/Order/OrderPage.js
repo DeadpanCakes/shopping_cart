@@ -9,7 +9,7 @@ const OrderPage = (props) => {
   const { orders } = props;
   const [order, setOrder] = useState({});
 
-  const { items, time, shipping, billing, payment, price, comment } = order;
+  const { items, time, shipping, billing, payment, price, comment, email } = order;
   const [formattedTime, setFormattedTime] = useState("");
 
   useEffect(() => {
@@ -21,6 +21,7 @@ const OrderPage = (props) => {
     setOrder(fetchOrder(id));
     if (time) {
       setFormattedTime(format(new Date(time), "MMMM do, y 'at' pp"));
+      console.log(time)
     }
   }, [orders, id, time]);
 
@@ -43,6 +44,8 @@ const OrderPage = (props) => {
           shipping={shipping}
           billing={billing}
           payment={payment}
+          time={time}
+          email={email}
         />
       </div>
     </div>
