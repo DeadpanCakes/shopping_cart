@@ -1,7 +1,7 @@
 const ConfirmationInfo = (props) => {
   const { category, content } = props;
 
-  const containerStyle = { margin: 15, maxWidth: 150 };
+  const containerStyle = { margin: 15, maxWidth: 150, overflowX: 'auto'};
   const categoryStyle = { textDecoration: "underline" };
   const contentStyle = { marginLeft: 10, marginTop: 5, overflow: 'auto' };
   return content.length > 0 ? (
