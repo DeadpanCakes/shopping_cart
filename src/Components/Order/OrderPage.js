@@ -32,11 +32,11 @@ const OrderPage = (props) => {
   return order.time ? (
     <div style={pageStyle}>
       <div id="orderContainer">
-        <div>
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
           <h2>Order ID: {id}</h2>
           <h2>{price.total}</h2>
         </div>
-        <div>
+        <div style={{marginLeft: 20}}>
           <h2>{formattedTime}</h2>
         </div>
         <OrderDetails items={items} price={price} comment={comment} />
