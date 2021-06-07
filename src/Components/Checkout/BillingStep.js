@@ -80,7 +80,7 @@ const BillingStep = (props) => {
         <input type="checkbox" onChange={handleCheck}></input>Same As Shipping?
       </label>
       <label style={labelStyle}>
-        Name
+        Name*
         <input
           value={name}
           onChange={(e) => handleInput(e, setBillingInfo, "name")}

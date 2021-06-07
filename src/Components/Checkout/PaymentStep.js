@@ -59,7 +59,7 @@ const PaymentStep = (props) => {
     <>
       <h1>Payment Info</h1>
       <label style={labelStyle}>
-        Card Number
+        Card Number*
         <input
           value={cardNumber}
           onChange={(e) => handleInput(e, setPaymentInfo, "cardNumber")}
@@ -82,7 +82,7 @@ const PaymentStep = (props) => {
         </div>
       </label>
       <label style={labelStyle}>
-        Name On Card
+        Name On Card*
         <input
           value={name}
           onChange={(e) => handleInput(e, setPaymentInfo, "name")}
@@ -105,7 +105,7 @@ const PaymentStep = (props) => {
         </div>
       </label>
       <label style={labelStyle}>
-        Expiry Date
+        Expiry Date*
         <input
           value={expire}
           onChange={(e) => handleInput(e, setPaymentInfo, "expire")}
@@ -129,7 +129,7 @@ const PaymentStep = (props) => {
         </div>
       </label>
       <label style={labelStyle}>
-        Security Code
+        Security Code*
         <input
           value={code}
           onChange={(e) => handleInput(e, setPaymentInfo, "code")}
