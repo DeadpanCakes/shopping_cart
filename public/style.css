@@ -513,17 +513,18 @@ label {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 80vw;
+  max-width: 80vw;
+  margin-left: 10vw;
   margin-top: 100px;
 }
 
 .itemPage {
-  width: 75%;
-  height: 60%;
+  min-width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
   grid-template-areas:
-    "img blank"
     "img info";
   margin-bottom: 50px;
 }
@@ -533,15 +534,20 @@ label {
   width: auto;
   grid-area: img;
   align-self: end;
-  justify-self: end;
+  justify-self: center;
   padding: 10px;
 }
 
 .itemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 700px;
+  height: 100%;
   padding: 10px;
   grid-area: info;
   align-self: start;
-  justify-self: center;
+  justify-self: start;
 }
 
 .recommendationsContainer {
