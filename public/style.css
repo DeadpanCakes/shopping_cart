@@ -284,6 +284,7 @@ label {
   flex-direction: column;
 }
 
+
 .shopSideBar {
   min-height: 80vh;
   width: 13%;
@@ -378,6 +379,28 @@ label {
   height: auto;
   border-radius: 20px;
   margin-bottom: 20px;
+}
+
+.itemListingName {
+  position: relative;
+}
+
+.itemListingFullName {
+  position: absolute;
+  top: -80px;
+  background-color: rgba(80, 76, 76, .90);
+  opacity: 0;
+  transition: opacity 200ms linear;
+  padding: 10px;
+  border: 2px rgba(34, 32, 32, 1) solid;
+  border-radius: 5px;
+  color: #f8fffd;
+  width: 80%;
+  text-align: center;
+}
+
+.itemListingName:hover .itemListingFullName {
+  opacity: 1;
 }
 
 .quickMenu {

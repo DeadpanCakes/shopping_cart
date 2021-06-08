@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { CartConsumer } from "../CartContext";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ListingQuickMenu from './ListingQuickMenu';
+import ListingQuickMenu from "./ListingQuickMenu";
 
 const ItemListing = (props) => {
   const { item } = props;
@@ -45,9 +45,14 @@ const ItemListing = (props) => {
                     ) : null
                   ) : null}
                 </div>
-                <div style={{ display: "flex", marginBottom: "10px" }}>
-                  <h2>{limitChar(item.name)}</h2>
-                  <h4>${item.price}</h4>
+                <div className="itemListingName">
+                  <div style={{ display: "flex", marginBottom: "10px" }}>
+                    <h2>{limitChar(item.name)}</h2>
+                    <h4>${item.price}</h4>
+                  </div>
+                  {item.name.length > 10 ? (
+                    <p className="itemListingFullName">{item.name}</p>
+                  ) : null}
                 </div>
               </div>
             </li>
