@@ -267,6 +267,13 @@ label {
     transform: translate(5px, -3px);
   }
 }
+.contactBtn {
+  padding: 15px;
+  font-size: 1.1em 
+}
+
+
+
 
 #cartCount {
   position: absolute;
@@ -628,4 +635,10 @@ footer,
 
 .socialMediaLink:hover {
   filter: drop-shadow(0 0 2px #f6c7c7);
+}
+
+.contactBtn:enabled:hover {
+  color: #2a2b2a;
+  background-color: aliceblue;
+  filter: drop-shadow(0 0 2px aliceblue)
 }
