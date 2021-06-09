@@ -2,13 +2,10 @@ import { Link } from "react-router-dom";
 import heroImg from "../../img/aboutBannerFM.jpg";
 import storyImg from "../../img/aboutImg1.webp";
 import missionImg from "../../img/aboutImg2.webp";
-import RecommendedSection from '../RecommendedSection';
+import RecommendedSection from "../RecommendedSection";
+import nurseryImg from "../../img/nursery1.png";
 
 const About = () => {
-  const containerStyle = {
-    minHeight: "100vh",
-  };
-
   const mainStyle = {
     minHeight: "100vh",
     display: "flex",
@@ -64,12 +61,13 @@ const About = () => {
             backgroundColor: "#f6c7c7",
             marginBottom: 80,
             backgroundImage: `url(${storyImg})`,
+            boxShadow: "10px 10px 0 #1c2f4a",
           }}
         >
           <div
             style={{
               backgroundColor: "#f0f8ff95",
-              padding: 10
+              padding: 10,
             }}
           >
             <h1 style={titleStyle}>Our Story</h1>
@@ -96,15 +94,16 @@ const About = () => {
             backgroundColor: "#f6c7c7",
             marginBottom: 80,
             backgroundImage: `url(${missionImg})`,
+            boxShadow: "10px 10px 0 #1c2f4a",
           }}
         >
           <div
             style={{
               backgroundColor: "#f0f8ff95",
-              padding: 20
+              padding: 20,
             }}
           >
-            <h1 style={{textAlign: 'center'}}>Our Mission Statement</h1>
+            <h1 style={{ textAlign: "center" }}>Our Mission Statement</h1>
             <hr style={breakStyle}></hr>
             <p style={textStyle}>
               Rem architecto libero magni sint non nihil. Animi saepe
@@ -115,24 +114,38 @@ const About = () => {
           </div>
         </div>
         <div style={{ backgroundColor: "#507dbc" }}>
-          <div style={{ ...sectionStyle, display: 'flex', flexDirection: 'column' }}>
-            <h1 style={{textAlign:'center'}}>Visit Us</h1>
-            <hr style={breakStyle}></hr>
-            <p style={textStyle}>
-              If you're in the San Diego area, you can see for yourself what
-              makes us different. Visit our nursery, where you can pick out
-              plants yourself and find other specimens we don't offer on the
-              site. Normally, we are open to the public, but for the safety of
-              our workers and visitors, we are only taking people who have
-              appointments to limit contact until further notice.
-            </p>
-            <Link to="/contact" style={{alignSelf:'center', margin: 10}}>
-              <button style={{}} className='contactBtn'>Contact Us</button>
-            </Link>
+          <div
+            style={{
+              ...sectionStyle,
+              display: "flex",
+              padding: 20,
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", flex: 2 }}>
+              <h1>Visit Us</h1>
+              <p>
+                If you're in the San Diego area, you can see for yourself what
+                makes us different. Visit our nursery, where you can pick out
+                plants yourself and find other specimens we don't offer on the
+                site. Normally, we are open to the public, but for the safety of
+                our workers and visitors, we are only taking people who have
+                appointments to limit contact until further notice.
+              </p>
+              <Link to="/contact" style={{ alignSelf: "center", margin: 10 }}>
+                <button style={{}} className="contactBtn">
+                  Schedule An Appointment
+                </button>
+              </Link>
+            </div>
+            <img
+              alt="Our nursery"
+              src={nurseryImg}
+              style={{ flex: 1, width: 500, boxShadow: "10px 10px 0 #1c2f4a" }}
+            />
           </div>
         </div>
       </main>
-      <RecommendedSection itemArr={[]}/>
+      <RecommendedSection itemArr={[]} />
     </div>
   );
 };
