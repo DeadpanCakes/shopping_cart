@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import InfoHero from './InfoHero';
 import heroImg from "../../img/aboutBannerFM.jpg";
 import storyImg from "../../img/aboutImg1.webp";
 import missionImg from "../../img/aboutImg2.webp";
@@ -11,21 +12,6 @@ const About = () => {
     display: "flex",
     flexDirection: "column",
     marginTop: 40,
-  };
-
-  const bannerStyle = {
-    width: "100%",
-    maxHeight: 400,
-    minHeight: 400,
-    position: "relative",
-    backgroundImage: `url(${heroImg})`,
-  };
-
-  const heroText = {
-    position: "absolute",
-    left: "6%",
-    bottom: "8%",
-    color: "white",
   };
 
   const sectionStyle = {
@@ -49,11 +35,7 @@ const About = () => {
 
   return (
     <div>
-      <div style={bannerStyle}>
-        <div style={heroText}>
-          <h1>About Us</h1>
-        </div>
-      </div>
+      <InfoHero img={heroImg} text="About Us" />
       <main style={mainStyle}>
         <div
           style={{

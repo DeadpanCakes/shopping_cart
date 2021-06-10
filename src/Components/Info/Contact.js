@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
+import InfoHero from './InfoHero';
 import contactHero from "../../img/contactBannerFM.jpg";
 import nurseryImg from "../../img/nursery2.jpg";
 import SocialMedia from '../SocialMedia';
@@ -25,26 +26,7 @@ const Contact = () => {
 
   return (
     <div style={{marginBottom: 30}}>
-      <div
-        style={{
-          backgroundImage: `url(${contactHero})`,
-          width: "100%",
-          height: "30vh",
-          position: "relative",
-        }}
-      >
-        <h1
-          style={{
-            position: "absolute",
-            bottom: "3%",
-            left: "5%",
-            color: "aliceblue",
-            textShadow: "0 0 5px black",
-          }}
-        >
-          Contact Us
-        </h1>
-      </div>
+      <InfoHero img={contactHero} text='Contact Us' />
       <main style={mainStyle}>
         <section
           style={{
@@ -56,7 +38,7 @@ const Contact = () => {
           <h1>Send Us A Message</h1>
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
             <ContactForm />
-            <p style={{ flex: "1", textAlign: "center" }}>
+            <p style={{ flex: "1", textAlign: "center", padding: 10 }}>
               Got questions or feedback? Or maybe you just wanna say thanks? If
               you want a response, remember to leave your email. If you need
               quick answers, be sure to check our FAQ.
@@ -77,7 +59,7 @@ const Contact = () => {
           </div>
           <p>
             Keep yourself on updated on new, rare, or fast-selling stock!
-            Exclusive deals and contests!
+            Participate in exclusive deals and contests!
           </p>
         </section>
         <div
