@@ -8,6 +8,7 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   const containerStyle = {
@@ -63,18 +64,8 @@ const Contact = () => {
         >
           <h1>Send Us A Message</h1>
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <form
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <input placeholder="Email"></input>
-              <input placeholder="Subject"></input>
-              <textarea placeholder="Your Message"></textarea>
-            </form>
-            <p style={{ flex: "1", textAlign: 'center' }}>
+            <ContactForm />
+            <p style={{ flex: "1", textAlign: "center" }}>
               Got questions or feedback? Or maybe you just wanna say thanks? If
               you want a response, remember to leave your email. If you need
               quick answers, be sure to check our FAQ.
