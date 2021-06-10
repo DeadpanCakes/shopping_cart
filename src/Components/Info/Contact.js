@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
-import InfoHero from './InfoHero';
+import InfoHero from "./InfoHero";
 import contactHero from "../../img/contactBannerFM.jpg";
 import nurseryImg from "../../img/nursery2.jpg";
-import SocialMedia from '../SocialMedia';
+import SocialMedia from "../SocialMedia";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
@@ -18,15 +18,15 @@ const Contact = () => {
   };
 
   const sectionStyle = {
-    padding: 30,
+    padding: 15,
     boxShadow: "10px 10px 0 #1c2f4a",
     backgroundColor: "#507dbc",
-    color: "aliceblue",
+    color: "#2a2b2a",
   };
 
   return (
-    <div style={{marginBottom: 30}}>
-      <InfoHero img={contactHero} text='Contact Us' />
+    <div style={{ marginBottom: 30 }}>
+      <InfoHero img={contactHero} text="Contact Us" />
       <main style={mainStyle}>
         <section
           style={{
@@ -35,14 +35,16 @@ const Contact = () => {
             alignSelf: "start",
           }}
         >
-          <h1>Send Us A Message</h1>
-          <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <ContactForm />
-            <p style={{ flex: "1", textAlign: "center", padding: 10 }}>
-              Got questions or feedback? Or maybe you just wanna say thanks? If
-              you want a response, remember to leave your email. If you need
-              quick answers, be sure to check our FAQ.
-            </p>
+          <div style={{ backgroundColor: "#f0f8ff95", padding: 15 }}>
+            <h1>Send Us A Message</h1>
+            <div style={{ display: "flex", justifyContent: "flex-start" }}>
+              <ContactForm />
+              <p style={{ flex: "1", textAlign: "center", padding: 10 }}>
+                Got questions or feedback? Or maybe you just wanna say thanks?
+                If you want a response, remember to leave your email. If you
+                need quick answers, be sure to check our FAQ.
+              </p>
+            </div>
           </div>
         </section>
         <section
@@ -53,14 +55,16 @@ const Contact = () => {
             flexDirection: "column",
           }}
         >
-          <div style={{ display: "flex" }}>
-            <h1>Follow Us</h1>
-            <SocialMedia size='4x' />
+          <div style={{ backgroundColor: "#f0f8ff95", padding: 15 }}>
+            <div style={{ display: "flex" }}>
+              <h1>Follow Us</h1>
+              <SocialMedia size="4x" isDark={false} />
+            </div>
+            <p>
+              Keep yourself on updated on new, rare, or fast-selling stock!
+              Participate in exclusive deals and contests!
+            </p>
           </div>
-          <p>
-            Keep yourself on updated on new, rare, or fast-selling stock!
-            Participate in exclusive deals and contests!
-          </p>
         </section>
         <div
           style={{
@@ -87,26 +91,28 @@ const Contact = () => {
           </h2>
         </div>
         <section style={{ ...sectionStyle, alignSelf: "end", display: "flex" }}>
-          <div style={{ flex: 2 }}>
-            <h1>Visit Us</h1>
-            <p>
-              You can visit us and pick out your own plants or find specimens
-              not listed on the site. Just give us a ring to set up an
-              appointment!
-            </p>
-          </div>
-          <div
-            style={{
-              display: "grid",
-              flex: 1,
-              alignItems: "end",
-              gridTemplateColumns: "10% 90%",
-            }}
-          >
-            <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
-            <p>+1 (883) 841-2369</p>
-            <FontAwesomeIcon icon={faMapMarkedAlt}></FontAwesomeIcon>
-            <p>475 Konopelski Harbors, San Diego, Ca 94516</p>
+          <div style={{ backgroundColor: "#f0f8ff95", padding: 15 }}>
+            <div style={{ flex: 2 }}>
+              <h1>Visit Us</h1>
+              <p>
+                You can visit us and pick out your own plants or find specimens
+                not listed on the site. Just give us a ring to set up an
+                appointment!
+              </p>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                flex: 1,
+                alignItems: "end",
+                gridTemplateColumns: "10% 90%",
+              }}
+            >
+              <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
+              <p>+1 (883) 841-2369</p>
+              <FontAwesomeIcon icon={faMapMarkedAlt}></FontAwesomeIcon>
+              <p>475 Konopelski Harbors, San Diego, Ca 94516</p>
+            </div>
           </div>
         </section>
       </main>

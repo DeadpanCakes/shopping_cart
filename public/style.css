@@ -629,11 +629,21 @@ footer,
 }
 
 .socialMediaLink {
-  color: #f6c7c7;
+  color: #3b6192;
   padding: 0 10px;
 }
 
 .socialMediaLink:hover {
+  color: #507dbc;
+  filter: drop-shadow(0 0 2px #5c90da);
+}
+
+.socialMediaLinkDark {
+  color: #f6c7c7;
+  padding: 0 10px;
+}
+
+.socialMediaLinkDark:hover {
   filter: drop-shadow(0 0 2px #f6c7c7);
 }
 

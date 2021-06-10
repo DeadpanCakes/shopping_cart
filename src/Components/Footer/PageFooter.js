@@ -18,7 +18,7 @@ const PageFooter = () => {
   return (
     <footer style={footerStyle}>
       <p style={footerNav}>Store Place Copyright 2021 All Rights Reserved</p>
-      <SocialMedia size='lg'/>
+      <SocialMedia size='lg' isDark={true}/>
       <nav style={{display:'flex'}}>
         <Link style={footerNav} className='footerLink' to="/contact">Contact</Link>
         <Link style={footerNav} className='footerLink' to="/about">About</Link>
