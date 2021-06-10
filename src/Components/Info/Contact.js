@@ -2,19 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 import contactHero from "../../img/contactBannerFM.jpg";
 import nurseryImg from "../../img/nursery2.jpg";
-import { Link } from "react-router-dom";
-import {
-  faInstagram,
-  faFacebook,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import SocialMedia from '../Footer/SocialMedia';
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
-  const containerStyle = {
-    marginBottom: 30,
-  };
-
   const mainStyle = {
     minHeight: "80vh",
     display: "grid",
@@ -33,7 +24,7 @@ const Contact = () => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div style={{marginBottom: 30}}>
       <div
         style={{
           backgroundImage: `url(${contactHero})`,
@@ -82,29 +73,7 @@ const Contact = () => {
         >
           <div style={{ display: "flex" }}>
             <h1>Follow Us</h1>
-            <ul
-              style={{
-                display: "flex",
-                justifyContent: "space-around",
-                flex: 1,
-              }}
-            >
-              <li>
-                <Link className="socialMediaLink">
-                  <FontAwesomeIcon icon={faTwitter} size="4x" />
-                </Link>
-              </li>
-              <li>
-                <Link className="socialMediaLink">
-                  <FontAwesomeIcon icon={faInstagram} size="4x" />
-                </Link>
-              </li>
-              <li>
-                <Link className="socialMediaLink">
-                  <FontAwesomeIcon icon={faFacebook} size="4x" />
-                </Link>
-              </li>
-            </ul>
+            <SocialMedia size='4x' />
           </div>
           <p>
             Keep yourself on updated on new, rare, or fast-selling stock!
@@ -159,7 +128,6 @@ const Contact = () => {
           </div>
         </section>
       </main>
-      <aside></aside>
     </div>
   );
 };
