@@ -31,6 +31,9 @@ const About = () => {
 
   const textStyle = {
     fontSize: "1.3em",
+    width: '50%',
+    padding: 30,
+    textAlign: 'center'
   };
 
   return (
@@ -83,9 +86,12 @@ const About = () => {
             style={{
               backgroundColor: "#f0f8ff95",
               padding: 20,
+              display: 'flex', 
+              flexDirection: 'column',
+              alignItems: 'center'
             }}
           >
-            <h1 style={{ textAlign: "center" }}>Our Mission Statement</h1>
+            <h1>Our Mission Statement</h1>
             <hr style={breakStyle}></hr>
             <p style={textStyle}>
               Rem architecto libero magni sint non nihil. Animi saepe
