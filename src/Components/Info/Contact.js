@@ -5,6 +5,7 @@ import contactHero from "../../img/contactBannerFM.jpg";
 import nurseryImg from "../../img/nursery2.jpg";
 import SocialMedia from "../SocialMedia";
 import ContactForm from "./ContactForm";
+import RecommendedSection from '../RecommendedSection';
 
 const Contact = () => {
   const mainStyle = {
@@ -14,7 +15,7 @@ const Contact = () => {
     gridTemplateRows: "1fr 1fr",
     columnGap: "3em",
     justifyContent: "space-around",
-    margin: 40,
+    margin: '40px 40px 120px 40px',
   };
 
   const sectionStyle = {
@@ -25,7 +26,7 @@ const Contact = () => {
   };
 
   return (
-    <div style={{ marginBottom: 30 }}>
+    <div style={{ marginBottom: 80 }}>
       <InfoHero img={contactHero} text="Contact Us" />
       <main style={mainStyle}>
         <section
@@ -116,6 +117,8 @@ const Contact = () => {
           </div>
         </section>
       </main>
+      <div style={{width: '80vw', marginLeft: '10vw'}}>  
+      <RecommendedSection itemArr={[]}/></div>
     </div>
   );
 };
