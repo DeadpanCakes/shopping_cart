@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 import contactHero from "../../img/contactBannerFM.jpg";
 import nurseryImg from "../../img/nursery2.jpg";
-import SocialMedia from '../Footer/SocialMedia';
+import SocialMedia from '../SocialMedia';
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
