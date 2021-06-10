@@ -1,29 +1,38 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 import contactHero from "../../img/contactBannerFM.jpg";
+import nurseryImg from "../../img/nursery2.jpg";
+import { Link } from "react-router-dom";
+import {
+  faInstagram,
+  faFacebook,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Contact = () => {
+  const containerStyle = {
+    marginBottom: 30,
+  };
+
   const mainStyle = {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: 'center',
-    marginTop: 40,
+    minHeight: "80vh",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridTemplateRows: "1fr 1fr",
+    columnGap: "3em",
+    justifyContent: "space-around",
+    margin: 40,
   };
 
   const sectionStyle = {
-    width: '80%',
-    marginTop: '80px',
     padding: 30,
-  }
-
-  const breakStyle = {
-    border: "1px solid black",
-    width: "80%",
+    boxShadow: "10px 10px 0 #1c2f4a",
+    backgroundColor: "#507dbc",
+    color: "aliceblue",
   };
 
   return (
-    <div>
+    <div style={containerStyle}>
       <div
         style={{
           backgroundImage: `url(${contactHero})`,
@@ -45,44 +54,118 @@ const Contact = () => {
         </h1>
       </div>
       <main style={mainStyle}>
-        <form style={{...sectionStyle, backgroundColor: '#507dbc'}}>
+        <section
+          style={{
+            ...sectionStyle,
+            backgroundColor: "#507dbc",
+            alignSelf: "start",
+          }}
+        >
           <h1>Send Us A Message</h1>
-        <hr style={breakStyle}></hr>
-          <p>
-            Got questions or feedback? Or maybe you just wanna say thanks? If
-            you want a response, remember to leave your email. If you need quick
-            answers, be sure to check our FAQ.
-          </p>
-          <label>
-            Email<input></input>
-          </label>
-          <label>
-            Subject<input></input>
-          </label>
-          <label>
-            <textarea></textarea>
-          </label>
-        </form>
-        <section style={sectionStyle}>
-          <h1>Follow Us</h1>
-        <hr style={breakStyle}></hr>
-          <ul>
-            <li>Twitter</li>
-            <li>Instagram</li>
-            <li>Facebook</li>
-          </ul>
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <form
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+            >
+              <input placeholder="Email"></input>
+              <input placeholder="Subject"></input>
+              <textarea placeholder="Your Message"></textarea>
+            </form>
+            <p style={{ flex: "1", textAlign: 'center' }}>
+              Got questions or feedback? Or maybe you just wanna say thanks? If
+              you want a response, remember to leave your email. If you need
+              quick answers, be sure to check our FAQ.
+            </p>
+          </div>
         </section>
-        <section style={sectionStyle}>
-          <h1>Make An Appointment</h1>
-        <hr style={breakStyle}></hr>
+        <section
+          style={{
+            ...sectionStyle,
+            alignSelf: "end",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div style={{ display: "flex" }}>
+            <h1>Follow Us</h1>
+            <ul
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                flex: 1,
+              }}
+            >
+              <li>
+                <Link className="socialMediaLink">
+                  <FontAwesomeIcon icon={faTwitter} size="4x" />
+                </Link>
+              </li>
+              <li>
+                <Link className="socialMediaLink">
+                  <FontAwesomeIcon icon={faInstagram} size="4x" />
+                </Link>
+              </li>
+              <li>
+                <Link className="socialMediaLink">
+                  <FontAwesomeIcon icon={faFacebook} size="4x" />
+                </Link>
+              </li>
+            </ul>
+          </div>
           <p>
-            You can visit us and pick out your own plants or find specimens not
-            listed on the site. Just give us a ring to set up an appointment!
+            Keep yourself on updated on new, rare, or fast-selling stock!
+            Exclusive deals and contests!
           </p>
-          <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
-          <p>+1 (883) 841-2369</p>
-          <FontAwesomeIcon icon={faMapMarkedAlt}></FontAwesomeIcon>
-          <p>475 Konopelski Harbors, San Diego, Ca 94516</p>
+        </section>
+        <div
+          style={{
+            ...sectionStyle,
+            alignSelf: "center",
+            justifySelf: "center",
+            padding: 0,
+            position: "relative",
+            maxHeight: 300,
+          }}
+        >
+          <img alt="Our nursery" src={nurseryImg} style={{ maxWidth: 900 }} />
+          <h2
+            style={{
+              position: "absolute",
+              left: "10%",
+              bottom: "10%",
+              color: "#2a2b2a",
+              backgroundColor: "#f0f8ff98",
+              padding: 10,
+            }}
+          >
+            See What Makes Us Different For Yourself
+          </h2>
+        </div>
+        <section style={{ ...sectionStyle, alignSelf: "end", display: "flex" }}>
+          <div style={{ flex: 2 }}>
+            <h1>Visit Us</h1>
+            <p>
+              You can visit us and pick out your own plants or find specimens
+              not listed on the site. Just give us a ring to set up an
+              appointment!
+            </p>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              flex: 1,
+              alignItems: "end",
+              gridTemplateColumns: "10% 90%",
+            }}
+          >
+            <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
+            <p>+1 (883) 841-2369</p>
+            <FontAwesomeIcon icon={faMapMarkedAlt}></FontAwesomeIcon>
+            <p>475 Konopelski Harbors, San Diego, Ca 94516</p>
+          </div>
         </section>
       </main>
       <aside></aside>
