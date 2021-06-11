@@ -3,7 +3,7 @@ import userFactory from "../../userFactory";
 import useUsers from "../../useUsers";
 
 const SignUp = () => {
-  const {users, addUser} = useUsers();
+  const { users, addUser } = useUsers();
 
   const [email, setEmail] = useState("");
   const [isEmailValid, setEmailVaild] = useState(false);
@@ -70,18 +70,30 @@ const SignUp = () => {
     setFormValid(isEmailValid && isPassValid && isPassSame);
   }, [isEmailValid, isPassValid, isPassSame]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     //If all fields are valid and this email is not associated with an existing user
-    if (isFormValid && !users.find((user) => user.email === email)) {
-      const newUser = userFactory(email, password);
-      addUser(newUser)
+    if (isFormValid) {
+      if (!users.find((user) => user.email === email)) {
+        const newUser = userFactory(email, password);
+        addUser(newUser);
+      } else {
+        console.log('email in use')
+      }
     } else {
-      throw new Error("Invalid whatever")
+      console.log(
+        "email:",
+        isEmailValid,
+        "pass:",
+        isPassValid,
+        "verify",
+        isPassSame
+      );
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <label>
         Email
         <input
@@ -105,6 +117,7 @@ const SignUp = () => {
           onChange={(e) => handleInput("verify", e.target.value)}
         ></input>
       </label>
+      <button>Sign Up</button>
     </form>
   );
 };

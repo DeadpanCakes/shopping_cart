@@ -3,13 +3,8 @@ import { useState, useEffect } from "react";
 const useUser = () => {
   const [users, setUsers] = useState([]);
 
-  const storeUsers = () => {
-    window.localStorage.setItem("users", users);
-  };
-
   const addUser = (newUser) => {
     setUsers((prevState) => prevState.concat(newUser));
-    storeUsers();
   };
 
   useEffect(() => {
@@ -19,6 +14,11 @@ const useUser = () => {
       setUsers(parsedUsers);
     }
   }, []);
+
+  useEffect(() => {
+    const usersJSON = JSON.stringify(users);
+    window.localStorage.setItem("users", usersJSON);
+  }, [users]);
 
   return { users, addUser };
 };
