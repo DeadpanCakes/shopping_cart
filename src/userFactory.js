@@ -1,4 +1,24 @@
-const userFactory = (email, password) => {
+const userFactory = (
+  email,
+  password,
+  shippingInfo = {
+    name: "",
+    country: "",
+    address: "",
+    zip: "",
+    city: "",
+    phone: "",
+  },
+  billingInfo = {
+    name: "",
+    country: "",
+    address: "",
+    zip: "",
+    city: "",
+    phone: "",
+  },
+  paymentInfo = { cardNumber: "", name: "", code: "", expiration: "" }
+) => {
   const orders = [];
   const addOrder = (newOrder) => orders.push(newOrder);
   const wishList = [];
@@ -7,13 +27,18 @@ const userFactory = (email, password) => {
       wishList.push(item);
     }
   };
+  const changeShipping = (updatedInfo) => (shippingInfo = updatedInfo);
+  const changeBilling = (updatedInfo) => (billingInfo = updatedInfo);
+  const changePayment = (updatedInfo) => (paymentInfo = updatedInfo);
+
   return {
     email: email,
     password: password,
     orders: orders,
-    addOrder: addOrder,
     wishList: wishList,
-    addWish: addWish,
+    shippingInfo: shippingInfo,
+    billingInfo: billingInfo,
+    paymentInfo: paymentInfo,
   };
 };
 
