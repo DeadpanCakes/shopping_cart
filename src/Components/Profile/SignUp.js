@@ -118,6 +118,9 @@ const SignUp = () => {
         ></input>
       </label>
       <button>Sign Up</button>
+      <ul>
+        
+      </ul>
     </form>
   );
 };
