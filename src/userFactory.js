@@ -20,16 +20,7 @@ const userFactory = (
   paymentInfo = { cardNumber: "", name: "", code: "", expiration: "" }
 ) => {
   const orders = [];
-  const addOrder = (newOrder) => orders.push(newOrder);
   const wishList = [];
-  const addWish = (item) => {
-    if (!wishList.find(item)) {
-      wishList.push(item);
-    }
-  };
-  const changeShipping = (updatedInfo) => (shippingInfo = updatedInfo);
-  const changeBilling = (updatedInfo) => (billingInfo = updatedInfo);
-  const changePayment = (updatedInfo) => (paymentInfo = updatedInfo);
 
   return {
     email: email,

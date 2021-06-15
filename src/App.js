@@ -8,13 +8,14 @@ import CartPage from "./Components/Cart/CartPage";
 import CheckoutPage from "./Components/Checkout/CheckoutPage";
 import ShopPage from "./Components/ShopPages/ShopPage";
 import { CartProvider } from "./CartContext";
+import { UserProvider } from "./UserContext";
 import useOrders from "./useOrders";
 
 const App = (props) => {
-  const { orders, addOrder} = useOrders();
-
+  const { orders, addOrder } = useOrders();
+  console.log(UserProvider);
   return (
-    <Fragment>
+    <UserProvider>
       <CartProvider>
         <PageHeader />
         <Switch>
@@ -40,12 +41,15 @@ const App = (props) => {
           <Route path="/cart/checkout">
             <CheckoutPage addOrder={addOrder} />
           </Route>
-          <Route path="/shop/orders/:id" component={() => <OrderPage orders={orders} />}/>
+          <Route
+            path="/shop/orders/:id"
+            component={() => <OrderPage orders={orders} />}
+          />
         </Switch>
         {props.children}
         <PageFooter />
       </CartProvider>
-    </Fragment>
+    </UserProvider>
   );
 };
 export default App;
