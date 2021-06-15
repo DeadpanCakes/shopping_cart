@@ -6,7 +6,12 @@ import InfoSection from "./InfoSection";
 
 const Profile = (props) => {
   const { users, editUser } = useUsers();
-  const { editingPayment, setEditPayment } = useState(false);
+  const [ editingPayment, setEditPayment ] = useState(false);
+  const toggleEditPayment = () => setEditPayment((prevState) => !prevState);
+  const [ editingBilling, setEditBilling ] = useState(false);
+  const toggleEditBilling = () => setEditBilling((prevState) => !prevState);
+  const [ editingShipping, setEditShipping ] = useState(false);
+  const toggleEditShipping = () => setEditShipping((prevState) => !prevState);
 
   return (
     <UserConsumer>
@@ -16,9 +21,30 @@ const Profile = (props) => {
           (() => {
             return (
               <div>
-                <InfoSection title="Billing" info={loggedUser.billingInfo} />
-                <InfoSection title="Shipping" info={loggedUser.shippingInfo} />
-                <InfoSection title="Payment" info={loggedUser.paymentInfo} />
+                <InfoSection
+                  section="Billing"
+                  info={loggedUser.billingInfo}
+                  user={user}
+                  editUser={editUser}
+                  isBeingEdited={editingBilling}
+                  toggleEdit={toggleEditBilling}
+                />
+                <InfoSection
+                  section="Shipping"
+                  info={loggedUser.shippingInfo}
+                  user={user}
+                  editUser={editUser}
+                  isBeingEdited={editingShipping}
+                  toggleEdit={toggleEditShipping}
+                />
+                <InfoSection
+                  section="Payment"
+                  info={loggedUser.paymentInfo}
+                  user={user}
+                  editUser={editUser}
+                  isBeingEdited={editingPayment}
+                  toggleEdit={toggleEditPayment}
+                />
               </div>
             );
           })()
