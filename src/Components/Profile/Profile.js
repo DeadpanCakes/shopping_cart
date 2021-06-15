@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
 import useUsers from "../../useUsers";
+import InfoSection from "./InfoSection";
 
 const Profile = (props) => {
   const { users, editUser } = useUsers();
+  const { editingPayment, setEditPayment } = useState(false);
 
   return (
     <UserConsumer>
@@ -10,31 +14,18 @@ const Profile = (props) => {
         const { loggedUser } = user;
         return loggedUser ? (
           (() => {
-            const { name, cardNumber, expiration } = loggedUser.paymentInfo;
             return (
               <div>
-                <section>
-                  <div style={{ display: "flex" }}>
-                    <h2>Payment Info</h2>
-                    <button>Edit</button>
-                  </div>
-                  {[name, cardNumber, expiration].every(
-                    (info) => info !== ""
-                  ) ? (
-                    <>
-                      <p>Name: {name}</p>
-                      <p>Card Number: {cardNumber}</p>
-                      <p>Expires: {expiration}</p>
-                    </>
-                  ) : (
-                    <p>No Information Available</p>
-                  )}
-                </section>
+                <InfoSection title="Billing" info={loggedUser.billingInfo} />
+                <InfoSection title="Shipping" info={loggedUser.shippingInfo} />
+                <InfoSection title="Payment" info={loggedUser.paymentInfo} />
               </div>
             );
           })()
         ) : (
-          <p>Go log in</p>
+          <Link to="/profile/log-in">
+            <button>Log In</button>
+          </Link>
         );
       }}
     </UserConsumer>
