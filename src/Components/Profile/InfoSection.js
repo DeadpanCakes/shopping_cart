@@ -1,7 +1,9 @@
+import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 
 const InfoSection = (props) => {
-  const { section, info, isBeingEdited, user, editUser, toggleEdit, test} = props;
+  const { section, info, isBeingEdited, user, editUser, toggleEdit, test } =
+    props;
   //Create an arr of objects, one per key:value pair
   const infoArr = (() => {
     const arr = [];
@@ -13,8 +15,32 @@ const InfoSection = (props) => {
 
   const fetchEditForm = (section) => {
     switch (section) {
+      case "Shipping":
+        return (
+          <AddressForm
+            user={user}
+            editUser={editUser}
+            toggleEdit={toggleEdit}
+            section={section}
+          />
+        );
+      case "Billing":
+        return (
+          <AddressForm
+            user={user}
+            editUser={editUser}
+            toggleEdit={toggleEdit}
+            section={section}
+          />
+        );
       case "Payment":
-        return <PaymentForm user={user} editUser={editUser} toggleEdit={toggleEdit} />;
+        return (
+          <PaymentForm
+            user={user}
+            editUser={editUser}
+            toggleEdit={toggleEdit}
+          />
+        );
       default:
         console.log(section);
         return <p>{section}</p>;
@@ -33,7 +59,7 @@ const InfoSection = (props) => {
         <section>
           {infoArr.map((info) => {
             const keyName = Object.keys(info)[0];
-            return <p>{`${keyName}: ${info[keyName]}`}</p>;
+            return <p key={keyName}>{`${keyName}: ${info[keyName]}`}</p>;
           })}
         </section>
       )}

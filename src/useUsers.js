@@ -32,10 +32,10 @@ const useUser = () => {
     }
   };
 
-  const addOrder = (targetUser, newOrder) => {
+  const addOrder = (targetId, newOrder) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user.id === targetUser.id) {
+        if (user.id === targetId) {
           return { ...user, orders: user.orders.concat(newOrder) };
         }
         return user;
@@ -43,10 +43,10 @@ const useUser = () => {
     });
   };
 
-  const addWish = (targetUser, newWish) => {
+  const addWish = (targetId, newWish) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user.id === targetUser.id) {
+        if (user.id === targetId) {
           return { ...user, wishList: user.wishList.concat(newWish) };
         }
         return user;
@@ -54,10 +54,10 @@ const useUser = () => {
     });
   };
 
-  const removeWish = (targetUser, targetWish) => {
+  const removeWish = (targetId, targetWish) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user.id === targetUser.id) {
+        if (user.id === targetId) {
           return {
             ...user,
             wishList: user.wishList.filter((item) => item !== targetWish),
@@ -68,10 +68,11 @@ const useUser = () => {
     });
   };
 
-  const editShipping = (targetUser, updatedInfo) => {
+  const editShipping = (targetId, updatedInfo) => {
+    console.log(targetId, updatedInfo)
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user.id === targetUser.id) {
+        if (user.id === targetId) {
           return {
             ...user,
             shippingInfo: updatedInfo,
@@ -82,10 +83,10 @@ const useUser = () => {
     });
   };
 
-  const editBilling = (targetUser, updatedInfo) => {
+  const editBilling = (targetId, updatedInfo) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user.id === targetUser.id) {
+        if (user.id === targetId) {
           return {
             ...user,
             billingInfo: updatedInfo,
@@ -96,10 +97,10 @@ const useUser = () => {
     });
   };
 
-  const editPayment = (targetUser, updatedInfo) => {
+  const editPayment = (targetId, updatedInfo) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user.id === targetUser) {
+        if (user.id === targetId) {
           return {
             ...user,
             paymentInfo: updatedInfo,
