@@ -1,3 +1,5 @@
+import genId from 'generate-unique-id';
+
 const userFactory = (
   email,
   password,
@@ -21,8 +23,10 @@ const userFactory = (
 ) => {
   const orders = [];
   const wishList = [];
+  const userId = genId();
 
   return {
+    id: userId,
     email: email,
     password: password,
     orders: orders,

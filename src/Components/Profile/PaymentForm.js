@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const PaymentForm = (props) => {
+  const { user, editUser, toggleEdit } = props;
   const [name, setName] = useState("");
   const [card, setCard] = useState("");
   const [code, setCode] = useState("");
@@ -25,8 +26,24 @@ const PaymentForm = (props) => {
     }
   };
 
+  const handleSubmit = (newData) => {
+    console.log(user.loggedUser.id, newData)
+    editUser(user.loggedUser.id, "editPayment", newData);
+    toggleEdit();
+  };
+
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit({
+          name: name,
+          cardNumber: card,
+          code: code,
+          expiration: expiry,
+        });
+      }}
+    >
       <label>
         Name On Card
         <input
@@ -55,6 +72,8 @@ const PaymentForm = (props) => {
           onChange={(e) => handleInput("expiry", e.target.value)}
         ></input>
       </label>
+      <button>Submit</button>
+      <button onClick={(e) => {e.preventDefault(); console.log(user)}}>check</button>
     </form>
   );
 };

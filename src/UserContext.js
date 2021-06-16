@@ -1,24 +1,33 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import useUsers from "./useUsers";
 
 const UserContext = createContext();
 
 export function UserProvider(props) {
-  const [loggedUser, setUser] = useState(false);
-  const signIn = (user) => {
-    if (!loggedUser) {
-      setUser(user);
+  const { users, addUser, editUser } = useUsers();
+  const [loggedId, setLoggedId] = useState(false);
+  const [user, setUser] = useState({});
+
+  const signIn = (id) => {
+    if (!loggedId) {
+      setLoggedId(id);
     }
   };
   const signOut = () => {
-    if (loggedUser) {
-      setUser(false);
+    if (loggedId) {
+      setLoggedId(false);
     }
   };
-
-  const user = { loggedUser, signIn, signOut };
+  useEffect(() => {
+    setUser(
+      users.find((user) => user.id === loggedId)
+    );
+  }, [users, loggedId]);
 
   return (
-    <UserContext.Provider value={user}>{props.children}</UserContext.Provider>
+    <UserContext.Provider value={{users: users, addUser: addUser, loggedUser: user, signOut, signIn, editUser: editUser}}>
+      {props.children}
+    </UserContext.Provider>
   );
 }
 

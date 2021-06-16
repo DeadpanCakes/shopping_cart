@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
-import useUsers from "../../useUsers";
 import InfoSection from "./InfoSection";
 
 const Profile = (props) => {
-  const { users, editUser } = useUsers();
   const [ editingPayment, setEditPayment ] = useState(false);
   const toggleEditPayment = () => setEditPayment((prevState) => !prevState);
   const [ editingBilling, setEditBilling ] = useState(false);
@@ -16,7 +14,7 @@ const Profile = (props) => {
   return (
     <UserConsumer>
       {(user) => {
-        const { loggedUser } = user;
+        const { loggedUser, editUser } = user;
         return loggedUser ? (
           (() => {
             return (
@@ -44,14 +42,18 @@ const Profile = (props) => {
                   editUser={editUser}
                   isBeingEdited={editingPayment}
                   toggleEdit={toggleEditPayment}
+                  test={loggedUser}
                 />
               </div>
             );
           })()
         ) : (
+          <>
           <Link to="/profile/log-in">
             <button>Log In</button>
           </Link>
+          <button onClick={() => console.log(user)}>check</button>
+          </>
         );
       }}
     </UserConsumer>

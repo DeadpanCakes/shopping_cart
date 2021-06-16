@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { UserConsumer } from "../../UserContext";
-import useUsers from "../../useUsers";
 
 const LogIn = () => {
-  const { users } = useUsers();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [message, setMessage] = useState("");
@@ -11,7 +9,7 @@ const LogIn = () => {
   return (
     <UserConsumer>
       {(user) => {
-        const { loggedUser, signIn } = user;
+        const { users,loggedUser, signIn } = user;
 
         const handleInput = (field, value) => {
           switch (field) {
@@ -35,7 +33,8 @@ const LogIn = () => {
             const user = users.find((user) => {
               return user.email === email && user.password === pass;
             });
-            signIn(user);
+            console.log(user)
+            signIn(user.id);
             //navigate home
           } else {
             setMessage("Information not recognized. Please try again.");
@@ -68,7 +67,7 @@ const LogIn = () => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                console.log(users);
+                console.log(users, loggedUser);
               }}
             >
               check

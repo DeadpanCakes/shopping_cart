@@ -35,7 +35,7 @@ const useUser = () => {
   const addOrder = (targetUser, newOrder) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user === targetUser) {
+        if (user.id === targetUser.id) {
           return { ...user, orders: user.orders.concat(newOrder) };
         }
         return user;
@@ -46,7 +46,7 @@ const useUser = () => {
   const addWish = (targetUser, newWish) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user === targetUser) {
+        if (user.id === targetUser.id) {
           return { ...user, wishList: user.wishList.concat(newWish) };
         }
         return user;
@@ -57,7 +57,7 @@ const useUser = () => {
   const removeWish = (targetUser, targetWish) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user === targetUser) {
+        if (user.id === targetUser.id) {
           return {
             ...user,
             wishList: user.wishList.filter((item) => item !== targetWish),
@@ -71,7 +71,7 @@ const useUser = () => {
   const editShipping = (targetUser, updatedInfo) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user === targetUser) {
+        if (user.id === targetUser.id) {
           return {
             ...user,
             shippingInfo: updatedInfo,
@@ -85,7 +85,7 @@ const useUser = () => {
   const editBilling = (targetUser, updatedInfo) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user === targetUser) {
+        if (user.id === targetUser.id) {
           return {
             ...user,
             billingInfo: updatedInfo,
@@ -99,12 +99,13 @@ const useUser = () => {
   const editPayment = (targetUser, updatedInfo) => {
     setUsers((prevState) => {
       return prevState.map((user) => {
-        if (user === targetUser) {
+        if (user.id === targetUser) {
           return {
             ...user,
             paymentInfo: updatedInfo,
           };
         }
+        console.log('user not reached')
         return user;
       });
     });

@@ -1,7 +1,7 @@
 import PaymentForm from "./PaymentForm";
 
 const InfoSection = (props) => {
-  const { section, info, isBeingEdited, user, editUser, toggleEdit} = props;
+  const { section, info, isBeingEdited, user, editUser, toggleEdit, test} = props;
   //Create an arr of objects, one per key:value pair
   const infoArr = (() => {
     const arr = [];
@@ -12,10 +12,9 @@ const InfoSection = (props) => {
   })();
 
   const fetchEditForm = (section) => {
-    console.log('this is working!')
     switch (section) {
       case "Payment":
-        return <PaymentForm user={user} editUser={editUser} />;
+        return <PaymentForm user={user} editUser={editUser} toggleEdit={toggleEdit} />;
       default:
         console.log(section);
         return <p>{section}</p>;
@@ -38,6 +37,7 @@ const InfoSection = (props) => {
           })}
         </section>
       )}
+      <button onClick={() => console.log(test)}>check</button>
     </div>
   );
 };
