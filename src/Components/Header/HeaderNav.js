@@ -4,19 +4,23 @@ import logo from "../../img/headerLogo.png";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewItemIcon from "./NewItemIcon";
+import ProfileDropdown from "./ProfileDropdoown";
 
 const HeaderNav = (props) => {
   const { cart } = props;
 
   const [addingToCart, setAddingToCart] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+  const toggleMenu = () => setMenuVisible((prevState) => !prevState);
+
   const cartRef = useRef(cart.length);
 
   useEffect(() => {
-      if (cart.length > 0 && cart.length > cartRef.current) {
-        setAddingToCart(true);
-        setTimeout(() => setAddingToCart(false), 300);
-        cartRef.current = cart.length
-      }
+    if (cart.length > 0 && cart.length > cartRef.current) {
+      setAddingToCart(true);
+      setTimeout(() => setAddingToCart(false), 300);
+      cartRef.current = cart.length;
+    }
   }, [cart]);
 
   const navContainerStyle = {
@@ -44,9 +48,12 @@ const HeaderNav = (props) => {
         <li
           style={{ display: "flex", alignItems: "center", marginRight: "20px" }}
         >
-          <Link to="/profile" className="headerNav">
-            <FontAwesomeIcon icon={faUser} />
-          </Link>
+          <div style={{ position: "relative" }}>
+            <button id="profileBtn" className="headerNav" onClick={toggleMenu}>
+              <FontAwesomeIcon icon={faUser} />
+            </button>
+            <ProfileDropdown isVisible={menuVisible} toggleMenu={toggleMenu}/>
+          </div>
           <Link to="/cart" className="headerNav" id="headerCart">
             {addingToCart ? <NewItemIcon /> : null}
             <FontAwesomeIcon icon={faShoppingCart} />

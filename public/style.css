@@ -236,9 +236,25 @@ label {
   font-size: 1.1em;
 }
 
-.headerNav:hover {
+.headerNav:hover, button.headerNav:hover {
   color: #f12b6b;
   background-color: #f6c7c7;
+}
+
+#profileBtn {
+  padding: 8px 30px;
+}
+
+
+.headerLink, .headerLink:active {
+  color: #2a2b2a;
+  text-decoration: none;
+  padding: 10px 0
+}
+
+.headerLink:hover {
+  color: #f6c7c7;
+  background-color:#f12b6b;
 }
 
 #headerCart {
