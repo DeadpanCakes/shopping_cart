@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {useHistory} from 'react-router-dom'
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import orderFactory from "../../orderFactory";
 import CheckoutFormTabs from "./CheckoutFormTabs";
 import SignupStep from "./SignUpStep";
@@ -10,7 +10,7 @@ import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const {addOrder, transactionInfo, userComment} = props;
+  const { user, addOrder, transactionInfo, userComment } = props;
   const [isGuest, setIsGuest] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
@@ -19,48 +19,48 @@ const CheckoutForm = (props) => {
     isValid: false,
   });
   const [shippingInfo, setShippingInfo] = useState({
-    name: "",
-    country: "",
-    address: "",
-    zip: "",
-    city: "",
-    phone: "",
+    name: user ? user.shippingInfo.name : "",
+    country: user ? user.shippingInfo.country : "",
+    address: user ? user.shippingInfo.address : "",
+    zip: user ? user.shippingInfo.zip : "",
+    city: user ? user.shippingInfo.city : "",
+    phone: user ? user.shippingInfo.phone : "",
     isValid: false,
   });
   const [billingInfo, setBillingInfo] = useState({
-    name: "",
-    country: "",
-    address: "",
-    zip: "",
-    city: "",
-    phone: "",
+    name: user ? user.billingInfo.name : "",
+    country: user ? user.billingInfo.country : "",
+    address: user ? user.billingInfo.address : "",
+    zip: user ? user.billingInfo.zip : "",
+    city: user ? user.billingInfo.city : "",
+    phone: user ? user.billingInfo.phone : "",
     isValid: false,
   });
   const [paymentInfo, setPaymentInfo] = useState({
-    cardNumber: "",
-    name: "",
-    expire: "",
-    code: "",
+    cardNumber: user ? user.paymentInfo.cardNumber : "",
+    name: user ? user.paymentInfo.name : "",
+    expire: user ? user.paymentInfo.expiration : "",
+    code: user ? user.paymentInfo.code : "",
     isValid: false,
-    getLastFourDigits () {
-      const lastFour = this.cardNumber.toString().slice(-4)
+    getLastFourDigits() {
+      const lastFour = this.cardNumber.toString().slice(-4);
       const hideNumber = (num) => {
         if (num.length >= this.cardNumber.length) {
-          return num
+          return num;
         }
         return hideNumber("*".concat(num));
-      }
+      };
       return hideNumber(lastFour);
-    }
+    },
   });
-  const [checkoutStep, setCheckoutStep] = useState(1);
+  const [checkoutStep, setCheckoutStep] = useState(user ? 2 : 1);
   const incrementStep = () => {
     if (checkoutStep < 5) {
       setCheckoutStep((prevStep) => prevStep + 1);
     }
   };
   const decrementStep = () => {
-    if (checkoutStep > 1) {
+    if (user && checkoutStep > 2) {
       setCheckoutStep((prevStep) => prevStep - 1);
     }
   };
@@ -73,11 +73,11 @@ const CheckoutForm = (props) => {
       paymentInfo,
       transactionInfo,
       userComment,
-      signUpInfo.email,
+      signUpInfo.email
     );
     props.emptyCart();
-    addOrder(order)
-    history.push(`/shop/orders/${order.id}`)
+    addOrder(order);
+    history.push(`/shop/orders/${order.id}`);
   };
 
   const checkIfComplete = (isValid) => {
@@ -146,6 +146,7 @@ const CheckoutForm = (props) => {
       <CheckoutFormTabs
         checkoutStep={checkoutStep}
         setCheckoutStep={setCheckoutStep}
+        isLoggedIn={user}
       />
       <div>
         {
@@ -178,7 +179,7 @@ const CheckoutForm = (props) => {
           ][checkoutStep - 1]
         }
       </div>
-      <div style = {{marginBottom: 15}}>
+      <div style={{ marginBottom: 15 }}>
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -189,9 +190,7 @@ const CheckoutForm = (props) => {
           Previous Step
         </button>
         {checkoutStep < 5 ? (
-          <button onClick={(e) => handleSubmit(e)}>
-            Next Step
-          </button>
+          <button onClick={(e) => handleSubmit(e)}>Next Step</button>
         ) : (
           <button
             onClick={(e) => {

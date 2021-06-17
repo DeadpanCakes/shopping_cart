@@ -1,5 +1,5 @@
 const CheckoutFormTabs = (props) => {
-  const { checkoutStep, setCheckoutStep } = props;
+  const { isLoggedIn,checkoutStep, setCheckoutStep } = props;
 
   const changeTab = (step) => {
     switch (step) {
@@ -38,6 +38,7 @@ const CheckoutFormTabs = (props) => {
           changeTab("registration");
         }}
         style={tabStyle}
+        disabled={isLoggedIn}
       >
         Registration
       </button>
