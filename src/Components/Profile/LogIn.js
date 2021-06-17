@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { UserConsumer } from "../../UserContext";
+import {useHistory} from 'react-router-dom';
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [message, setMessage] = useState("");
+  const history = useHistory();
 
   return (
     <UserConsumer>
@@ -35,7 +37,7 @@ const LogIn = () => {
             });
             console.log(user)
             signIn(user.id);
-            //navigate home
+            history.push("/");
           } else {
             setMessage("Information not recognized. Please try again.");
           }
