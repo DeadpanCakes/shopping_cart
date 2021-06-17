@@ -394,7 +394,7 @@ label {
 
 .itemListingFullName {
   position: absolute;
-  top: -80px;
+  top: -10px;
   background-color: rgba(80, 76, 76, .90);
   opacity: 0;
   transition: opacity 200ms linear;
