@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
 
 const ProfileDropdown = (props) => {
+  const history = useHistory();
   return (
     <UserConsumer>
       {(user) => {
@@ -10,6 +11,7 @@ const ProfileDropdown = (props) => {
 
         const handleSignOut = () => {
           signOut();
+          history.push("/");
           //Push homepage history
         };
 
@@ -19,7 +21,7 @@ const ProfileDropdown = (props) => {
           top: "140%",
           left: "0%",
           flexDirection: "column",
-          textAlign: 'center',
+          textAlign: "center",
           width: "100%",
           border: "#f12b6b 2px solid",
           borderRadius: "10px",
@@ -27,7 +29,7 @@ const ProfileDropdown = (props) => {
         };
 
         return loggedUser ? (
-          <div>
+          <div style={containerStyle}>
             <Link to="/profile" className="headerLink">
               Account
             </Link>
@@ -37,7 +39,7 @@ const ProfileDropdown = (props) => {
             <Link to="/profile/orders" className="headerLink">
               Order History
             </Link>
-            <button>Sign Out</button>
+            <button onClick={handleSignOut}>Sign Out</button>
           </div>
         ) : (
           <div style={containerStyle}>
