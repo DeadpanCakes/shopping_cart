@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/headerLogo.png";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -9,12 +9,15 @@ const HeaderNav = (props) => {
   const { cart } = props;
 
   const [addingToCart, setAddingToCart] = useState(false);
-
+  const cartRef = useRef(cart.length);
 
   useEffect(() => {
-    setAddingToCart(true);
-    setTimeout(() => setAddingToCart(false), 300)
-  }, [cart])
+      if (cart.length > 0 && cart.length > cartRef.current) {
+        setAddingToCart(true);
+        setTimeout(() => setAddingToCart(false), 300);
+        cartRef.current = cart.length
+      }
+  }, [cart]);
 
   const navContainerStyle = {
     display: "flex",
@@ -55,6 +58,7 @@ const HeaderNav = (props) => {
           </Link>
         </li>
       </ul>
+      <p>{cartRef.current.toString()}</p>
     </nav>
   );
 };
