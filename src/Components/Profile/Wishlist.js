@@ -1,17 +1,22 @@
+import { UserConsumer } from "../../UserContext";
+
 const Wishlist = (props) => {
-  const { wishlist } = props;
   return (
-    <div>
-      <ul>
-        {wishlist.map((item) => {
-          return (
-            <li>
-              <p>{item.name}</p>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <UserConsumer>
+      {(user) => {
+        return (
+          <div>
+            {user.loggedUser ? (
+              user.loggedUser.wishList.map((item) => {
+                return <p key={item.name}>{item.name}</p>;
+              })
+            ) : (
+              <p>Go log in</p>
+            )}
+          </div>
+        );
+      }}
+    </UserConsumer>
   );
 };
 
