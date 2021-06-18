@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const ListingQuickMenu = (props) => {
   const { addToCart, item } = props;
@@ -42,9 +44,27 @@ const ListingQuickMenu = (props) => {
         Go To Listing
       </button>
       <form onSubmit={handleSubmit} style={formStyle}>
-        <button onClick={handleSubmit} style={{ height: "100%" }}>
-          Add To Cart
-        </button>
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "stretch",
+          }}
+        >
+          <button
+            onClick={handleSubmit}
+            style={{ height: "50%", width: "100%", padding: 10 }}
+          >
+            <FontAwesomeIcon icon={faCartPlus} />
+          </button>
+          <button
+            style={{ height: "50%", width: "100%", padding: "10px 25px" }}
+          >
+            <FontAwesomeIcon icon={faHeart} />
+          </button>
+        </div>
         <div
           style={{
             display: "flex",
