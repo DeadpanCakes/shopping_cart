@@ -34,14 +34,14 @@ const useUser = () => {
 
   const addOrder = (targetId, newOrder) => {
     const newState = users.map((user) => {
-      console.log('user', user)
+      console.log("user", user);
       if (user.id === targetId) {
-        console.log('ids matched')
+        console.log("ids matched");
         return { ...user, orders: user.orders.concat(newOrder) };
       }
       return user;
     });
-    console.log(newState)
+    console.log(newState);
     setUsers((prevState) => {
       return prevState.map((user) => {
         if (user.id === targetId) {
@@ -53,14 +53,18 @@ const useUser = () => {
   };
 
   const addWish = (targetId, newWish) => {
-    setUsers((prevState) => {
-      return prevState.map((user) => {
-        if (user.id === targetId) {
-          return { ...user, wishList: user.wishList.concat(newWish) };
-        }
-        return user;
+    const user = users.find((user) => user.id === targetId);
+    const itemIsUnique = !user.wishList.find((item) => item.id === newWish.id);
+    if (itemIsUnique) {
+      setUsers((prevState) => {
+        return prevState.map((user) => {
+          if (user.id === targetId) {
+            return { ...user, wishList: user.wishList.concat(newWish) };
+          }
+          return user;
+        });
       });
-    });
+    }
   };
 
   const removeWish = (targetId, targetWish) => {
