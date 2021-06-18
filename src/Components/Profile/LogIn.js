@@ -35,7 +35,6 @@ const LogIn = () => {
             const user = users.find((user) => {
               return user.email === email && user.password === pass;
             });
-            console.log(user)
             signIn(user.id);
             history.push("/");
           } else {

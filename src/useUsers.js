@@ -33,6 +33,15 @@ const useUser = () => {
   };
 
   const addOrder = (targetId, newOrder) => {
+    const newState = users.map((user) => {
+      console.log('user', user)
+      if (user.id === targetId) {
+        console.log('ids matched')
+        return { ...user, orders: user.orders.concat(newOrder) };
+      }
+      return user;
+    });
+    console.log(newState)
     setUsers((prevState) => {
       return prevState.map((user) => {
         if (user.id === targetId) {
@@ -69,7 +78,7 @@ const useUser = () => {
   };
 
   const editShipping = (targetId, updatedInfo) => {
-    console.log(targetId, updatedInfo)
+    console.log(targetId, updatedInfo);
     setUsers((prevState) => {
       return prevState.map((user) => {
         if (user.id === targetId) {
@@ -106,7 +115,7 @@ const useUser = () => {
             paymentInfo: updatedInfo,
           };
         }
-        console.log('user not reached')
+        console.log("user not reached");
         return user;
       });
     });

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState  } from "react";
 import { useHistory } from "react-router-dom";
 import orderFactory from "../../orderFactory";
 import CheckoutFormTabs from "./CheckoutFormTabs";
@@ -10,7 +10,7 @@ import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const { user, addOrder, transactionInfo, userComment } = props;
+  const { user, editUser ,addOrder, transactionInfo, userComment } = props;
   const [isGuest, setIsGuest] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
@@ -77,6 +77,7 @@ const CheckoutForm = (props) => {
     );
     props.emptyCart();
     addOrder(order);
+    editUser(user.id, 'addOrder', order);
     history.push(`/shop/orders/${order.id}`);
   };
 

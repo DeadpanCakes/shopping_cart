@@ -13,7 +13,6 @@ import useOrders from "./useOrders";
 
 const App = (props) => {
   const { orders, addOrder } = useOrders();
-  console.log(UserProvider);
   return (
     <UserProvider>
       <CartProvider>

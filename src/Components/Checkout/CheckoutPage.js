@@ -12,7 +12,7 @@ const CheckoutPage = (props) => {
   return (
     <UserConsumer>
       {(user) => {
-        const { loggedUser } = user;
+        const { loggedUser, editUser } = user;
         return (
           <CartConsumer>
             {(cart) => {
@@ -41,6 +41,7 @@ const CheckoutPage = (props) => {
                 >
                   <CheckoutForm
                     user={loggedUser}
+                    editUser={editUser}
                     emptyCart={emptyCart}
                     items={items}
                     addOrder={addOrder}

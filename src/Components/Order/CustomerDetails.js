@@ -71,7 +71,7 @@ const CustomerDetails = (props) => {
         </div>
         <div style={sectionStyle}>
           <h2>Payment Method</h2>
-          <p>Card: {payment.getLastFourDigits()}</p>
+          <p>Card: {'***' + (payment.cardNumber.toString()).slice(-4)}</p>
           <p>Name On Card: {payment.name}</p>
         </div>
       </div>
