@@ -245,7 +245,6 @@ label {
   padding: 8px 30px;
 }
 
-
 .headerLink, .headerLink:active {
   color: #2a2b2a;
   text-decoration: none;
@@ -288,9 +287,6 @@ label {
   font-size: 1.1em 
 }
 
-
-
-
 #cartCount {
   position: absolute;
   bottom: -50%;
@@ -306,7 +302,6 @@ label {
   display: flex;
   flex-direction: column;
 }
-
 
 .shopSideBar {
   min-height: 80vh;
@@ -442,6 +437,11 @@ label {
 
 .quickMenu:hover {
   opacity: 1;
+}
+
+.wishAddedBtn {
+  color: #f12b6b;
+  background-color: #507dbc;
 }
 
 .itemListing:hover {

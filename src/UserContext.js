@@ -6,7 +6,7 @@ const UserContext = createContext();
 export function UserProvider(props) {
   const { users, addUser, editUser } = useUsers();
   const [loggedId, setLoggedId] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const signIn = (id) => {
     if (!loggedId) {
