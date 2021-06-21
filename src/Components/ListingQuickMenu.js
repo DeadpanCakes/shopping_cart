@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -70,16 +71,26 @@ const ListingQuickMenu = (props) => {
           >
             <FontAwesomeIcon icon={faCartPlus} />
           </button>
-          <button
-            style={{ height: "50%", width: "100%", padding: "10px 25px" }}
-            onClick={(e) => {
-              e.preventDefault();
-              handleWish(item);
-            }}
-            className={isItemWished ? "wishAddedBtn" : null}
-          >
-            <FontAwesomeIcon icon={faHeart} />
-          </button>
+          {loggedUser ? (
+            <button
+              style={{ height: "50%", width: "100%", padding: "10px 25px" }}
+              onClick={(e) => {
+                e.preventDefault();
+                handleWish(item);
+              }}
+              className={isItemWished ? "wishAddedBtn" : null}
+            >
+              <FontAwesomeIcon icon={faHeart} />
+            </button>
+          ) : (
+            <Link
+              to="/profile/log-in"
+            >
+              <button style={{ height: "80%", width: "100%", padding: "10px 25px" }}>
+                <FontAwesomeIcon icon={faHeart} />
+              </button>
+            </Link>
+          )}
         </div>
         <div
           style={{
