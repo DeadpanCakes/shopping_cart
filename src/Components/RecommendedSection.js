@@ -6,7 +6,6 @@ const RecommendedSection = (props) => {
   const stock = useStock();
   const [recommendedItems, setRecommended] = useState([]);
   const { itemArr } = props;
-  const isMounted = useRef(false);
 
   useEffect(() => {
     const generateRecommended = (arr, num) => {

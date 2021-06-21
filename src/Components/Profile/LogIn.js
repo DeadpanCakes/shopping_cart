@@ -12,7 +12,7 @@ const LogIn = () => {
   return (
     <UserConsumer>
       {(user) => {
-        const { users, loggedUser, signIn } = user;
+        const { users, signIn } = user;
 
         const handleInput = (field, value) => {
           switch (field) {
