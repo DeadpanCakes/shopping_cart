@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faTimesCircle,
+  faCaretRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 const PaymentStep = (props) => {
-  const { paymentInfo, setPaymentInfo } = props;
+  const { paymentInfo, setPaymentInfo, user, toggleSavedCard, incrementStep } = props;
   const { cardNumber, name, expire, code } = paymentInfo;
 
   const [isNumberValid, setNumberValid] = useState(false);
@@ -49,6 +50,11 @@ const PaymentStep = (props) => {
     updateState(setState, field, event.target.value);
   };
 
+  const handleSubmitOldCard = () => {
+    toggleSavedCard();
+    incrementStep();
+  }
+
   const labelStyle = { position: "relative" };
   const inputStyle = {
     margin: 10,
@@ -58,6 +64,39 @@ const PaymentStep = (props) => {
   return (
     <>
       <h1>Payment Info</h1>
+      {user.paymentInfo.cardNumber ? (
+        <div>
+          <div style={{ display: "flex" }}>
+            <hr style={{width: '100%', alignSelf: 'center'}}></hr>
+            <h3 style={{ textAlign: "center", whiteSpace: 'nowrap', padding: '0 10px' }}>Use Existing Card?</h3>
+            <hr style={{width: '100%', alignSelf: 'center'}}></hr>
+          </div>
+          <div
+            style={{
+              border: "#2a2b2a 2px solid",
+              padding: 15,
+              borderRadius: 10,
+              margin: "10px",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <p>{user.paymentInfo.cardNumber.toString()}</p>
+            <p>{user.paymentInfo.expiration.toString()}</p>
+            <p>{user.paymentInfo.name.toString()}</p>
+            <button style={{ alignSelf: "flex-end" }} onClick={handleSubmitOldCard}>
+              <FontAwesomeIcon icon={faCaretRight} />
+            </button>
+          </div>
+          <div style={{ display: "flex" }}>
+            <hr style={{ width: "100%", alignSelf: "center" }}></hr>
+            <h3 style={{ padding: "0 10px", whiteSpace: "nowrap" }}>
+              Or a new one
+            </h3>
+            <hr style={{ width: "100%", alignSelf: "center" }}></hr>
+          </div>
+        </div>
+      ) : null}
       <label style={labelStyle}>
         Card Number*
         <input
@@ -134,6 +173,7 @@ const PaymentStep = (props) => {
           value={code}
           onChange={(e) => handleInput(e, setPaymentInfo, "code")}
           style={shortInputStyle}
+          type="password"
         ></input>
         <div
           style={{

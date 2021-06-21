@@ -1,4 +1,4 @@
-import { useState  } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import orderFactory from "../../orderFactory";
 import CheckoutFormTabs from "./CheckoutFormTabs";
@@ -10,8 +10,9 @@ import ConfirmationStep from "./ConfirmationStep";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const { user, editUser ,addOrder, transactionInfo, userComment } = props;
+  const { user, editUser, addOrder, transactionInfo, userComment } = props;
   const [isGuest, setIsGuest] = useState(false);
+  const [toBeSaved, setToBeSaved] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
     email: "",
     pass: "",
@@ -37,10 +38,10 @@ const CheckoutForm = (props) => {
     isValid: false,
   });
   const [paymentInfo, setPaymentInfo] = useState({
-    cardNumber: user ? user.paymentInfo.cardNumber : "",
-    name: user ? user.paymentInfo.name : "",
-    expire: user ? user.paymentInfo.expiration : "",
-    code: user ? user.paymentInfo.code : "",
+    cardNumber: "",
+    name: "",
+    expire: "",
+    code: "",
     isValid: false,
     getLastFourDigits() {
       const lastFour = this.cardNumber.toString().slice(-4);
@@ -65,19 +66,47 @@ const CheckoutForm = (props) => {
     }
   };
 
+  const [usingSavedCard, setUsing] = useState(false);
+  const toggleSavedCard = () => setUsing((prevState) => !prevState);
+
   const completeTransaction = () => {
     const order = orderFactory(
       props.items,
       shippingInfo,
       billingInfo,
-      paymentInfo,
+      usingSavedCard ? user.paymentInfo : paymentInfo,
       transactionInfo,
       userComment,
       signUpInfo.email
     );
     props.emptyCart();
     addOrder(order);
-    editUser(user.id, 'addOrder', order);
+    editUser(user.id, "addOrder", order);
+    if (toBeSaved) {
+      editUser(user.id, "editShipping", {
+        name: shippingInfo.name,
+        country: shippingInfo.country,
+        address: shippingInfo.address,
+        zip: shippingInfo.zip,
+        city: shippingInfo.city,
+        phone: shippingInfo.phone,
+      });
+      editUser(user.id, "editBilling", {
+        name: billingInfo.name,
+        country: billingInfo.country,
+        address: billingInfo.address,
+        zip: billingInfo.zip,
+        city: billingInfo.city,
+        phone: billingInfo.phone,
+      });
+      if (!usingSavedCard) {
+        editUser(user.id, "editPayment", {
+          name: paymentInfo.name,
+          cardNumber: paymentInfo.getLastFourDigits(),
+          expiration: paymentInfo.expire,
+        });
+      }
+    }
     history.push(`/shop/orders/${order.id}`);
   };
 
@@ -138,6 +167,12 @@ const CheckoutForm = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (checkoutStep < 4) {
+      setUsing(false);
+    }
+  }, [checkoutStep]);
+
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
@@ -161,21 +196,31 @@ const CheckoutForm = (props) => {
             <ShippingStep
               shippingInfo={shippingInfo}
               setShippingInfo={setShippingInfo}
+              isLoggedIn={user}
             />,
             <BillingStep
               shippingInfo={shippingInfo}
               billingInfo={billingInfo}
               setBillingInfo={setBillingInfo}
+              isLoggedIn={user}
             />,
             <PaymentStep
               paymentInfo={paymentInfo}
               setPaymentInfo={setPaymentInfo}
+              isLoggedIn={user}
+              user={user}
+              usingSavedCard={usingSavedCard}
+              toggleSavedCard={toggleSavedCard}
+              incrementStep={incrementStep}
             />,
             <ConfirmationStep
               signUpInfo={signUpInfo}
               shippingInfo={shippingInfo}
               billingInfo={billingInfo}
               paymentInfo={paymentInfo}
+              isLoggedIn={user}
+              toBeSaved={toBeSaved}
+              setToBeSaved={setToBeSaved}
             />,
           ][checkoutStep - 1]
         }

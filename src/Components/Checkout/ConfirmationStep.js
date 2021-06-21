@@ -1,9 +1,18 @@
 import ConfirmationInfo from "./ConfirmationInfo";
 
 const ConfirmationStep = (props) => {
-  const { signUpInfo, shippingInfo, billingInfo, paymentInfo } = props;
+  const {
+    signUpInfo,
+    shippingInfo,
+    billingInfo,
+    paymentInfo,
+    toBeSaved,
+    setToBeSaved,
+  } = props;
   const { email } = signUpInfo;
   const { cardNumber, name, expire } = paymentInfo;
+
+  const toggleSaved = () => setToBeSaved((prevState) => !prevState);
 
   const hideCard = () => {
     const lastFour = cardNumber.toString().slice(-4);
@@ -26,6 +35,10 @@ const ConfirmationStep = (props) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <h1>Confirmation</h1>
+        <label><input type="checkbox" value={toBeSaved} onClick={toggleSaved}></input>Save This Information?</label>
+      </div>
       <div style={{ display: "flex" }}>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Account Info</h2>

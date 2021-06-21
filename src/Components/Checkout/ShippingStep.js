@@ -38,10 +38,10 @@ const ShippingStep = (props) => {
       });
     } else {
       setShippingInfo((prevState) => {
-        return { ...prevState, isValid: false }
-      })
+        return { ...prevState, isValid: false };
+      });
     }
-  }, [setShippingInfo ,isNameValid, isCountryValid, isAddressValid]);
+  }, [setShippingInfo, isNameValid, isCountryValid, isAddressValid]);
 
   const handleInput = (event, setState, field) => {
     updateState(setState, field, event.target.value);
