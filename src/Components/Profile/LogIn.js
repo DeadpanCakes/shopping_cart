@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ const LogIn = () => {
   return (
     <UserConsumer>
       {(user) => {
-        const { users,loggedUser, signIn } = user;
+        const { users, loggedUser, signIn } = user;
 
         const handleInput = (field, value) => {
           switch (field) {
@@ -63,16 +64,9 @@ const LogIn = () => {
                 type="password"
               ></input>
             </label>
+            <Link to="/profile/sign-up">Don't Have A Profile? Sign up!</Link>
             {message ? <p>{message}</p> : null}
             <button>Log In</button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                console.log(users, loggedUser);
-              }}
-            >
-              check
-            </button>
           </form>
         );
       }}
