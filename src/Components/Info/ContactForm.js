@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-const ContactForm = () => {
-  const [email, setEmail] = useState("");
+const ContactForm = (props) => {
+  const { loggedUser } = props;
+
+  const [email, setEmail] = useState(loggedUser ? loggedUser.email : "");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
@@ -20,7 +22,6 @@ const ContactForm = () => {
         console.log(value);
         break;
     }
-    console.log(value)
   };
 
   return (
