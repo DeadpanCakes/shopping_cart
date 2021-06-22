@@ -79,7 +79,7 @@ const CheckoutForm = (props) => {
       usingSavedCard ? user.paymentInfo : paymentInfo,
       transactionInfo,
       userComment,
-      signUpInfo.email
+      user ? user.email : signUpInfo.email
     );
     props.emptyCart();
     addOrder(order);
