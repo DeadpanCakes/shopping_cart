@@ -5,10 +5,10 @@ const FilterTag = (props) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const tagStyle = {
-    margin: "7px",
+    margin: "1px",
   };
   const disabledStyle = {
-    margin: "5px",
+    margin: "1px",
     color: "gray",
     textDecoration: "line-through",
   };
