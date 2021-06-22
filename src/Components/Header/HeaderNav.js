@@ -4,7 +4,7 @@ import logo from "../../img/headerLogo.png";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewItemIcon from "./NewItemIcon";
-import ProfileDropdown from "./ProfileDropdoown";
+import ProfileDropdown from "./ProfileDropdown";
 
 const HeaderNav = (props) => {
   const { cart } = props;
