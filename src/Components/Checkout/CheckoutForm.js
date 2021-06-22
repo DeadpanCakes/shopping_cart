@@ -63,6 +63,8 @@ const CheckoutForm = (props) => {
   const decrementStep = () => {
     if (user && checkoutStep > 2) {
       setCheckoutStep((prevStep) => prevStep - 1);
+    } else if (checkoutStep > 1) {
+      setCheckoutStep((prevStep) => prevStep - 1);
     }
   };
 
