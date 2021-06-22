@@ -81,7 +81,9 @@ const CheckoutForm = (props) => {
     );
     props.emptyCart();
     addOrder(order);
-    editUser(user.id, "addOrder", order);
+    if (user) {
+      editUser(user.id, "addOrder", order);
+    }
     if (toBeSaved) {
       editUser(user.id, "editShipping", {
         name: shippingInfo.name,

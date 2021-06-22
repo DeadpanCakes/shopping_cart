@@ -31,7 +31,7 @@ const CheckoutPage = (props) => {
                     flexDirection: "row",
                     alignItems: "stretch",
                     justifyContent: "center",
-                    minHeight: "85vh",
+                    minHeight: "95vh",
                     maxWidth: "60vw",
                     marginLeft: "20vw",
                     marginTop: "10px",

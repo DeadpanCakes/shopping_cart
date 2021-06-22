@@ -64,7 +64,7 @@ const PaymentStep = (props) => {
   return (
     <>
       <h1>Payment Info</h1>
-      {user.paymentInfo.cardNumber ? (
+      {user ? user.paymentInfo.cardNumber ? (
         <div>
           <div style={{ display: "flex" }}>
             <hr style={{width: '100%', alignSelf: 'center'}}></hr>
@@ -96,7 +96,7 @@ const PaymentStep = (props) => {
             <hr style={{ width: "100%", alignSelf: "center" }}></hr>
           </div>
         </div>
-      ) : null}
+      ) : null : null}
       <label style={labelStyle}>
         Card Number*
         <input

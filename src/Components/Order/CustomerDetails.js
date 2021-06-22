@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, add } from "date-fns";
 
 const CustomerDetails = (props) => {
   const { shipping, billing, payment, time, email } = props;
@@ -21,12 +21,12 @@ const CustomerDetails = (props) => {
   const containerStyle = {
     border: "1px gray solid",
     borderRadius: "5px",
-    marginBottom: '50px'
+    marginBottom: "50px",
   };
 
   const addressStyle = {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   };
 
   return (
@@ -43,7 +43,8 @@ const CustomerDetails = (props) => {
           <div style={addressStyle}>
             <p>{shipping.address}</p>
             <p style={addressStyle}>
-              {shipping.city}, {shipping.zip}
+              {shipping.city} {shipping.city && shipping.zip ? "," : null}{" "}
+              {shipping.zip}
             </p>
             <p style={addressStyle}>{shipping.country}</p>
           </div>
@@ -54,7 +55,7 @@ const CustomerDetails = (props) => {
           <div style={addressStyle}>
             <p>{billing.address}</p>
             <p style={addressStyle}>
-              {billing.city}, {shipping.zip}
+              {billing.city}{shipping.city && shipping.zip ? "," : null}{" "} {shipping.zip}
             </p>
             <p style={addressStyle}>{billing.country}</p>
           </div>
@@ -66,12 +67,12 @@ const CustomerDetails = (props) => {
           <h2>Shipping Method</h2>
           <p>First Class Package</p>
           <p style={{ marginLeft: 10 }}>
-            Estimated Delivery Date: {format(new Date(time), "MMMM do, y")}
+            Estimated Delivery Date: {format(add(new Date(time), {weeks: 1}), "MMMM do, y")}
           </p>
         </div>
         <div style={sectionStyle}>
           <h2>Payment Method</h2>
-          <p>Card: {'***' + (payment.cardNumber.toString()).slice(-4)}</p>
+          <p>Card: {"***" + payment.cardNumber.toString().slice(-4)}</p>
           <p>Name On Card: {payment.name}</p>
         </div>
       </div>

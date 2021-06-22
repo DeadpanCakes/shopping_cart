@@ -8,6 +8,7 @@ const ConfirmationStep = (props) => {
     paymentInfo,
     toBeSaved,
     setToBeSaved,
+    isLoggedIn,
   } = props;
   const { email } = signUpInfo;
   const { cardNumber, name, expire } = paymentInfo;
@@ -31,15 +32,24 @@ const ConfirmationStep = (props) => {
     width: 260,
     height: 100,
   };
-  const sectionStyle = { margin: 20, overflowX: "auto" };
+  const sectionStyle = { margin: 10, overflowX: "auto" };
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
         <h1>Confirmation</h1>
-        <label><input type="checkbox" value={toBeSaved} onClick={toggleSaved}></input>Save This Information?</label>
+        {isLoggedIn ?
+          <label>
+            <input
+              type="checkbox"
+              value={toBeSaved}
+              onClick={toggleSaved}
+            ></input>
+            Save This Information?
+          </label> : null
+        }
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginLeft: '25px' }}>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Account Info</h2>
           <ConfirmationInfo category="Email" content={email} />
@@ -51,7 +61,7 @@ const ConfirmationStep = (props) => {
           <ConfirmationInfo category="Name On Card" content={name} />
         </div>
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", margin: '0 0 30px 25px' }}>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Shipping Info</h2>
           {(() => {
