@@ -8,7 +8,7 @@ const ConfirmationStep = (props) => {
     paymentInfo,
     toBeSaved,
     setToBeSaved,
-    isLoggedIn,
+    user,
   } = props;
   const { email } = signUpInfo;
   const { cardNumber, name, expire } = paymentInfo;
@@ -38,7 +38,7 @@ const ConfirmationStep = (props) => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
         <h1>Confirmation</h1>
-        {isLoggedIn ?
+        {user ? (
           <label>
             <input
               type="checkbox"
@@ -46,22 +46,34 @@ const ConfirmationStep = (props) => {
               onClick={toggleSaved}
             ></input>
             Save This Information?
-          </label> : null
-        }
+          </label>
+        ) : null}
       </div>
-      <div style={{ display: "flex", marginLeft: '25px' }}>
+      <div style={{ display: "flex", marginLeft: "25px" }}>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Account Info</h2>
-          <ConfirmationInfo category="Email" content={email} />
+          <ConfirmationInfo
+            category="Email"
+            content={user ? user.email : email}
+          />
         </div>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Payment Info</h2>
-          <ConfirmationInfo category="Card" content={hideCard()} />
-          <ConfirmationInfo category="Expiration" content={expire} />
-          <ConfirmationInfo category="Name On Card" content={name} />
+          <ConfirmationInfo
+            category="Card"
+            content={user ? user.paymentInfo.cardNumber : hideCard()}
+          />
+          <ConfirmationInfo
+            category="Expiration"
+            content={user ? user.paymentInfo.expiration : expire}
+          />
+          <ConfirmationInfo
+            category="Name On Card"
+            content={user ? user.paymentInfo.name : name}
+          />
         </div>
       </div>
-      <div style={{ display: "flex", margin: '0 0 30px 25px' }}>
+      <div style={{ display: "flex", margin: "0 0 30px 25px" }}>
         <div style={sectionStyle}>
           <h2 style={headerStyle}>Shipping Info</h2>
           {(() => {

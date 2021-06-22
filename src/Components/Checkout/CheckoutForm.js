@@ -222,7 +222,7 @@ const CheckoutForm = (props) => {
               shippingInfo={shippingInfo}
               billingInfo={billingInfo}
               paymentInfo={paymentInfo}
-              isLoggedIn={user}
+              user={user}
               toBeSaved={toBeSaved}
               setToBeSaved={setToBeSaved}
             />,
