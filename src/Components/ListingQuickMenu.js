@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const ListingQuickMenu = (props) => {
   const { addToCart, item, loggedUser, editUser } = props;
+  const history = useHistory();
 
   const [count, setCount] = useState(1);
   const [isItemWished, setItemWished] = useState(false);
@@ -83,13 +84,9 @@ const ListingQuickMenu = (props) => {
               <FontAwesomeIcon icon={faHeart} />
             </button>
           ) : (
-            <Link
-              to="/profile/log-in"
-            >
-              <button style={{ height: "80%", width: "100%", padding: "10px 25px" }}>
+              <button style={{ height: "50%", width: "100%", padding: "10px 25px" }} onClick={(e) =>{e.preventDefault(); history.push("/profile/log-in")}}>
                 <FontAwesomeIcon icon={faHeart} />
               </button>
-            </Link>
           )}
         </div>
         <div
