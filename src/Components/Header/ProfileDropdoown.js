@@ -1,5 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileDropdown = (props) => {
   const history = useHistory();
@@ -12,7 +14,6 @@ const ProfileDropdown = (props) => {
         const handleSignOut = () => {
           signOut();
           history.push("/");
-          //Push homepage history
         };
 
         const containerStyle = {
@@ -39,7 +40,9 @@ const ProfileDropdown = (props) => {
             <Link to="/profile/orders" className="headerLink">
               Order History
             </Link>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <button onClick={handleSignOut} style={{borderRadius: '8px'}}>
+              Sign Out {" "}<FontAwesomeIcon icon={faSignOutAlt} size='sm'/>
+            </button>
           </div>
         ) : (
           <div style={containerStyle}>
