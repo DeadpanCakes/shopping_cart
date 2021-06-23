@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../img/headerLogo.png";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +17,8 @@ const HeaderNav = (props) => {
   const toggleCart = () => setCartVisible((prevState) => !prevState);
 
   const cartRef = useRef(cart.length);
+  const location = useLocation();
+  const locationRef = useRef(location);
 
   useEffect(() => {
     if (cart.length > 0 && cart.length > cartRef.current) {
@@ -34,7 +36,6 @@ const HeaderNav = (props) => {
 
   useEffect(() => {
     const unfocusDropdown = (event) => {
-      console.log(event.target.matches('.dropdownBtn *'))
       if (!event.target.matches(".dropdownBtn *")) {
         setMenuVisible(false);
         setCartVisible(false);
@@ -43,6 +44,14 @@ const HeaderNav = (props) => {
     document.addEventListener("click", unfocusDropdown);
     return () => document.removeEventListener('click', unfocusDropdown)
   }, []);
+
+  useEffect(() => {
+    if (location.pathname !== locationRef.current.pathname) {
+      setMenuVisible(false);
+      setCartVisible(false);
+      locationRef.current = location;
+    }
+  }, [location])
 
   return (
     <nav style={navContainerStyle}>
