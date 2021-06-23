@@ -5,6 +5,7 @@ import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewItemIcon from "./NewItemIcon";
 import ProfileDropdown from "./ProfileDropdown";
+import CartDropDown from "./CartDropDown";
 
 const HeaderNav = (props) => {
   const { cart } = props;
@@ -12,6 +13,8 @@ const HeaderNav = (props) => {
   const [addingToCart, setAddingToCart] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const toggleMenu = () => setMenuVisible((prevState) => !prevState);
+  const [cartVisible, setCartVisible] = useState(false);
+  const toggleCart = () => setCartVisible((prevState) => !prevState);
 
   const cartRef = useRef(cart.length);
 
@@ -54,15 +57,21 @@ const HeaderNav = (props) => {
             </button>
             <ProfileDropdown isVisible={menuVisible} toggleMenu={toggleMenu} />
           </div>
-          <Link to="/cart" className="headerNav" id="headerCart">
-            {addingToCart ? <NewItemIcon /> : null}
-            <FontAwesomeIcon icon={faShoppingCart} />
-            {cart.length > 0 ? (
-              <p id="cartCount" style={{ fontSize: "1em" }}>
-                {cart.length}
-              </p>
-            ) : null}
-          </Link>
+          <div
+            style={{ padding: 0, position: "relative" }}
+          >
+            <button
+            className="headerNav" id="headerCart" onClick={toggleCart}>
+              {addingToCart ? <NewItemIcon /> : null}
+              <FontAwesomeIcon icon={faShoppingCart} size='lg'/>
+              {cart.length > 0 ? (
+                <p id="cartCount" style={{ fontSize: "1em" }}>
+                  {cart.length}
+                </p>
+              ) : null}
+            </button>
+            <CartDropDown items={cart} cartVisible={cartVisible} />
+          </div>
         </li>
       </ul>
       <p>{cartRef.current.toString()}</p>
