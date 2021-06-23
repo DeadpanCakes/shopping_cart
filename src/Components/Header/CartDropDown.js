@@ -37,25 +37,39 @@ const CartDropDown = (props) => {
 
   return (
     <div style={dropdownStyle}>
-      <ul style={{ backgroundColor: "white", padding: 5, maxHeight: 130, overflowY: 'auto', marginBottom: 20 }}>
-        {items.map((item) => (
-          <li>
-            <p>{item.name}</p>
-          </li>
-        ))}
-      </ul>
+      {items.length > 0 ? (
+        <>
+          <ul
+            style={{
+              backgroundColor: "white",
+              padding: 5,
+              maxHeight: 130,
+              overflowY: "auto",
+              marginBottom: 20,
+            }}
+          >
+            {items.map((item) => (
+              <li>
+                <p>{item.name}</p>
+              </li>
+            ))}
+          </ul>
 
-      <h3>Subtotal: ${subtotal}</h3>
-      <p>Shipping & Tax Calculated At Checkout</p>
+          <h3>Subtotal: ${subtotal}</h3>
+          <p>Shipping & Tax Calculated At Checkout</p>
 
-      <div>
-        <Link to="/cart">
-          <button>Go To Cart</button>
-        </Link>
-        <Link to="/cart/checkout">
-          <button>Checkout</button>
-        </Link>
-      </div>
+          <div>
+            <Link to="/cart">
+              <button>Go To Cart</button>
+            </Link>
+            <Link to="/cart/checkout">
+              <button>Checkout</button>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <h2>Your Cart Is Empty</h2>
+      )}
     </div>
   );
 };
