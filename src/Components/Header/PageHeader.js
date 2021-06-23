@@ -28,7 +28,7 @@ const PageHeader = () => {
         <div className="headerContainer" style={containerStyle}>
           <header style={headerStyle}>
             <TopBanner />
-            <HeaderNav cart={cart.items} />
+            <HeaderNav cart={cart.items} removeItem={cart.removeItem} />
           </header>
         </div>
       )}

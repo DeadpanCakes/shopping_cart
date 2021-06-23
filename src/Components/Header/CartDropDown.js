@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import DropDownListing from "./DropDownListing";
 
 const CartDropDown = (props) => {
-  const { items, cartVisible } = props;
+  const { items, cartVisible, removeItem } = props;
   const [subtotal, setSubtotal] = useState("");
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const CartDropDown = (props) => {
     display: cartVisible ? "flex" : "none",
     flexDirection: "column",
     position: "absolute",
-    width: "15vw",
+    width: "25vw",
     right: "-10%",
     top: "170%",
     backgroundColor: "#f6c7c7",
@@ -49,9 +50,7 @@ const CartDropDown = (props) => {
             }}
           >
             {items.map((item) => (
-              <li>
-                <p>{item.name}</p>
-              </li>
+              <DropDownListing item={item} key={item.id} removeItem={removeItem}/>
             ))}
           </ul>
 
@@ -68,7 +67,7 @@ const CartDropDown = (props) => {
           </div>
         </>
       ) : (
-        <h2>Your Cart Is Empty</h2>
+        <h2 style={{ textAlign: "center" }}>Your Cart Is Empty</h2>
       )}
     </div>
   );

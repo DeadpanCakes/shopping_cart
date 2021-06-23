@@ -8,7 +8,7 @@ import ProfileDropdown from "./ProfileDropdown";
 import CartDropDown from "./CartDropDown";
 
 const HeaderNav = (props) => {
-  const { cart } = props;
+  const { cart, removeItem } = props;
 
   const [addingToCart, setAddingToCart] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -70,7 +70,7 @@ const HeaderNav = (props) => {
                 </p>
               ) : null}
             </button>
-            <CartDropDown items={cart} cartVisible={cartVisible} />
+            <CartDropDown items={cart} cartVisible={cartVisible} removeItem={removeItem} />
           </div>
         </li>
       </ul>

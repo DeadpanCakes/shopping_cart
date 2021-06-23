@@ -278,6 +278,15 @@ label {
   background-color: #f6c7c7
 }
 
+.dropdownListing, .dropdownListing:hover {
+  color: #2a2b2a;
+  text-decoration: none;
+}
+
+.dropdownListing:hover {
+  background-color: #a1c6ea
+}
+
 .iconPreAnim {
   color: #f6c7c7;
   position: absolute;
