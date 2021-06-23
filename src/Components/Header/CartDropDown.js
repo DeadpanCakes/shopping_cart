@@ -37,7 +37,7 @@ const CartDropDown = (props) => {
   };
 
   return (
-    <div style={dropdownStyle}>
+    <div style={dropdownStyle} className='dropdown'>
       {items.length > 0 ? (
         <>
           <ul

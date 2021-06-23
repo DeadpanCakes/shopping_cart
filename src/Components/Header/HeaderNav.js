@@ -32,6 +32,18 @@ const HeaderNav = (props) => {
     flexGrow: "1",
   };
 
+  useEffect(() => {
+    const unfocusDropdown = (event) => {
+      console.log(event.target.matches('.dropdownBtn *'))
+      if (!event.target.matches(".dropdownBtn *")) {
+        setMenuVisible(false);
+        setCartVisible(false);
+      }
+    };
+    document.addEventListener("click", unfocusDropdown);
+    return () => document.removeEventListener('click', unfocusDropdown)
+  }, []);
+
   return (
     <nav style={navContainerStyle}>
       <ul
@@ -51,26 +63,27 @@ const HeaderNav = (props) => {
         <li
           style={{ display: "flex", alignItems: "center", marginRight: "20px" }}
         >
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative" }} className="dropdownBtn">
             <button id="profileBtn" className="headerNav" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faUser} />
             </button>
             <ProfileDropdown isVisible={menuVisible} toggleMenu={toggleMenu} />
           </div>
-          <div
-            style={{ padding: 0, position: "relative" }}
-          >
-            <button
-            className="headerNav" id="headerCart" onClick={toggleCart}>
+          <div style={{ padding: 0, position: "relative" }} className='dropdownBtn'>
+            <button className="headerNav" id="headerCart" onClick={toggleCart}>
               {addingToCart ? <NewItemIcon /> : null}
-              <FontAwesomeIcon icon={faShoppingCart} size='lg'/>
+              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
               {cart.length > 0 ? (
                 <p id="cartCount" style={{ fontSize: "1em" }}>
                   {cart.length}
                 </p>
               ) : null}
             </button>
-            <CartDropDown items={cart} cartVisible={cartVisible} removeItem={removeItem} />
+            <CartDropDown
+              items={cart}
+              cartVisible={cartVisible}
+              removeItem={removeItem}
+            />
           </div>
         </li>
       </ul>
