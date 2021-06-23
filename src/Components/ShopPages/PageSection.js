@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ItemListing from "../ItemListing";
+import ItemCarousel from "./ItemCarousel";
 
 const PageSection = (props) => {
   const { name, category, link, bannerImg } = props;
@@ -34,9 +35,11 @@ const PageSection = (props) => {
   return (
     <div className="shopSections">
       <div style={categoryStyle}>
-        {category.map((item) => (
-          <ItemListing key={item.id} item={item} />
-        ))}
+        <ItemCarousel pages={Math.ceil(category.length/8)}>
+          {category.map((item) => (
+            <ItemListing key={item.id} item={item} />
+          ))}
+        </ItemCarousel>
       </div>
       <Banner src={bannerImg} />
     </div>

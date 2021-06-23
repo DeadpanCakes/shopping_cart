@@ -19,7 +19,7 @@ const PageHeader = () => {
     color: "white",
     backgroundColor: "#507DBC",
     borderBottom: "10px solid #1C2F4A",
-    zIndex: "1",
+    zIndex: "3",
   };
 
   return (

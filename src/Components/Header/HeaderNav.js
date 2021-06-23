@@ -52,7 +52,7 @@ const HeaderNav = (props) => {
             <button id="profileBtn" className="headerNav" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faUser} />
             </button>
-            <ProfileDropdown isVisible={menuVisible} toggleMenu={toggleMenu}/>
+            <ProfileDropdown isVisible={menuVisible} toggleMenu={toggleMenu} />
           </div>
           <Link to="/cart" className="headerNav" id="headerCart">
             {addingToCart ? <NewItemIcon /> : null}
