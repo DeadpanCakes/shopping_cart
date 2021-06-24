@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NewItemIcon from "./NewItemIcon";
 import ProfileDropdown from "./ProfileDropdown";
 import CartDropDown from "./CartDropDown";
+import SearchBar from "./SearchBar";
 
 const HeaderNav = (props) => {
   const { cart, removeItem } = props;
@@ -42,7 +43,7 @@ const HeaderNav = (props) => {
       }
     };
     document.addEventListener("click", unfocusDropdown);
-    return () => document.removeEventListener('click', unfocusDropdown)
+    return () => document.removeEventListener("click", unfocusDropdown);
   }, []);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const HeaderNav = (props) => {
       setCartVisible(false);
       locationRef.current = location;
     }
-  }, [location])
+  }, [location]);
 
   return (
     <nav style={navContainerStyle}>
@@ -69,6 +70,9 @@ const HeaderNav = (props) => {
             <img alt="Logo" src={logo} style={{ height: "100%" }}></img>
           </li>
         </Link>
+        <li style={{marginLeft: 'auto', alignSelf: 'center'}}>
+          <SearchBar />
+        </li>
         <li
           style={{ display: "flex", alignItems: "center", marginRight: "20px" }}
         >
@@ -78,7 +82,10 @@ const HeaderNav = (props) => {
             </button>
             <ProfileDropdown isVisible={menuVisible} toggleMenu={toggleMenu} />
           </div>
-          <div style={{ padding: 0, position: "relative" }} className='dropdownBtn'>
+          <div
+            style={{ padding: 0, position: "relative" }}
+            className="dropdownBtn"
+          >
             <button className="headerNav" id="headerCart" onClick={toggleCart}>
               {addingToCart ? <NewItemIcon /> : null}
               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
