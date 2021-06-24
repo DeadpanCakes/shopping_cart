@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "date-fns": "^2.22.1",
+    "fuse.js": "^6.4.6",
     "generate-unique-id": "^2.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
