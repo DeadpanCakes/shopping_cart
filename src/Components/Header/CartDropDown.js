@@ -27,7 +27,7 @@ const CartDropDown = (props) => {
     flexDirection: "column",
     position: "absolute",
     width: "25vw",
-    right: "-10%",
+    right: "-100%",
     top: "170%",
     backgroundColor: "#f6c7c7",
     border: "#f12b6b 2px solid",

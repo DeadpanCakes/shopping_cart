@@ -70,11 +70,13 @@ const HeaderNav = (props) => {
             <img alt="Logo" src={logo} style={{ height: "100%" }}></img>
           </li>
         </Link>
-        <li style={{marginLeft: 'auto', alignSelf: 'center'}}>
-          <SearchBar />
-        </li>
         <li
-          style={{ display: "flex", alignItems: "center", marginRight: "20px" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: "20px",
+            marginLeft: "auto",
+          }}
         >
           <div style={{ position: "relative" }} className="dropdownBtn">
             <button id="profileBtn" className="headerNav" onClick={toggleMenu}>
@@ -101,6 +103,7 @@ const HeaderNav = (props) => {
               removeItem={removeItem}
             />
           </div>
+            <SearchBar />
         </li>
       </ul>
       <p>{cartRef.current.toString()}</p>
