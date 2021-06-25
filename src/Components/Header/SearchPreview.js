@@ -8,12 +8,15 @@ const SearchPreview = (props) => {
     setResults(searchItems(search));
   }, [search, searchItems]);
 
-  const previewStyle = {
-    position: "absolute",
-  };
+  const listStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      background: '#fff',
+      color: '#2a2b2a'
+  }
 
   return (
-    <ul style={previewStyle}>
+    <ul style={listStyle}>
       {results.length > 0 ? (
         results.slice(0,3).map((result) => {
           return <li key={result.id}>{result.name}</li>;
