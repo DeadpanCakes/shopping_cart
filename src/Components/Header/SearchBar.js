@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import SearchPreview from "./SearchPreview";
@@ -8,6 +9,7 @@ const SearchBar = () => {
   const [search, setSearch] = useState("");
   const [resultsPreviewShown, setPreviewShown] = useState(false)
 
+  const history = useHistory();
   const searchItems = useSearch();
 
   const handleInput = (newValue) => {
@@ -15,6 +17,7 @@ const SearchBar = () => {
   };
 
   const handleSubmit = () => {
+    history.push(`/shop/search?=${search}`)
     console.log(searchItems(search));
   };
 
