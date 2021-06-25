@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import SearchPreview from "./SearchPreview";
 import useSearch from '../../items/itemHooks/useSearch';
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
+
   const searchItems = useSearch();
 
   const handleInput = (newValue) => {
@@ -18,6 +20,7 @@ const SearchBar = () => {
   const formStyle = {
       margin: '0 10px'
   }
+
 
   return (
     <form
@@ -34,6 +37,7 @@ const SearchBar = () => {
           handleInput(e.target.value);
         }}
       ></input>
+      <SearchPreview searchItems={searchItems} search={search} />
       <button>
           <FontAwesomeIcon icon={faSearch} />
       </button>
