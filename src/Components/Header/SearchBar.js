@@ -19,6 +19,7 @@ const SearchBar = () => {
   };
 
   const formStyle = {
+    position: 'relative',
     margin: "0 10px",
   };
 
@@ -27,7 +28,8 @@ const SearchBar = () => {
     maxHeight: resultsPreviewShown ? '300px' : 0,
     transition: "max-height 500ms ease-in-out",
     overflow: 'hidden',
-    width: 200
+    right: '0%',
+    width: 300
   };
 
   useEffect(() => {
