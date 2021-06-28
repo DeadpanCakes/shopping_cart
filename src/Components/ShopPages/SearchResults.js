@@ -1,17 +1,28 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import useSearch from "../../items/itemHooks/useSearch";
 
 const SearchResults = () => {
   const location = useLocation();
-  const searchStr = location.search.substring();
+  const searchStr = location.search.substring(2);
   const search = useSearch();
-  const results = search(searchStr.substring(2));
+  const results = search(searchStr);
+
+  const [formSearch, setFormSearch] = useState(searchStr);
+  const handleInput = (input) => {
+    setFormSearch(input);
+  };
+
+  const history = useHistory();
+  const handleSubmit = () => {
+    history.push(`/shop/search?=${formSearch}`);
+  };
 
   const infoStyle = {
     display: "flex",
     justifyContent: "space-between",
     margin: "25px 0",
-    minWidth: '65vw'
+    minWidth: "65vw",
   };
 
   const imgStyle = {
@@ -25,13 +36,33 @@ const SearchResults = () => {
   return (
     <form
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
     >
-      <div style={{ alignSelf: 'stretch'}}>
-        <input></input>
-        <button>Submit</button>
-        <hr style={breakStyle}></hr>
-        <h3 style={{width: '100%'}}>Result(s) : {results.length}</h3>
-      </div>
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignSelf: "stretch",
+          minHeight: '20vh'
+        }}
+      >
+        <div style={{alignSelf: "center" }}>
+          <input
+            value={formSearch}
+            onChange={(e) => {
+              handleInput(e.target.value);
+            }}
+          ></input>
+          <button>Submit</button>
+        </div>
+        <h2 style={{ marginTop: 'auto', alignSelf: 'center' }}>
+          {results.length} result(s) for '{searchStr}'
+        </h2>
+        <hr style={{ ...breakStyle, width: "100%"}}></hr>
+      </section>
       <ul>
         {results.map((result) => {
           return (
