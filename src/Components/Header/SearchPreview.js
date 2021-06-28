@@ -25,16 +25,20 @@ const SearchPreview = (props) => {
   };
 
   const infoSectionStyle = {
-      display: 'flex',
-      flexDirection: 'column'
-  }
+    display: "flex",
+    flexDirection: "column",
+  };
 
   return (
     <ul style={listStyle}>
       {results.length > 0 ? (
         results.slice(0, 3).map((result) => {
           return (
-            <Link to={`/shop/item/${result.id}`} key={result.id} className='itemLink'>
+            <Link
+              to={`/shop/item/${result.id}`}
+              key={result.id}
+              className="itemLink"
+            >
               <li style={listingStyle}>
                 <img
                   alt={`A(n) ${result.name}`}
@@ -49,9 +53,9 @@ const SearchPreview = (props) => {
             </Link>
           );
         })
-      ) : (
+      ) : search.length > 0 ? (
         <h2>No Matches</h2>
-      )}
+      ) : null}
     </ul>
   );
 };

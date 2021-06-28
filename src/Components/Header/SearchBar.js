@@ -18,7 +18,7 @@ const SearchBar = () => {
 
   const handleSubmit = () => {
     history.push(`/shop/search?=${search}`)
-    console.log(searchItems(search));
+    setSearch("");
   };
 
   const formStyle = {
