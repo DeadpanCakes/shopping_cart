@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import usePaymentValidation from '../../ValidationHooks/usePaymentValidation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
@@ -10,23 +11,8 @@ const PaymentStep = (props) => {
   const { paymentInfo, setPaymentInfo, user, toggleSavedCard, incrementStep } = props;
   const { cardNumber, name, expire, code } = paymentInfo;
 
-  const [isNumberValid, setNumberValid] = useState(false);
-  const [isNameValid, setNameValid] = useState(false);
-  const [isExpireValid, setExpireValid] = useState(false);
-  const [isCodeValid, setCodeValid] = useState(false);
-
-  useEffect(() => {
-    setNumberValid(/^[\d]{13,}$/.test(cardNumber));
-  }, [cardNumber]);
-  useEffect(() => {
-    setNameValid(/[\S]+/.test(name));
-  }, [name]);
-  useEffect(() => {
-    setExpireValid(/^[\d]{2}\/[\d]{2}$/.test(expire));
-  }, [expire]);
-  useEffect(() => {
-    setCodeValid(/^[\d]{3,4}$/.test(code));
-  }, [code]);
+  const validation = usePaymentValidation(cardNumber, expire, name, code);
+  const {isNumberValid, isExpireValid, isNameValid, isCodeValid} = validation;
 
   useEffect(() => {
     if (isNumberValid && isNameValid && isExpireValid && isCodeValid) {

@@ -1,4 +1,4 @@
-const useSignUpValidation = (email, pass) => {
+const useSignUpValidation = (email, pass, verifyPass) => {
   const isEmailValid = /^[\w.]+[@][\w-.]+[.][\S]+$/gm.test(email);
   const isPassLengthValid = /\S{8,20}/.test(pass);
   const passHasUpper = /[A-Z]/.test(pass);
@@ -11,6 +11,7 @@ const useSignUpValidation = (email, pass) => {
     passHasLower &&
     passHasDigit &&
     passHasSymbol;
+  const isPassSame = pass === verifyPass && pass.length >= 8;
   return {
     isEmailValid,
     isPassLengthValid,
@@ -19,6 +20,7 @@ const useSignUpValidation = (email, pass) => {
     passHasDigit,
     passHasSymbol,
     isPassValid,
+    isPassSame
   };
 };
 

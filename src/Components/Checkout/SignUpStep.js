@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useSignUpValidation from "../../ValidationHooks/useSignUpValidation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,9 +10,8 @@ import {
 const SignUpStep = (props) => {
   const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
   const { email, pass, verifyPass } = signUpInfo;
-  const [isPassSame, setSame] = useState(false);
 
-  const validation = useSignUpValidation(email, pass);
+  const validation = useSignUpValidation(email, pass, verifyPass);
 
   const updateState = (setState, field, value) => {
     setState((prevState) => {
@@ -25,21 +24,21 @@ const SignUpStep = (props) => {
   };
 
   useEffect(() => {
-    if (pass === verifyPass && pass.length >= 8) {
-      setSame(true);
-    } else {
-      setSame(false);
-    }
-  },[pass, verifyPass])
-
-  useEffect(() => {
-    if (validation.isEmailValid && ((validation.isPassValid && isPassSame) || isGuest)) {
+    if (
+      validation.isEmailValid &&
+      ((validation.isPassValid && validation.isPassSame) || isGuest)
+    ) {
       updateState(setSignUpInfo, "isValid", true);
-      console.log("it's valid baby")
     } else {
       updateState(setSignUpInfo, "isValid", false);
     }
-  }, [setSignUpInfo, validation.isEmailValid, validation.isPassValid, isPassSame, isGuest]);
+  }, [
+    setSignUpInfo,
+    validation.isEmailValid,
+    validation.isPassValid,
+    validation.isPassSame,
+    isGuest,
+  ]);
 
   const inputStyle = {
     margin: 10,
@@ -73,7 +72,9 @@ const SignUpStep = (props) => {
             handleInput(e, setSignUpInfo, "email");
           }}
           style={
-            validation.isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
+            validation.isPassValid
+              ? { ...inputStyle, borderColor: "green" }
+              : inputStyle
           }
         ></input>
         <div
@@ -101,7 +102,9 @@ const SignUpStep = (props) => {
             handleInput(e, setSignUpInfo, "pass");
           }}
           style={
-            validation.isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
+            validation.isPassValid
+              ? { ...inputStyle, borderColor: "green" }
+              : inputStyle
           }
           disabled={isGuest}
           className={validation.isPassValid ? null : "invalid"}
@@ -129,20 +132,22 @@ const SignUpStep = (props) => {
           value={verifyPass}
           onChange={(e) => handleInput(e, setSignUpInfo, "verifyPass")}
           style={
-            isPassSame ? { ...inputStyle, borderColor: "green" } : inputStyle
+            validation.isPassSame
+              ? { ...inputStyle, borderColor: "green" }
+              : inputStyle
           }
           disabled={isGuest}
-          className={isPassSame ? null : "invalid"}
+          className={validation.isPassSame ? null : "invalid"}
         ></input>
         <div
           style={{
             position: "absolute",
             right: "5%",
-            color: isPassSame ? "green" : "red",
+            color: validation.isPassSame ? "green" : "red",
           }}
         >
           {verifyPass.length > 0 ? (
-            isPassSame ? (
+            validation.isPassSame ? (
               <FontAwesomeIcon icon={faCheckCircle} />
             ) : (
               <FontAwesomeIcon icon={faTimesCircle} />
