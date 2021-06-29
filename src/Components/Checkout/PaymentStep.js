@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import usePaymentValidation from '../../ValidationHooks/usePaymentValidation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
