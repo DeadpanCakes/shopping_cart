@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useSignUpValidation from "../../ValidationHooks/useSignUpValidation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
@@ -9,48 +10,9 @@ import {
 const SignUpStep = (props) => {
   const { signUpInfo, setSignUpInfo, isGuest, setIsGuest } = props;
   const { email, pass, verifyPass } = signUpInfo;
-  const [isEmailValid, setEmailVaild] = useState(false);
-  const [isPassValid, setPassValid] = useState(false);
-  const [isPassLengthValid, setLengthValid] = useState(false);
-  const [passHasUpper, setUpperValid] = useState(false);
-  const [passHasLower, setLowerValid] = useState(false);
-  const [passHasDigit, setDigitValid] = useState(false);
-  const [passHasSymbol, setSymbolValid] = useState(false);
   const [isPassSame, setSame] = useState(false);
 
-  useEffect(() => {
-    setEmailVaild(/^[\w.]+[@][\w-.]+[.][\S]+$/gm.test(email));
-  }, [email]);
-
-  useEffect(() => {
-    setSame(pass === verifyPass && verifyPass.length > 8);
-  }, [pass, verifyPass]);
-
-  useEffect(() => {
-    setLengthValid(/\S{8,20}/.test(pass));
-    setUpperValid(/[A-Z]/.test(pass));
-    setLowerValid(/[a-z]/.test(pass));
-    setDigitValid(/\d/.test(pass));
-    setSymbolValid(/\W/.test(pass));
-  }, [pass]);
-
-  useEffect(() => {
-    setPassValid(
-      [
-        isPassLengthValid,
-        passHasUpper,
-        passHasLower,
-        passHasDigit,
-        passHasSymbol,
-      ].every((criteria) => criteria === true)
-    );
-  }, [
-    isPassLengthValid,
-    passHasUpper,
-    passHasLower,
-    passHasDigit,
-    passHasSymbol,
-  ]);
+  const validation = useSignUpValidation(email, pass);
 
   const updateState = (setState, field, value) => {
     setState((prevState) => {
@@ -63,12 +25,21 @@ const SignUpStep = (props) => {
   };
 
   useEffect(() => {
-    if (isEmailValid && ((isPassValid && isPassSame) || isGuest)) {
+    if (pass === verifyPass && pass.length >= 8) {
+      setSame(true);
+    } else {
+      setSame(false);
+    }
+  },[pass, verifyPass])
+
+  useEffect(() => {
+    if (validation.isEmailValid && ((validation.isPassValid && isPassSame) || isGuest)) {
       updateState(setSignUpInfo, "isValid", true);
+      console.log("it's valid baby")
     } else {
       updateState(setSignUpInfo, "isValid", false);
     }
-  }, [setSignUpInfo, isEmailValid, isPassValid, isPassSame, isGuest]);
+  }, [setSignUpInfo, validation.isEmailValid, validation.isPassValid, isPassSame, isGuest]);
 
   const inputStyle = {
     margin: 10,
@@ -102,18 +73,18 @@ const SignUpStep = (props) => {
             handleInput(e, setSignUpInfo, "email");
           }}
           style={
-            isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
+            validation.isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
           }
         ></input>
         <div
           style={{
             position: "absolute",
             right: "32%",
-            color: isEmailValid ? "green" : "red",
+            color: validation.isEmailValid ? "green" : "red",
           }}
         >
           {email.length > 0 ? (
-            isEmailValid ? (
+            validation.isEmailValid ? (
               <FontAwesomeIcon icon={faCheckCircle} />
             ) : (
               <FontAwesomeIcon icon={faTimesCircle} />
@@ -130,20 +101,20 @@ const SignUpStep = (props) => {
             handleInput(e, setSignUpInfo, "pass");
           }}
           style={
-            isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
+            validation.isPassValid ? { ...inputStyle, borderColor: "green" } : inputStyle
           }
           disabled={isGuest}
-          className={isPassValid ? null : "invalid"}
+          className={validation.isPassValid ? null : "invalid"}
         ></input>
         <div
           style={{
             position: "absolute",
             right: "23%",
-            color: isPassValid ? "green" : "red",
+            color: validation.isPassValid ? "green" : "red",
           }}
         >
           {pass.length > 0 ? (
-            isPassValid ? (
+            validation.isPassValid ? (
               <FontAwesomeIcon icon={faCheckCircle} />
             ) : (
               <FontAwesomeIcon icon={faTimesCircle} />
@@ -186,7 +157,7 @@ const SignUpStep = (props) => {
             size="xs"
             icon={
               pass.length > 0
-                ? isPassLengthValid
+                ? validation.isPassLengthValid
                   ? faCheckCircle
                   : faTimesCircle
                 : faCircle
@@ -199,7 +170,7 @@ const SignUpStep = (props) => {
             size="xs"
             icon={
               pass.length > 0
-                ? passHasUpper
+                ? validation.passHasUpper
                   ? faCheckCircle
                   : faTimesCircle
                 : faCircle
@@ -212,7 +183,7 @@ const SignUpStep = (props) => {
             size="xs"
             icon={
               pass.length > 0
-                ? passHasLower
+                ? validation.passHasLower
                   ? faCheckCircle
                   : faTimesCircle
                 : faCircle
@@ -225,7 +196,7 @@ const SignUpStep = (props) => {
             size="xs"
             icon={
               pass.length > 0
-                ? passHasSymbol
+                ? validation.passHasSymbol
                   ? faCheckCircle
                   : faTimesCircle
                 : faCircle
