@@ -4,11 +4,13 @@ import { UserConsumer } from "../../UserContext";
 import useSignUpValidation from "../../ValidationHooks/useSignUpValidation";
 import PassCriteria from "./PassCriteria";
 import ValidatedInput from "../FormComponents/ValidatedInput";
+import Notification from "../Generic/Notification";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [verify, setVerify] = useState("");
+  const [message, setMessage] = useState({});
 
   const validation = useSignUpValidation(email, password, verify);
   const { isEmailValid, isPassValid, isPassSame } = validation;
@@ -31,18 +33,24 @@ const SignUp = () => {
             if (!users.find((user) => user.email === email)) {
               const newUser = userFactory(email, password);
               addUser(newUser);
+              setMessage({
+                type: "confirmation",
+                text: "Successfully Registered.",
+              });
             } else {
-              console.log("email in use");
+              setMessage({ type: "error", text: "Email Already Associated With An Account. Please Use Another." });
             }
           } else {
-            console.log(
-              "email:",
-              isEmailValid,
-              "pass:",
-              isPassValid,
-              "verify",
-              isPassSame
-            );
+            if (!isEmailValid) {
+              setMessage({ type: "error", text: "Invalid Email." });
+            } else if (!isPassValid) {
+              setMessage({
+                type: "error",
+                text: "Password Does Not Meet Requirements. Ensure All Are Checked.",
+              });
+            } else if (!isPassSame) {
+              setMessage({ type: "error", text: "Passwords Do Not Match." });
+            }
           }
         };
         return (
@@ -53,7 +61,7 @@ const SignUp = () => {
               flexDirection: "column",
               alignItems: "center",
               marginTop: 100,
-              minHeight: '100vh'
+              minHeight: "100vh",
             }}
           >
             <ValidatedInput
@@ -78,6 +86,12 @@ const SignUp = () => {
             />
             <PassCriteria pass={password} validation={validation} />
             <button>Sign Up</button>
+            {message.text ? (
+              <Notification
+                notificationType={message.type}
+                message={message.text}
+              />
+            ) : null}
           </form>
         );
       }}
