@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import userFactory from "../../userFactory";
 import { UserConsumer } from "../../UserContext";
 import useSignUpValidation from "../../ValidationHooks/useSignUpValidation";
@@ -12,6 +13,8 @@ const SignUp = () => {
   const [verify, setVerify] = useState("");
   const [message, setMessage] = useState({});
 
+  const history = useHistory();
+
   const validation = useSignUpValidation(email, password, verify);
   const { isEmailValid, isPassValid, isPassSame } = validation;
 
@@ -24,7 +27,7 @@ const SignUp = () => {
   return (
     <UserConsumer>
       {(user) => {
-        const { users, addUser } = user;
+        const { users, addUser, } = user;
 
         const handleSubmit = (event) => {
           event.preventDefault();
@@ -35,10 +38,16 @@ const SignUp = () => {
               addUser(newUser);
               setMessage({
                 type: "confirmation",
-                text: "Successfully Registered.",
+                text: "Successfully Registered. Please Wait While You Are Redirected.",
               });
+              setTimeout(() => {
+                history.push("/");
+              }, 1000);
             } else {
-              setMessage({ type: "error", text: "Email Already Associated With An Account. Please Use Another." });
+              setMessage({
+                type: "error",
+                text: "Email Already Associated With An Account. Please Use Another.",
+              });
             }
           } else {
             if (!isEmailValid) {
