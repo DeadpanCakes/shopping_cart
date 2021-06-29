@@ -1,75 +1,28 @@
 import { useState, useEffect } from "react";
 import userFactory from "../../userFactory";
 import { UserConsumer } from "../../UserContext";
+import useSignUpValidation from "../../ValidationHooks/useSignUpValidation";
+import PassCriteria from "./PassCriteria";
+import ValidatedInput from "../FormComponents/ValidatedInput";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
-  const [isEmailValid, setEmailVaild] = useState(false);
-
   const [password, setPassword] = useState("");
-  const [isPassValid, setPassVaild] = useState(false);
-  const [isLengthValid, setLengthValid] = useState(false);
-  const [isUpperValid, setUpperValid] = useState(false);
-  const [isLowerValid, setLowerValid] = useState(false);
-  const [isDigitValid, setDigitValid] = useState(false);
-  const [isSymbolValid, setSymbolValid] = useState(false);
-
   const [verify, setVerify] = useState("");
-  const [isPassSame, setSameValid] = useState(false);
+
+  const validation = useSignUpValidation(email, password, verify);
+  const { isEmailValid, isPassValid, isPassSame } = validation;
+
   const [isFormValid, setFormValid] = useState(false);
-  useEffect(() => {
-    setEmailVaild(/^[\w.]+[@][\w-.]+[.][\S]+$/gm.test(email));
-  }, [email]);
-
-  useEffect(() => {
-    setLengthValid(/\S{8,20}/.test(password));
-    setUpperValid(/[A-Z]/.test(password));
-    setLowerValid(/[a-z]/.test(password));
-    setDigitValid(/\d/.test(password));
-    setSymbolValid(/\W/.test(password));
-  }, [password]);
-
-  useEffect(() => {
-    const passCriteria = [
-      isLengthValid,
-      isUpperValid,
-      isLowerValid,
-      isDigitValid,
-      isSymbolValid,
-    ];
-    const passValidity = passCriteria.every((criterion) => {
-      return criterion;
-    });
-    setPassVaild(passValidity);
-  }, [isLengthValid, isUpperValid, isLowerValid, isDigitValid, isSymbolValid]);
-
-  useEffect(() => {
-    setSameValid(password === verify);
-  }, [password, verify]);
 
   useEffect(() => {
     setFormValid(isEmailValid && isPassValid && isPassSame);
   }, [isEmailValid, isPassValid, isPassSame]);
+
   return (
     <UserConsumer>
       {(user) => {
-        const { users,addUser } = user;
-
-        const handleInput = (field, value) => {
-          switch (field) {
-            case "email":
-              setEmail(value);
-              break;
-            case "password":
-              setPassword(value);
-              break;
-            case "verify":
-              setVerify(value);
-              break;
-            default:
-              throw new Error(value);
-          }
-        };
+        const { users, addUser } = user;
 
         const handleSubmit = (event) => {
           event.preventDefault();
@@ -92,32 +45,41 @@ const SignUp = () => {
             );
           }
         };
-        return <form onSubmit={(e) => handleSubmit(e)}>
-          <label>
-            Email
-            <input
+        return (
+          <form
+            onSubmit={(e) => handleSubmit(e)}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginTop: 100,
+              minHeight: '100vh'
+            }}
+          >
+            <ValidatedInput
+              label="Email"
               value={email}
-              onChange={(e) => handleInput("email", e.target.value)}
-            ></input>
-          </label>
-          <label>
-            Password
-            <input
+              inputHandler={setEmail}
+              isValid={isEmailValid}
+            />
+            <ValidatedInput
+              label="Password"
               value={password}
+              inputHandler={setPassword}
+              isValid={isPassValid}
               type="password"
-              onChange={(e) => handleInput("password", e.target.value)}
-            ></input>
-          </label>
-          <label>
-            Confirm Password
-            <input
+            />
+            <ValidatedInput
+              label="Confirm Password"
               value={verify}
+              inputHandler={setVerify}
+              isValid={isPassSame}
               type="password"
-              onChange={(e) => handleInput("verify", e.target.value)}
-            ></input>
-          </label>
-          <button>Sign Up</button>
-        </form>;
+            />
+            <PassCriteria pass={password} validation={validation} />
+            <button>Sign Up</button>
+          </form>
+        );
       }}
     </UserConsumer>
   );
