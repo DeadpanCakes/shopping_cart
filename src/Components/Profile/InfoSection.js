@@ -1,5 +1,7 @@
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const InfoSection = (props) => {
   const { section, info, isBeingEdited, user, editUser, toggleEdit, test } =
@@ -51,7 +53,9 @@ const InfoSection = (props) => {
     <div>
       <div style={{ display: "flex" }}>
         <h1>{section}</h1>
-        <button onClick={toggleEdit}>Edit</button>
+        <button onClick={toggleEdit} style={{height: '60%'}}>
+          <FontAwesomeIcon icon={faEdit} />
+        </button>
       </div>
       {isBeingEdited ? (
         fetchEditForm(section)
