@@ -6,6 +6,8 @@ import useSignUpValidation from "../../ValidationHooks/useSignUpValidation";
 import PassCriteria from "./PassCriteria";
 import ValidatedInput from "../FormComponents/ValidatedInput";
 import Notification from "../Generic/Notification";
+import Hero from "../Generic/Hero";
+import heroImg from "../../img/signupBannerFM.jpg";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -27,7 +29,7 @@ const SignUp = () => {
   return (
     <UserConsumer>
       {(user) => {
-        const { users, addUser, } = user;
+        const { users, addUser } = user;
 
         const handleSubmit = (event) => {
           event.preventDefault();
@@ -63,45 +65,61 @@ const SignUp = () => {
           }
         };
         return (
-          <form
-            onSubmit={(e) => handleSubmit(e)}
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              marginTop: 100,
               minHeight: "100vh",
             }}
           >
-            <ValidatedInput
-              label="Email"
-              value={email}
-              inputHandler={setEmail}
-              isValid={isEmailValid}
-            />
-            <ValidatedInput
-              label="Password"
-              value={password}
-              inputHandler={setPassword}
-              isValid={isPassValid}
-              type="password"
-            />
-            <ValidatedInput
-              label="Confirm Password"
-              value={verify}
-              inputHandler={setVerify}
-              isValid={isPassSame}
-              type="password"
-            />
-            <PassCriteria pass={password} validation={validation} />
-            <button>Sign Up</button>
-            {message.text ? (
-              <Notification
-                notificationType={message.type}
-                message={message.text}
+            <Hero img={heroImg}>
+              <h1
+                style={{
+                  position: "absolute",
+                  left: "3%",
+                  bottom: "1%",
+                  color: "aliceblue",
+                  textShadow: "0 0 5px black",
+                  backgroundColor: "#f0f8ff95",
+                  padding: 10
+                }}
+              >
+                Sign Up
+              </h1>
+            </Hero>
+            <form onSubmit={(e) => handleSubmit(e)}
+            style={{display: 'flex', flexDirection: 'column', marginTop: 30}}>
+              <ValidatedInput
+                label="Email"
+                value={email}
+                inputHandler={setEmail}
+                isValid={isEmailValid}
               />
-            ) : null}
-          </form>
+              <ValidatedInput
+                label="Password"
+                value={password}
+                inputHandler={setPassword}
+                isValid={isPassValid}
+                type="password"
+              />
+              <ValidatedInput
+                label="Confirm Password"
+                value={verify}
+                inputHandler={setVerify}
+                isValid={isPassSame}
+                type="password"
+              />
+              <PassCriteria pass={password} validation={validation} />
+              <button style={{alignSelf: 'flex-end'}}>Sign Up</button>
+              {message.text ? (
+                <Notification
+                  notificationType={message.type}
+                  message={message.text}
+                />
+              ) : null}
+            </form>
+          </div>
         );
       }}
     </UserConsumer>

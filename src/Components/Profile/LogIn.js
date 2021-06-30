@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
 import { useHistory } from "react-router-dom";
 import LabeledInput from "../FormComponents/LabeledInput";
+import Hero from "../Generic/Hero";
+import heroImg from "../../img/aboutImg1.webp"
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -31,37 +33,48 @@ const LogIn = () => {
           }
         };
         return (
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit(email, pass);
-            }}
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              marginTop: 100,
               minHeight: "100vh",
             }}
           >
-            <div style={{margin: 10}}>
-              <LabeledInput
-                label="Email"
-                value={email}
-                inputHandler={setEmail}
-                type="text"
-              />
-              <LabeledInput
-                label="Password"
-                value={pass}
-                inputHandler={setPass}
-                type="password"
-              />
-            </div>
-            <Link to="/profile/sign-up">Don't Have A Profile? Sign up!</Link>
-            {message ? <p>{message}</p> : null}
-            <button>Log In</button>
-          </form>
+            <Hero img={heroImg}>
+              <h1 style={{position: 'absolute', bottom: '0%', left: '3%'}}>Log In</h1>
+            </Hero>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(email, pass);
+              }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+                marginTop: 50
+              }}
+            >
+              <div style={{ margin: 10 }}>
+                <LabeledInput
+                  label="Email"
+                  value={email}
+                  inputHandler={setEmail}
+                  type="text"
+                />
+                <LabeledInput
+                  label="Password"
+                  value={pass}
+                  inputHandler={setPass}
+                  type="password"
+                />
+              </div>
+              <Link to="/profile/sign-up">Don't Have A Profile? Sign up!</Link>
+              {message ? <p>{message}</p> : null}
+              <button>Log In</button>
+            </form>
+          </div>
         );
       }}
     </UserConsumer>
