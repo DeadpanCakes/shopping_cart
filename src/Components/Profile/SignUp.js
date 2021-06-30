@@ -40,7 +40,7 @@ const SignUp = () => {
               addUser(newUser);
               setMessage({
                 type: "confirmation",
-                text: "Successfully Registered. Please Wait While You Are Redirected.",
+                text: "Successfully Registered. Please Wait.",
               });
               setTimeout(() => {
                 history.push("/profile/log-in");
@@ -82,14 +82,20 @@ const SignUp = () => {
                   color: "aliceblue",
                   textShadow: "0 0 5px black",
                   backgroundColor: "#f0f8ff95",
-                  padding: 10
+                  padding: 10,
                 }}
               >
                 Sign Up
               </h1>
             </Hero>
-            <form onSubmit={(e) => handleSubmit(e)}
-            style={{display: 'flex', flexDirection: 'column', marginTop: 30}}>
+            <form
+              onSubmit={(e) => handleSubmit(e)}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginTop: 30,
+              }}
+            >
               <ValidatedInput
                 label="Email"
                 value={email}
@@ -110,14 +116,16 @@ const SignUp = () => {
                 isValid={isPassSame}
                 type="password"
               />
-              <PassCriteria pass={password} validation={validation} />
-              <button style={{alignSelf: 'flex-end'}}>Sign Up</button>
-              {message.text ? (
-                <Notification
-                  notificationType={message.type}
-                  message={message.text}
-                />
-              ) : null}
+              <section>
+                <PassCriteria pass={password} validation={validation} />
+                <button style={{ alignSelf: "flex-end" }}>Sign Up</button>
+                {message.text ? (
+                  <Notification
+                    notificationType={message.type}
+                    message={message.text}
+                  />
+                ) : null}
+              </section>
             </form>
           </div>
         );
