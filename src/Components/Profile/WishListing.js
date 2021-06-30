@@ -19,7 +19,7 @@ const WishListing = (props) => {
       <p>{price}</p>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <button onClick={removeWish}>Remove</button>
-        <button>Add</button>
+        <button onClick={addToCart}>Add</button>
       </div>
     </li>
   );
