@@ -1,4 +1,5 @@
 import { UserConsumer } from "../../UserContext";
+import WishListing from "./WishListing";
 
 const Wishlist = (props) => {
   return (
@@ -10,16 +11,12 @@ const Wishlist = (props) => {
             {user.loggedUser ? (
               user.loggedUser.wishList.map((item) => {
                 return (
-                  <li key={item.name}>
-                    <p>{item.name}</p>;
-                    <button
-                      onClick={() =>
-                        editUser(loggedUser.id, "removeWish", item)
-                      }
-                    >
-                      Remove
-                    </button>
-                  </li>
+                  <WishListing
+                    item={item}
+                    removeWish={() =>
+                      editUser(loggedUser.id, "removeWish", item)
+                    }
+                  />
                 );
               })
             ) : (
