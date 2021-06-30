@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import LabeledInput from "../FormComponents/LabeledInput";
 import Hero from "../Generic/Hero";
 import heroImg from "../../img/aboutImg1.webp"
+import Notification from "../Generic/Notification";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -71,7 +72,7 @@ const LogIn = () => {
                 />
               </div>
               <Link to="/profile/sign-up">Don't Have A Profile? Sign up!</Link>
-              {message ? <p>{message}</p> : null}
+              {message ? <Notification message={message} notificationType='error'/> : null}
               <button>Log In</button>
             </form>
           </div>
