@@ -4,7 +4,7 @@ import { UserConsumer } from "../../UserContext";
 import { useHistory } from "react-router-dom";
 import LabeledInput from "../FormComponents/LabeledInput";
 import Hero from "../Generic/Hero";
-import heroImg from "../../img/aboutImg1.webp"
+import heroImg from "../../img/aboutImg1.webp";
 import Notification from "../Generic/Notification";
 
 const LogIn = () => {
@@ -43,7 +43,9 @@ const LogIn = () => {
             }}
           >
             <Hero img={heroImg}>
-              <h1 style={{position: 'absolute', bottom: '0%', left: '3%'}}>Log In</h1>
+              <h1 style={{ position: "absolute", bottom: "0%", left: "3%" }}>
+                Log In
+              </h1>
             </Hero>
             <form
               onSubmit={(e) => {
@@ -54,7 +56,7 @@ const LogIn = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
-                marginTop: 50
+                marginTop: 50,
               }}
             >
               <div style={{ margin: 10 }}>
@@ -72,7 +74,9 @@ const LogIn = () => {
                 />
               </div>
               <Link to="/profile/sign-up">Don't Have A Profile? Sign up!</Link>
-              {message ? <Notification message={message} notificationType='error'/> : null}
+              {message ? (
+                <Notification message={message} notificationType="error" />
+              ) : null}
               <button>Log In</button>
             </form>
           </div>
