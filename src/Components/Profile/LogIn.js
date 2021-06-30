@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
 import { useHistory } from "react-router-dom";
+import LabeledInput from "../FormComponents/LabeledInput";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -13,19 +14,6 @@ const LogIn = () => {
     <UserConsumer>
       {(user) => {
         const { users, signIn } = user;
-
-        const handleInput = (field, value) => {
-          switch (field) {
-            case "email":
-              setEmail(value);
-              break;
-            case "pass":
-              setPass(value);
-              break;
-            default:
-              throw new Error("Something went wrong");
-          }
-        };
 
         const handleSubmit = (email, pass) => {
           if (
@@ -48,22 +36,28 @@ const LogIn = () => {
               e.preventDefault();
               handleSubmit(email, pass);
             }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginTop: 100,
+              minHeight: "100vh",
+            }}
           >
-            <label>
-              Email
-              <input
+            <div style={{margin: 10}}>
+              <LabeledInput
+                label="Email"
                 value={email}
-                onChange={(e) => handleInput("email", e.target.value)}
-              ></input>
-            </label>
-            <label>
-              Password
-              <input
+                inputHandler={setEmail}
+                type="text"
+              />
+              <LabeledInput
+                label="Password"
                 value={pass}
-                onChange={(e) => handleInput("pass", e.target.value)}
+                inputHandler={setPass}
                 type="password"
-              ></input>
-            </label>
+              />
+            </div>
             <Link to="/profile/sign-up">Don't Have A Profile? Sign up!</Link>
             {message ? <p>{message}</p> : null}
             <button>Log In</button>
