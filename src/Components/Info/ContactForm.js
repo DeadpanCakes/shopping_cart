@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { UserConsumer } from "../../UserContext";
+import LabeledInput from "../FormComponents/LabeledInput";
+import ValidatiedInput from "../FormComponents/ValidatedInput";
 
 const ContactForm = (props) => {
   const { loggedUser } = props;
@@ -33,12 +35,6 @@ const ContactForm = (props) => {
   return (
     <UserConsumer>
       {(user) => {
-        (() => {
-          if (user.loggedUser) {
-            setEmail(user.email);
-          }
-        })();
-
         return (
           <form
             style={{
@@ -47,16 +43,17 @@ const ContactForm = (props) => {
               alignItems: "flex-start",
             }}
           >
-            <input
-              placeholder="Email"
+            <ValidatiedInput
+              label="Email"
               value={email}
-              onChange={(e) => handleInput("email", e.target.value)}
-            ></input>
-            <input
-              placeholder="Subject"
+              inputHandler={setEmail}
+              isValid={isEmailValid}
+            />
+            <LabeledInput
+              label="Subject"
               value={subject}
-              onChange={(e) => handleInput("subject", e.target.value)}
-            ></input>
+              inputHandler={setSubject}
+            />
             <textarea
               placeholder="Your Message"
               value={message}
