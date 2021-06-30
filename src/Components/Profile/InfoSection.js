@@ -63,7 +63,6 @@ const InfoSection = (props) => {
           })}
         </section>
       )}
-      <button onClick={() => console.log(test)}>check</button>
     </div>
   );
 };
