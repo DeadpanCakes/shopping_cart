@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const InfoSection = (props) => {
-  const { section, info, isBeingEdited, user, editUser, toggleEdit} =
-    props;
+  const { section, info, isBeingEdited, user, editUser, toggleEdit } = props;
   //Create an arr of objects, one per key:value pair
   const infoArr = (() => {
     const arr = [];
@@ -50,10 +49,10 @@ const InfoSection = (props) => {
   };
 
   return (
-    <div>
+    <div style={{ border: "#2a2b2a 2px solid", borderRadius: 10, padding: '100px 200px',}}>
       <div style={{ display: "flex" }}>
         <h1>{section}</h1>
-        <button onClick={toggleEdit} style={{height: '60%'}}>
+        <button onClick={toggleEdit} style={{ height: "60%" }}>
           <FontAwesomeIcon icon={faEdit} />
         </button>
       </div>
@@ -63,7 +62,7 @@ const InfoSection = (props) => {
         <section>
           {infoArr.map((info) => {
             const keyName = Object.keys(info)[0];
-            return <p key={keyName}>{`${keyName}: ${info[keyName]}`}</p>;
+            return <p key={keyName}>{`${keyName.charAt(0).toUpperCase() + keyName.slice(1)}: ${info[keyName]}`}</p>;
           })}
         </section>
       )}

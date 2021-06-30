@@ -23,14 +23,26 @@ const Profile = () => {
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
                   gridTemplateRows: "1fr 1fr",
-                  minHeight: '100vh'
+                  minHeight: "100vh",
+                  justifyItems: "center",
+                  alignItems: "center",
+                  alignContent: "start",
+                  marginBottom: 30
                 }}
               >
-                <section style={{ display: "flex", flexDirection: "column" }}>
-                  <h1>Profile</h1>
-                  <p>{loggedUser.email}</p>
-                  <button>Subscribe To Newsletter</button>
-                  <button>Change Password</button>
+                <section
+                  style={{
+                    border: "#2a2b2a 2px solid",
+                    borderRadius: 10,
+                    padding: "100px 200px",
+                  }}
+                >
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <h1>Profile</h1>
+                    <p>Email: {loggedUser.email}</p>
+                    <button style={{marginTop: 10}}>Subscribe To Newsletter</button>
+                    <button>Change Password</button>
+                  </div>
                 </section>
                 <InfoSection
                   section="Payment"
