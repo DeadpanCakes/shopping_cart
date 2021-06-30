@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const InfoSection = (props) => {
-  const { section, info, isBeingEdited, user, editUser, toggleEdit, test } =
+  const { section, info, isBeingEdited, user, editUser, toggleEdit} =
     props;
   //Create an arr of objects, one per key:value pair
   const infoArr = (() => {

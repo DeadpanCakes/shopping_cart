@@ -23,6 +23,7 @@ const Profile = () => {
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
                   gridTemplateRows: "1fr 1fr",
+                  minHeight: '100vh'
                 }}
               >
                 <section style={{ display: "flex", flexDirection: "column" }}>
@@ -38,7 +39,6 @@ const Profile = () => {
                   editUser={editUser}
                   isBeingEdited={editingPayment}
                   toggleEdit={toggleEditPayment}
-                  test={loggedUser}
                 />
                 <InfoSection
                   section="Shipping"
