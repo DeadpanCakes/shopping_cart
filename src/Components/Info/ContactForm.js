@@ -59,6 +59,17 @@ const ContactForm = (props) => {
               value={message}
               onChange={(e) => handleInput("message", e.target.value)}
             ></textarea>
+            <button
+              style={{ alignSelf: "flex-end" }}
+              onClick={(e) => {
+                e.preventDefault();
+                setEmail(loggedUser ? loggedUser.email : "");
+                setSubject("");
+                setMessage("");
+              }}
+            >
+              Send
+            </button>
           </form>
         );
       }}
