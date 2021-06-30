@@ -49,19 +49,19 @@ const Contact = () => {
                     style={{ display: "flex", justifyContent: "flex-start" }}
                   >
                     <ContactForm loggedUser={loggedUser} />
-                    <p
-                      style={{
-                        flex: "1",
-                        textAlign: "center",
-                        padding: 10,
-                        fontSize: "1.3em",
-                      }}
-                    >
-                      Got questions or feedback? Or maybe you just wanna say
-                      thanks? If you want a response, remember to leave your
-                      email. If you need quick answers, be sure to check our
-                      FAQ.
-                    </p>
+                      <p
+                        style={{
+                          flex: "1",
+                          textAlign: "center",
+                          padding: 10,
+                          fontSize: "1.3em",
+                        }}
+                      >
+                        Got questions or feedback? Or maybe you just wanna say
+                        thanks? If you want a response, remember to leave your
+                        email. If you need quick answers, be sure to check our
+                        FAQ.
+                      </p>
                   </div>
                 </div>
               </section>

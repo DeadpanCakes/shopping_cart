@@ -4,7 +4,8 @@ const Notification = (props) => {
       minWidth: '20%',
       borderRadius: 10,
       padding: '13px 5px',
-      textAlign: 'center'
+      textAlign: 'center',
+      ...props.miscStyle
   };
 
   const genStyle = () => {
