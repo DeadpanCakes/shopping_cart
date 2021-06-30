@@ -15,12 +15,17 @@ const PassCriteria = (props) => {
     passHasSymbol,
   } = validation;
 
-  const listingStyle={
-      display: 'flex',
+  const listStyle = {
+    margin: 10
   }
 
+  const listingStyle = {
+    display: "flex",
+    margin: 5
+  };
+
   return (
-    <ul>
+    <ul style={listStyle}>
       <li style={listingStyle}>
         <FontAwesomeIcon
           size="xs"

@@ -41,8 +41,8 @@ const SignUp = () => {
                 text: "Successfully Registered. Please Wait While You Are Redirected.",
               });
               setTimeout(() => {
-                history.push("/");
-              }, 1000);
+                history.push("/profile/log-in");
+              }, 2000);
             } else {
               setMessage({
                 type: "error",
