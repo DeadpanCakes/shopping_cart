@@ -29,7 +29,7 @@ const Routes = () => {
           <Route path="/profile/wishlist" component={Wishlist} />
           <Route exact path="/profile" component={Profile} />
           <Route path='/shop/search' component={SearchResults}/>
-          <Route path="/shop" component={ShopHome} />
+          <Route exact path="/shop" component={ShopHome} />
         </Switch>
       </App>
     </BrowserRouter>

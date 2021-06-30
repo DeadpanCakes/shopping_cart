@@ -46,6 +46,7 @@ const SearchResults = () => {
           display: "flex",
           flexDirection: "column",
           alignSelf: "stretch",
+          width: '100%',
           minHeight: '20vh'
         }}
       >
@@ -61,7 +62,7 @@ const SearchResults = () => {
         <h2 style={{ marginTop: 'auto', alignSelf: 'center' }}>
           {results.length} result(s) for '{searchStr}'
         </h2>
-        <hr style={{ ...breakStyle, width: "100%"}}></hr>
+        <hr style={{ ...breakStyle, width: "95%"}}></hr>
       </section>
       <ul>
         {results.map((result) => {
