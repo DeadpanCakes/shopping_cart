@@ -27,6 +27,9 @@ const useUser = () => {
       case "editPayment":
         editPayment(user, newValue);
         break;
+      case "toggleSub":
+        toggleSubscription(user);
+        break;
       default:
         throw new Error("Invalid Field");
     }
@@ -120,6 +123,21 @@ const useUser = () => {
           };
         }
         console.log("user not reached");
+        return user;
+      });
+    });
+  };
+
+  const toggleSubscription = (targetId) => {
+    setUsers((prevState) => {
+      return prevState.map((user) => {
+        if (user.id === targetId) {
+          console.log('sub reach')
+          return {
+            ...user,
+            isSubscribed: !user.isSubscribed,
+          };
+        }
         return user;
       });
     });

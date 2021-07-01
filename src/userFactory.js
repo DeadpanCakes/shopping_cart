@@ -1,4 +1,4 @@
-import genId from 'generate-unique-id';
+import genId from "generate-unique-id";
 
 const userFactory = (
   email,
@@ -24,6 +24,7 @@ const userFactory = (
   const orders = [];
   const wishList = [];
   const userId = genId();
+  let isSubscribed = false;
 
   return {
     id: userId,
@@ -34,6 +35,7 @@ const userFactory = (
     shippingInfo: shippingInfo,
     billingInfo: billingInfo,
     paymentInfo: paymentInfo,
+    isSubscribed: isSubscribed
   };
 };
 

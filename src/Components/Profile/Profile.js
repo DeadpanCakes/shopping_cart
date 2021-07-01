@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserConsumer } from "../../UserContext";
 import InfoSection from "./InfoSection";
 import Banner from "../Generic/Banner";
+import Notification from "../Generic/Notification";
 
 const Profile = () => {
   const [editingPayment, setEditPayment] = useState(false);
@@ -11,13 +12,38 @@ const Profile = () => {
   const toggleEditBilling = () => setEditBilling((prevState) => !prevState);
   const [editingShipping, setEditShipping] = useState(false);
   const toggleEditShipping = () => setEditShipping((prevState) => !prevState);
+  const [message, setMessage] = useState("");
+  const changePassword = () => {
+    setMessage("Request received. You should receive an email within 1 hour.");
+    setTimeout(() => setMessage(""), 2000);
+  };
+
+  const history = useHistory();
 
   return (
     <UserConsumer>
       {(user) => {
         const { loggedUser, editUser } = user;
+
+        (() => {
+          if (!loggedUser) {
+            history.push("/profile/log-in");
+          }
+        })();
+
         return loggedUser ? (
           (() => {
+            const handleToggle = () => {
+              if (loggedUser.isSubscribed) {
+                setMessage("You have unsubscribed to our newsletter.");
+                editUser(loggedUser.id, "toggleSub");
+                setTimeout(() => setMessage(""), 2000);
+              } else {
+                setMessage("You have subscribed to our newsletter!");
+                editUser(loggedUser.id, "toggleSub");
+                setTimeout(() => setMessage(""), 2000);
+              }
+            };
             return (
               <div>
                 <Banner text="Profile" />
@@ -30,7 +56,7 @@ const Profile = () => {
                     justifyItems: "center",
                     alignItems: "center",
                     alignContent: "start",
-                    marginBottom: '30px',
+                    marginBottom: "30px",
                   }}
                 >
                   <section
@@ -43,10 +69,25 @@ const Profile = () => {
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <h1>Profile</h1>
                       <p>Email: {loggedUser.email}</p>
-                      <button style={{ marginTop: 10 }}>
-                        Subscribe To Newsletter
+                      <button style={{ marginTop: 10 }} onClick={handleToggle}>
+                        {loggedUser.isSubscribed
+                          ? "Unsubscribe To Newsletter"
+                          : "Subscribe To Newsletter"}
                       </button>
-                      <button>Change Password</button>
+                      <button onClick={changePassword}>Change Password</button>
+                    </div>
+                    <div style={{ position: "relative" }}>
+                      {message ? (
+                        <Notification
+                          message={message}
+                          notificationType="confirmation"
+                          miscStyle={{
+                            position: "absolute",
+                            right: "-50%",
+                            minWidth: "20vw",
+                          }}
+                        />
+                      ) : null}
                     </div>
                   </section>
                   <InfoSection
@@ -82,7 +123,6 @@ const Profile = () => {
             <Link to="/profile/log-in">
               <button>Log In</button>
             </Link>
-            <button onClick={() => console.log(user)}>check</button>
           </>
         );
       }}
