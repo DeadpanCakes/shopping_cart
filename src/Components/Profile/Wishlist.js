@@ -2,6 +2,8 @@ import { CartConsumer } from "../../CartContext";
 import { UserConsumer } from "../../UserContext";
 import WishListing from "./WishListing";
 import { useHistory } from "react-router-dom";
+import Hero from "../Generic/Hero";
+import heroImg from "../../img/aboutImg3.webp";
 
 const Wishlist = (props) => {
   const history = useHistory();
@@ -19,7 +21,20 @@ const Wishlist = (props) => {
               })();
               const { loggedUser, editUser } = user;
               return (
-                <div>
+                <div style={{ minHeight: "100vh" }}>
+                  <Hero img={heroImg}>
+                    <h1
+                      style={{
+                        color: "aliceblue",
+                        textShadow: "0 0 5px black",
+                        position: "absolute",
+                        bottom: "5%",
+                        left: '3%'
+                      }}
+                    >
+                      Wishlist
+                    </h1>
+                  </Hero>
                   <ul>
                     {user.loggedUser ? (
                       user.loggedUser.wishList.map((item) => {
