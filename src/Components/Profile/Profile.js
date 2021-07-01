@@ -56,7 +56,7 @@ const Profile = () => {
                     justifyItems: "center",
                     alignItems: "center",
                     alignContent: "start",
-                    marginBottom: "30px",
+                    margin: "30px 0",
                   }}
                 >
                   <section

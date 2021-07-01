@@ -1,39 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ValidatedInput from "../FormComponents/ValidatedInput";
+import LabeledInput from "../FormComponents/LabeledInput";
+import Notification from "../Generic/Notification";
 
 const AddressForm = (props) => {
   const [name, setName] = useState("");
+  const [isNameValid, setNameValid] = useState(false);
   const [country, setCountry] = useState("");
+  const [isCountryValid, setCountryValid] = useState(false);
   const [address, setAddress] = useState("");
+  const [isAddressValid, setAddressValid] = useState(false);
   const [zip, setZip] = useState("");
   const [city, setCity] = useState("");
   const [phone, setPhone] = useState("");
+  const [isFormValid, setFormValid] = useState(false);
+  const [message, setMessage] = useState("");
+  const genMessage = () => {
+    setMessage("Please check that you have filled out all marked fields");
+    setTimeout(() => setMessage(""), 2000);
+  };
 
   const { user, editUser, toggleEdit, section } = props;
 
-  const handleInput = (field, value) => {
-    switch (field) {
-      case "name":
-        setName(value);
-        break;
-      case "country":
-        setCountry(value);
-        break;
-      case "address":
-        setAddress(value);
-        break;
-      case "zip":
-        setZip(value);
-        break;
-      case "city":
-        setCity(value);
-        break;
-      case "phone":
-        setPhone(value);
-        break;
-      default:
-        throw new Error("Invalid Field");
-    }
-  };
+  useEffect(() => {
+    const validation = /[\S]+/;
+    setNameValid(validation.test(name));
+    setCountryValid(validation.test(country));
+    setAddressValid(validation.test(address));
+  }, [name, country, address]);
+
+  useEffect(() => {
+    setFormValid(isNameValid && isCountryValid && isAddressValid);
+  }, [isNameValid, isCountryValid, isAddressValid]);
 
   const handleSubmit = (userId, section, newData) => {
     let fieldEdited;
@@ -56,71 +54,45 @@ const AddressForm = (props) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleSubmit(user.loggedUser.id, section,{
-          name: name,
-          country: country,
-          address: address,
-          zip: zip,
-          city: city,
-          phone: phone,
-        });
+        if (isFormValid) {
+          handleSubmit(user.loggedUser.id, section, {
+            name: name,
+            country: country,
+            address: address,
+            zip: zip,
+            city: city,
+            phone: phone,
+          });
+        } else {
+          genMessage();
+        }
       }}
     >
-      <label>
-        Name
-        <input
-          value={name}
-          onChange={(e) => {
-            handleInput("name", e.target.value);
-          }}
-        ></input>
-      </label>
-      <label>
-        Country
-        <input
-          value={country}
-          onChange={(e) => {
-            handleInput("country", e.target.value);
-          }}
-        ></input>
-      </label>
-      <label>
-        Address
-        <input
-          value={address}
-          onChange={(e) => {
-            handleInput("address", e.target.value);
-          }}
-        ></input>
-      </label>
-      <label>
-        Zip
-        <input
-          value={zip}
-          onChange={(e) => {
-            handleInput("zip", e.target.value);
-          }}
-        ></input>
-      </label>
-      <label>
-        City
-        <input
-          value={city}
-          onChange={(e) => {
-            handleInput("city", e.target.value);
-          }}
-        ></input>
-      </label>
-      <label>
-        Phone
-        <input
-          value={phone}
-          onChange={(e) => {
-            handleInput("phone", e.target.value);
-          }}
-        ></input>
-      </label>
+      <ValidatedInput
+        label="Name"
+        value={name}
+        inputHandler={setName}
+        isValid={isNameValid}
+      />
+      <ValidatedInput
+        label="Country"
+        value={country}
+        inputHandler={setCountry}
+        isValid={isCountryValid}
+      />
+      <ValidatedInput
+        label="Address"
+        value={address}
+        inputHandler={setAddress}
+        isValid={isAddressValid}
+      />
+      <LabeledInput label="ZIP" value={zip} inputHandler={setZip} />
+      <LabeledInput label="City" value={city} inputHandler={setCity} />
+      <LabeledInput label="Phone" value={phone} inputHandler={setPhone} />
       <button>Submit</button>
+      {message ? (
+        <Notification message={message} notificationType="error" miscStyle={{position: 'absolute'}} />
+      ) : null}
     </form>
   );
 };
