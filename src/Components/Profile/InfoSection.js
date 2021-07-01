@@ -23,6 +23,7 @@ const InfoSection = (props) => {
             editUser={editUser}
             toggleEdit={toggleEdit}
             section={section}
+            info={info}
           />
         );
       case "Billing":
@@ -32,6 +33,7 @@ const InfoSection = (props) => {
             editUser={editUser}
             toggleEdit={toggleEdit}
             section={section}
+            info={info}
           />
         );
       case "Payment":
@@ -40,6 +42,7 @@ const InfoSection = (props) => {
             user={user}
             editUser={editUser}
             toggleEdit={toggleEdit}
+            info={info}
           />
         );
       default:

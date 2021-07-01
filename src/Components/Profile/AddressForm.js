@@ -4,23 +4,24 @@ import LabeledInput from "../FormComponents/LabeledInput";
 import Notification from "../Generic/Notification";
 
 const AddressForm = (props) => {
-  const [name, setName] = useState("");
+  const { user, editUser, toggleEdit, section, info } = props;
+  console.log(info);
+
+  const [name, setName] = useState(info.name ? info.name : "");
   const [isNameValid, setNameValid] = useState(false);
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState(info.country ? info.country : "");
   const [isCountryValid, setCountryValid] = useState(false);
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState(info.address ? info.address : "");
   const [isAddressValid, setAddressValid] = useState(false);
-  const [zip, setZip] = useState("");
-  const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
+  const [zip, setZip] = useState(info.zip ? info.zip : "");
+  const [city, setCity] = useState(info.city ? info.city : "");
+  const [phone, setPhone] = useState(info.phone ? info.phone : "");
   const [isFormValid, setFormValid] = useState(false);
   const [message, setMessage] = useState("");
   const genMessage = () => {
     setMessage("Please check that you have filled out all marked fields");
     setTimeout(() => setMessage(""), 2000);
   };
-
-  const { user, editUser, toggleEdit, section } = props;
 
   useEffect(() => {
     const validation = /[\S]+/;
@@ -91,7 +92,11 @@ const AddressForm = (props) => {
       <LabeledInput label="Phone" value={phone} inputHandler={setPhone} />
       <button>Submit</button>
       {message ? (
-        <Notification message={message} notificationType="error" miscStyle={{position: 'absolute'}} />
+        <Notification
+          message={message}
+          notificationType="error"
+          miscStyle={{ position: "absolute" }}
+        />
       ) : null}
     </form>
   );
