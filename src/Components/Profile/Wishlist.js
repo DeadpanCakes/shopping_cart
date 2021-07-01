@@ -35,7 +35,12 @@ const Wishlist = (props) => {
                       Wishlist
                     </h1>
                   </Hero>
-                  <ul>
+                  <ul style={{
+                    width: '70vw',
+                    marginLeft: '15vw',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}>
                     {user.loggedUser ? (
                       user.loggedUser.wishList.map((item) => {
                         return (
