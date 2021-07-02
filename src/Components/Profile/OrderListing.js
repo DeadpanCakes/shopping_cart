@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import OrderImgPreview from "./OrderImgPreview";
 
 const OrderListing = (props) => {
   const { order } = props;
@@ -7,6 +8,7 @@ const OrderListing = (props) => {
   const formattedDate = format(new Date(order.time), "MMMM do, y");
   return (
     <li>
+      <OrderImgPreview items={order.items} />
       <Link to={`/shop/orders/${order.id}`}>
         <button onClick={() => console.log(order)}>{formattedDate}</button>
       </Link>
