@@ -4,11 +4,12 @@ import { CartConsumer } from "../../CartContext";
 import CheckoutPlaceholder from "./CheckoutPlaceholder";
 import CommentBox from "./CommentBox";
 import { UserConsumer } from "../../UserContext";
-import useCurrency from '../../useCurrency';
+import useCurrency from "../../useCurrency";
 
 const CheckoutPage = (props) => {
   const { addOrder } = props;
-  const {getSubTotal, getShipping, getTax, getTotalCost, formatter} = useCurrency();
+  const { getSubTotal, getShipping, getTax, getTotalCost, formatter } =
+    useCurrency();
   return (
     <UserConsumer>
       {(user) => {
@@ -40,7 +41,7 @@ const CheckoutPage = (props) => {
                   }}
                 >
                   <CheckoutForm
-                    user={loggedUser}
+                    user={loggedUser ? loggedUser : false}
                     editUser={editUser}
                     emptyCart={emptyCart}
                     items={items}
@@ -52,6 +53,8 @@ const CheckoutPage = (props) => {
                       total: formatter.format(getTotalCost(items)),
                     }}
                     userComment={userComment}
+                    addUser={user.addUser}
+                    users={user.users}
                   />
                   <aside
                     style={{

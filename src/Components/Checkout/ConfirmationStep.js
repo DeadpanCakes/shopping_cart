@@ -61,15 +61,33 @@ const ConfirmationStep = (props) => {
           <h2 style={headerStyle}>Payment Info</h2>
           <ConfirmationInfo
             category="Card"
-            content={user.paymentInfo.cardNumber ? user.paymentInfo.cardNumber : hideCard()}
+            content={
+              user
+                ? user.paymentInfo.cardNumber
+                  ? user.paymentInfo.cardNumber
+                  : hideCard()
+                : hideCard()
+            }
           />
           <ConfirmationInfo
             category="Expiration"
-            content={user.paymentInfo.expiration ? user.paymentInfo.expiration : expire}
+            content={
+              user
+                ? user.paymentInfo.expiration
+                  ? user.paymentInfo.expiration
+                  : expire
+                : expire
+            }
           />
           <ConfirmationInfo
             category="Name On Card"
-            content={user.paymentInfo.name ? user.paymentInfo.name : name}
+            content={
+              user
+                ? user.paymentInfo.name
+                  ? user.paymentInfo.name
+                  : name
+                : name
+            }
           />
         </div>
       </div>

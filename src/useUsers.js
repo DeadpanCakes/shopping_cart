@@ -4,7 +4,12 @@ const useUser = () => {
   const [users, setUsers] = useState([]);
 
   const addUser = (newUser) => {
-    setUsers((prevState) => prevState.concat(newUser));
+    if (!users.find((user) => user.email === newUser.email)) {
+      setUsers((prevState) => prevState.concat(newUser));
+      return "Success"
+    } else {
+      return "Failed"
+    }
   };
 
   const editUser = (user, field, newValue) => {
@@ -132,7 +137,7 @@ const useUser = () => {
     setUsers((prevState) => {
       return prevState.map((user) => {
         if (user.id === targetId) {
-          console.log('sub reach')
+          console.log("sub reach");
           return {
             ...user,
             isSubscribed: !user.isSubscribed,

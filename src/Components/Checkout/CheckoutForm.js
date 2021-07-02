@@ -7,10 +7,12 @@ import ShippingStep from "./ShippingStep";
 import BillingStep from "./BillingStep";
 import PaymentStep from "./PaymentStep";
 import ConfirmationStep from "./ConfirmationStep";
+import userFactory from "../../userFactory";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const { user, editUser, addOrder, transactionInfo, userComment } = props;
+  const { user, editUser, addOrder, transactionInfo, userComment, addUser, users } =
+    props;
   const [isGuest, setIsGuest] = useState(false);
   const [toBeSaved, setToBeSaved] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
@@ -72,6 +74,16 @@ const CheckoutForm = (props) => {
   const toggleSavedCard = () => setUsing((prevState) => !prevState);
 
   const completeTransaction = () => {
+    if (!isGuest && !user) {
+      const newUser = userFactory(
+        signUpInfo.email,
+        signUpInfo.pass,
+        shippingInfo,
+        billingInfo,
+        paymentInfo
+      );
+      addUser(newUser);
+    }
     const order = orderFactory(
       props.items,
       shippingInfo,
@@ -196,6 +208,7 @@ const CheckoutForm = (props) => {
               setSignUpInfo={setSignUpInfo}
               isGuest={isGuest}
               setIsGuest={setIsGuest}
+              users={users}
             />,
             <ShippingStep
               shippingInfo={shippingInfo}
