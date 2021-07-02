@@ -4,8 +4,7 @@ import LabeledInput from "../FormComponents/LabeledInput";
 import Notification from "../Generic/Notification";
 
 const AddressForm = (props) => {
-  const { user, editUser, toggleEdit, section, info } = props;
-  console.log(info);
+  const { user, editUser, toggleEdit, section, info, isBeingEdited } = props;
 
   const [name, setName] = useState(info.name ? info.name : "");
   const [isNameValid, setNameValid] = useState(false);
@@ -68,6 +67,7 @@ const AddressForm = (props) => {
           genMessage();
         }
       }}
+      className={isBeingEdited ? "profileForm profileFormExpanded" : "profileForm"}
     >
       <ValidatedInput
         label="Name"

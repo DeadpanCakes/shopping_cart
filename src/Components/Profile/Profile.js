@@ -52,7 +52,7 @@ const Profile = () => {
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
                     gridTemplateRows: "1fr 1fr",
-                    minHeight: "100vh",
+                    minHeight: "125vh",
                     justifyItems: "center",
                     alignItems: "center",
                     alignContent: "start",

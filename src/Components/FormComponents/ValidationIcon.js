@@ -26,7 +26,7 @@ const ValidationIcon = (props) => {
         right: "5%",
         top: "50%",
         zIndex: 1,
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         color: inputLength > 0 ? genColor() : "black",
       }}
     >

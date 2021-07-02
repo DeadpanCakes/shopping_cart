@@ -1,7 +1,7 @@
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const InfoSection = (props) => {
   const { section, info, isBeingEdited, user, editUser, toggleEdit } = props;
@@ -24,6 +24,7 @@ const InfoSection = (props) => {
             toggleEdit={toggleEdit}
             section={section}
             info={info}
+            isBeingEdited={isBeingEdited}
           />
         );
       case "Billing":
@@ -34,6 +35,7 @@ const InfoSection = (props) => {
             toggleEdit={toggleEdit}
             section={section}
             info={info}
+            isBeingEdited={isBeingEdited}
           />
         );
       case "Payment":
@@ -43,6 +45,7 @@ const InfoSection = (props) => {
             editUser={editUser}
             toggleEdit={toggleEdit}
             info={info}
+            isBeingEdited={isBeingEdited}
           />
         );
       default:
@@ -52,23 +55,40 @@ const InfoSection = (props) => {
   };
 
   return (
-    <div style={{ border: "#2a2b2a 2px solid", borderRadius: 10, padding: '100px 200px',}}>
-      <div style={{ display: "flex" }}>
+    <div
+      style={{
+        border: "#2a2b2a 2px solid",
+        borderRadius: "10",
+        padding: "100px 200px",
+        transition: "all 300ms ease-in-out",
+      }}
+    >
+      <div
+        style={{ display: "flex" }}
+      >
         <h1>{section}</h1>
         <button onClick={toggleEdit} style={{ height: "60%" }}>
-          <FontAwesomeIcon icon={faEdit} />
+          {isBeingEdited ? (
+            <FontAwesomeIcon icon={faTimes} />
+          ) : (
+            <FontAwesomeIcon icon={faEdit} />
+          )}
         </button>
       </div>
-      {isBeingEdited ? (
-        fetchEditForm(section)
-      ) : (
-        <section>
-          {infoArr.map((info) => {
-            const keyName = Object.keys(info)[0];
-            return <p key={keyName}>{`${keyName.charAt(0).toUpperCase() + keyName.slice(1)}: ${info[keyName]}`}</p>;
-          })}
-        </section>
-      )}
+      <section 
+        className={
+          isBeingEdited ? "profileInfo" : "profileInfo profileInfoExpanded"
+        }>
+        {infoArr.map((info) => {
+          const keyName = Object.keys(info)[0];
+          return (
+            <p key={keyName}>{`${
+              keyName.charAt(0).toUpperCase() + keyName.slice(1)
+            }: ${info[keyName]}`}</p>
+          );
+        })}
+      </section>
+      {fetchEditForm(section)}
     </div>
   );
 };
