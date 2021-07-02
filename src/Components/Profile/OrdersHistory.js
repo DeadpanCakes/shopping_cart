@@ -1,25 +1,22 @@
 import { UserConsumer } from "../../UserContext";
-import { Link } from "react-router-dom";
-import { format } from "date-fns";
+import OrderHistory from "./OrderListing";
+import { useHistory } from "react-router-dom";
 
 const Orders = (props) => {
+  const history = useHistory();
   return (
     <UserConsumer>
       {(user) => {
+        (() => {
+          if (!user.loggedUser) {
+            history.push("/profile/log-in");
+          }
+        })();
         return (
           <ul>
             {user.loggedUser
               ? user.loggedUser.orders.map((order) => {
-                const formattedDate = format(new Date(order.time), "MMMM do, y")
-                  return (
-                    <li key={order.id}>
-                      <Link to={`/shop/orders/${order.id}`}>
-                        <button onClick={() => console.log(order)}>
-                          {formattedDate}
-                        </button>
-                      </Link>
-                    </li>
-                  );
+                  return <OrderHistory order={order} />;
                 })
               : null}
           </ul>
