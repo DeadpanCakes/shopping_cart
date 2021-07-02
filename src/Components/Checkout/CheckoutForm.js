@@ -11,8 +11,15 @@ import userFactory from "../../userFactory";
 
 const CheckoutForm = (props) => {
   const history = useHistory();
-  const { user, editUser, addOrder, transactionInfo, userComment, addUser, users } =
-    props;
+  const {
+    user,
+    editUser,
+    addOrder,
+    transactionInfo,
+    userComment,
+    addUser,
+    users,
+  } = props;
   const [isGuest, setIsGuest] = useState(false);
   const [toBeSaved, setToBeSaved] = useState(false);
   const [signUpInfo, setSignUpInfo] = useState({
@@ -74,16 +81,7 @@ const CheckoutForm = (props) => {
   const toggleSavedCard = () => setUsing((prevState) => !prevState);
 
   const completeTransaction = () => {
-    if (!isGuest && !user) {
-      const newUser = userFactory(
-        signUpInfo.email,
-        signUpInfo.pass,
-        shippingInfo,
-        billingInfo,
-        paymentInfo
-      );
-      addUser(newUser);
-    }
+    let newUser;
     const order = orderFactory(
       props.items,
       shippingInfo,
@@ -93,6 +91,17 @@ const CheckoutForm = (props) => {
       userComment,
       user ? user.email : signUpInfo.email
     );
+    if (!isGuest && !user) {
+      newUser = userFactory(
+        signUpInfo.email,
+        signUpInfo.pass,
+        shippingInfo,
+        billingInfo,
+        paymentInfo
+      );
+      addUser(newUser);
+      editUser(newUser.id, "addOrder", order);
+    }
     props.emptyCart();
     addOrder(order);
     if (user) {
