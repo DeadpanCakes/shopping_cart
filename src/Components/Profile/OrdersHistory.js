@@ -13,6 +13,9 @@ const Orders = (props) => {
     width: "80vw",
     margin: "50px 10vw 100px 10vw",
   };
+  const breakStyle = {
+    width: "90%",
+  };
   return (
     <UserConsumer>
       {(user) => {
@@ -27,7 +30,12 @@ const Orders = (props) => {
             <ul style={listStyle}>
               {user.loggedUser
                 ? user.loggedUser.orders.map((order) => {
-                    return <OrderHistory order={order} key={order.id} />;
+                    return (
+                      <>
+                        <OrderHistory order={order} key={order.id} />
+                        <hr style={breakStyle} />
+                      </>
+                    );
                   })
                 : null}
             </ul>

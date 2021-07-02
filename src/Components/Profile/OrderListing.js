@@ -9,7 +9,9 @@ const OrderListing = (props) => {
 
   const listingStyle = {
     display: "flex",
+    margin: 20
   };
+
   return (
     <li style={listingStyle}>
       <OrderImgPreview items={order.items} />
