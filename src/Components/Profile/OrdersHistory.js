@@ -10,7 +10,7 @@ const Orders = (props) => {
           <ul>
             {user.loggedUser
               ? user.loggedUser.orders.map((order) => {
-                const formattedDate = format(new Date(order.time), "MMMM y, do")
+                const formattedDate = format(new Date(order.time), "MMMM do, y")
                   return (
                     <li key={order.id}>
                       <Link to={`/shop/orders/${order.id}`}>
