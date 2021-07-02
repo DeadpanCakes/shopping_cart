@@ -7,8 +7,12 @@ const Orders = (props) => {
   const history = useHistory();
 
   const pageStyle = {
-    minHeight: '100vh'
-  }
+    minHeight: "100vh",
+  };
+  const listStyle = {
+    width: "80vw",
+    margin: "50px 10vw 100px 10vw",
+  };
   return (
     <UserConsumer>
       {(user) => {
@@ -20,10 +24,10 @@ const Orders = (props) => {
         return (
           <div style={pageStyle}>
             <Banner text="Order History" />
-            <ul>
+            <ul style={listStyle}>
               {user.loggedUser
                 ? user.loggedUser.orders.map((order) => {
-                    return <OrderHistory order={order} />;
+                    return <OrderHistory order={order} key={order.id} />;
                   })
                 : null}
             </ul>

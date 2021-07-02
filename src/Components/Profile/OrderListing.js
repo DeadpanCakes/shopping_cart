@@ -6,8 +6,12 @@ const OrderListing = (props) => {
   const { order } = props;
   console.log(order);
   const formattedDate = format(new Date(order.time), "MMMM do, y");
+
+  const listingStyle = {
+    display: "flex",
+  };
   return (
-    <li>
+    <li style={listingStyle}>
       <OrderImgPreview items={order.items} />
       <Link to={`/shop/orders/${order.id}`}>
         <button onClick={() => console.log(order)}>{formattedDate}</button>
