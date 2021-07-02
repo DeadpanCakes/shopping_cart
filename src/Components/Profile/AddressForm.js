@@ -67,7 +67,9 @@ const AddressForm = (props) => {
           genMessage();
         }
       }}
-      className={isBeingEdited ? "profileForm profileFormExpanded" : "profileForm"}
+      className={
+        isBeingEdited ? "profileForm profileFormExpanded" : "profileForm"
+      }
     >
       <ValidatedInput
         label="Name"
@@ -89,7 +91,9 @@ const AddressForm = (props) => {
       />
       <LabeledInput label="ZIP" value={zip} inputHandler={setZip} />
       <LabeledInput label="City" value={city} inputHandler={setCity} />
-      <LabeledInput label="Phone" value={phone} inputHandler={setPhone} />
+      <div style={{ position: "relative" }}>
+        <LabeledInput label="Phone" value={phone} inputHandler={setPhone} />
+      </div>
       <button>Submit</button>
       {message ? (
         <Notification
