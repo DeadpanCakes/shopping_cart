@@ -18,17 +18,29 @@ const PaymentForm = (props) => {
   );
 
   const [isFormValid, setFormValid] = useState(false);
-
   const validation = usePaymentValidation(card, expiry, name, code);
   const { isNumberValid, isExpireValid, isNameValid, isCodeValid } = validation;
   useEffect(() => {
     setFormValid(isNameValid && isNumberValid && isExpireValid && isCodeValid);
   }, [isNameValid, isNumberValid, isExpireValid, isCodeValid]);
 
+  const [message, setMessage] = useState({});
+  const genMessage = (text, notificationType) => {
+    setMessage({ text, notificationType });
+    setTimeout(() => {
+      setMessage({});
+    }, 2000);
+  };
+
   const handleSubmit = (newData) => {
     if (isFormValid) {
       editUser(user.loggedUser.id, "editPayment", newData);
       toggleEdit();
+    } else {
+      genMessage(
+        "Please check that all info is formatted properly.",
+        "error"
+      );
     }
   };
 
@@ -43,7 +55,11 @@ const PaymentForm = (props) => {
           expiration: expiry,
         });
       }}
-      className={isBeingEdited ? "profileForm profileFormExpanded" : "profileForm profileFormCollapsed"}
+      className={
+        isBeingEdited
+          ? "profileForm profileFormExpanded"
+          : "profileForm profileFormCollapsed"
+      }
     >
       <ValidatedInput
         label="Name On Card"
@@ -70,6 +86,13 @@ const PaymentForm = (props) => {
         isValid={isCodeValid}
       />
       <button>Submit</button>
+      {message.text ? (
+        <Notification
+          message={message.text}
+          notificationType={message.notificationType}
+          miscStyle={{ position: "absolute" }}
+        />
+      ) : null}
     </form>
   );
 };
