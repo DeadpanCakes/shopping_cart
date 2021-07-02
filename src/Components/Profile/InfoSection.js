@@ -58,14 +58,13 @@ const InfoSection = (props) => {
     <div
       style={{
         border: "#2a2b2a 2px solid",
-        borderRadius: "10",
         padding: "100px 200px",
         transition: "all 300ms ease-in-out",
+        backgroundColor: "#DEEBF7",
+        borderRadius: 10,
       }}
     >
-      <div
-        style={{ display: "flex" }}
-      >
+      <div style={{ display: "flex"}}>
         <h1>{section}</h1>
         <button onClick={toggleEdit} style={{ height: "60%" }}>
           {isBeingEdited ? (
@@ -75,10 +74,11 @@ const InfoSection = (props) => {
           )}
         </button>
       </div>
-      <section 
+      <section
         className={
           isBeingEdited ? "profileInfo" : "profileInfo profileInfoExpanded"
-        }>
+        }
+      >
         {infoArr.map((info) => {
           const keyName = Object.keys(info)[0];
           return (

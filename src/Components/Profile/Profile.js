@@ -64,6 +64,7 @@ const Profile = () => {
                       border: "#2a2b2a 2px solid",
                       borderRadius: 10,
                       padding: "100px 200px",
+                      backgroundColor: "#DEEBF7",
                     }}
                   >
                     <div style={{ display: "flex", flexDirection: "column" }}>
