@@ -27,6 +27,11 @@ const PaymentStep = (props) => {
   }, [setPaymentInfo, isNumberValid, isNameValid, isExpireValid, isCodeValid]);
 
   const updateState = (setState, field, value) => {
+    if (field === "expire" && expire.length === 2) {
+      setState((prevState) => {
+        return {...prevState, [field]: value + "/"}
+      })
+    }
     setState((prevState) => {
       return { ...prevState, [field]: value };
     });

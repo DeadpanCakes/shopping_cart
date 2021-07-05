@@ -97,7 +97,12 @@ const CheckoutForm = (props) => {
         signUpInfo.pass,
         shippingInfo,
         billingInfo,
-        paymentInfo
+        {
+          cardNumber: paymentInfo.cardNumber,
+          expiration: paymentInfo.expire,
+          name: paymentInfo.name,
+          code: paymentInfo.code,
+        }
       );
       addUser(newUser);
       editUser(newUser.id, "addOrder", order);
