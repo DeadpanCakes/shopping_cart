@@ -36,16 +36,26 @@ const HeaderNav = (props) => {
   };
 
   useEffect(() => {
-    const unfocusDropdown = (event) => {
-      if (!event.target.matches(".dropdownBtn *")) {
+    const unfocusMenuDropdown = (event) => {
+      if (!event.target.matches(".menuDropdownBtn *")) {
         setMenuVisible(false);
+      }
+    };
+    document.addEventListener("click", unfocusMenuDropdown);
+    return () => document.removeEventListener("click", unfocusMenuDropdown);
+  }, []);
+
+  useEffect(() => {
+    const unfocusCartDropdown = (event) => {
+      if (!event.target.matches(".cartDropdownBtn *")) {
         setCartVisible(false);
       }
     };
-    document.addEventListener("click", unfocusDropdown);
-    return () => document.removeEventListener("click", unfocusDropdown);
+    document.addEventListener("click", unfocusCartDropdown);
+    return () => document.removeEventListener("click", unfocusCartDropdown);
   }, []);
 
+  document.addEventListener("click", (e) => console.log(e.target.matches(".cartDropdownBtn *")))
   useEffect(() => {
     if (location.pathname !== locationRef.current.pathname) {
       setMenuVisible(false);
@@ -78,7 +88,10 @@ const HeaderNav = (props) => {
             marginLeft: "auto",
           }}
         >
-          <div style={{ position: "relative" }} className="dropdownBtn">
+          <div
+            style={{ position: "relative" }}
+            className="dropdownBtn menuDropdownBtn"
+          >
             <button id="profileBtn" className="headerNav" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faUser} />
             </button>
@@ -86,7 +99,7 @@ const HeaderNav = (props) => {
           </div>
           <div
             style={{ padding: 0, position: "relative" }}
-            className="dropdownBtn"
+            className="dropdownBtn cartDropdownBtn"
           >
             <button className="headerNav" id="headerCart" onClick={toggleCart}>
               {addingToCart ? <NewItemIcon /> : null}
@@ -103,7 +116,7 @@ const HeaderNav = (props) => {
               removeItem={removeItem}
             />
           </div>
-            <SearchBar />
+          <SearchBar />
         </li>
       </ul>
       <p>{cartRef.current.toString()}</p>
