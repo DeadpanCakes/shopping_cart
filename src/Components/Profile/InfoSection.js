@@ -14,6 +14,14 @@ const InfoSection = (props) => {
     return arr;
   })();
 
+  const hideCode = () => {
+    return "***";
+  };
+  const hideCard = (number) => {
+    const lastFour = number.substring(-4, 4);
+    return "****" + lastFour;
+  };
+
   const fetchEditForm = (section) => {
     switch (section) {
       case "Shipping":
@@ -64,7 +72,7 @@ const InfoSection = (props) => {
         borderRadius: 10,
       }}
     >
-      <div style={{ display: "flex"}}>
+      <div style={{ display: "flex" }}>
         <h1>{section}</h1>
         <button onClick={toggleEdit} style={{ height: "60%" }}>
           {isBeingEdited ? (
@@ -83,8 +91,16 @@ const InfoSection = (props) => {
           const keyName = Object.keys(info)[0];
           return (
             <p key={keyName}>{`${
-              keyName.charAt(0).toUpperCase() + keyName.slice(1)
-            }: ${info[keyName]}`}</p>
+              keyName === "cardNumber"
+                ? "Card Number"
+                : keyName.charAt(0).toUpperCase() + keyName.slice(1)
+            }: ${
+              keyName === "code"
+                ? hideCode()
+                : keyName === "cardNumber"
+                ? hideCard(info[keyName])
+                : info[keyName]
+            }`}</p>
           );
         })}
       </section>

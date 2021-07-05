@@ -72,7 +72,7 @@ const PaymentStep = (props) => {
               flexDirection: "column",
             }}
           >
-            <p>{user.paymentInfo.cardNumber.toString()}</p>
+            <p>{"****" + user.paymentInfo.cardNumber.toString().substring(-4,4)}</p>
             <p>{user.paymentInfo.expiration.toString()}</p>
             <p>{user.paymentInfo.name.toString()}</p>
             <button style={{ alignSelf: "flex-end" }} onClick={handleSubmitOldCard}>

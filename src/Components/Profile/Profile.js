@@ -66,7 +66,6 @@ const Profile = () => {
                       backgroundColor: "#DEEBF7",
                     }}
                   >
-                    <button onClick={() => console.log(loggedUser)}></button>
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <h1>Profile</h1>
                       <p>Email: {loggedUser.email}</p>
