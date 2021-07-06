@@ -427,6 +427,12 @@ button.headerNav:hover {
   margin: 0;
 }
 
+.navLink,
+.navLink:active,
+.navLink > a:visited {
+  color: #2a2b2a;
+}
+
 .clearTagBtn {
   margin-left: 5px;
 }

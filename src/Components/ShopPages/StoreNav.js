@@ -38,32 +38,32 @@ const StoreNav = () => {
         style={expanded ? { maxHeight: "300px" } : { maxHeight: "0" }}
       >
         <ul id="shopNavList">
-          <li style={navLinkStyle}>
+          <li style={navLinkStyle} className="navLink">
             <Link to="/shop">
               <h2>Home</h2>
             </Link>
           </li>
-          <li style={navLinkStyle}>
+          <li style={navLinkStyle} className="navLink">
             <Link to="/shop/all" onClick={handleNavClick}>
               <h2>All</h2>
             </Link>
           </li>
-          <li style={navLinkStyle}>
+          <li style={navLinkStyle} className="navLink">
             <Link to="/shop/houseplants" onClick={handleNavClick}>
               <h2>Houseplants</h2>
             </Link>
           </li>
-          <li style={navLinkStyle}>
+          <li style={navLinkStyle} className="navLink">
             <Link to="/shop/succulents" onClick={handleNavClick}>
               <h2>Succulents</h2>
             </Link>
           </li>
-          <li style={navLinkStyle}>
+          <li style={navLinkStyle} className="navLink">
             <Link to="/shop/tillandsia" onClick={handleNavClick}>
               <h2>Tillandsia</h2>
             </Link>
           </li>
-          <li style={navLinkStyle}>
+          <li style={navLinkStyle} className="navLink">
             <Link to="/shop/supplies" onClick={handleNavClick}>
               <h2>Supplies</h2>
             </Link>
