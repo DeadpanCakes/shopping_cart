@@ -135,7 +135,167 @@ const itemTags = {
     []
   ),
   curly: TagList(["Green", "Pink"], ["Drought-Resistant"], [], [], []),
-  polka: TagList(["Pink"], [], [], [], []),
+  polka: TagList(
+    ["Pink"],
+    ["Drown-Resistant"],
+    ["Tolerates Low Light"],
+    [],
+    []
+  ),
+  teddy: TagList(
+    ["Green"],
+    ["Drought-Resistant"],
+    ["Tolerates Low Light"],
+    ["Stays Small"],
+    []
+  ),
+  panda: TagList(
+    ["White", "Brown"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    [],
+    ["Roots Quickly"]
+  ),
+  splitRock: TagList(
+    ["Green", "Blue", "Pink"],
+    ["Drought-Resistant", "Rot-Prone"],
+    ["Needs Plenty Of Light"],
+    ["Slow Grower"],
+    []
+  ),
+  moonstone: TagList(
+    ["Purple", "Blue", "Pale", "Pink"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    ["Slow Grower"],
+    ["Leaf Propagation", "Stem Propagation"]
+  ),
+  colorata: TagList(
+    ["White", "Pink"],
+    ["Drought-Resisntant"],
+    ["Tolerates Direct Light"],
+    ["Fast Grower"],
+    []
+  ),
+  mother: TagList(
+    ["Green"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    ["Fast Grower"],
+    ["Offsets Quickly"]
+  ),
+  spanishMoss: TagList(
+    ["Green", "White"],
+    ["Drought-Resistant"],
+    [],
+    ["Slow Grower","Hanging"],
+    []
+  ),
+  buttonFern: TagList(["Green"], [], ["Tolerates Low Light"], [], []),
+  moonLightPhilo: TagList(["Green", "Yellow"], [], [], ["Fast Grower"], []),
+  nanouk: TagList(
+    ["Pink", "Purple", "Green"],
+    [],
+    ["Tolerates Low Light"],
+    ["Fast Grower"],
+    ["Roots Quickly"]
+  ),
+  moneyPlant: TagList(["Green"], [], [], [], []),
+  peacock: TagList(
+    ["Green", "Purple", "Black"],
+    [],
+    ["Tolerates Low Light"],
+    [],
+    []
+  ),
+  bunnySucc: TagList(
+    ["Green"],
+    ["Rot-Prone"],
+    ["Needs Plenty Of Light"],
+    ["Slow Grower"],
+    [],
+    ["Seeds"]
+  ),
+  ghostPlant: TagList(
+    ["White", "Green", "Pink"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    ["Fast Grower"],
+    ["Offsets Quickly", "Roots Quickly"]
+  ),
+  jellyBeans: TagList(
+    ["Green", "Red"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    ["Fast Grower"],
+    ["Offsets Quickly"]
+  ),
+  calicoKitten: TagList(
+    ["Red", "Purple", "Green", "Pink"],
+    [],
+    [],
+    ["Offsets Quickly"]
+  ),
+  pvn: TagList(
+    ["Pink", "Purple"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    [],
+    []
+  ),
+  whiteFusion: TagList(
+    ["Green", "White", "Pink"],
+    [],
+    ["Tolerates Low Light"],
+    [],
+    []
+  ),
+  tineke: TagList(
+    ["Green", "Pink", "Cream"],
+    [],
+    ["Tolerates Low Light"],
+    [],
+    []
+  ),
+  monstera: TagList(
+    ["Green"],
+    [],
+    ["Tolerates Low Light"],
+    ["Fast Grower"],
+    []
+  ),
+  krimsonQueen: TagList(["Green", "White", "Pink"], [], [], [], []),
+  triostar: TagList(
+    ["Green", "Pink", "White"],
+    [],
+    ["Tolerates Low Light"],
+    ["Hanging", "Vining"],
+    []
+  ),
+  prolifica: TagList(
+    ["White", "Green", "Pink"],
+    ["Drought-Resistant"],
+    ["Tolerates Direct Light"],
+    ["Fast Grower"],
+    ["Offsets Quickly"]
+  ),
+  babyFingers: TagList(
+    ["White", "Pink", "Green"],
+    ["Rot Prone"],
+    ["Tolerates Direct Light"],
+    [],
+    []
+  ),
+  caput: TagList(
+    ["Green", "Purple"],
+    ["Drought Tolerant"],
+    [],
+    ["Slow Grower"],
+    []
+  ),
+  bulbosa: TagList(["Green", "Purple"], [], [], [], []),
+  intermedia: TagList(["Green"], [], [], [], []),
+  aeranthos: TagList(["Green"], [], [], [], []),
 };
 
 export default itemTags;
