@@ -558,6 +558,7 @@ button.headerNav:hover {
 
 .shopPage {
   display: flex;
+  min-height: 100vh;
 }
 
 .pageNav {

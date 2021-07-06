@@ -55,8 +55,64 @@ import intermedia from "./intermedia.webp";
 import bulbosa from "./bulbosa.jpg";
 import aeranthos from "./aeranthos.webp";
 import fertilizer from "./fertilizer.jpeg";
+import driftwood from "./driftwood.jpg";
+import birkin from "./birkin.jpg";
+import butzii from "./butzii.webp";
+import clay from "./clay.jpg";
+import dasyphyllum from "./dasyphyllum.jpg";
+import funkiana from "./funkiana.webp";
+import hangingPot from "./hangingPot.jpg";
+import harrisii from "./harrisii.webp";
+import haworthiaCooperiTrun from "./haworthiaCooperiTrun.jpg";
+import incaGold from "./incaGold.jpg";
+import laui from "./laui.jpg";
+import lavaRock from "./lavaRock.webp";
+import ludisia from "./ludisia.webp";
+import mirinae from "./mirinae.jpg";
+import mossPole from "./mossPole.jpg";
+import orchidBark from "./orchidBark.jpg";
+import orchidPot from "./orchidPot.jpg";
+import princeOfOrange from "./princeOfOrange.webp";
+import pruinosa from "./pruinosa.jpg";
+import pseudobaiyeli from "./pseudobaiyeli.webp";
+import riverRocks from "./riverRocks.webp";
+import superba from "./superba.jpg";
+import superbum from "./superbum.jpeg";
+import terrarium from "./terrarium.jpg";
+import songOfIndia from "./songOfIndia.png";
+import snakeBlackGold from "./snakeBlackGold.webp";
+import hinduRope from "./hinduRope.jpg";
+import seleriana from "./seleriana.jpg";
 
 const images = {
+  seleriana,
+  songOfIndia,
+  snakeBlackGold,
+  hinduRope,
+  driftwood,
+  birkin,
+  butzii,
+  clay,
+  dasyphyllum,
+  funkiana,
+  hangingPot,
+  harrisii,
+  haworthiaCooperiTrun,
+  incaGold,
+  laui,
+  lavaRock,
+  ludisia,
+  mirinae,
+  mossPole,
+  orchidBark,
+  orchidPot,
+  princeOfOrange,
+  pruinosa,
+  pseudobaiyeli,
+  riverRocks,
+  superba,
+  superbum,
+  terrarium,
   bear: bearImg,
   brachy: brachyImg,
   bunny: bunnyImg,
@@ -113,7 +169,7 @@ const images = {
   intermedia,
   bulbosa,
   aeranthos,
-  fertilizer
+  fertilizer,
 };
 
 export default images;

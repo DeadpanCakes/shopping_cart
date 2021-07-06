@@ -50,7 +50,7 @@ const StoreNav = () => {
           </li>
           <li style={navLinkStyle}>
             <Link to="/shop/houseplants" onClick={handleNavClick}>
-              <h2>Housplants</h2>
+              <h2>Houseplants</h2>
             </Link>
           </li>
           <li style={navLinkStyle}>

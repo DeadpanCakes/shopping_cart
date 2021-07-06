@@ -35,7 +35,7 @@ const SearchResults = () => {
 
   return (
     <form
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: '100vh' }}
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit();
