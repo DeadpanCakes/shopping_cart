@@ -78,13 +78,17 @@ import pseudobaiyeli from "./pseudobaiyeli.webp";
 import riverRocks from "./riverRocks.webp";
 import superba from "./superba.jpg";
 import superbum from "./superbum.jpeg";
+import terrariumKit from "./terrariumKit.jpg";
 import terrarium from "./terrarium.jpg";
 import songOfIndia from "./songOfIndia.png";
 import snakeBlackGold from "./snakeBlackGold.webp";
 import hinduRope from "./hinduRope.jpg";
 import seleriana from "./seleriana.jpg";
+import mister from "./mister.jpg";
 
 const images = {
+  mister,
+  terrarium,
   seleriana,
   songOfIndia,
   snakeBlackGold,
@@ -112,7 +116,7 @@ const images = {
   riverRocks,
   superba,
   superbum,
-  terrarium,
+  terrariumKit,
   bear: bearImg,
   brachy: brachyImg,
   bunny: bunnyImg,

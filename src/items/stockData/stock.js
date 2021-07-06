@@ -437,8 +437,10 @@ const stock = (() => {
       images.riverRocks
     ),
     suppliesFactory(86, "Moss Pole", 10, itemTags.mossPole, images.mossPole),
-    suppliesFactory(87, "Terrarium Kit", 20, itemTags.terrarium, images.terrarium),
-    suppliesFactory(88, "Driftwood", 10, itemTags.driftwood, images.driftwood)
+    suppliesFactory(87, "Terrarium Kit", 20, itemTags.terrariumKit, images.terrariumKit),
+    suppliesFactory(88, "Driftwood", 10, itemTags.driftwood, images.driftwood),
+    suppliesFactory(89, "Plant Mister", 10, itemTags.mister, images.mister),
+    suppliesFactory(90, "Terrarium", 10, itemTags.terrarium, images.terrarium)
   ];
 
   return {
