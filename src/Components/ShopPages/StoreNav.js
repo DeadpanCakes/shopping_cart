@@ -43,28 +43,44 @@ const StoreNav = () => {
               <h2>Home</h2>
             </Link>
           </li>
-          <li style={navLinkStyle} className="navLink">
-            <Link to="/shop/all" onClick={handleNavClick}>
+          <li style={navLinkStyle} className="navLinkContainer">
+            <Link to="/shop/all" onClick={handleNavClick} className="navLink">
               <h2>All</h2>
             </Link>
           </li>
-          <li style={navLinkStyle} className="navLink">
-            <Link to="/shop/houseplants" onClick={handleNavClick}>
+          <li style={navLinkStyle} className="navLinkContainer">
+            <Link
+              to="/shop/houseplants"
+              onClick={handleNavClick}
+              className="navLink"
+            >
               <h2>Houseplants</h2>
             </Link>
           </li>
-          <li style={navLinkStyle} className="navLink">
-            <Link to="/shop/succulents" onClick={handleNavClick}>
+          <li style={navLinkStyle} className="navLinkContainer">
+            <Link
+              to="/shop/succulents"
+              onClick={handleNavClick}
+              className="navLink"
+            >
               <h2>Succulents</h2>
             </Link>
           </li>
-          <li style={navLinkStyle} className="navLink">
-            <Link to="/shop/tillandsia" onClick={handleNavClick}>
+          <li style={navLinkStyle} className="navLinkContainer">
+            <Link
+              to="/shop/tillandsia"
+              onClick={handleNavClick}
+              className="navLink"
+            >
               <h2>Tillandsia</h2>
             </Link>
           </li>
-          <li style={navLinkStyle} className="navLink">
-            <Link to="/shop/supplies" onClick={handleNavClick}>
+          <li style={navLinkStyle} className="navLinkContainer">
+            <Link
+              to="/shop/supplies"
+              onClick={handleNavClick}
+              className="navLink"
+            >
               <h2>Supplies</h2>
             </Link>
           </li>

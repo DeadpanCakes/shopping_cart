@@ -427,6 +427,10 @@ button.headerNav:hover {
   margin: 0;
 }
 
+.navLink>*.hover {
+  background-color: #5c90da;
+}
+
 .navLink,
 .navLink:active,
 .navLink > a:visited {

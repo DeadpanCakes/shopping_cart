@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from "react";
 import ItemListing from "../ItemListing";
 import PageNav from "./PageNav";
 import SortControl from "./SortControls";
-import sadPlant from "../../img/sadPlant.png"
+import sadPlant from "../../img/sadPlant.png";
 
 const Shelf = (props) => {
   const { category, stock, setSortCriteria } = props;
@@ -26,9 +26,8 @@ const Shelf = (props) => {
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    alignItems: 'center'
-
-  }
+    alignItems: "center",
+  };
 
   const gridContainer = {
     display: "grid",
@@ -39,15 +38,29 @@ const Shelf = (props) => {
   const EmptyShelf = () => {
     return (
       <Fragment>
-        <img src={sadPlant} alt='A Sad Plant'/>
-        <h1 style={{fontSize:'3em'}}>Sorry, Nothing Found</h1>
-        <p>Please try again with different tags, in another category, or turn off strict search</p>
+        <img src={sadPlant} alt="A Sad Plant" />
+        <h1 style={{ fontSize: "3em" }}>Sorry, Nothing Found</h1>
+        <p>
+          Please try again with different tags, in another category, or turn off
+          strict search
+        </p>
       </Fragment>
     );
   };
 
   return (
-    <div className='shelfContainer' style={{ flexGrow: "7fr", width: "65%", padding: "20px", display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
+    <div
+      className="shelfContainer"
+      style={{
+        flexGrow: "7fr",
+        width: "65%",
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        overflow: 'auto'
+      }}
+    >
       <SortControl
         sort={{
           category,
