@@ -2,7 +2,6 @@
   "name": "shopping_cart",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://deadpancakes.github.io/shopping_cart",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
@@ -47,5 +46,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://deadpancakes.github.io/shopping_cart/"
 }
