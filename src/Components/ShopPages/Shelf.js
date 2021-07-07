@@ -22,6 +22,10 @@ const Shelf = (props) => {
     setPage(0);
   }, [category, stock]);
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [page])
+
   const empytContainer = {
     height: "100%",
     display: "flex",
