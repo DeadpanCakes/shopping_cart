@@ -96,10 +96,14 @@ const InfoSection = (props) => {
                 : keyName.charAt(0).toUpperCase() + keyName.slice(1)
             }: ${
               keyName === "code"
-                ? hideCode()
+                ? info[keyName]
+                  ? hideCode()
+                  : "Not Specified"
                 : keyName === "cardNumber"
-                ? hideCard(info[keyName])
-                : info[keyName]
+                ? info[keyName]
+                  ? hideCard(info[keyName])
+                  : "Not Specified"
+                : info[keyName] ? info[keyName] : "Not Specified"
             }`}</p>
           );
         })}
