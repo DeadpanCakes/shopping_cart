@@ -12,6 +12,7 @@ import Shipping from "./Components/Info/Shipping";
 import Orders from "./Components/Profile/OrdersHistory";
 import Wishlist from "./Components/Profile/Wishlist";
 import SearchResults from "./Components/ShopPages/SearchResults";
+import Home from "./Home";
 
 const Routes = () => {
   return (
@@ -20,6 +21,7 @@ const Routes = () => {
       <App>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/shopping_cart" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/shipping" component={Shipping} />
@@ -28,7 +30,7 @@ const Routes = () => {
           <Route path="/profile/orders" component={Orders} />
           <Route path="/profile/wishlist" component={Wishlist} />
           <Route exact path="/profile" component={Profile} />
-          <Route path='/shop/search' component={SearchResults}/>
+          <Route path="/shop/search" component={SearchResults} />
           <Route exact path="/shop" component={ShopHome} />
         </Switch>
       </App>
