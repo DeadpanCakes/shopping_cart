@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import App from "./App";
 import HomePage from "./Components/HomePage";
 import SignUp from "./Components/Profile/SignUp";
@@ -16,7 +16,7 @@ import Home from "./Home";
 
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <App>
         <Switch>
@@ -34,7 +34,7 @@ const Routes = () => {
           <Route exact path="/shop" component={ShopHome} />
         </Switch>
       </App>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
