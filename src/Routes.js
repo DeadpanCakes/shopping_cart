@@ -16,7 +16,7 @@ import Home from "./Home";
 
 const Routes = () => {
   return (
-    <HashRouter>
+    <HashRouter basename={process.env.basename}>
       <ScrollToTop />
       <App>
         <Switch>
