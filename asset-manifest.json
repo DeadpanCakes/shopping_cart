@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/shopping_cart/static/js/main.fc1b4923.js",
+    "main.js": "/shopping_cart/static/js/main.48302b4f.js",
     "static/media/xero.png": "/shopping_cart/static/media/xero.dae76cd4b3f8c35ba1a2.png",
     "static/media/streptophylla.png": "/shopping_cart/static/media/streptophylla.2c50d840db023c4f9c52.png",
     "static/media/shopHomeHeroImg.png": "/shopping_cart/static/media/shopHomeHeroImg.938deedcf51e493a472a.png",
@@ -118,9 +118,9 @@
     "static/media/intermedia.webp": "/shopping_cart/static/media/intermedia.04f2c1bf06c5cd1dce7a.webp",
     "static/media/headerLogo.png": "/shopping_cart/static/media/headerLogo.61362e3ff6ebb3f49c71.png",
     "index.html": "/shopping_cart/index.html",
-    "main.fc1b4923.js.map": "/shopping_cart/static/js/main.fc1b4923.js.map"
+    "main.48302b4f.js.map": "/shopping_cart/static/js/main.48302b4f.js.map"
   },
   "entrypoints": [
-    "static/js/main.fc1b4923.js"
+    "static/js/main.48302b4f.js"
   ]
 }
