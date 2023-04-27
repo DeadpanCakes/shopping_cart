@@ -7,7 +7,10 @@ export function CartProvider(props) {
   const [userComment, setComment] = useState("");
 
   useEffect(() => {
-    setCartState(JSON.parse(window.localStorage.getItem("cart")));
+    const cart = window.localStorage.getItem("cart")
+    if (cart) {
+      setCartState(JSON.parse(window.localStorage.getItem("cart")));
+    }
   }, []);
 
   useEffect(() => {
